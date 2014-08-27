@@ -34,6 +34,23 @@
         <module>babel-camel</module>
     </modules>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-release</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <scm>
+        <developerConnection>scm:git:https://github.com/crossing-tech/babel.git</developerConnection>
+        <url>https://github.com/crossing-tech/babel</url>
+        <tag>HEAD</tag>
+    </scm>
+
 
     <build>
 

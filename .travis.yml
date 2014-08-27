@@ -1,9 +1,11 @@
 language: java
 
-brefore_script:
-   - export MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
 
-script: mvn -Parchetype -Pscaladoc clean install 
+script: "mvn clean test -Parchetype"
+
+env:
+   global:
+     - MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx1024m"  
 
 notifications:
   email:
@@ -11,4 +13,6 @@ notifications:
       - github@crossing-tech.com
      on_success: never  #default: change
      on_failure: always #default: always
-  irc: "irc.codehaus.org#babel"   
+  irc: "irc.codehaus.org#babel"  
+  
+
