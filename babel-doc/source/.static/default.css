@@ -1,0 +1,40 @@
+.left {
+    float: left;
+    width:33%;
+    padding-right: 20px;
+}
+.middle {
+    display: block;
+    overflow:hidden;
+    width:33%;
+}
+.right {
+    padding-left: 20px;
+    float: right;
+    width:33%;
+}
+.about{
+  padding: 10px;
+  padding-bottom: 30px;
+  width:100%;
+  background-color: rgb(234, 241, 241);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  margin-bottom : 20px;
+  margin-top: 20px;
+}
+.alert-info{
+  background-color:#222222;
+}
+.alert-warning{
+  background-color:#e74c3c;
+}
+
+#dLabelLocalToc{
+visibility: hidden;
+}
+
+.localtoc{
+visibility: hidden;
+}

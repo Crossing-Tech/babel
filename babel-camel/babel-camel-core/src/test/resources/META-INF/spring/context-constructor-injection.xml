@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~
+  ~  Copyright 2010-2014 Crossing-Tech SA, EPFL QI-J, CH-1015 Lausanne, Switzerland.
+  ~  All rights reserved.
+  ~
+  ~ ==================================================================================
+  -->
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring
+       http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!--
+       ___                      _   _     _ _          ___        _
+      / __|___ _ _  _ _  ___ __| |_(_)_ _(_) |_ _  _  | __|_ _ __| |_ ___ _ _ _  _
+     | (__/ _ \ ' \| ' \/ -_) _|  _| \ V / |  _| || | | _/ _` / _|  _/ _ \ '_| || |
+      \___\___/_||_|_||_\___\__|\__|_|\_/|_|\__|\_, | |_|\__,_\__|\__\___/_|  \_, |
+                                                |__/                          |__/
+     Copyright (c) 2011-2013 Crossing-Tech TM Switzerland. All right reserved.
+    -->
+
+    <camelContext xmlns="http://camel.apache.org/schema/spring" id="babel-camel-context">
+        <routeBuilder ref="routes"/>
+    </camelContext>
+
+    <context:component-scan base-package="io.xtech.babel.camel.builder.springinjection"/>
+
+    <bean id="routes" class="io.xtech.babel.camel.builder.springinjection.ConstructorInjectionRouteBuilder"/>
+
+</beans>

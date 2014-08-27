@@ -1,0 +1,19 @@
+language: java
+
+brefore_script:
+   - export MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
+
+script: mvn -Parchetype -Pscaladoc clean install 
+
+jdk:
+   - openjdk6
+   - oraclejdk7
+   - oraclejdk8
+
+notifications:
+  email:
+     recipients:
+      - github@crossing-tech.com
+     on_success: never  #default: change
+     on_failure: always #default: always
+  irc: "irc.codehaus.org#babel"   
