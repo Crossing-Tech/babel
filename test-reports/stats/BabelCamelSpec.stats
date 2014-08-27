@@ -1,0 +1,3 @@
+<BabelCamelSpec-results timestamp="1409123285524"><result location="io.xtech.babel.camel.EnricherTest (EnricherTest.scala:65)" id="-1686612893"><stats pending="1" time="2" expectations="1" examples="1"></stats></result>
+</BabelCamelSpec-results>
+<BabelCamelSpec-stats timestamp="1409123285526"><stats pending="1" time="16943" expectations="131" successes="130" examples="131"></stats></BabelCamelSpec-stats>

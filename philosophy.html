@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Babel Philosophy &mdash; Babel 0.6.0-SNAPSHOT documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.1.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.6.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Babel 0.6.0-SNAPSHOT documentation" href="index.html" />
+    <link rel="next" title="Babel Architecture" href="architecture.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/crossing-tech/babel.git"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+
+    //$(function () {
+    //  var navHeight = $(".navbar .container").css("height");
+    //  $("#re-banner").css("top", navHeight);
+    //});
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Babel</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.6.0-SNAPSHOT</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://crossing-tech.com">Company</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Babel Philosophy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Babel Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-modules">Babel Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-structure">Babel Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Babel Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#project-requirements">Project Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#build-babel-from-sources">Build Babel from sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#generate-the-documentation">Generate the documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howtostart.html">How to start a Babel project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howtostart.html#babel-archetypes">Babel Archetypes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="camel/cameluserguide.html">Babel Camel User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="camel/basics.html">Babel Camel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/transformation.html">Babel Camel Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/routing.html">Babel Camel Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/errormanagement.html">Babel Camel Error management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/spring.html">Babel Camel using the Spring Application Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/samples.html">Babel Camel Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension/extension.html">Babel Extension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#existing-extensions">Existing Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#create-an-extension">Create an extension</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Babel Philosophy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Babel Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-modules">Babel Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-structure">Babel Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Babel Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#project-requirements">Project Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#build-babel-from-sources">Build Babel from sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#generate-the-documentation">Generate the documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howtostart.html">How to start a Babel project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howtostart.html#babel-archetypes">Babel Archetypes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="camel/cameluserguide.html">Babel Camel User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="camel/basics.html">Babel Camel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/transformation.html">Babel Camel Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/routing.html">Babel Camel Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/errormanagement.html">Babel Camel Error management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/spring.html">Babel Camel using the Spring Application Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/samples.html">Babel Camel Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension/extension.html">Babel Extension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#existing-extensions">Existing Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#create-an-extension">Create an extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="presentations.html">Babel presentations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="links.html">Technical links</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="links.html#scaladoc">Scaladoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#test-reports">Test reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html#test-coverage">Test coverage</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Babel Philosophy</a><ul>
+<li><a class="reference internal" href="#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
+<li><a class="reference internal" href="#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
+<li><a class="reference internal" href="#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+  <li>
+    <a href="introduction.html" title="Previous Chapter: Introduction"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Introduction</span>
+    </a>
+  </li>
+  <li>
+    <a href="architecture.html" title="Next Chapter: Babel Architecture"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Babel Architectu... &raquo;</span>
+    </a>
+  </li>
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="babel-philosophy">
+<h1>Babel Philosophy<a class="headerlink" href="#babel-philosophy" title="Permalink to this headline">¶</a></h1>
+<p>Babel way of thinking is to use the functional and typed way to write integration code. This vision is clearly taken from the <a class="reference external" href="www.scala-lang.org/">Scala</a> language.</p>
+<p>Babel, in its conception, was inspired by the way Java developer may improve their code using the Scala language.
+First, adding stricter management of the types provides validation at compile time which means less required tests and more powerful IDE.
+Secondly, using directly the functions reduces the amount of code for each simple implementation.</p>
+<p>Those two features, once correctly added together, provide clean and explicit code semantics. As we were implementing solution using the Camel Java DSL, we felt such improvement was also possible on a really determined domain such as integration using Camel.
+Moreover, we had encountered several implementations where the Camel possibilities were just let aside, developers prefer to implement a large number of Camel features by themselves as they had not felt comfortable enough to do it through the Camel Java DSL.</p>
+<p>Integration definition should be as easy as possible to let the complexity where it is effectively: the integration with other systems.</p>
+<p>Babel has grown and we experiment it using other integration frameworks such as Spring Framework Integration. We also tends to provide a Java API for the Babel Camel DSL, but the main focus of the project has been done on the Babel Camel DSL for Scala.</p>
+<div class="section" id="babel-as-a-typed-dsl-for-camel">
+<h2>Babel as a typed DSL for Camel<a class="headerlink" href="#babel-as-a-typed-dsl-for-camel" title="Permalink to this headline">¶</a></h2>
+<p>Babel provides typing of the exchange payload (called &#8220;exchange body&#8221; or simply &#8220;body&#8221;) in Camel routes. This means, when you look at your Babel Camel route source code, at each step, you may infer what is the type of the body while entering an endpoint or a processor (which actually means any keyword, by the way). Do not be afraid, your IDE will be able to infer the type for you.
+This provides actually 3 interesting features:</p>
+<ul class="simple">
+<li>The compiler would try to validate your Babel Camel route typing sequence. Of course, the compiler already checks you are using existing keywords in your route, but with Babel, the compiler also check if the type is correctly transformed during the flow of the route definition.</li>
+<li>Camel would not require implicit and hidden type transformation. Babel advises you to be as explicit as possible with regard to the type of the exchange body. You may of course ask why is it a bad thing letting Camel do this job for you. Then, you may think how Camel is defining how to transform the body from one type to another. Well, you actually don&#8217;t know because Camel is defining this dynamically at runtime and may select randomly the type transformation when encountering several transformations corresponding to your requirements.</li>
+<li>Types is a great way to communicate, to define protocols or even to define a contract between developers.</li>
+</ul>
+<p>Finally, the fact that the exchange body  is typed provides a great and powerful base for functional programming as we will see in the next chapter.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">BabelRouteBuilder</span> <span class="o">{</span>
+
+  <span class="c1">//the *requireAs* keyword ensure the from would issue exchange</span>
+  <span class="c1">//   containing Integer bodies only.</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:simple&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">java.lang.Integer</span><span class="o">].</span>
+    <span class="c1">//the *processBody* knows its input type may only be Integer</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="n">int</span> <span class="k">=&gt;</span> <span class="n">int</span> <span class="o">*</span> <span class="mi">2</span><span class="o">).</span>
+    <span class="c1">//the result is transformed to a String and provided to the mock endpoint</span>
+    <span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:double&quot;</span><span class="o">)</span>
+
+  <span class="c1">//the *as* keyword ensure the from exchanges are String or transformed to String.</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:uppercase&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+    <span class="c1">//the *processBody* knows its input type may only be String</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="n">string</span> <span class="k">=&gt;</span> <span class="n">string</span><span class="o">.</span><span class="n">toLowerCase</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:lowercase&quot;</span><span class="o">)</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="babel-as-a-functional-dsl-for-camel">
+<h2>Babel as a functional DSL for Camel<a class="headerlink" href="#babel-as-a-functional-dsl-for-camel" title="Permalink to this headline">¶</a></h2>
+<p>Do you really require defining a <tt class="docutils literal"><span class="pre">Processor</span></tt> class just to provide a <tt class="docutils literal"><span class="pre">process</span></tt> method to your route? Well, it&#8217;s not only the fact we may save 2 lines of code but also to improve the meaning of each statement.
+A transformation may be represented through an object (and Babel also allows such semantic), but a transformation is, in essence, functions.</p>
+<p>Moreover, combining the typed and the functional aspect of Babel ensures that you provide the correct type directly to what will do the transformation. You may think about that just as coming back to an API, with simple method calls.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">def</span> <span class="n">searchTwitts</span><span class="o">(</span><span class="n">input</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="c1">//connect to twitter</span>
+  <span class="c1">//...</span>
+  <span class="k">val</span> <span class="n">answer</span> <span class="k">=</span> <span class="n">input</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">)</span>
+  <span class="n">answer</span><span class="o">.</span><span class="n">toList</span>
+<span class="o">}</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">BabelRouteBuilder</span> <span class="o">{</span>
+
+  <span class="c1">//the *requireAs* keyword ensure the from would issue exchange</span>
+  <span class="c1">//   containing String bodies only.</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:twitts&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+    <span class="c1">//the *processBody* knows its input type may only be Integer,</span>
+    <span class="c1">//   calls directly the searchTwitts function</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="n">searchTwitts</span><span class="o">).</span>
+    <span class="c1">//the searchTwitts outputs a List, using its iterator provides</span>
+    <span class="c1">//   easy split into several exchanges</span>
+    <span class="n">splitBody</span><span class="o">(</span><span class="n">list</span> <span class="k">=&gt;</span> <span class="n">list</span><span class="o">.</span><span class="n">iterator</span><span class="o">).</span>
+    <span class="c1">//the mock endpoint receives several String payloads.</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:twitts&quot;</span><span class="o">)</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="babel-as-a-simple-dsl-for-camel">
+<h2>Babel as a simple DSL for Camel<a class="headerlink" href="#babel-as-a-simple-dsl-for-camel" title="Permalink to this headline">¶</a></h2>
+<p>Finally, based on the experience we had with Camel Java DSL, we have been through some difficulties while choosing between several possible implementations. Camel has a great (even a greatest) number of configurations and we would say most of them are overlapping.
+One of the most important feature of Camel, its wide range of possibilities, may also be a difficulty for those who, trying to learn the language, have difficulties to choose how to implement their use case. The main goal of Babel is to ensure writing an integration solution is as simple as possible, knowing the main difficulties are expected to be elsewhere.</p>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Crossing-Tech SA.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

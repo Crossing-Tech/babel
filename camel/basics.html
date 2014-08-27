@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Babel Camel Basics &mdash; Babel 0.6.0-SNAPSHOT documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.6.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Babel 0.6.0-SNAPSHOT documentation" href="../index.html" />
+    <link rel="up" title="Babel Camel User Guide" href="cameluserguide.html" />
+    <link rel="next" title="Babel Camel Transformations" href="transformation.html" />
+    <link rel="prev" title="Babel Camel User Guide" href="cameluserguide.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/crossing-tech/babel.git"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+
+    //$(function () {
+    //  var navHeight = $(".navbar .container").css("height");
+    //  $("#re-banner").css("top", navHeight);
+    //});
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Babel</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.6.0-SNAPSHOT</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://crossing-tech.com">Company</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Babel Philosophy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../philosophy.html#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../philosophy.html#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../philosophy.html#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Babel Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#babel-modules">Babel Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#babel-structure">Babel Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Babel Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#project-requirements">Project Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#build-babel-from-sources">Build Babel from sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#generate-the-documentation">Generate the documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart.html">How to start a Babel project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../howtostart.html#babel-archetypes">Babel Archetypes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="cameluserguide.html">Babel Camel User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Babel Camel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transformation.html">Babel Camel Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Babel Camel Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errormanagement.html">Babel Camel Error management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring.html">Babel Camel using the Spring Application Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html">Babel Camel Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extension/extension.html">Babel Extension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extension/extension.html#existing-extensions">Existing Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/extension.html#create-an-extension">Create an extension</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../philosophy.html">Babel Philosophy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../philosophy.html#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../philosophy.html#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../philosophy.html#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Babel Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#babel-modules">Babel Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#babel-structure">Babel Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Babel Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#project-requirements">Project Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#build-babel-from-sources">Build Babel from sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#generate-the-documentation">Generate the documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../howtostart.html">How to start a Babel project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../howtostart.html#babel-archetypes">Babel Archetypes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="cameluserguide.html">Babel Camel User Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Babel Camel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transformation.html">Babel Camel Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Babel Camel Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errormanagement.html">Babel Camel Error management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spring.html">Babel Camel using the Spring Application Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html">Babel Camel Samples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../extension/extension.html">Babel Extension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extension/extension.html#existing-extensions">Existing Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extension/extension.html#create-an-extension">Create an extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../presentations.html">Babel presentations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../links.html">Technical links</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../links.html#scaladoc">Scaladoc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../links.html#test-reports">Test reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../links.html#test-coverage">Test coverage</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Babel Camel Basics</a><ul>
+<li><a class="reference internal" href="#messages">Messages</a></li>
+<li><a class="reference internal" href="#basics">Basics</a></li>
+<li><a class="reference internal" href="#route-id">Route Id</a></li>
+<li><a class="reference internal" href="#as">As</a></li>
+<li><a class="reference internal" href="#requireas">RequireAs</a></li>
+<li><a class="reference internal" href="#logging">Logging</a></li>
+<li><a class="reference internal" href="#sub-routes">Sub routes</a></li>
+<li><a class="reference internal" href="#route-configuration">Route configuration</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+  <li>
+    <a href="cameluserguide.html" title="Previous Chapter: Babel Camel User Guide"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Babel Camel User...</span>
+    </a>
+  </li>
+  <li>
+    <a href="transformation.html" title="Next Chapter: Babel Camel Transformations"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Babel Camel Tran... &raquo;</span>
+    </a>
+  </li>
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="babel-camel-basics">
+<h1>Babel Camel Basics<a class="headerlink" href="#babel-camel-basics" title="Permalink to this headline">¶</a></h1>
+<p>The Babel Camel Basics part exposes which basic statement may be defined.</p>
+<div class="section" id="messages">
+<h2>Messages<a class="headerlink" href="#messages" title="Permalink to this headline">¶</a></h2>
+<p>In Babel Camel, the base interface which models a message which passes through the route is called Message. A Message contains a payload called body.
+From Camel point of view, a Babel Message may be understood as the in Message of an Exchange with required methods to read and write the Exchange properties.</p>
+<p>For more details, please have a look at the <a class="reference external" href="http://babel-dsl.github.io/current/test-reports/BabelCamelSpec.html#A+CamelMessage+should">Camel Message Specification</a></p>
+</div>
+<div class="section" id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<p>A simple route without changing or routing the message. The output will be the same as the input.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="c1">//sends what is received in the direct</span>
+  <span class="c1">//  endpoint to the mock endpoint</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The producer may set the exchange as InOnly by setting the second argument of to, to false. This would override the default behaviour of the producer.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="c1">//the mock endpoint is set in InOnly Exchange Pattern</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The producer may set the exchange as InOut by setting the second argument of to, to true. This would override the default behaviour of the producer.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="c1">//the mock endpoint is set in InOut Exchange Pattern</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="route-id">
+<h2>Route Id<a class="headerlink" href="#route-id" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>routeId</strong> will give an id to the route, then this id can be used for the monitoring or during testing.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="c1">//the routeId of this route will be &quot;bla&quot;</span>
+    <span class="n">routeId</span><span class="o">(</span><span class="s">&quot;bla&quot;</span><span class="o">).</span>
+    <span class="c1">//the routeId keyword needs to be at the beginning of the route</span>
+    <span class="c1">//   (enforced by the Babel DSL)</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The <strong>routeId</strong> can not be specified as null nor an empty string.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">route</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="c1">//a routeId may not be empty</span>
+    <span class="n">routeId</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">)</span> <span class="n">must</span> <span class="n">throwA</span><span class="o">[</span><span class="kt">IllegalArgumentException</span><span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">route</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="c1">//a routeId may not be null</span>
+    <span class="n">routeId</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span> <span class="n">must</span> <span class="n">throwA</span><span class="o">[</span><span class="kt">IllegalArgumentException</span><span class="o">]</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <strong>routeId</strong> keyword is member of a set of keywords which should follow directly the <strong>from</strong> keyword or any keyword of this set.</p>
+</div>
+</div>
+<div class="section" id="as">
+<h2>As<a class="headerlink" href="#as" title="Permalink to this headline">¶</a></h2>
+<p>A basic example with type transformation. The keyword <em>as</em> will coerce the type of the message passing within a route to a given type.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="c1">//message bodies are converted to String if required</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
+    <span class="c1">//the processBody concatenates received String with &quot;4&quot;</span>
+    <span class="o">.</span><span class="n">processBody</span><span class="o">(</span><span class="k">_</span> <span class="o">+</span> <span class="s">&quot;4&quot;</span><span class="o">)</span>
+    <span class="c1">//sends the concatenated string to the mock endpoint</span>
+    <span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="requireas">
+<h2>RequireAs<a class="headerlink" href="#requireas" title="Permalink to this headline">¶</a></h2>
+<p>A basic example with type requirement. The <em>requireAs</em> will type the exchange body for the next keyword and will accept only a message with the given type.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="c1">//Input Message bodies should be of type String</span>
+  <span class="c1">//  or would throw an Exception</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="k">_</span> <span class="o">+</span> <span class="s">&quot;4&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">producer</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">createProducerTemplate</span><span class="o">()</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">,</span> <span class="mi">123</span><span class="o">)</span> <span class="n">must</span> <span class="n">throwA</span><span class="o">[</span><span class="kt">CamelExecutionException</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>The <strong>requiredAs</strong> lets you ensure you will always receive the expected body type. For example, the following may not work.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="c1">//no input Message may satisfies both type constraints,</span>
+  <span class="c1">//   thus any message sent would throw an Exception.</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">Int</span><span class="o">].</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">producer</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">createProducerTemplate</span><span class="o">()</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">,</span> <span class="s">&quot;123&quot;</span><span class="o">)</span> <span class="n">must</span> <span class="n">throwA</span><span class="o">[</span><span class="kt">CamelExecutionException</span><span class="o">]</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Camel also provides tools to handle data type at runtime (which may be referred to as &#8220;runtime typing&#8221;). This may cause the regular typing to modify your data after the <em>requireAs</em> keyword depending on your ecosystem. Unfortunately, there is no way for Babel to prevent such variable behaviour.</p>
+</div>
+</div>
+<div class="section" id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
+<p>With a <strong>log</strong>, you can log a defined string (which may use Camel Simple Expression Language) and define:</p>
+<ul class="simple">
+<li>the Log level</li>
+<li>the Log name</li>
+<li>a marker for this Log event</li>
+</ul>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+<span class="k">import</span> <span class="nn">org.apache.camel.LoggingLevel</span>
+
+<span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">)</span>
+    <span class="c1">//logs to the Trace level message such as &quot;received ID-3423 -&gt; toto&quot;</span>
+    <span class="o">.</span><span class="n">log</span><span class="o">(</span><span class="nc">LoggingLevel</span><span class="o">.</span><span class="nc">TRACE</span><span class="o">,</span> <span class="s">&quot;my.cool.toto&quot;</span><span class="o">,</span> <span class="s">&quot;foo&quot;</span><span class="o">,</span> <span class="s">&quot;received: ${id} -&gt; ${body}&quot;</span><span class="o">)</span>
+    <span class="c1">//logs to the Info level message such as &quot;ID-3423 -&gt; toto&quot;</span>
+    <span class="o">.</span><span class="n">log</span><span class="o">(</span><span class="nc">LoggingLevel</span><span class="o">.</span><span class="nc">INFO</span><span class="o">,</span> <span class="s">&quot;${id} -&gt; ${body}&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sub-routes">
+<h2>Sub routes<a class="headerlink" href="#sub-routes" title="Permalink to this headline">¶</a></h2>
+<p>With a <strong>sub</strong>, you can define the following steps as part of a new route.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:before&quot;</span><span class="o">).</span>
+    <span class="c1">//defines a new route called &quot;subroute&quot; which</span>
+    <span class="c1">//   will send its incoming message to the next mock endpoint</span>
+    <span class="n">sub</span><span class="o">(</span><span class="s">&quot;subroute&quot;</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:after&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>This example would just create two routes:</p>
+<ul class="simple">
+<li>the &#8220;master-route&#8221; from the &#8220;input&#8221; to the &#8220;before&#8221; to the &#8220;subroute&#8221;</li>
+<li>the &#8220;subroute&#8221; from the &#8220;subroute&#8221; to the &#8220;after&#8221;</li>
+</ul>
+<p>Thus, <strong>sub</strong> may be seen as an inline channel. The first goal of the sub route is to separate, at runtime, the two routes in a proper manner without requiring more than required code. The sub routes may also be interesting for example in <a class="reference external" href="errormanagement.html">Error Handling</a>.</p>
+</div>
+<div class="section" id="route-configuration">
+<h2>Route configuration<a class="headerlink" href="#route-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Callbacks may be added to a given route in order to manage its lifecycle such as :</p>
+<ul class="simple">
+<li><strong>onInit</strong></li>
+<li><strong>onStart</strong></li>
+<li><strong>onSuspend</strong></li>
+<li><strong>onResume</strong></li>
+<li><strong>onStop</strong></li>
+<li><strong>onRemove</strong></li>
+</ul>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">var</span> <span class="n">success</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="c1">//As the route is initialing, the success variable is set to true</span>
+    <span class="n">onInit</span><span class="o">(</span><span class="n">route</span> <span class="k">=&gt;</span> <span class="n">success</span> <span class="k">=</span> <span class="kc">true</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Concerning the exchange lifecycle :</p>
+<ul class="simple">
+<li><strong>onExchangeBegin</strong></li>
+<li><strong>onExchangeDone</strong></li>
+</ul>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">var</span> <span class="n">success</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="c1">//At each time an exchange reach the end of the route,</span>
+    <span class="c1">//   the success variable is set to true</span>
+    <span class="n">onExchangeDone</span><span class="o">((</span><span class="n">exchange</span><span class="o">,</span> <span class="n">route</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">success</span> <span class="k">=</span> <span class="kc">true</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Moreover, you may prevent a route from being started automatically using the <strong>noAutoStartup</strong> keyword.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">routeId</span><span class="o">(</span><span class="s">&quot;babel&quot;</span><span class="o">).</span>
+    <span class="c1">//The route is told not starting with the Camel Context</span>
+    <span class="c1">//   but wait until beeing started especially.</span>
+    <span class="n">noAutoStartup</span><span class="o">.</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Crossing-Tech SA.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

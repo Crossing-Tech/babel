@@ -1,0 +1,725 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>FromDSL - Babel :: DSL 0.6.0-SNAPSHOT API - io.xtech.babel.fish.FromDSL</title>
+          <meta name="description" content="FromDSL - Babel DSL 0.6.0 - SNAPSHOT API - io.xtech.babel.fish.FromDSL" />
+          <meta name="keywords" content="FromDSL Babel DSL 0.6.0 SNAPSHOT API io.xtech.babel.fish.FromDSL" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'io.xtech.babel.fish.FromDSL';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="io">io</a>.<a href="../../package.html" class="extype" name="io.xtech">xtech</a>.<a href="../package.html" class="extype" name="io.xtech.babel">babel</a>.<a href="package.html" class="extype" name="io.xtech.babel.fish">fish</a></p>
+        <h1>FromDSL</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">FromDSL</span><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A specific DSL that defines the behaviour of the route.</p></div><dl class="paramcmts block"><dt class="tparam">I</dt><dd class="cmt"><p>the input type of this keyword.
+</p></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>], <a href="DSL2BaseDSL.html" class="extype" name="io.xtech.babel.fish.DSL2BaseDSL">DSL2BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>], <a href="DSLEnricher.html" class="extype" name="io.xtech.babel.fish.DSLEnricher">DSLEnricher</a>, <a href="NoDSL.html" class="extype" name="io.xtech.babel.fish.NoDSL">NoDSL</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="io.xtech.babel.fish.FromDSL"><span>FromDSL</span></li><li class="in" name="io.xtech.babel.fish.BaseDSL"><span>BaseDSL</span></li><li class="in" name="io.xtech.babel.fish.DSL2BaseDSL"><span>DSL2BaseDSL</span></li><li class="in" name="io.xtech.babel.fish.DSLEnricher"><span>DSLEnricher</span></li><li class="in" name="io.xtech.babel.fish.NoDSL"><span>NoDSL</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="io.xtech.babel.fish.FromDSL#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(step:io.xtech.babel.fish.model.StepDefinition)(implicitevidence$2:scala.reflect.ClassTag[I]):io.xtech.babel.fish.FromDSL[I]"></a>
+      <a id="&lt;init&gt;:FromDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">FromDSL</span><span class="params">(<span name="step">step: <a href="model/StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</span>)</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">step</dt><dd class="cmt"><p>the definition.</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:AnyRef):Boolean"></a>
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:AnyRef):Boolean"></a>
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="io.xtech.babel.fish.DSL2BaseDSL#addAStepToTheDSL" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="addAStepToTheDSL[II](definition:io.xtech.babel.fish.model.StepDefinition)(implicitevidence$1:scala.reflect.ClassTag[II]):io.xtech.babel.fish.BaseDSL[II]"></a>
+      <a id="addAStepToTheDSL[II](StepDefinition)(ClassTag[II]):BaseDSL[II]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addAStepToTheDSL</span><span class="tparams">[<span name="II">II</span>]</span><span class="params">(<span name="definition">definition: <a href="model/StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.DSL2BaseDSL.addAStepToTheDSL.II">II</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.DSL2BaseDSL.addAStepToTheDSL.II">II</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="DSL2BaseDSL.html" class="extype" name="io.xtech.babel.fish.DSL2BaseDSL">DSL2BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#aggregate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="aggregate[O](aggregation:io.xtech.babel.fish.model.AggregationConfiguration[I,O])(implicitevidence$15:scala.reflect.ClassTag[O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="aggregate[O](AggregationConfiguration[I,O])(ClassTag[O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">aggregate</span><span class="tparams">[<span name="O">O</span>]</span><span class="params">(<span name="aggregation">aggregation: <a href="model/AggregationConfiguration.html" class="extype" name="io.xtech.babel.fish.model.AggregationConfiguration">AggregationConfiguration</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>, <span class="extype" name="io.xtech.babel.fish.BaseDSL.aggregate.O">O</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.aggregate.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.aggregate.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declare a a way to aggregate message.</p><div class="fullcomment"><div class="comment cmt"><p>Declare a a way to aggregate message. The declaration is done with an object that implements the AggregateProps trait.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the type of the message pieces.</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#as" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="as[O](implicitevidence$10:scala.reflect.ClassTag[O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="as[O](ClassTag[O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">as</span><span class="tparams">[<span name="O">O</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.as.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.as.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares a type requirement in the route.</p><div class="fullcomment"><div class="comment cmt"><p>Declares a type requirement in the route. if the body type is incorrect, the system tries to convert the message body.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the required type.</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#baseDsl" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="baseDsl:io.xtech.babel.fish.BaseDSL[I]"></a>
+      <a id="baseDsl:BaseDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">baseDsl</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a> → <a href="DSL2BaseDSL.html" class="extype" name="io.xtech.babel.fish.DSL2BaseDSL">DSL2BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#choice" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="choice(block:io.xtech.babel.fish.ChoiceDSL[I]=&gt;Unit):io.xtech.babel.fish.BaseDSL[I]"></a>
+      <a id="choice((ChoiceDSL[I])⇒Unit):BaseDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">choice</span><span class="params">(<span name="block">block: (<a href="ChoiceDSL.html" class="extype" name="io.xtech.babel.fish.ChoiceDSL">ChoiceDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares a static router.</p><div class="fullcomment"><div class="comment cmt"><p>Declares a static router. The routing conditions are declared inside a block using a specific DSL for the choice.
+The choice DSL contains two keywords : when and otherwise.
+When declares a subroute with a condition.
+Otherwise declare a subroute for messages that don't meet the conditions of the other When subroutes.</p><pre>choice{ c <span class="kw">=&gt;</span>
+c.when(_.body == <span class="lit">"1"</span>).endpoint(<span class="lit">"mock:output1"</span>)
+c.when(_.body == <span class="lit">"2"</span>).endpoint(<span class="lit">"mock:output2"</span>)
+c.otherwise.endpoint(<span class="lit">"mock:output3"</span>)
+}</pre></div><dl class="paramcmts block"><dt class="param">block</dt><dd class="cmt"><p>a function taking the routing DSL as a parameter and returning Unit.</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#filter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="filter(predicate:io.xtech.babel.fish.model.Predicate[I]):io.xtech.babel.fish.BaseDSL[I]"></a>
+      <a id="filter(Predicate[I]):BaseDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">filter</span><span class="params">(<span name="predicate">predicate: <a href="model/Predicate.html" class="extype" name="io.xtech.babel.fish.model.Predicate">Predicate</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares a filter in the route.</p><div class="fullcomment"><div class="comment cmt"><p>Declares a filter in the route. If the condition of the predicate are not meet the routing of the current
+message is stopped.</p></div><dl class="paramcmts block"><dt class="param">predicate</dt><dd class="cmt"><p>if true the message continue the route</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#filter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="filter(function:io.xtech.babel.fish.model.Message[I]=&gt;Boolean):io.xtech.babel.fish.BaseDSL[I]"></a>
+      <a id="filter((Message[I])⇒Boolean):BaseDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">filter</span><span class="params">(<span name="function">function: (<a href="model/Message.html" class="extype" name="io.xtech.babel.fish.model.Message">Message</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares a filter in the route.</p><div class="fullcomment"><div class="comment cmt"><p>Declares a filter in the route. If the condition of the predicate are not meet the routing of the current
+message is stopped.</p></div><dl class="paramcmts block"><dt class="param">function</dt><dd class="cmt"><p>taking a message and returning a boolean. (true if the message continue
+                 otherwise false)</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#filterBody" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="filterBody(function:I=&gt;Boolean):io.xtech.babel.fish.BaseDSL[I]"></a>
+      <a id="filterBody((I)⇒Boolean):BaseDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">filterBody</span><span class="params">(<span name="function">function: (<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Adds a filter to the route with a predicate.</p><div class="fullcomment"><div class="comment cmt"><p>Adds a filter to the route with a predicate. If the condition of the predicate are not meet the routing of the current
+message is stopped.</p></div><dl class="paramcmts block"><dt class="param">function</dt><dd class="cmt"><p>taking a message body and returning a boolean. (true if the message continue
+                 otherwise false)</p></dd><dt>returns</dt><dd class="cmt"><p>the main DSL
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#multicast" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="multicast[S](sinks:S*)(implicitconvert:Seq[S]=&gt;scala.collection.immutable.Seq[io.xtech.babel.fish.model.Sink[I,_]]):io.xtech.babel.fish.BaseDSL[I]"></a>
+      <a id="multicast[S](S*)((Seq[S])⇒Seq[Sink[I,_]]):BaseDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">multicast</span><span class="tparams">[<span name="S">S</span>]</span><span class="params">(<span name="sinks">sinks: <span class="extype" name="io.xtech.babel.fish.BaseDSL.multicast.S">S</span>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="convert">convert: (<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.multicast.S">S</span>]) ⇒ <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<a href="model/Sink.html" class="extype" name="io.xtech.babel.fish.model.Sink">Sink</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>, _]]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares a multicast in the route.</p><div class="fullcomment"><div class="comment cmt"><p>Declares a multicast in the route. A multicast routes the same message to multiple endpoints.</p></div><dl class="paramcmts block"><dt class="tparam">S</dt><dd class="cmt"><p>the native type of the endpoints.</p></dd><dt class="param">sinks</dt><dd class="cmt"><p>the endpoints.</p></dd><dt class="param">convert</dt><dd class="cmt"><p>a way to convert the native type of the endpoints to sinks.</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#process" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="process[O](func:io.xtech.babel.fish.model.Message[I]=&gt;io.xtech.babel.fish.model.Message[O],processorId:String)(implicitevidence$9:scala.reflect.ClassTag[O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="process[O]((Message[I])⇒Message[O],String)(ClassTag[O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">process</span><span class="tparams">[<span name="O">O</span>]</span><span class="params">(<span name="func">func: (<a href="model/Message.html" class="extype" name="io.xtech.babel.fish.model.Message">Message</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]) ⇒ <a href="model/Message.html" class="extype" name="io.xtech.babel.fish.model.Message">Message</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.process.O">O</span>]</span>, <span name="processorId">processorId: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.process.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.process.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares a transformation of the message in the route with a function.</p><div class="fullcomment"><div class="comment cmt"><p>Declares a transformation of the message in the route with a function.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the type of the message if the body changed</p></dd><dt class="param">func</dt><dd class="cmt"><p>the function</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#process" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="process[O](func:io.xtech.babel.fish.model.Message[I]=&gt;io.xtech.babel.fish.model.Message[O])(implicitevidence$8:scala.reflect.ClassTag[O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="process[O]((Message[I])⇒Message[O])(ClassTag[O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">process</span><span class="tparams">[<span name="O">O</span>]</span><span class="params">(<span name="func">func: (<a href="model/Message.html" class="extype" name="io.xtech.babel.fish.model.Message">Message</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]) ⇒ <a href="model/Message.html" class="extype" name="io.xtech.babel.fish.model.Message">Message</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.process.O">O</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.process.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.process.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares a transformation of the message in the route with a function.</p><div class="fullcomment"><div class="comment cmt"><p>Declares a transformation of the message in the route with a function.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the type of the message if the body changed</p></dd><dt class="param">func</dt><dd class="cmt"><p>the function</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#processBody" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="processBody[O](func:I=&gt;O,processorId:String)(implicitevidence$7:scala.reflect.ClassTag[O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="processBody[O]((I)⇒O,String)(ClassTag[O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">processBody</span><span class="tparams">[<span name="O">O</span>]</span><span class="params">(<span name="func">func: (<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>) ⇒ <span class="extype" name="io.xtech.babel.fish.BaseDSL.processBody.O">O</span></span>, <span name="processorId">processorId: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.processBody.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.processBody.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares a transformation of the message body in the route with a function.</p><div class="fullcomment"><div class="comment cmt"><p>Declares a transformation of the message body in the route with a function.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the output type of the function</p></dd><dt class="param">func</dt><dd class="cmt"><p>the function</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#processBody" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="processBody[O](func:I=&gt;O)(implicitevidence$6:scala.reflect.ClassTag[O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="processBody[O]((I)⇒O)(ClassTag[O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">processBody</span><span class="tparams">[<span name="O">O</span>]</span><span class="params">(<span name="func">func: (<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>) ⇒ <span class="extype" name="io.xtech.babel.fish.BaseDSL.processBody.O">O</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.processBody.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.processBody.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares a transformation of the message body in the route with a function.</p><div class="fullcomment"><div class="comment cmt"><p>Declares a transformation of the message body in the route with a function.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the output type of the function</p></dd><dt class="param">func</dt><dd class="cmt"><p>the function</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#requireAs" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="requireAs[O](implicitevidence$11:scala.reflect.ClassTag[O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="requireAs[O](ClassTag[O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">requireAs</span><span class="tparams">[<span name="O">O</span>]</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.requireAs.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.requireAs.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares a type requirement in the route.</p><div class="fullcomment"><div class="comment cmt"><p>Declares a type requirement in the route. if the type is incorrect an exception is thrown.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the required type.</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#split" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="split[O](expression:io.xtech.babel.fish.model.Expression[I,O])(implicitevidence$14:scala.reflect.ClassTag[O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="split[O](Expression[I,O])(ClassTag[O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">split</span><span class="tparams">[<span name="O">O</span>]</span><span class="params">(<span name="expression">expression: <a href="model/Expression.html" class="extype" name="io.xtech.babel.fish.model.Expression">Expression</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>, <span class="extype" name="io.xtech.babel.fish.BaseDSL.split.O">O</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.split.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.split.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declare a message splitter or a way to split a message body in pieces.</p><div class="fullcomment"><div class="comment cmt"><p>Declare a message splitter or a way to split a message body in pieces.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the type of the message pieces.</p></dd><dt class="param">expression</dt><dd class="cmt"><p>used to split the message.
+</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#split" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="split[O](splitter:io.xtech.babel.fish.model.Message[I]=&gt;Iterator[O])(implicitevidence$13:scala.reflect.ClassTag[O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="split[O]((Message[I])⇒Iterator[O])(ClassTag[O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">split</span><span class="tparams">[<span name="O">O</span>]</span><span class="params">(<span name="splitter">splitter: (<a href="model/Message.html" class="extype" name="io.xtech.babel.fish.model.Message">Message</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]) ⇒ <span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.split.O">O</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.split.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.split.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declare a message splitter or a way to split a message body in pieces.</p><div class="fullcomment"><div class="comment cmt"><p>Declare a message splitter or a way to split a message body in pieces.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the type of the message pieces.</p></dd><dt class="param">splitter</dt><dd class="cmt"><p>the function used to split the message. It takes the message and returns an Iterator of the pieces.
+</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#splitBody" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="splitBody[O](splitter:I=&gt;Iterator[O])(implicitevidence$12:scala.reflect.ClassTag[O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="splitBody[O]((I)⇒Iterator[O])(ClassTag[O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">splitBody</span><span class="tparams">[<span name="O">O</span>]</span><span class="params">(<span name="splitter">splitter: (<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>) ⇒ <span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.splitBody.O">O</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.splitBody.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.splitBody.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declare a message splitter or a way to split a message body in pieces.</p><div class="fullcomment"><div class="comment cmt"><p>Declare a message splitter or a way to split a message body in pieces.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the type of the message pieces.</p></dd><dt class="param">splitter</dt><dd class="cmt"><p>the function used to split the body. It takes the body message and returns an Iterator of the pieces.</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL.
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#to" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="to[O,S](sink:S,requestReply:Boolean)(implicitevidence$5:scala.reflect.ClassTag[O],implicitconvert:S=&gt;io.xtech.babel.fish.model.Sink[I,O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="to[O,S](S,Boolean)(ClassTag[O],(S)⇒Sink[I,O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">to</span><span class="tparams">[<span name="O">O</span>, <span name="S">S</span>]</span><span class="params">(<span name="sink">sink: <span class="extype" name="io.xtech.babel.fish.BaseDSL.to.S">S</span></span>, <span name="requestReply">requestReply: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.to.O">O</span>]</span>, <span name="convert">convert: (<span class="extype" name="io.xtech.babel.fish.BaseDSL.to.S">S</span>) ⇒ <a href="model/Sink.html" class="extype" name="io.xtech.babel.fish.model.Sink">Sink</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>, <span class="extype" name="io.xtech.babel.fish.BaseDSL.to.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.to.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares an output for the route and defines incoming messages should require an answer or not.</p><div class="fullcomment"><div class="comment cmt"><p>Declares an output for the route and defines incoming messages should require an answer or not.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the type of the output</p></dd><dt class="tparam">S</dt><dd class="cmt"><p>a sink object</p></dd><dt class="param">sink</dt><dd class="cmt"><p>an output.</p></dd><dt class="param">requestReply</dt><dd class="cmt"><p>is true if the sender expects an answer.</p></dd><dt class="param">convert</dt><dd class="cmt"><p>an object to route output (sink).</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.BaseDSL#to" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="to[O,S](sink:S)(implicitevidence$4:scala.reflect.ClassTag[O],implicitconvert:S=&gt;io.xtech.babel.fish.model.Sink[I,O]):io.xtech.babel.fish.BaseDSL[O]"></a>
+      <a id="to[O,S](S)(ClassTag[O],(S)⇒Sink[I,O]):BaseDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">to</span><span class="tparams">[<span name="O">O</span>, <span name="S">S</span>]</span><span class="params">(<span name="sink">sink: <span class="extype" name="io.xtech.babel.fish.BaseDSL.to.S">S</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.to.O">O</span>]</span>, <span name="convert">convert: (<span class="extype" name="io.xtech.babel.fish.BaseDSL.to.S">S</span>) ⇒ <a href="model/Sink.html" class="extype" name="io.xtech.babel.fish.model.Sink">Sink</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>, <span class="extype" name="io.xtech.babel.fish.BaseDSL.to.O">O</span>]</span>)</span><span class="result">: <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.to.O">O</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Declares an output for the route.</p><div class="fullcomment"><div class="comment cmt"><p>Declares an output for the route.</p></div><dl class="paramcmts block"><dt class="tparam">O</dt><dd class="cmt"><p>the type of the output</p></dd><dt class="tparam">S</dt><dd class="cmt"><p>a sink object</p></dd><dt class="param">sink</dt><dd class="cmt"><p>an output.</p></dd><dt class="param">convert</dt><dd class="cmt"><p>an object to route output (sink).</p></dd><dt>returns</dt><dd class="cmt"><p>the possibility to add other steps to the current DSL
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a></dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="io.xtech.babel.fish.BaseDSL">
+              <h3>Inherited from <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</h3>
+            </div><div class="parent" name="io.xtech.babel.fish.DSL2BaseDSL">
+              <h3>Inherited from <a href="DSL2BaseDSL.html" class="extype" name="io.xtech.babel.fish.DSL2BaseDSL">DSL2BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</h3>
+            </div><div class="parent" name="io.xtech.babel.fish.DSLEnricher">
+              <h3>Inherited from <a href="DSLEnricher.html" class="extype" name="io.xtech.babel.fish.DSLEnricher">DSLEnricher</a></h3>
+            </div><div class="parent" name="io.xtech.babel.fish.NoDSL">
+              <h3>Inherited from <a href="NoDSL.html" class="extype" name="io.xtech.babel.fish.NoDSL">NoDSL</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../lib/template.js"></script>
+    </body>
+      </html>
