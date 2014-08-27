@@ -1,0 +1,1 @@
+route    ::= 'from(' string ')' ( '.on[' Exception.Type ']' ( 'when' ( BODYPREDICATE | FUNCTION ) )? optionalConfiguration | '.onMessage[' Exception.Type ']' ( 'when' ( MESSAGEPREDICATE | FUNCTION ) )? optionalConfiguration )?

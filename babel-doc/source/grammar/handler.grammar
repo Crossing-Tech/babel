@@ -1,0 +1,4 @@
+RouteBuilder = 'class RouteBuilder' '{' [handle] ('from' [ '.'handle])+ '}';
+handle = 'handle' '('('_.' 'error-handling' |   'route' '=>'  '{' { 'route' '.'  'error-handling' } '}')')';
+exceptionClause = 'on' '[' Exception ']'['(' Predicate  ')'] ('continued' '(' (Boolean | Predicate)  ')' | 'handled' '(' (Boolean | Predicate)  ')');
+errorHandler = (('defaultErrorHandler'|'deadletter(' String' )') ['.maximumRedeliveries(' Integer' )'] ['.maximumRedeliveries(' Long' )'] ['.maximumRedeliveryDelay(' Integer' )']) | 'loggingErrorHandler' '('[LoggingLevel] [Logger] ')'| 'noErrorHandler' )
