@@ -1,0 +1,6 @@
+language: java
+
+brefore_script:
+   - export MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
+
+script: mvn -Parchetype -Pscaladoc clean install 

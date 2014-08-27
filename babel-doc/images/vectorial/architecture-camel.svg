@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="architecture-camel.svg"
+   inkscape:export-filename="/home/babel/workspace/babel/images/architecture-camel.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective2985" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="299.47948"
+     inkscape:cy="766.22925"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1918"
+     inkscape:window-height="1059"
+     inkscape:window-x="1920"
+     inkscape:window-y="19"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="camel"
+     style="display:inline" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="text3021-3"
+       style="font-size:25.99669456px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:rockwell;-inkscape-font-specification:rockwell"
+       transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,87.142855,78.214278)" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#aaaaaa;stroke-width:4.50099992999999987;stroke-miterlimit:4;stroke-opacity:0.94117653000000001;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 124.7864,126.91935 107.64198,0 0,114.07055 -107.64198,0 z"
+       id="path3182" />
+    <text
+       xml:space="preserve"
+       style="font-size:20.99999997px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Palatino Linotype;-inkscape-font-specification:Palatino Linotype"
+       x="127.39934"
+       y="183.55286"
+       id="text3989"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0306198,0.97028992)"><tspan
+         sodipodi:role="line"
+         id="tspan3991"
+         x="127.39934"
+         y="183.55286"
+         style="font-size:20.99999997px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;font-family:Palatino Linotype;-inkscape-font-specification:Palatino Linotype">Java DSL</tspan><tspan
+         sodipodi:role="line"
+         x="127.39934"
+         y="209.80286"
+         id="tspan4067"
+         style="font-size:20.99999997px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;font-family:Palatino Linotype;-inkscape-font-specification:Palatino Linotype">Scala DSL</tspan><tspan
+         sodipodi:role="line"
+         x="127.39934"
+         y="236.05286"
+         id="tspan4056"
+         style="font-size:20.99999997px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr;text-anchor:start;font-family:Palatino Linotype;-inkscape-font-specification:Palatino Linotype" /></text>
+    <path
+       id="path4000"
+       d="m 268.35777,126.91934 107.64198,0 0,114.07055 -107.64198,0 z"
+       style="fill:none;fill-opacity:1;stroke:#aaaaaa;stroke-width:4.50100000000000033;stroke-miterlimit:4;stroke-opacity:0.94117653000000001;stroke-dasharray:none;stroke-dashoffset:0"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4002"
+       y="178.53909"
+       x="276.36432"
+       style="font-size:21px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Palatino Linotype;-inkscape-font-specification:Palatino Linotype"
+       xml:space="preserve"><tspan
+         y="178.53909"
+         x="276.36432"
+         id="tspan4004"
+         sodipodi:role="line">XML DSL</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#6d94bf;stroke-width:4.50087976000000012;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0;opacity:1"
+       d="m 411.92917,127.42448 107.64198,0 0,114.07055 -107.64198,0 z"
+       id="path4030"
+       inkscape:connector-curvature="0" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4032"
+       y="178.92874"
+       x="435.81387"
+       style="font-size:21px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Palatino Linotype;-inkscape-font-specification:Palatino Linotype"
+       xml:space="preserve"><tspan
+         y="178.92874"
+         x="435.81387"
+         id="tspan4034"
+         sodipodi:role="line">Babel </tspan><tspan
+         id="tspan4036"
+         y="205.17874"
+         x="435.81387"
+         sodipodi:role="line">Camel</tspan></text>
+    <path
+       style="fill:none;stroke:#aaaaaa;stroke-width:4.50099993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.94117653;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 232.42838,236.30436 46.51374,45.24224"
+       id="path4130"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#path3182"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect3017"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#aaaaaa;stroke-width:4.50099993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.94117653;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 322.17875,240.98989 0,40.55671"
+       id="path4132"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#path4000"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect3017"
+       inkscape:connection-end-point="d4" />
+    <path
+       style="fill:none;stroke:#6d94bf;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="M 411.92917,236.62011 365.57234,281.5466"
+       id="path4134"
+       inkscape:connector-type="polyline"
+       inkscape:connector-curvature="0"
+       inkscape:connection-start="#path4030"
+       inkscape:connection-start-point="d4"
+       inkscape:connection-end="#rect3017"
+       inkscape:connection-end-point="d4" />
+    <rect
+       rx="0"
+       y="281.5466"
+       x="124.41466"
+       height="84.109398"
+       width="395.52817"
+       id="rect3017"
+       style="fill:none;stroke:#aaaaaa;stroke-width:3.75751567;stroke-miterlimit:4;stroke-opacity:0.94117653;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       xml:space="preserve"
+       style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Palatino Linotype;-inkscape-font-specification:Palatino Linotype"
+       x="232.42972"
+       y="333.31516"
+       id="text3030"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3032"
+         x="232.42972"
+         y="333.31516">Camel runtime</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path4288"
+       d="m 411.92917,127.42448 107.64198,0 0,114.07055 -107.64198,0 z"
+       style="fill:none;fill-opacity:1;stroke:#6d94bf;stroke-width:4.50087976000000012;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0;opacity:1" />
+  </g>
+</svg>
