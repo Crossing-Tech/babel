@@ -4,3 +4,11 @@ brefore_script:
    - export MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
 
 script: mvn -Parchetype -Pscaladoc clean install 
+
+notifications:
+  email:
+     recipients:
+      - github@crossing-tech.com
+     on_success: never  #default: change
+     on_failure: always #default: always
+  irc: "irc.codehaus.org#babel"   
