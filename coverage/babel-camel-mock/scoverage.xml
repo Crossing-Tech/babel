@@ -1,5 +1,5 @@
 <scoverage 
-statement-count="12" statements-invoked="12" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1409123376080">
+statement-count="12" statements-invoked="12" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1409318780637">
     <packages>
         <package name="io.xtech.babel.camel.mock" statement-count="12" statements-invoked="12" statement-rate="100.00">
             <classes>
@@ -10,25 +10,25 @@ statement-count="12" statements-invoked="12" statement-rate="100.00" branch-rate
                         name="io.xtech.babel.camel.mock/Mock/&lt;none&gt;" statement-count="7" statements-invoked="7" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1592" line="44" symbol="io.xtech.babel.camel.mock.Mock.parse" tree="Select" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1592" line="44" symbol="io.xtech.babel.camel.mock.Mock.parse" tree="Select" branch="false" invocation-count="2">
 </statement>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="-1" line="44" symbol="scala.collection.immutable.Seq.canBuildFrom" tree="TypeApply" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="-1" line="44" symbol="scala.collection.immutable.Seq.canBuildFrom" tree="TypeApply" branch="false" invocation-count="2">
 </statement>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1577" line="44" symbol="scala.collection.SeqLike.:+" tree="ApplyToImplicitArgs" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1577" line="44" symbol="scala.collection.SeqLike.:+" tree="ApplyToImplicitArgs" branch="false" invocation-count="2">
 </statement>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1737" line="48" symbol="scala.StringContext.s" tree="Apply" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1737" line="48" symbol="scala.StringContext.s" tree="Apply" branch="false" invocation-count="2">
 </statement>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1719" line="48" symbol="org.apache.camel.model.ProcessorDefinition.to" tree="Apply" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1719" line="48" symbol="org.apache.camel.model.ProcessorDefinition.to" tree="Apply" branch="false" invocation-count="2">
 </statement>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1719" line="48" symbol="&lt;nosymbol&gt;" tree="Block" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1719" line="48" symbol="&lt;nosymbol&gt;" tree="Block" branch="false" invocation-count="2">
 </statement>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1825" line="52" symbol="io.xtech.babel.camel.mock.MockDSL.&lt;init&gt;" tree="ApplyToImplicitArgs" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="Mock" method="&lt;none&gt;" start="1825" line="52" symbol="io.xtech.babel.camel.mock.MockDSL.&lt;init&gt;" tree="ApplyToImplicitArgs" branch="false" invocation-count="2">
 </statement>
                             </statements>
 </method>
@@ -41,13 +41,13 @@ statement-count="12" statements-invoked="12" statement-rate="100.00" branch-rate
                         name="io.xtech.babel.camel.mock/MockDSL/&lt;none&gt;" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="MockDSL" method="&lt;none&gt;" start="1479" line="39" symbol="io.xtech.babel.camel.mock.MockDefinition.apply" tree="Apply" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="MockDSL" method="&lt;none&gt;" start="1479" line="39" symbol="io.xtech.babel.camel.mock.MockDefinition.apply" tree="Apply" branch="false" invocation-count="2">
 </statement>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="MockDSL" method="&lt;none&gt;" start="-1" line="39" symbol="io.xtech.babel.camel.mock.MockDSL.evidence$1" tree="Select" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="MockDSL" method="&lt;none&gt;" start="-1" line="39" symbol="io.xtech.babel.camel.mock.MockDSL.evidence$1" tree="Select" branch="false" invocation-count="2">
 </statement>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="MockDSL" method="&lt;none&gt;" start="1479" line="39" symbol="io.xtech.babel.fish.DSL2BaseDSL.addAStepToTheDSL" tree="ApplyToImplicitArgs" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="MockDSL" method="&lt;none&gt;" start="1479" line="39" symbol="io.xtech.babel.fish.DSL2BaseDSL.addAStepToTheDSL" tree="ApplyToImplicitArgs" branch="false" invocation-count="2">
 </statement>
                             </statements>
 </method>
@@ -60,10 +60,10 @@ statement-count="12" statements-invoked="12" statement-rate="100.00" branch-rate
                         name="io.xtech.babel.camel.mock/CamelContextWithMock/&lt;none&gt;" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="CamelContextWithMock" method="&lt;none&gt;" start="901" line="22" symbol="scala.StringContext.s" tree="Apply" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="CamelContextWithMock" method="&lt;none&gt;" start="901" line="22" symbol="scala.StringContext.s" tree="Apply" branch="false" invocation-count="2">
 </statement>
                                 <statement 
-                                package="io.xtech.babel.camel.mock" class="CamelContextWithMock" method="&lt;none&gt;" start="884" line="22" symbol="scala.Any.asInstanceOf" tree="TypeApply" branch="false" invocation-count="1">
+                                package="io.xtech.babel.camel.mock" class="CamelContextWithMock" method="&lt;none&gt;" start="884" line="22" symbol="scala.Any.asInstanceOf" tree="TypeApply" branch="false" invocation-count="2">
 </statement>
                             </statements>
 </method>

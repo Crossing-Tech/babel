@@ -31,7 +31,8 @@
     <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="Babel 0.6.0-SNAPSHOT documentation" href="index.html" />
-    <link rel="prev" title="Babel presentations" href="presentations.html" />
+    <link rel="up" title="Babel for developers" href="devguide.html" />
+    <link rel="prev" title="Mock Extension" href="extension/mock.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -89,26 +90,16 @@
      href="index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Babel Philosophy</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">Babel Architecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-modules">Babel Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-structure">Babel Structure</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Babel Installation Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#project-requirements">Project Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#build-babel-from-sources">Build Babel from sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#generate-the-documentation">Generate the documentation</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="howtostart.html">How to start a Babel project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howtostart.html#using-maven">Using Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtostart.html#using-sbt">Using Sbt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="howtostart.html#babel-archetypes">Babel Archetypes</a></li>
 </ul>
 </li>
@@ -121,32 +112,26 @@
 <li class="toctree-l2"><a class="reference internal" href="camel/samples.html">Babel Camel Samples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="extension/extension.html">Babel Extension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#existing-extensions">Existing Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#create-an-extension">Create an extension</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="devguide.html">Babel for developers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Babel Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Babel Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">Babel development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">Contribute to Babel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension/extension.html">Babel Extension</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Technical links</a></li>
 </ul>
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Babel Philosophy</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">Babel Architecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-modules">Babel Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-structure">Babel Structure</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Babel Installation Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#project-requirements">Project Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#build-babel-from-sources">Build Babel from sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#generate-the-documentation">Generate the documentation</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="howtostart.html">How to start a Babel project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howtostart.html#using-maven">Using Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtostart.html#using-sbt">Using Sbt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="howtostart.html#babel-archetypes">Babel Archetypes</a></li>
 </ul>
 </li>
@@ -159,16 +144,13 @@
 <li class="toctree-l2"><a class="reference internal" href="camel/samples.html">Babel Camel Samples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="extension/extension.html">Babel Extension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#existing-extensions">Existing Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#create-an-extension">Create an extension</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="presentations.html">Babel presentations</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Technical links</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#scaladoc">Scaladoc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#test-reports">Test reports</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#test-coverage">Test coverage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="devguide.html">Babel for developers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Babel Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Babel Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">Babel development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">Contribute to Babel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension/extension.html">Babel Extension</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Technical links</a></li>
 </ul>
 </li>
 </ul>
@@ -186,7 +168,6 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Technical links</a><ul>
 <li><a class="reference internal" href="#scaladoc">Scaladoc</a></li>
-<li><a class="reference internal" href="#test-reports">Test reports</a></li>
 <li><a class="reference internal" href="#test-coverage">Test coverage</a></li>
 </ul>
 </li>
@@ -198,7 +179,7 @@
             
               
   <li>
-    <a href="presentations.html" title="Previous Chapter: Babel presentations"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Babel presentati...</span>
+    <a href="extension/mock.html" title="Previous Chapter: Mock Extension"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Mock Extension</span>
     </a>
   </li>
             
@@ -235,13 +216,6 @@
 <li><a class="reference external" href="http://crossing-tech.github.io/babel/babel-fish/index.html">Scaladoc for babel-fish</a></li>
 <li><a class="reference external" href="http://crossing-tech.github.io/babel/babel-camel-core/index.html">Scaladoc for babel-camel-core</a></li>
 <li><a class="reference external" href="http://crossing-tech.github.io/babel/babel-camel-mock/index.html">Scaladoc for babel-camel-mock</a></li>
-</ul>
-</div>
-<div class="section" id="test-reports">
-<h2>Test reports<a class="headerlink" href="#test-reports" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://crossing-tech.github.io/babel/test-reports/BabelFishSpec.html">Test reports for babel-fish</a></li>
-<li><a class="reference external" href="http://crossing-tech.github.io/babel/test-reports/BabelCamelSpec.html">Test reports for babel-camel</a></li>
 </ul>
 </div>
 <div class="section" id="test-coverage">

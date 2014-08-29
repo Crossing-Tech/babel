@@ -13,3 +13,4 @@ build/
 atlassian-ide-plugin.xml
 .jira-url
 babel-doc
+.idea
