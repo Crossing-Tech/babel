@@ -23,17 +23,14 @@ To create an extension, you need to create a new DSL, some definition objects an
 Explanation
 ~~~~~~~~~~~
 
-1) Choose a package for your the new extension like ``io.xtech.babel.camel.mock``
-
-2) Create some definition objects that extends ``io.xtech.babel.fish.parsing.StepDefinition``.
-
-3) Create a DSL with your new keywords using the definition objects.
+#. Choose a package for your the new extension like ``io.xtech.babel.camel.mock``
+#. Create some definition objects that extends ``io.xtech.babel.fish.parsing.StepDefinition``.
+#. Create a DSL with your new keywords using the definition objects.
    The DSL will take a ``io.xtech.babel.fish.BaseDSL`` and extends a ``io.xtech.babel.fish.DSL2BaseDSL``
+#. Create a trait that extends ``io.xtech.babel.camel.parsing.CamelParsing``.
 
-4) Create a trait that extends ``io.xtech.babel.camel.parsing.CamelParsing``.
-
-  a) Declare your parser by defining a parse method which returns a ``Process`` type and add it to the ``steps`` of the trait.
-  b) Declare an implicit method using your new DSL.
+   a) Declare your parser by defining a parse method which returns a ``Process`` type and add it to the ``steps`` of the trait.
+   b) Declare an implicit method using your new DSL.
 
 Example
 ~~~~~~~

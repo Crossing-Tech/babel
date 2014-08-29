@@ -38,7 +38,7 @@
 
     Babel Camel route example
 
-    .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/cf/babel/camel/CamelDSLTest.scala#doc:babel-camel-example
+    .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelDSLTest.scala#doc:babel-camel-example
 
 .. impressjs:: example
    :data-x: 0
@@ -61,7 +61,7 @@
 
    Babel is typed and functional
 
-   .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/cf/babel/camel/CamelDSLTest.scala#doc:babel-camel-processBody-1
+   .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelDSLTest.scala#doc:babel-camel-processBody-1
 
 .. impressjs:: modules
    :data-x: 1000
@@ -72,7 +72,7 @@
 
    Babel is composable
 
-   .. includecode:: ../../../babel-camel/babel-camel-mock/src/test/scala/io/xtech/cf/babel/camel/MockTest.scala#doc:babel-camel-mock
+   .. includecode:: ../../../babel-camel/babel-camel-mock/src/test/scala/io/xtech/babel/camel/MockTest.scala#doc:babel-camel-mock
 
 .. impressjs:: debug
    :data-x: -1000

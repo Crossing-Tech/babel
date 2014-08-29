@@ -67,16 +67,6 @@
     <profiles>
 
         <profile>
-            <id>documentation</id>
-
-            <modules>
-                <module>babel-doc</module>
-            </modules>
-
-
-        </profile>
-
-        <profile>
             <id>archetype</id>
             <modules>
                 <module>babel-camel/babel-camel-archetype</module>
