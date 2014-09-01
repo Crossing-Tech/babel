@@ -1,0 +1,935 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>model - Babel :: Camel :: Core 0.6.0-SNAPSHOT API - io.xtech.babel.camel.model</title>
+          <meta name="description" content="model - Babel Camel Core 0.6.0 - SNAPSHOT API - io.xtech.babel.camel.model" />
+          <meta name="keywords" content="model Babel Camel Core 0.6.0 SNAPSHOT API io.xtech.babel.camel.model" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'io.xtech.babel.camel.model.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="io">io</a>.<a href="../../../package.html" class="extype" name="io.xtech">xtech</a>.<a href="../../package.html" class="extype" name="io.xtech.babel">babel</a>.<a href="../package.html" class="extype" name="io.xtech.babel.camel">camel</a></p>
+        <h1>model</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">model</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="io.xtech.babel.camel.model.BeanClassExpression" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BeanClassExpression[I]extendsExpression[Any,Any]withProductwithSerializable"></a>
+      <a id="BeanClassExpression[I]:BeanClassExpression[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="BeanClassExpression.html"><span class="name">BeanClassExpression</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="clazz">clazz: <span class="extype" name="scala.Predef.Class">Class</span>[<span class="extype" name="io.xtech.babel.camel.model.BeanClassExpression.I">I</span>]</span>, <span name="methodName">methodName: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.Expression">Expression</span>[<span class="extype" name="scala.Any">Any</span>, <span class="extype" name="scala.Any">Any</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">expands a bean class to an expression
+</p>
+    </li><li name="io.xtech.babel.camel.model.BeanNameExpression" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BeanNameExpressionextendsExpression[Any,Any]withProductwithSerializable"></a>
+      <a id="BeanNameExpression:BeanNameExpression"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="BeanNameExpression.html"><span class="name">BeanNameExpression</span></a><span class="params">(<span name="beanRef">beanRef: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="methodName">methodName: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.Expression">Expression</span>[<span class="extype" name="scala.Any">Any</span>, <span class="extype" name="scala.Any">Any</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">expands a bean definition to an expression
+</p>
+    </li><li name="io.xtech.babel.camel.model.BeanObjectExpression" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BeanObjectExpressionextendsExpression[Any,Any]withProductwithSerializable"></a>
+      <a id="BeanObjectExpression:BeanObjectExpression"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="BeanObjectExpression.html"><span class="name">BeanObjectExpression</span></a><span class="params">(<span name="bean">bean: <span class="extype" name="scala.AnyRef">AnyRef</span></span>, <span name="methodName">methodName: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.Expression">Expression</span>[<span class="extype" name="scala.Any">Any</span>, <span class="extype" name="scala.Any">Any</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">expands a bean object to an expression
+</p>
+    </li><li name="io.xtech.babel.camel.model.CamelBodyExpression" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CamelBodyExpression[I,O]extendsExpressionwithProductwithSerializable"></a>
+      <a id="CamelBodyExpression[I,O]:CamelBodyExpression[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CamelBodyExpression.html"><span class="name">CamelBodyExpression</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="function">function: (<span class="extype" name="io.xtech.babel.camel.model.CamelBodyExpression.I">I</span>) ⇒ <span class="extype" name="io.xtech.babel.camel.model.CamelBodyExpression.O">O</span></span>)</span><span class="result"> extends <span class="extype" name="org.apache.camel.Expression">Expression</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">translates a functional expression on the message body into a Camel expression
+</p>
+    </li><li name="io.xtech.babel.camel.model.CamelBodyPredicate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CamelBodyPredicate[I]extendsPredicate"></a>
+      <a id="CamelBodyPredicate[I]:CamelBodyPredicate[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CamelBodyPredicate.html"><span class="name">CamelBodyPredicate</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends <span class="extype" name="org.apache.camel.Predicate">Predicate</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Wrapper for a scala function in a Camel Predicate.</p>
+    </li><li name="io.xtech.babel.camel.model.CamelExpressionWrapper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CamelExpressionWrapperextendsExpression[Any,Any]withProductwithSerializable"></a>
+      <a id="CamelExpressionWrapper:CamelExpressionWrapper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CamelExpressionWrapper.html"><span class="name">CamelExpressionWrapper</span></a><span class="params">(<span name="expression">expression: <span class="extype" name="org.apache.camel.Expression">Expression</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.Expression">Expression</span>[<span class="extype" name="scala.Any">Any</span>, <span class="extype" name="scala.Any">Any</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">implicitely expands a Camel Expression to a Babel Expression</p>
+    </li><li name="io.xtech.babel.camel.model.CamelIteratorExpression" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CamelIteratorExpressionextendsExpression"></a>
+      <a id="CamelIteratorExpression:CamelIteratorExpression"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CamelIteratorExpression.html"><span class="name">CamelIteratorExpression</span></a><span class="result"> extends <span class="extype" name="org.apache.camel.Expression">Expression</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">An expression that converts the result of another expression to java.</p>
+    </li><li name="io.xtech.babel.camel.model.CamelListExpression" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CamelListExpressionextendsExpression"></a>
+      <a id="CamelListExpression:CamelListExpression"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CamelListExpression.html"><span class="name">CamelListExpression</span></a><span class="result"> extends <span class="extype" name="org.apache.camel.Expression">Expression</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">An expression that converts the result of another expression to java.</p>
+    </li><li name="io.xtech.babel.camel.model.CamelMessage" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CamelMessage[I]extendsMessage[I]"></a>
+      <a id="CamelMessage[I]:CamelMessage[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CamelMessage.html"><span class="name">CamelMessage</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.Message">Message</span>[<span class="extype" name="io.xtech.babel.camel.model.CamelMessage.I">I</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">An immutable wrapper for a camel message.</p>
+    </li><li name="io.xtech.babel.camel.model.CamelMessageExpression" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CamelMessageExpression[I,O]extendsExpressionwithProductwithSerializable"></a>
+      <a id="CamelMessageExpression[I,O]:CamelMessageExpression[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CamelMessageExpression.html"><span class="name">CamelMessageExpression</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="function">function: (<span class="extype" name="io.xtech.babel.fish.model.Message">Message</span>[<span class="extype" name="io.xtech.babel.camel.model.CamelMessageExpression.I">I</span>]) ⇒ <span class="extype" name="io.xtech.babel.camel.model.CamelMessageExpression.O">O</span></span>)</span><span class="result"> extends <span class="extype" name="org.apache.camel.Expression">Expression</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">translates a functional expression into a Camel expression
+</p>
+    </li><li name="io.xtech.babel.camel.model.CamelMessagePredicate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CamelMessagePredicate[I]extendsPredicate"></a>
+      <a id="CamelMessagePredicate[I]:CamelMessagePredicate[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CamelMessagePredicate.html"><span class="name">CamelMessagePredicate</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends <span class="extype" name="org.apache.camel.Predicate">Predicate</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Wrapper for a scala function in a Camel Predicate.</p>
+    </li><li name="io.xtech.babel.camel.model.CamelPredicateWrapper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CamelPredicateWrapperextendsPredicate[Any]withProductwithSerializable"></a>
+      <a id="CamelPredicateWrapper:CamelPredicateWrapper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CamelPredicateWrapper.html"><span class="name">CamelPredicateWrapper</span></a><span class="params">(<span name="predicate">predicate: <span class="extype" name="org.apache.camel.Predicate">Predicate</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.Predicate">Predicate</span>[<span class="extype" name="scala.Any">Any</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Wrapper for a Camel Predicate.</p>
+    </li><li name="io.xtech.babel.camel.model.CamelSink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CamelSink[-I]extendsSink[I,Any]withProductwithSerializable"></a>
+      <a id="CamelSink[-I]:CamelSink[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CamelSink.html"><span class="name">CamelSink</span></a><span class="tparams">[<span name="I">-I</span>]</span><span class="params">(<span name="uri">uri: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.Sink">Sink</span>[<span class="extype" name="io.xtech.babel.camel.model.CamelSink.I">I</span>, <span class="extype" name="scala.Any">Any</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Sink of a Camel route, implicitly created when calling </p>
+    </li><li name="io.xtech.babel.camel.model.CamelSource" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CamelSourceextendsSource[Any]withProductwithSerializable"></a>
+      <a id="CamelSource:CamelSource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CamelSource.html"><span class="name">CamelSource</span></a><span class="params">(<span name="uri">uri: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.Source">Source</span>[<span class="extype" name="scala.Any">Any</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Source of a Camel route, implicitly created when calling </p>
+    </li><li name="io.xtech.babel.camel.model.ChannelDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ChannelDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="ChannelDefinition:ChannelDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ChannelDefinition.html"><span class="name">ChannelDefinition</span></a><span class="params">(<span name="routeId">routeId: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Declaration of a subroute configuration.</p>
+    </li><li name="io.xtech.babel.camel.model.DeadLetterDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DeadLetterDefinitionextendsStepDefinitionwithRedeliveryErrorHandling"></a>
+      <a id="DeadLetterDefinition:DeadLetterDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DeadLetterDefinition.html"><span class="name">DeadLetterDefinition</span></a><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <a href="RedeliveryErrorHandling.html" class="extype" name="io.xtech.babel.camel.model.RedeliveryErrorHandling">RedeliveryErrorHandling</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">DeadLetterChannel keyword configuration
+</p>
+    </li><li name="io.xtech.babel.camel.model.DefaultErrorHandlerDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DefaultErrorHandlerDefinitionextendsStepDefinitionwithRedeliveryErrorHandling"></a>
+      <a id="DefaultErrorHandlerDefinition:DefaultErrorHandlerDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultErrorHandlerDefinition.html"><span class="name">DefaultErrorHandlerDefinition</span></a><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <a href="RedeliveryErrorHandling.html" class="extype" name="io.xtech.babel.camel.model.RedeliveryErrorHandling">RedeliveryErrorHandling</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">DefaultErrorHandler keyword configuration
+</p>
+    </li><li name="io.xtech.babel.camel.model.EmptyDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EmptyDefinitionextendsFromDefinition"></a>
+      <a id="EmptyDefinition:EmptyDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="EmptyDefinition.html"><span class="name">EmptyDefinition</span></a><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.FromDefinition">FromDefinition</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The EmptyDefinition takes place of the FromDefinition as beginning of a Route Definition.</p>
+    </li><li name="io.xtech.babel.camel.model.EnrichDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EnrichDefinition[I,O]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="EnrichDefinition[I,O]:EnrichDefinition[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="EnrichDefinition.html"><span class="name">EnrichDefinition</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="sink">sink: <span class="extype" name="io.xtech.babel.fish.model.Sink">Sink</span>[<span class="extype" name="io.xtech.babel.camel.model.EnrichDefinition.I">I</span>, <span class="extype" name="io.xtech.babel.camel.model.EnrichDefinition.O">O</span>]</span>, <span name="aggregationStrategyRef">aggregationStrategyRef: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition a enrich keyword in the DSL
+</p>
+    </li><li name="io.xtech.babel.camel.model.ErrorHandling" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ErrorHandlingextendsAnyRef"></a>
+      <a id="ErrorHandling:ErrorHandling"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ErrorHandling.html"><span class="name">ErrorHandling</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">base trait for error handlers.</p>
+    </li><li name="io.xtech.babel.camel.model.FoldBodyAggregationStrategy" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FoldBodyAggregationStrategy[I,O]extendsAggregationStrategy"></a>
+      <a id="FoldBodyAggregationStrategy[I,O]:FoldBodyAggregationStrategy[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="FoldBodyAggregationStrategy.html"><span class="name">FoldBodyAggregationStrategy</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="result"> extends <span class="extype" name="org.apache.camel.processor.aggregate.AggregationStrategy">AggregationStrategy</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">An implementation of the fold operation for camel using an Aggregation Strategy</p>
+    </li><li name="io.xtech.babel.camel.model.HandlerDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HandlerDefinitionextendsScopeDefinition[io.xtech.babel.fish.model.StepDefinition]withProductwithSerializable"></a>
+      <a id="HandlerDefinition:HandlerDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="HandlerDefinition.html"><span class="name">HandlerDefinition</span></a><span class="params">()</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.ScopeDefinition">ScopeDefinition</span>[<span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">container for error handling configuration
+</p>
+    </li><li name="io.xtech.babel.camel.model.LogDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LogDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="LogDefinition:LogDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="LogDefinition.html"><span class="name">LogDefinition</span></a><span class="params">(<span name="props">props: <a href="LogProps.html" class="extype" name="io.xtech.babel.camel.model.LogProps">LogProps</a></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Defines a Log EIP.</p>
+    </li><li name="io.xtech.babel.camel.model.LogLoggingLevelLogNameMarkerMessage" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LogLoggingLevelLogNameMarkerMessageextendsLogPropswithProductwithSerializable"></a>
+      <a id="LogLoggingLevelLogNameMarkerMessage:LogLoggingLevelLogNameMarkerMessage"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="LogLoggingLevelLogNameMarkerMessage.html"><span class="name">LogLoggingLevelLogNameMarkerMessage</span></a><span class="params">(<span name="level">level: <span class="extype" name="org.apache.camel.LoggingLevel">LoggingLevel</span></span>, <span name="LogName">LogName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="marker">marker: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="output">output: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="LogProps.html" class="extype" name="io.xtech.babel.camel.model.LogProps">LogProps</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">defines a log with its logging level, its log name, a marker and its output
+</p>
+    </li><li name="io.xtech.babel.camel.model.LogLoggingLevelLogNameMessage" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LogLoggingLevelLogNameMessageextendsLogPropswithProductwithSerializable"></a>
+      <a id="LogLoggingLevelLogNameMessage:LogLoggingLevelLogNameMessage"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="LogLoggingLevelLogNameMessage.html"><span class="name">LogLoggingLevelLogNameMessage</span></a><span class="params">(<span name="level">level: <span class="extype" name="org.apache.camel.LoggingLevel">LoggingLevel</span></span>, <span name="LogName">LogName: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="output">output: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="LogProps.html" class="extype" name="io.xtech.babel.camel.model.LogProps">LogProps</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">defines a log with its logging level, its log name and its output
+</p>
+    </li><li name="io.xtech.babel.camel.model.LogLoggingLevelMessage" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LogLoggingLevelMessageextendsLogPropswithProductwithSerializable"></a>
+      <a id="LogLoggingLevelMessage:LogLoggingLevelMessage"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="LogLoggingLevelMessage.html"><span class="name">LogLoggingLevelMessage</span></a><span class="params">(<span name="level">level: <span class="extype" name="org.apache.camel.LoggingLevel">LoggingLevel</span></span>, <span name="output">output: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="LogProps.html" class="extype" name="io.xtech.babel.camel.model.LogProps">LogProps</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">defines a log with its logging level and its output
+</p>
+    </li><li name="io.xtech.babel.camel.model.LogMessage" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LogMessageextendsLogPropswithProductwithSerializable"></a>
+      <a id="LogMessage:LogMessage"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="LogMessage.html"><span class="name">LogMessage</span></a><span class="params">(<span name="output">output: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="LogProps.html" class="extype" name="io.xtech.babel.camel.model.LogProps">LogProps</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">defines a log with its output
+</p>
+    </li><li name="io.xtech.babel.camel.model.LogProps" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="LogPropsextendsAnyRef"></a>
+      <a id="LogProps:LogProps"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="LogProps.html"><span class="name">LogProps</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Defines the configuration of a log EIP.</p>
+    </li><li name="io.xtech.babel.camel.model.LoggingErrorHandlerDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LoggingErrorHandlerDefinitionextendsStepDefinitionwithErrorHandling"></a>
+      <a id="LoggingErrorHandlerDefinition:LoggingErrorHandlerDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LoggingErrorHandlerDefinition.html"><span class="name">LoggingErrorHandlerDefinition</span></a><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <a href="ErrorHandling.html" class="extype" name="io.xtech.babel.camel.model.ErrorHandling">ErrorHandling</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">LoggingErrorHandler keyword configuration
+</p>
+    </li><li name="io.xtech.babel.camel.model.MarshallerDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MarshallerDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="MarshallerDefinition:MarshallerDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MarshallerDefinition.html"><span class="name">MarshallerDefinition</span></a><span class="params">(<span name="props">props: <a href="MarshallerProps.html" class="extype" name="io.xtech.babel.camel.model.MarshallerProps">MarshallerProps</a></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.MarshallerInstance" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MarshallerInstanceextendsMarshallerPropswithProductwithSerializable"></a>
+      <a id="MarshallerInstance:MarshallerInstance"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MarshallerInstance.html"><span class="name">MarshallerInstance</span></a><span class="params">(<span name="dataFormat">dataFormat: <span class="extype" name="org.apache.camel.spi.DataFormat">DataFormat</span></span>)</span><span class="result"> extends <a href="MarshallerProps.html" class="extype" name="io.xtech.babel.camel.model.MarshallerProps">MarshallerProps</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.MarshallerProps" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MarshallerPropsextendsAnyRef"></a>
+      <a id="MarshallerProps:MarshallerProps"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MarshallerProps.html"><span class="name">MarshallerProps</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">defines a Marshall EIP.</p>
+    </li><li name="io.xtech.babel.camel.model.MarshallerReference" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MarshallerReferenceextendsMarshallerPropswithProductwithSerializable"></a>
+      <a id="MarshallerReference:MarshallerReference"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MarshallerReference.html"><span class="name">MarshallerReference</span></a><span class="params">(<span name="ref">ref: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="MarshallerProps.html" class="extype" name="io.xtech.babel.camel.model.MarshallerProps">MarshallerProps</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.NoAutoStartDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NoAutoStartDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="NoAutoStartDefinition:NoAutoStartDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="NoAutoStartDefinition.html"><span class="name">NoAutoStartDefinition</span></a><span class="params">()</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.OnExceptionDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OnExceptionDefinition[T&lt;:Throwable]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="OnExceptionDefinition[T&lt;:Throwable]:OnExceptionDefinition[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OnExceptionDefinition.html"><span class="name">OnExceptionDefinition</span></a><span class="tparams">[<span name="T">T &lt;: <span class="extype" name="scala.Throwable">Throwable</span></span>]</span><span class="params">(<span name="exception">exception: <span class="extype" name="scala.Predef.Class">Class</span>[<span class="extype" name="io.xtech.babel.camel.model.OnExceptionDefinition.T">T</span>]</span>, <span name="when">when: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="io.xtech.babel.fish.model.Predicate">Predicate</span>[<span class="extype" name="scala.Any">Any</span>]] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Configuration of a onException keyword</p>
+    </li><li name="io.xtech.babel.camel.model.OnExchangeBeginDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OnExchangeBeginDefinition[I]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="OnExchangeBeginDefinition[I]:OnExchangeBeginDefinition[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OnExchangeBeginDefinition.html"><span class="name">OnExchangeBeginDefinition</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="callback">callback: (<span class="extype" name="org.apache.camel.Route">Route</span>, <a href="CamelMessage.html" class="extype" name="io.xtech.babel.camel.model.CamelMessage">CamelMessage</a>[<span class="extype" name="io.xtech.babel.camel.model.OnExchangeBeginDefinition.I">I</span>]) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.OnExchangeDoneDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OnExchangeDoneDefinition[I]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="OnExchangeDoneDefinition[I]:OnExchangeDoneDefinition[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OnExchangeDoneDefinition.html"><span class="name">OnExchangeDoneDefinition</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="callback">callback: (<span class="extype" name="org.apache.camel.Route">Route</span>, <a href="CamelMessage.html" class="extype" name="io.xtech.babel.camel.model.CamelMessage">CamelMessage</a>[<span class="extype" name="io.xtech.babel.camel.model.OnExchangeDoneDefinition.I">I</span>]) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.OnInitDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OnInitDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="OnInitDefinition:OnInitDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OnInitDefinition.html"><span class="name">OnInitDefinition</span></a><span class="params">(<span name="callback">callback: (<span class="extype" name="org.apache.camel.Route">Route</span>) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.OnRemoveDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OnRemoveDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="OnRemoveDefinition:OnRemoveDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OnRemoveDefinition.html"><span class="name">OnRemoveDefinition</span></a><span class="params">(<span name="callback">callback: (<span class="extype" name="org.apache.camel.Route">Route</span>) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.OnResumeDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OnResumeDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="OnResumeDefinition:OnResumeDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OnResumeDefinition.html"><span class="name">OnResumeDefinition</span></a><span class="params">(<span name="callback">callback: (<span class="extype" name="org.apache.camel.Route">Route</span>) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.OnStartDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OnStartDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="OnStartDefinition:OnStartDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OnStartDefinition.html"><span class="name">OnStartDefinition</span></a><span class="params">(<span name="callback">callback: (<span class="extype" name="org.apache.camel.Route">Route</span>) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.OnStopDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OnStopDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="OnStopDefinition:OnStopDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OnStopDefinition.html"><span class="name">OnStopDefinition</span></a><span class="params">(<span name="callback">callback: (<span class="extype" name="org.apache.camel.Route">Route</span>) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.OnSuspendDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OnSuspendDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="OnSuspendDefinition:OnSuspendDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="OnSuspendDefinition.html"><span class="name">OnSuspendDefinition</span></a><span class="params">(<span name="callback">callback: (<span class="extype" name="org.apache.camel.Route">Route</span>) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.PollEnrichDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PollEnrichDefinition[I,O]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="PollEnrichDefinition[I,O]:PollEnrichDefinition[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="PollEnrichDefinition.html"><span class="name">PollEnrichDefinition</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="sink">sink: <span class="extype" name="io.xtech.babel.fish.model.Sink">Sink</span>[<span class="extype" name="io.xtech.babel.camel.model.PollEnrichDefinition.I">I</span>, <span class="extype" name="io.xtech.babel.camel.model.PollEnrichDefinition.O">O</span>]</span>, <span name="aggregationStrategyRef">aggregationStrategyRef: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="timeout">timeout: <span class="extype" name="scala.Long">Long</span> = <span class="symbol">-1</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition a pollEnrich keyword in the DSL
+</p>
+    </li><li name="io.xtech.babel.camel.model.RecipientListDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RecipientListDefinition[I,E]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="RecipientListDefinition[I,E]:RecipientListDefinition[I,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="RecipientListDefinition.html"><span class="name">RecipientListDefinition</span></a><span class="tparams">[<span name="I">I</span>, <span name="E">E</span>]</span><span class="params">(<span name="expression">expression: <span class="extype" name="io.xtech.babel.fish.model.Expression">Expression</span>[<span class="extype" name="io.xtech.babel.camel.model.RecipientListDefinition.I">I</span>, <span class="extype" name="io.xtech.babel.camel.model.RecipientListDefinition.E">E</span>]</span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Defines a RecipientList EIP (Publish and Subscribe)
+</p>
+    </li><li name="io.xtech.babel.camel.model.RedeliveryErrorHandling" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="RedeliveryErrorHandlingextendsErrorHandling"></a>
+      <a id="RedeliveryErrorHandling:RedeliveryErrorHandling"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="RedeliveryErrorHandling.html"><span class="name">RedeliveryErrorHandling</span></a><span class="result"> extends <a href="ErrorHandling.html" class="extype" name="io.xtech.babel.camel.model.ErrorHandling">ErrorHandling</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">trait for error handler which allow exchange redelivery on failure.</p>
+    </li><li name="io.xtech.babel.camel.model.ReduceBodyAggregationStrategy" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReduceBodyAggregationStrategy[I]extendsAggregationStrategy"></a>
+      <a id="ReduceBodyAggregationStrategy[I]:ReduceBodyAggregationStrategy[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ReduceBodyAggregationStrategy.html"><span class="name">ReduceBodyAggregationStrategy</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends <span class="extype" name="org.apache.camel.processor.aggregate.AggregationStrategy">AggregationStrategy</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">An implementation of the reduce operation for camel using an Aggregation Strategy</p>
+    </li><li name="io.xtech.babel.camel.model.ResequencerDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResequencerDefinition[I,E]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="ResequencerDefinition[I,E]:ResequencerDefinition[I,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ResequencerDefinition.html"><span class="name">ResequencerDefinition</span></a><span class="tparams">[<span name="I">I</span>, <span name="E">E</span>]</span><span class="params">(<span name="expression">expression: <span class="extype" name="io.xtech.babel.fish.model.Expression">Expression</span>[<span class="extype" name="io.xtech.babel.camel.model.ResequencerDefinition.I">I</span>, <span class="extype" name="io.xtech.babel.camel.model.ResequencerDefinition.E">E</span>]</span>, <span name="resequencer">resequencer: <span class="extype" name="org.apache.camel.model.config.ResequencerConfig">ResequencerConfig</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition of a resequencer eip.</p>
+    </li><li name="io.xtech.babel.camel.model.RouteIdDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RouteIdDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="RouteIdDefinition:RouteIdDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="RouteIdDefinition.html"><span class="name">RouteIdDefinition</span></a><span class="params">(<span name="routeId">routeId: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Declaration of an id for a route.</p>
+    </li><li name="io.xtech.babel.camel.model.SortDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SortDefinition[I,O,C]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="SortDefinition[I,O,C]:SortDefinition[I,O,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SortDefinition.html"><span class="name">SortDefinition</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>, <span name="C">C</span>]</span><span class="params">(<span name="expression">expression: <span class="extype" name="io.xtech.babel.fish.model.Expression">Expression</span>[<span class="extype" name="io.xtech.babel.camel.model.SortDefinition.I">I</span>, <span class="extype" name="io.xtech.babel.camel.model.SortDefinition.O">O</span>]</span>, <span name="comparator">comparator: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="java.util.Comparator">Comparator</span>[<span class="extype" name="io.xtech.babel.camel.model.SortDefinition.C">C</span>]]</span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition of the sort keyword in the DSL</p>
+    </li><li name="io.xtech.babel.camel.model.TransactionDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TransactionDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="TransactionDefinition:TransactionDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TransactionDefinition.html"><span class="name">TransactionDefinition</span></a><span class="params">(<span name="ref">ref: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition of a transaction.</p>
+    </li><li name="io.xtech.babel.camel.model.TransactionErrorHandlerDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TransactionErrorHandlerDefinitionextendsStepDefinitionwithRedeliveryErrorHandling"></a>
+      <a id="TransactionErrorHandlerDefinition:TransactionErrorHandlerDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TransactionErrorHandlerDefinition.html"><span class="name">TransactionErrorHandlerDefinition</span></a><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <a href="RedeliveryErrorHandling.html" class="extype" name="io.xtech.babel.camel.model.RedeliveryErrorHandling">RedeliveryErrorHandling</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">TransactionErrorHandler keyword configuration
+</p>
+    </li><li name="io.xtech.babel.camel.model.UnmarshallerInstance" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UnmarshallerInstanceextendsMarshallerPropswithProductwithSerializable"></a>
+      <a id="UnmarshallerInstance:UnmarshallerInstance"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UnmarshallerInstance.html"><span class="name">UnmarshallerInstance</span></a><span class="params">(<span name="dataFormat">dataFormat: <span class="extype" name="org.apache.camel.spi.DataFormat">DataFormat</span></span>)</span><span class="result"> extends <a href="MarshallerProps.html" class="extype" name="io.xtech.babel.camel.model.MarshallerProps">MarshallerProps</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.UnmarshallerReference" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UnmarshallerReferenceextendsMarshallerPropswithProductwithSerializable"></a>
+      <a id="UnmarshallerReference:UnmarshallerReference"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UnmarshallerReference.html"><span class="name">UnmarshallerReference</span></a><span class="params">(<span name="ref">ref: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="MarshallerProps.html" class="extype" name="io.xtech.babel.camel.model.MarshallerProps">MarshallerProps</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.ValidationDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ValidationDefinition[I]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="ValidationDefinition[I]:ValidationDefinition[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ValidationDefinition.html"><span class="name">ValidationDefinition</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="expression">expression: <span class="extype" name="io.xtech.babel.fish.model.Predicate">Predicate</span>[<span class="extype" name="io.xtech.babel.camel.model.ValidationDefinition.I">I</span>]</span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.camel.model.WireTapDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WireTapDefinition[T]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="WireTapDefinition[T]:WireTapDefinition[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="WireTapDefinition.html"><span class="name">WireTapDefinition</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="sink">sink: <a href="CamelSink.html" class="extype" name="io.xtech.babel.camel.model.CamelSink">CamelSink</a>[<span class="extype" name="io.xtech.babel.camel.model.WireTapDefinition.T">T</span>]</span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Defines a sink where each message is just copied.</p>
+    </li><li name="io.xtech.babel.camel.model.XPath" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="XPathextendsPredicate[Any]withProductwithSerializable"></a>
+      <a id="XPath:XPath"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="XPath.html"><span class="name">XPath</span></a><span class="params">(<span name="str">str: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.Predicate">Predicate</span>[<span class="extype" name="scala.Any">Any</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">XPath defines a xpath used for an expression or a predicate.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="io.xtech.babel.camel.model.Aggregation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Aggregation"></a>
+      <a id="Aggregation:Aggregation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Aggregation$.html"><span class="name">Aggregation</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">facility object containing the required definitions to build an Aggregation EIP,
+used in user routes.</p>
+    </li><li name="io.xtech.babel.camel.model.EmptySource" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EmptySource"></a>
+      <a id="EmptySource:EmptySource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="EmptySource$.html"><span class="name">EmptySource</span></a><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.Source">Source</span>[<span class="extype" name="scala.Any">Any</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">The EmptySource is used in the EmptyDefinition to specify there is no source to this definition.</p>
+    </li><li name="io.xtech.babel.camel.model.Expressions" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Expressions"></a>
+      <a id="Expressions:Expressions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Expressions$.html"><span class="name">Expressions</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">A factory for creating Camel Expression from Babel expression.</p>
+    </li><li name="io.xtech.babel.camel.model.NoErrorHandlerDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NoErrorHandlerDefinition"></a>
+      <a id="NoErrorHandlerDefinition:NoErrorHandlerDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="NoErrorHandlerDefinition$.html"><span class="name">NoErrorHandlerDefinition</span></a><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span> with <a href="ErrorHandling.html" class="extype" name="io.xtech.babel.camel.model.ErrorHandling">ErrorHandling</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">NoErrorHandler keyword configuration
+</p>
+    </li><li name="io.xtech.babel.camel.model.Predicates" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Predicates"></a>
+      <a id="Predicates:Predicates"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Predicates$.html"><span class="name">Predicates</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Facility object that provides a translation from a Babel predicate to a Camel one.</p>
+    </li><li name="io.xtech.babel.camel.model.SeqCamelSink" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SeqCamelSink"></a>
+      <a id="SeqCamelSink:SeqCamelSink"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SeqCamelSink$.html"><span class="name">SeqCamelSink</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">An utility object used in matchers to extract a Seq of a CamelSink from a Seq of Sink
+Used in the multicast
+</p>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../lib/template.js"></script>
+    </body>
+      </html>

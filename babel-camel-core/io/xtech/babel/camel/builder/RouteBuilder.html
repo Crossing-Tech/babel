@@ -1,0 +1,924 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>RouteBuilder - Babel :: Camel :: Core 0.6.0-SNAPSHOT API - io.xtech.babel.camel.builder.RouteBuilder</title>
+          <meta name="description" content="RouteBuilder - Babel Camel Core 0.6.0 - SNAPSHOT API - io.xtech.babel.camel.builder.RouteBuilder" />
+          <meta name="keywords" content="RouteBuilder Babel Camel Core 0.6.0 SNAPSHOT API io.xtech.babel.camel.builder.RouteBuilder" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'io.xtech.babel.camel.builder.RouteBuilder';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="io">io</a>.<a href="../../../package.html" class="extype" name="io.xtech">xtech</a>.<a href="../../package.html" class="extype" name="io.xtech.babel">babel</a>.<a href="../package.html" class="extype" name="io.xtech.babel.camel">camel</a>.<a href="package.html" class="extype" name="io.xtech.babel.camel.builder">builder</a></p>
+        <h1>RouteBuilder</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">RouteBuilder</span><span class="result"> extends <span class="extype" name="io.xtech.babel.fish.DSL">DSL</span> with <a href="../CamelDSL.html" class="extype" name="io.xtech.babel.camel.CamelDSL">CamelDSL</a> with <span class="extype" name="org.apache.camel.RoutesBuilder">RoutesBuilder</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Facility trait used to implement RouteBuilder in order to be more integrated into Camel.
+This allows Babel Camel routes to be discovered by the Camel route scanner.
+</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="org.apache.camel.RoutesBuilder">RoutesBuilder</span>, <a href="../CamelDSL.html" class="extype" name="io.xtech.babel.camel.CamelDSL">CamelDSL</a>, <span class="extype" name="io.xtech.babel.camel.parsing.Validation">Validation</span>, <span class="extype" name="io.xtech.babel.camel.parsing.WireTap">WireTap</span>, <span class="extype" name="io.xtech.babel.camel.parsing.RouteConfiguration">RouteConfiguration</span>, <span class="extype" name="io.xtech.babel.camel.parsing.RecipientList">RecipientList</span>, <span class="extype" name="io.xtech.babel.camel.parsing.Handler">Handler</span>, <span class="extype" name="io.xtech.babel.camel.parsing.Resequencer">Resequencer</span>, <span class="extype" name="io.xtech.babel.camel.parsing.Sort">Sort</span>, <span class="extype" name="io.xtech.babel.camel.parsing.Log">Log</span>, <span class="extype" name="io.xtech.babel.camel.parsing.Enricher">Enricher</span>, <span class="extype" name="io.xtech.babel.camel.parsing.RouteId">RouteId</span>, <span class="extype" name="io.xtech.babel.camel.parsing.Marshaller">Marshaller</span>, <span class="extype" name="io.xtech.babel.camel.parsing.Transformation">Transformation</span>, <span class="extype" name="io.xtech.babel.camel.parsing.Transaction">Transaction</span>, <span class="extype" name="io.xtech.babel.camel.parsing.Aggregation">Aggregation</span>, <span class="extype" name="io.xtech.babel.camel.parsing.Basics">Basics</span>, <a href="../parsing/CamelParsing.html" class="extype" name="io.xtech.babel.camel.parsing.CamelParsing">CamelParsing</a>, <span class="extype" name="io.xtech.babel.fish.parsing.StepProcessor">StepProcessor</span>[<span class="extype" name="org.apache.camel.builder.RouteBuilder">org.apache.camel.builder.RouteBuilder</span>], <span class="extype" name="io.xtech.babel.fish.parsing.Parsing">Parsing</span>[<span class="extype" name="org.apache.camel.builder.RouteBuilder">org.apache.camel.builder.RouteBuilder</span>], <span class="extype" name="io.xtech.babel.fish.DSL">DSL</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+          <span class="toggle">Known Subclasses</span>
+          <div class="subClasses hiddenContent"><a href="SpringRouteBuilder.html" class="extype" name="io.xtech.babel.camel.builder.SpringRouteBuilder">SpringRouteBuilder</a></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="io.xtech.babel.camel.builder.RouteBuilder"><span>RouteBuilder</span></li><li class="in" name="org.apache.camel.RoutesBuilder"><span>RoutesBuilder</span></li><li class="in" name="io.xtech.babel.camel.CamelDSL"><span>CamelDSL</span></li><li class="in" name="io.xtech.babel.camel.parsing.Validation"><span>Validation</span></li><li class="in" name="io.xtech.babel.camel.parsing.WireTap"><span>WireTap</span></li><li class="in" name="io.xtech.babel.camel.parsing.RouteConfiguration"><span>RouteConfiguration</span></li><li class="in" name="io.xtech.babel.camel.parsing.RecipientList"><span>RecipientList</span></li><li class="in" name="io.xtech.babel.camel.parsing.Handler"><span>Handler</span></li><li class="in" name="io.xtech.babel.camel.parsing.Resequencer"><span>Resequencer</span></li><li class="in" name="io.xtech.babel.camel.parsing.Sort"><span>Sort</span></li><li class="in" name="io.xtech.babel.camel.parsing.Log"><span>Log</span></li><li class="in" name="io.xtech.babel.camel.parsing.Enricher"><span>Enricher</span></li><li class="in" name="io.xtech.babel.camel.parsing.RouteId"><span>RouteId</span></li><li class="in" name="io.xtech.babel.camel.parsing.Marshaller"><span>Marshaller</span></li><li class="in" name="io.xtech.babel.camel.parsing.Transformation"><span>Transformation</span></li><li class="in" name="io.xtech.babel.camel.parsing.Transaction"><span>Transaction</span></li><li class="in" name="io.xtech.babel.camel.parsing.Aggregation"><span>Aggregation</span></li><li class="in" name="io.xtech.babel.camel.parsing.Basics"><span>Basics</span></li><li class="in" name="io.xtech.babel.camel.parsing.CamelParsing"><span>CamelParsing</span></li><li class="in" name="io.xtech.babel.fish.parsing.StepProcessor"><span>StepProcessor</span></li><li class="in" name="io.xtech.babel.fish.parsing.Parsing"><span>Parsing</span></li><li class="in" name="io.xtech.babel.fish.DSL"><span>DSL</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="io.xtech.babel.camel.builder.RouteBuilder#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;():io.xtech.babel.camel.builder.RouteBuilder"></a>
+      <a id="&lt;init&gt;:RouteBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">RouteBuilder</span><span class="params">()</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="io.xtech.babel.fish.parsing.Parsing.Process" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Process=PartialFunction[io.xtech.babel.fish.parsing.StepInformation[T],Any]"></a>
+      <a id="Process:Process"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Process</span><span class="result"> = <span class="extype" name="scala.PartialFunction">PartialFunction</span>[<span class="extype" name="io.xtech.babel.fish.parsing.StepInformation">StepInformation</span>[<span class="extype" name="org.apache.camel.builder.RouteBuilder">org.apache.camel.builder.RouteBuilder</span>], <span class="extype" name="scala.Any">Any</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Parsing</dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:AnyRef):Boolean"></a>
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:AnyRef):Boolean"></a>
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.builder.RouteBuilder#addRoutesToCamelContext" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="addRoutesToCamelContext(context:org.apache.camel.CamelContext):Unit"></a>
+      <a id="addRoutesToCamelContext(CamelContext):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addRoutesToCamelContext</span><span class="params">(<span name="context">context: <span class="extype" name="org.apache.camel.CamelContext">CamelContext</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">adds the generated routes to the given Camel Context.</p><div class="fullcomment"><div class="comment cmt"><p>adds the generated routes to the given Camel Context.
+Used by Spring to populate a Camel Context while scanning the package (though xml configuration)</p></div><dl class="paramcmts block"><dt class="param">context</dt><dd class="cmt"><p>to be populated with generated routes
+</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="io.xtech.babel.camel.builder.RouteBuilder">RouteBuilder</a> → RoutesBuilder</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Transformation#bodyFunctionToProcess" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="bodyFunctionToProcess[I,O](function:I=&gt;O):org.apache.camel.Processor"></a>
+      <a id="bodyFunctionToProcess[I,O]((I)⇒O):Processor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">bodyFunctionToProcess</span><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="function">function: (<span class="extype" name="io.xtech.babel.camel.parsing.Transformation.bodyFunctionToProcess.I">I</span>) ⇒ <span class="extype" name="io.xtech.babel.camel.parsing.Transformation.bodyFunctionToProcess.O">O</span></span>)</span><span class="result">: <span class="extype" name="org.apache.camel.Processor">Processor</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Transformation</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Handler#booleanAsPredicate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="booleanAsPredicate[Any](bool:Boolean):io.xtech.babel.fish.BodyPredicate[Any]"></a>
+      <a id="booleanAsPredicate[Any](Boolean):BodyPredicate[Any]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">booleanAsPredicate</span><span class="tparams">[<span name="Any">Any</span>]</span><span class="params">(<span name="bool">bool: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.fish.BodyPredicate">BodyPredicate</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Handler.booleanAsPredicate.Any">Any</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Handler</dd></dl></div>
+    </li><li name="io.xtech.babel.fish.DSL#build" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="build():scala.collection.immutable.Set[io.xtech.babel.fish.model.RouteDefinition]"></a>
+      <a id="build():Set[RouteDefinition]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">build</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<span class="extype" name="io.xtech.babel.fish.model.RouteDefinition">RouteDefinition</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../package.html" class="extype" name="io.xtech.babel">io.xtech.babel</a>] </dd><dt>Definition Classes</dt><dd>DSL</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.CamelDSL#camelMessage" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="camelMessage[I](msg:io.xtech.babel.fish.model.Message[I]):io.xtech.babel.camel.model.CamelMessage[I]"></a>
+      <a id="camelMessage[I](Message[I]):CamelMessage[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">camelMessage</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="msg">msg: <span class="extype" name="io.xtech.babel.fish.model.Message">Message</span>[<span class="extype" name="io.xtech.babel.camel.CamelDSL.camelMessage.I">I</span>]</span>)</span><span class="result">: <a href="../model/CamelMessage.html" class="extype" name="io.xtech.babel.camel.model.CamelMessage">CamelMessage</a>[<span class="extype" name="io.xtech.babel.camel.CamelDSL.camelMessage.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../CamelDSL.html" class="extype" name="io.xtech.babel.camel.CamelDSL">CamelDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.camel.CamelDSL#camelPredicate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="camelPredicate(pred:org.apache.camel.Predicate):io.xtech.babel.camel.model.CamelPredicateWrapper"></a>
+      <a id="camelPredicate(Predicate):CamelPredicateWrapper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">camelPredicate</span><span class="params">(<span name="pred">pred: <span class="extype" name="org.apache.camel.Predicate">Predicate</span></span>)</span><span class="result">: <a href="../model/CamelPredicateWrapper.html" class="extype" name="io.xtech.babel.camel.model.CamelPredicateWrapper">CamelPredicateWrapper</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CamelDSL.html" class="extype" name="io.xtech.babel.camel.CamelDSL">CamelDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.camel.CamelDSL#camelPredicateExpression" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="camelPredicateExpression(exp:org.apache.camel.Expressionwithorg.apache.camel.Predicate):io.xtech.babel.camel.model.CamelExpressionWrapper"></a>
+      <a id="camelPredicateExpression(ExpressionwithPredicate):CamelExpressionWrapper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">camelPredicateExpression</span><span class="params">(<span name="exp">exp: <span class="extype" name="org.apache.camel.Expression">Expression</span> with <span class="extype" name="org.apache.camel.Predicate">Predicate</span></span>)</span><span class="result">: <a href="../model/CamelExpressionWrapper.html" class="extype" name="io.xtech.babel.camel.model.CamelExpressionWrapper">CamelExpressionWrapper</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CamelDSL.html" class="extype" name="io.xtech.babel.camel.CamelDSL">CamelDSL</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Enricher#enrichDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="enrichDSLExtension[I](baseDsl:io.xtech.babel.fish.BaseDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.EnricherDSL[I]"></a>
+      <a id="enrichDSLExtension[I](BaseDSL[I])(ClassTag[I]):EnricherDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">enrichDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Enricher.enrichDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Enricher.enrichDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.EnricherDSL">EnricherDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Enricher.enrichDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Enricher</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="io.xtech.babel.fish.DSL#from" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="from[O,S](source:S)(implicitevidence$16:scala.reflect.ClassTag[O],implicitconvert:S=&gt;io.xtech.babel.fish.model.Source[O]):io.xtech.babel.fish.FromDSL[O]"></a>
+      <a id="from[O,S](S)(ClassTag[O],(S)⇒Source[O]):FromDSL[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">from</span><span class="tparams">[<span name="O">O</span>, <span name="S">S</span>]</span><span class="params">(<span name="source">source: <span class="extype" name="io.xtech.babel.fish.DSL.from.S">S</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.fish.DSL.from.O">O</span>]</span>, <span name="convert">convert: (<span class="extype" name="io.xtech.babel.fish.DSL.from.S">S</span>) ⇒ <span class="extype" name="io.xtech.babel.fish.model.Source">Source</span>[<span class="extype" name="io.xtech.babel.fish.DSL.from.O">O</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.fish.FromDSL">FromDSL</span>[<span class="extype" name="io.xtech.babel.fish.DSL.from.O">O</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>DSL</dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.builder.RouteBuilder#handle" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="handle(block:io.xtech.babel.camel.HandlingDSL[Any]=&gt;Unit):io.xtech.babel.fish.NoDSL"></a>
+      <a id="handle((HandlingDSL[Any])⇒Unit):NoDSL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">handle</span><span class="params">(<span name="block">block: (<span class="extype" name="io.xtech.babel.camel.HandlingDSL">HandlingDSL</span>[<span class="extype" name="scala.Any">Any</span>]) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.fish.NoDSL">NoDSL</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">defines a set of rules that are applied on the RouteBuilder itself and not on a route.</p><div class="fullcomment"><div class="comment cmt"><p>defines a set of rules that are applied on the RouteBuilder itself and not on a route.</p></div><dl class="paramcmts block"><dt class="param">block</dt><dd class="cmt"><p>is the rules to be applied to the RouteBuilder</p></dd><dt>returns</dt><dd class="cmt"><p>end of DSL: it is not possible to add other keywords to the current DSL.
+</p></dd></dl><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Handler#handlerDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="handlerDSLExtension[I](baseDsl:io.xtech.babel.fish.FromDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.HandlerDSL[I]"></a>
+      <a id="handlerDSLExtension[I](FromDSL[I])(ClassTag[I]):HandlerDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">handlerDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.FromDSL">FromDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Handler.handlerDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Handler.handlerDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.HandlerDSL">HandlerDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Handler.handlerDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Handler</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Log#logDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="logDSLExtension[I](baseDsl:io.xtech.babel.fish.BaseDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.LogDSL[I]"></a>
+      <a id="logDSLExtension[I](BaseDSL[I])(ClassTag[I]):LogDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">logDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Log.logDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Log.logDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.LogDSL">LogDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Log.logDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Log</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Marshaller#marshallerDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="marshallerDSLExtension[I](baseDsl:io.xtech.babel.fish.BaseDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.MarshallerDSL[I]"></a>
+      <a id="marshallerDSLExtension[I](BaseDSL[I])(ClassTag[I]):MarshallerDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">marshallerDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Marshaller.marshallerDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Marshaller.marshallerDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.MarshallerDSL">MarshallerDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Marshaller.marshallerDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Marshaller</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Transformation#messageFunctionToProcess" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="messageFunctionToProcess[I,O](function:io.xtech.babel.fish.model.Message[I]=&gt;io.xtech.babel.fish.model.Message[O]):org.apache.camel.Processor"></a>
+      <a id="messageFunctionToProcess[I,O]((Message[I])⇒Message[O]):Processor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">messageFunctionToProcess</span><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="function">function: (<span class="extype" name="io.xtech.babel.fish.model.Message">Message</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Transformation.messageFunctionToProcess.I">I</span>]) ⇒ <span class="extype" name="io.xtech.babel.fish.model.Message">Message</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Transformation.messageFunctionToProcess.O">O</span>]</span>)</span><span class="result">: <span class="extype" name="org.apache.camel.Processor">Processor</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Transformation</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.CamelDSL#process" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="process[T](step:io.xtech.babel.fish.model.StepDefinition,previous:T)(implicitrouteBuilder:org.apache.camel.builder.RouteBuilder):Unit"></a>
+      <a id="process[T](StepDefinition,T)(org.apache.camel.builder.RouteBuilder):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">process</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="step">step: <span class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</span></span>, <span name="previous">previous: <span class="extype" name="io.xtech.babel.camel.CamelDSL.process.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="routeBuilder">routeBuilder: <span class="extype" name="org.apache.camel.builder.RouteBuilder">org.apache.camel.builder.RouteBuilder</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../package.html" class="extype" name="io.xtech.babel.camel">io.xtech.babel.camel</a>] </dd><dt>Definition Classes</dt><dd><a href="../CamelDSL.html" class="extype" name="io.xtech.babel.camel.CamelDSL">CamelDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.fish.parsing.StepProcessor#processSteps" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="processSteps(info:io.xtech.babel.fish.parsing.StepInformation[B]):Unit"></a>
+      <a id="processSteps(StepInformation[org.apache.camel.builder.RouteBuilder]):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">processSteps</span><span class="params">(<span name="info">info: <span class="extype" name="io.xtech.babel.fish.parsing.StepInformation">StepInformation</span>[<span class="extype" name="org.apache.camel.builder.RouteBuilder">org.apache.camel.builder.RouteBuilder</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../package.html" class="extype" name="io.xtech.babel">io.xtech.babel</a>] </dd><dt>Definition Classes</dt><dd>StepProcessor</dd><dt>Annotations</dt><dd>
+                <span class="name">@tailrec</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.RecipientList#recipientListDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="recipientListDSLExtension[I](baseDsl:io.xtech.babel.fish.BaseDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.RecipientListDSL[I]"></a>
+      <a id="recipientListDSLExtension[I](BaseDSL[I])(ClassTag[I]):RecipientListDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">recipientListDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.RecipientList.recipientListDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.RecipientList.recipientListDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.RecipientListDSL">RecipientListDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.RecipientList.recipientListDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>RecipientList</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Resequencer#resequencerDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="resequencerDSLExtension[I](baseDsl:io.xtech.babel.fish.BaseDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.ResequencerDSL[I]"></a>
+      <a id="resequencerDSLExtension[I](BaseDSL[I])(ClassTag[I]):ResequencerDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">resequencerDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Resequencer.resequencerDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Resequencer.resequencerDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.ResequencerDSL">ResequencerDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Resequencer.resequencerDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Resequencer</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.CamelDSL#routeBuilder" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="routeBuilder(routeDefinitions:scala.collection.immutable.Seq[io.xtech.babel.fish.model.RouteDefinition])(implicitcamelContext:org.apache.camel.model.ModelCamelContext):org.apache.camel.builder.RouteBuilder"></a>
+      <a id="routeBuilder(Seq[RouteDefinition])(ModelCamelContext):org.apache.camel.builder.RouteBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">routeBuilder</span><span class="params">(<span name="routeDefinitions">routeDefinitions: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<span class="extype" name="io.xtech.babel.fish.model.RouteDefinition">RouteDefinition</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="camelContext">camelContext: <span class="extype" name="org.apache.camel.model.ModelCamelContext">ModelCamelContext</span></span>)</span><span class="result">: <span class="extype" name="org.apache.camel.builder.RouteBuilder">org.apache.camel.builder.RouteBuilder</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Creates a Camel RouteBuilder from DSL Definition.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a Camel RouteBuilder from DSL Definition. The RouteBuilder can be used to declare the routes in a CamelContext.</p></div><dl class="paramcmts block"><dt class="param">routeDefinitions</dt><dd class="cmt"><p>A Seq of route definition builded by the Babel fish DSL.</p></dd><dt>returns</dt><dd class="cmt"><p>a new camel route builder.
+</p></dd></dl><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../package.html" class="extype" name="io.xtech.babel.camel">io.xtech.babel.camel</a>] </dd><dt>Definition Classes</dt><dd><a href="../CamelDSL.html" class="extype" name="io.xtech.babel.camel.CamelDSL">CamelDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.RouteConfiguration#routeConfigurationDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="routeConfigurationDSLExtension[I](baseDsl:io.xtech.babel.fish.FromDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.RouteConfigurationDSL[I]"></a>
+      <a id="routeConfigurationDSLExtension[I](FromDSL[I])(ClassTag[I]):RouteConfigurationDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">routeConfigurationDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.FromDSL">FromDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.RouteConfiguration.routeConfigurationDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.RouteConfiguration.routeConfigurationDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.RouteConfigurationDSL">RouteConfigurationDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.RouteConfiguration.routeConfigurationDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>RouteConfiguration</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.RouteId#routeIdDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="routeIdDSLExtension[I](baseDsl:io.xtech.babel.fish.FromDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.RouteIdDSL[I]"></a>
+      <a id="routeIdDSLExtension[I](FromDSL[I])(ClassTag[I]):RouteIdDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">routeIdDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.FromDSL">FromDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.RouteId.routeIdDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.RouteId.routeIdDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.RouteIdDSL">RouteIdDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.RouteId.routeIdDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>RouteId</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Sort#sortDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="sortDSLExtension[I](baseDsl:io.xtech.babel.fish.BaseDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.SortDSL[I]"></a>
+      <a id="sortDSLExtension[I](BaseDSL[I])(ClassTag[I]):SortDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sortDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Sort.sortDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Sort.sortDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.SortDSL">SortDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Sort.sortDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Sort</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Validation#steps" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="steps:scala.collection.immutable.Seq[Validation.this.Process]"></a>
+      <a id="steps:Seq[Process]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">steps</span><span class="result">: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<a href="#Process=PartialFunction[io.xtech.babel.fish.parsing.StepInformation[T],Any]" class="extmbr" name="io.xtech.babel.camel.builder.RouteBuilder.Process">Process</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Validation → Parsing</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.CamelDSL#stringSink" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stringSink(uri:String):io.xtech.babel.camel.model.CamelSink[Any]"></a>
+      <a id="stringSink(String):CamelSink[Any]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stringSink</span><span class="params">(<span name="uri">uri: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="../model/CamelSink.html" class="extype" name="io.xtech.babel.camel.model.CamelSink">CamelSink</a>[<span class="extype" name="scala.Any">Any</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CamelDSL.html" class="extype" name="io.xtech.babel.camel.CamelDSL">CamelDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.camel.CamelDSL#stringSinks" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stringSinks(uris:Seq[String]):scala.collection.immutable.Seq[io.xtech.babel.camel.model.CamelSink[Any]]"></a>
+      <a id="stringSinks(Seq[String]):Seq[CamelSink[Any]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stringSinks</span><span class="params">(<span name="uris">uris: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<a href="../model/CamelSink.html" class="extype" name="io.xtech.babel.camel.model.CamelSink">CamelSink</a>[<span class="extype" name="scala.Any">Any</span>]]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CamelDSL.html" class="extype" name="io.xtech.babel.camel.CamelDSL">CamelDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.camel.CamelDSL#stringSource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="stringSource(uri:String):io.xtech.babel.camel.model.CamelSource"></a>
+      <a id="stringSource(String):CamelSource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">stringSource</span><span class="params">(<span name="uri">uri: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="../model/CamelSource.html" class="extype" name="io.xtech.babel.camel.model.CamelSource">CamelSource</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../CamelDSL.html" class="extype" name="io.xtech.babel.camel.CamelDSL">CamelDSL</a></dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Basics#subRouteDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="subRouteDSLExtension[I](baseDsl:io.xtech.babel.fish.BaseDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.SubRouteDSL[I]"></a>
+      <a id="subRouteDSLExtension[I](BaseDSL[I])(ClassTag[I]):SubRouteDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">subRouteDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Basics.subRouteDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Basics.subRouteDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.SubRouteDSL">SubRouteDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Basics.subRouteDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Basics</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Transformation#toProcessor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toProcessor[I,O](function:I=&gt;O):io.xtech.babel.camel.parsing.CamelBodyProcessor[I,O]"></a>
+      <a id="toProcessor[I,O]((I)⇒O):CamelBodyProcessor[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toProcessor</span><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="function">function: (<span class="extype" name="io.xtech.babel.camel.parsing.Transformation.toProcessor.I">I</span>) ⇒ <span class="extype" name="io.xtech.babel.camel.parsing.Transformation.toProcessor.O">O</span></span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.parsing.CamelBodyProcessor">CamelBodyProcessor</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Transformation.toProcessor.I">I</span>, <span class="extype" name="io.xtech.babel.camel.parsing.Transformation.toProcessor.O">O</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Transformation</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Transaction#transactedDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="transactedDSLExtension[I](baseDsl:io.xtech.babel.fish.BaseDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.TransactionDSL[I]"></a>
+      <a id="transactedDSLExtension[I](BaseDSL[I])(ClassTag[I]):TransactionDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">transactedDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Transaction.transactedDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Transaction.transactedDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.TransactionDSL">TransactionDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Transaction.transactedDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Transaction</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Transformation#transformationDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="transformationDSLExtension[I](baseDsl:io.xtech.babel.fish.BaseDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.TransformationDSL[I]"></a>
+      <a id="transformationDSLExtension[I](BaseDSL[I])(ClassTag[I]):TransformationDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">transformationDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Transformation.transformationDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Transformation.transformationDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.TransformationDSL">TransformationDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Transformation.transformationDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Transformation</dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.Validation#validationDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="validationDSLExtension[I](baseDsl:io.xtech.babel.fish.BaseDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.ValidationDSL[I]"></a>
+      <a id="validationDSLExtension[I](BaseDSL[I])(ClassTag[I]):ValidationDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">validationDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Validation.validationDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Validation.validationDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.ValidationDSL">ValidationDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.Validation.validationDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Validation</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="io.xtech.babel.camel.parsing.WireTap#wiretapDSLExtension" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wiretapDSLExtension[I](baseDsl:io.xtech.babel.fish.BaseDSL[I])(implicitevidence$1:scala.reflect.ClassTag[I]):io.xtech.babel.camel.WireTapDSL[I]"></a>
+      <a id="wiretapDSLExtension[I](BaseDSL[I])(ClassTag[I]):WireTapDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wiretapDSLExtension</span><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="baseDsl">baseDsl: <span class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.WireTap.wiretapDSLExtension.I">I</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="io.xtech.babel.camel.parsing.WireTap.wiretapDSLExtension.I">I</span>]</span>)</span><span class="result">: <span class="extype" name="io.xtech.babel.camel.WireTapDSL">WireTapDSL</span>[<span class="extype" name="io.xtech.babel.camel.parsing.WireTap.wiretapDSLExtension.I">I</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>WireTap</dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="org.apache.camel.RoutesBuilder">
+              <h3>Inherited from <span class="extype" name="org.apache.camel.RoutesBuilder">RoutesBuilder</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.CamelDSL">
+              <h3>Inherited from <a href="../CamelDSL.html" class="extype" name="io.xtech.babel.camel.CamelDSL">CamelDSL</a></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.Validation">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.Validation">Validation</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.WireTap">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.WireTap">WireTap</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.RouteConfiguration">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.RouteConfiguration">RouteConfiguration</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.RecipientList">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.RecipientList">RecipientList</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.Handler">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.Handler">Handler</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.Resequencer">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.Resequencer">Resequencer</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.Sort">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.Sort">Sort</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.Log">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.Log">Log</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.Enricher">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.Enricher">Enricher</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.RouteId">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.RouteId">RouteId</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.Marshaller">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.Marshaller">Marshaller</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.Transformation">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.Transformation">Transformation</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.Transaction">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.Transaction">Transaction</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.Aggregation">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.Aggregation">Aggregation</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.Basics">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.camel.parsing.Basics">Basics</span></h3>
+            </div><div class="parent" name="io.xtech.babel.camel.parsing.CamelParsing">
+              <h3>Inherited from <a href="../parsing/CamelParsing.html" class="extype" name="io.xtech.babel.camel.parsing.CamelParsing">CamelParsing</a></h3>
+            </div><div class="parent" name="io.xtech.babel.fish.parsing.StepProcessor">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.fish.parsing.StepProcessor">StepProcessor</span>[<span class="extype" name="org.apache.camel.builder.RouteBuilder">org.apache.camel.builder.RouteBuilder</span>]</h3>
+            </div><div class="parent" name="io.xtech.babel.fish.parsing.Parsing">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.fish.parsing.Parsing">Parsing</span>[<span class="extype" name="org.apache.camel.builder.RouteBuilder">org.apache.camel.builder.RouteBuilder</span>]</h3>
+            </div><div class="parent" name="io.xtech.babel.fish.DSL">
+              <h3>Inherited from <span class="extype" name="io.xtech.babel.fish.DSL">DSL</span></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../lib/template.js"></script>
+    </body>
+      </html>

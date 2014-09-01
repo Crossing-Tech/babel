@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>model - Babel :: DSL 0.6.0-SNAPSHOT API - io.xtech.babel.fish.model</title>
+          <meta name="description" content="model - Babel DSL 0.6.0 - SNAPSHOT API - io.xtech.babel.fish.model" />
+          <meta name="keywords" content="model Babel DSL 0.6.0 SNAPSHOT API io.xtech.babel.fish.model" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'io.xtech.babel.fish.model.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="io">io</a>.<a href="../../../package.html" class="extype" name="io.xtech">xtech</a>.<a href="../../package.html" class="extype" name="io.xtech.babel">babel</a>.<a href="../package.html" class="extype" name="io.xtech.babel.fish">fish</a></p>
+        <h1>model</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">model</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="io.xtech.babel.fish.model.AggregationConfiguration" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AggregationConfiguration[I,O]extendsAnyRef"></a>
+      <a id="AggregationConfiguration[I,O]:AggregationConfiguration[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AggregationConfiguration.html"><span class="name">AggregationConfiguration</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The base trait for all declaration of an aggregator.</p>
+    </li><li name="io.xtech.babel.fish.model.AggregationDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AggregationDefinition[I,O]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="AggregationDefinition[I,O]:AggregationDefinition[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AggregationDefinition.html"><span class="name">AggregationDefinition</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="configuration">configuration: <a href="AggregationConfiguration.html" class="extype" name="io.xtech.babel.fish.model.AggregationConfiguration">AggregationConfiguration</a>[<span class="extype" name="io.xtech.babel.fish.model.AggregationDefinition.I">I</span>, <span class="extype" name="io.xtech.babel.fish.model.AggregationDefinition.O">O</span>]</span>)</span><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition a message filtering in a route.</p>
+    </li><li name="io.xtech.babel.fish.model.BodyConvertorDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BodyConvertorDefinition[I,O]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="BodyConvertorDefinition[I,O]:BodyConvertorDefinition[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="BodyConvertorDefinition.html"><span class="name">BodyConvertorDefinition</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="inClass">inClass: <span class="extype" name="scala.Predef.Class">Class</span>[<span class="extype" name="io.xtech.babel.fish.model.BodyConvertorDefinition.I">I</span>]</span>, <span name="outClass">outClass: <span class="extype" name="scala.Predef.Class">Class</span>[<span class="extype" name="io.xtech.babel.fish.model.BodyConvertorDefinition.O">O</span>]</span>)</span><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition of a body message conversion.</p>
+    </li><li name="io.xtech.babel.fish.model.BodyTypeValidationDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BodyTypeValidationDefinition[I,O]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="BodyTypeValidationDefinition[I,O]:BodyTypeValidationDefinition[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="BodyTypeValidationDefinition.html"><span class="name">BodyTypeValidationDefinition</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="inClass">inClass: <span class="extype" name="scala.Predef.Class">Class</span>[<span class="extype" name="io.xtech.babel.fish.model.BodyTypeValidationDefinition.I">I</span>]</span>, <span name="outClass">outClass: <span class="extype" name="scala.Predef.Class">Class</span>[<span class="extype" name="io.xtech.babel.fish.model.BodyTypeValidationDefinition.O">O</span>]</span>)</span><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition of a body type validation.</p>
+    </li><li name="io.xtech.babel.fish.model.ChoiceDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ChoiceDefinition[I]extendsScopeDefinition[io.xtech.babel.fish.model.WhenDefinition[I]]withProductwithSerializable"></a>
+      <a id="ChoiceDefinition[I]:ChoiceDefinition[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ChoiceDefinition.html"><span class="name">ChoiceDefinition</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="params">()</span><span class="result"> extends <a href="ScopeDefinition.html" class="extype" name="io.xtech.babel.fish.model.ScopeDefinition">ScopeDefinition</a>[<a href="WhenDefinition.html" class="extype" name="io.xtech.babel.fish.model.WhenDefinition">WhenDefinition</a>[<span class="extype" name="io.xtech.babel.fish.model.ChoiceDefinition.I">I</span>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition of the &quot;choice&quot; block in the DSL.</p>
+    </li><li name="io.xtech.babel.fish.model.EndpointDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="EndpointDefinition[I,O]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="EndpointDefinition[I,O]:EndpointDefinition[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="EndpointDefinition.html"><span class="name">EndpointDefinition</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="sink">sink: <a href="Sink.html" class="extype" name="io.xtech.babel.fish.model.Sink">Sink</a>[<span class="extype" name="io.xtech.babel.fish.model.EndpointDefinition.I">I</span>, <span class="extype" name="io.xtech.babel.fish.model.EndpointDefinition.O">O</span>]</span>, <span name="requestReply">requestReply: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Boolean">Boolean</span>] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition of a sink in the route.</p>
+    </li><li name="io.xtech.babel.fish.model.Expression" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Expression[-I,+O]extendsAnyRef"></a>
+      <a id="Expression[-I,+O]:Expression[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Expression.html"><span class="name">Expression</span></a><span class="tparams">[<span name="I">-I</span>, <span name="O">+O</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The base class for babel expression.</p>
+    </li><li name="io.xtech.babel.fish.model.FilterDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FilterDefinition[I]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="FilterDefinition[I]:FilterDefinition[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FilterDefinition.html"><span class="name">FilterDefinition</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="predicate">predicate: <a href="Predicate.html" class="extype" name="io.xtech.babel.fish.model.Predicate">Predicate</a>[<span class="extype" name="io.xtech.babel.fish.model.FilterDefinition.I">I</span>]</span>)</span><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition of filtering message in a route.</p>
+    </li><li name="io.xtech.babel.fish.model.FromDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FromDefinitionextendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="FromDefinition:FromDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FromDefinition.html"><span class="name">FromDefinition</span></a><span class="params">(<span name="outClass">outClass: <span class="extype" name="scala.Predef.Class">Class</span>[_]</span>, <span name="source">source: <a href="Source.html" class="extype" name="io.xtech.babel.fish.model.Source">Source</a>[_]</span>)</span><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The FromDefinition define the start of the route.</p>
+    </li><li name="io.xtech.babel.fish.model.Message" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Message[+T]extendsAnyRef"></a>
+      <a id="Message[+T]:Message[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Message.html"><span class="name">Message</span></a><span class="tparams">[<span name="T">+T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A message passing through a route.</p>
+    </li><li name="io.xtech.babel.fish.model.MulticastDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MulticastDefinition[I]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="MulticastDefinition[I]:MulticastDefinition[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MulticastDefinition.html"><span class="name">MulticastDefinition</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="params">(<span name="sinks">sinks: <span class="extype" name="scala.collection.immutable.Seq">Seq</span>[<a href="Sink.html" class="extype" name="io.xtech.babel.fish.model.Sink">Sink</a>[<span class="extype" name="io.xtech.babel.fish.model.MulticastDefinition.I">I</span>, _]]</span>)</span><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition of a multicast.</p>
+    </li><li name="io.xtech.babel.fish.model.OtherwiseDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OtherwiseDefinitionextendsStepDefinition"></a>
+      <a id="OtherwiseDefinition:OtherwiseDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="OtherwiseDefinition.html"><span class="name">OtherwiseDefinition</span></a><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">This class defines a subroute if no other subroutes handle the message.</p>
+    </li><li name="io.xtech.babel.fish.model.Predicate" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Predicate[-I]extendsExpression[I,Boolean]"></a>
+      <a id="Predicate[-I]:Predicate[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Predicate.html"><span class="name">Predicate</span></a><span class="tparams">[<span name="I">-I</span>]</span><span class="result"> extends <a href="Expression.html" class="extype" name="io.xtech.babel.fish.model.Expression">Expression</a>[<span class="extype" name="io.xtech.babel.fish.model.Predicate.I">I</span>, <span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">The base case for babel predicate.</p>
+    </li><li name="io.xtech.babel.fish.model.RouteDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RouteDefinitionextendsProductwithSerializable"></a>
+      <a id="RouteDefinition:RouteDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="RouteDefinition.html"><span class="name">RouteDefinition</span></a><span class="params">(<span name="from">from: <a href="FromDefinition.html" class="extype" name="io.xtech.babel.fish.model.FromDefinition">FromDefinition</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A RouteDefinition contains the definition of the DSL after it has been build.</p>
+    </li><li name="io.xtech.babel.fish.model.ScopeDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ScopeDefinition[D&lt;:io.xtech.babel.fish.model.StepDefinition]extendsStepDefinition"></a>
+      <a id="ScopeDefinition[D&lt;:StepDefinition]:ScopeDefinition[D]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ScopeDefinition.html"><span class="name">ScopeDefinition</span></a><span class="tparams">[<span name="D">D &lt;: <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a></span>]</span><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">defines an EIP which may have several outputs
+</p>
+    </li><li name="io.xtech.babel.fish.model.Sink" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Sink[-I,+O]extendsAnyRef"></a>
+      <a id="Sink[-I,+O]:Sink[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Sink.html"><span class="name">Sink</span></a><span class="tparams">[<span name="I">-I</span>, <span name="O">+O</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The destination of a route.</p>
+    </li><li name="io.xtech.babel.fish.model.Source" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Source[+O]extendsAnyRef"></a>
+      <a id="Source[+O]:Source[O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Source.html"><span class="name">Source</span></a><span class="tparams">[<span name="O">+O</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The source of a route.</p>
+    </li><li name="io.xtech.babel.fish.model.SplitterDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SplitterDefinition[I,O]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="SplitterDefinition[I,O]:SplitterDefinition[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SplitterDefinition.html"><span class="name">SplitterDefinition</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="expression">expression: <a href="Expression.html" class="extype" name="io.xtech.babel.fish.model.Expression">Expression</a>[<span class="extype" name="io.xtech.babel.fish.model.SplitterDefinition.I">I</span>, <span class="extype" name="io.xtech.babel.fish.model.SplitterDefinition.O">O</span>]</span>)</span><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition of message splitter.</p>
+    </li><li name="io.xtech.babel.fish.model.StepDefinition" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="StepDefinitionextendsAnyRef"></a>
+      <a id="StepDefinition:StepDefinition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="StepDefinition.html"><span class="name">StepDefinition</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A StepDefinition is the base for all Definition in the DSL.</p>
+    </li><li name="io.xtech.babel.fish.model.TransformerDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TransformerDefinition[I,O]extendsStepDefinitionwithProductwithSerializable"></a>
+      <a id="TransformerDefinition[I,O]:TransformerDefinition[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TransformerDefinition.html"><span class="name">TransformerDefinition</span></a><span class="tparams">[<span name="I">I</span>, <span name="O">O</span>]</span><span class="params">(<span name="expression">expression: <a href="Expression.html" class="extype" name="io.xtech.babel.fish.model.Expression">Expression</a>[<span class="extype" name="io.xtech.babel.fish.model.TransformerDefinition.I">I</span>, <span class="extype" name="io.xtech.babel.fish.model.TransformerDefinition.O">O</span>]</span>, <span name="processorId">processorId: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The definition of some message transformation.</p>
+    </li><li name="io.xtech.babel.fish.model.ValidationError" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ValidationErrorextendsProductwithSerializable"></a>
+      <a id="ValidationError:ValidationError"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ValidationError.html"><span class="name">ValidationError</span></a><span class="params">(<span name="errorMessage">errorMessage: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="definition">definition: <span class="extype" name="scala.Option">Option</span>[<a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a>] = <span class="symbol">scala.None</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A ValidationError is an error found during the validation phase of the DSL.</p>
+    </li><li name="io.xtech.babel.fish.model.WhenDefinition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WhenDefinition[I]extendsStepDefinition"></a>
+      <a id="WhenDefinition[I]:WhenDefinition[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="WhenDefinition.html"><span class="name">WhenDefinition</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends <a href="StepDefinition.html" class="extype" name="io.xtech.babel.fish.model.StepDefinition">StepDefinition</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">This class defines a subroute with a predicate.</p>
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../lib/template.js"></script>
+    </body>
+      </html>

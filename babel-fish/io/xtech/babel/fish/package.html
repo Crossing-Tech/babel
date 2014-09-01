@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>fish - Babel :: DSL 0.6.0-SNAPSHOT API - io.xtech.babel.fish</title>
+          <meta name="description" content="fish - Babel DSL 0.6.0 - SNAPSHOT API - io.xtech.babel.fish" />
+          <meta name="keywords" content="fish Babel DSL 0.6.0 SNAPSHOT API io.xtech.babel.fish" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'io.xtech.babel.fish.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="io">io</a>.<a href="../../package.html" class="extype" name="io.xtech">xtech</a>.<a href="../package.html" class="extype" name="io.xtech.babel">babel</a></p>
+        <h1>fish</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">fish</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="io.xtech.babel.fish.BaseDSL" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BaseDSL[I]extendsNoDSLwithDSL2BaseDSL[I]"></a>
+      <a id="BaseDSL[I]:BaseDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BaseDSL.html"><span class="name">BaseDSL</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends <a href="NoDSL.html" class="extype" name="io.xtech.babel.fish.NoDSL">NoDSL</a> with <a href="DSL2BaseDSL.html" class="extype" name="io.xtech.babel.fish.DSL2BaseDSL">DSL2BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.BaseDSL.I">I</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">The base class for all DSL.</p>
+    </li><li name="io.xtech.babel.fish.BaseDSL2FromDSL" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BaseDSL2FromDSL[I]extendsDSLEnricher"></a>
+      <a id="BaseDSL2FromDSL[I]:BaseDSL2FromDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BaseDSL2FromDSL.html"><span class="name">BaseDSL2FromDSL</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends <a href="DSLEnricher.html" class="extype" name="io.xtech.babel.fish.DSLEnricher">DSLEnricher</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Template DSL whose keywords are typing a FromDSL
+</p>
+    </li><li name="io.xtech.babel.fish.BodyExpression" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BodyExpression[-I,+O]extendsExpression[I,O]withProductwithSerializable"></a>
+      <a id="BodyExpression[-I,+O]:BodyExpression[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="BodyExpression.html"><span class="name">BodyExpression</span></a><span class="tparams">[<span name="I">-I</span>, <span name="O">+O</span>]</span><span class="params">(<span name="expression">expression: (<span class="extype" name="io.xtech.babel.fish.BodyExpression.I">I</span>) ⇒ <span class="extype" name="io.xtech.babel.fish.BodyExpression.O">O</span></span>)</span><span class="result"> extends <a href="model/Expression.html" class="extype" name="io.xtech.babel.fish.model.Expression">Expression</a>[<span class="extype" name="io.xtech.babel.fish.BodyExpression.I">I</span>, <span class="extype" name="io.xtech.babel.fish.BodyExpression.O">O</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">defines an expression on the message body.</p>
+    </li><li name="io.xtech.babel.fish.BodyPredicate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BodyPredicate[-I]extendsPredicate[I]withProductwithSerializable"></a>
+      <a id="BodyPredicate[-I]:BodyPredicate[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="BodyPredicate.html"><span class="name">BodyPredicate</span></a><span class="tparams">[<span name="I">-I</span>]</span><span class="params">(<span name="predicate">predicate: (<span class="extype" name="io.xtech.babel.fish.BodyPredicate.I">I</span>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <a href="model/Predicate.html" class="extype" name="io.xtech.babel.fish.model.Predicate">Predicate</a>[<span class="extype" name="io.xtech.babel.fish.BodyPredicate.I">I</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">defines a predicate on the message body.</p>
+    </li><li name="io.xtech.babel.fish.ChoiceDSL" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ChoiceDSL[I]extendsBaseDSL[I]"></a>
+      <a id="ChoiceDSL[I]:ChoiceDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ChoiceDSL.html"><span class="name">ChoiceDSL</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.ChoiceDSL.I">I</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">A specific DSL for a choice block.</p>
+    </li><li name="io.xtech.babel.fish.DSL" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DSLextendsAnyRef"></a>
+      <a id="DSL:DSL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DSL.html"><span class="name">DSL</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The Class to use when creating the route.</p>
+    </li><li name="io.xtech.babel.fish.DSL2BaseDSL" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DSL2BaseDSL[I]extendsDSLEnricher"></a>
+      <a id="DSL2BaseDSL[I]:DSL2BaseDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DSL2BaseDSL.html"><span class="name">DSL2BaseDSL</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends <a href="DSLEnricher.html" class="extype" name="io.xtech.babel.fish.DSLEnricher">DSLEnricher</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Template DSL whose keywords are typing a BaseDSL
+</p>
+    </li><li name="io.xtech.babel.fish.DSLEnricher" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DSLEnricherextendsAnyRef"></a>
+      <a id="DSLEnricher:DSLEnricher"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DSLEnricher.html"><span class="name">DSLEnricher</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.fish.FromDSL" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FromDSL[I]extendsBaseDSL[I]"></a>
+      <a id="FromDSL[I]:FromDSL[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="FromDSL.html"><span class="name">FromDSL</span></a><span class="tparams">[<span name="I">I</span>]</span><span class="result"> extends <a href="BaseDSL.html" class="extype" name="io.xtech.babel.fish.BaseDSL">BaseDSL</a>[<span class="extype" name="io.xtech.babel.fish.FromDSL.I">I</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">A specific DSL that defines the behaviour of the route.</p>
+    </li><li name="io.xtech.babel.fish.JVMFunction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JVMFunction[-I,+O]extendsAnyRef"></a>
+      <a id="JVMFunction[-I,+O]:JVMFunction[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JVMFunction.html"><span class="name">JVMFunction</span></a><span class="tparams">[<span name="I">-I</span>, <span name="O">+O</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">extends a Java function be to read by Scala
+</p>
+    </li><li name="io.xtech.babel.fish.JVMPredicate" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JVMPredicate[-I]extendsAnyRef"></a>
+      <a id="JVMPredicate[-I]:JVMPredicate[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JVMPredicate.html"><span class="name">JVMPredicate</span></a><span class="tparams">[<span name="I">-I</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">extends a Java predicate to be read by Scala
+</p>
+    </li><li name="io.xtech.babel.fish.MessageExpression" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MessageExpression[-I,+O]extendsExpression[I,O]withProductwithSerializable"></a>
+      <a id="MessageExpression[-I,+O]:MessageExpression[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MessageExpression.html"><span class="name">MessageExpression</span></a><span class="tparams">[<span name="I">-I</span>, <span name="O">+O</span>]</span><span class="params">(<span name="expression">expression: (<a href="model/Message.html" class="extype" name="io.xtech.babel.fish.model.Message">Message</a>[<span class="extype" name="io.xtech.babel.fish.MessageExpression.I">I</span>]) ⇒ <span class="extype" name="io.xtech.babel.fish.MessageExpression.O">O</span></span>)</span><span class="result"> extends <a href="model/Expression.html" class="extype" name="io.xtech.babel.fish.model.Expression">Expression</a>[<span class="extype" name="io.xtech.babel.fish.MessageExpression.I">I</span>, <span class="extype" name="io.xtech.babel.fish.MessageExpression.O">O</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">defines an expression on the message
+</p>
+    </li><li name="io.xtech.babel.fish.MessagePredicate" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MessagePredicate[-I]extendsPredicate[I]withProductwithSerializable"></a>
+      <a id="MessagePredicate[-I]:MessagePredicate[I]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MessagePredicate.html"><span class="name">MessagePredicate</span></a><span class="tparams">[<span name="I">-I</span>]</span><span class="params">(<span name="predicate">predicate: (<a href="model/Message.html" class="extype" name="io.xtech.babel.fish.model.Message">Message</a>[<span class="extype" name="io.xtech.babel.fish.MessagePredicate.I">I</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <a href="model/Predicate.html" class="extype" name="io.xtech.babel.fish.model.Predicate">Predicate</a>[<span class="extype" name="io.xtech.babel.fish.MessagePredicate.I">I</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">defines a predicate on the message.</p>
+    </li><li name="io.xtech.babel.fish.MessageTransformationExpression" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MessageTransformationExpression[-I,+O]extendsExpression[I,O]withProductwithSerializable"></a>
+      <a id="MessageTransformationExpression[-I,+O]:MessageTransformationExpression[I,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="MessageTransformationExpression.html"><span class="name">MessageTransformationExpression</span></a><span class="tparams">[<span name="I">-I</span>, <span name="O">+O</span>]</span><span class="params">(<span name="expression">expression: (<a href="model/Message.html" class="extype" name="io.xtech.babel.fish.model.Message">Message</a>[<span class="extype" name="io.xtech.babel.fish.MessageTransformationExpression.I">I</span>]) ⇒ <a href="model/Message.html" class="extype" name="io.xtech.babel.fish.model.Message">Message</a>[<span class="extype" name="io.xtech.babel.fish.MessageTransformationExpression.O">O</span>]</span>)</span><span class="result"> extends <a href="model/Expression.html" class="extype" name="io.xtech.babel.fish.model.Expression">Expression</a>[<span class="extype" name="io.xtech.babel.fish.MessageTransformationExpression.I">I</span>, <span class="extype" name="io.xtech.babel.fish.MessageTransformationExpression.O">O</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">defines a transformation on a message as an expression.</p>
+    </li><li name="io.xtech.babel.fish.NoDSL" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="NoDSLextendsAnyRef"></a>
+      <a id="NoDSL:NoDSL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="NoDSL.html"><span class="name">NoDSL</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Defines the empty DSL base
+</p>
+    </li><li name="io.xtech.babel.fish.RouteDefinitionException" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RouteDefinitionExceptionextendsException"></a>
+      <a id="RouteDefinitionException:RouteDefinitionException"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RouteDefinitionException.html"><span class="name">RouteDefinitionException</span></a><span class="result"> extends <span class="extype" name="scala.Exception">Exception</span></span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="io.xtech.babel.fish.ScalaHelper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ScalaHelper"></a>
+      <a id="ScalaHelper:ScalaHelper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ScalaHelper$.html"><span class="name">ScalaHelper</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Facility tools for java 8 DSLs
+</p>
+    </li><li name="io.xtech.babel.fish.model" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="model"></a>
+      <a id="model:model"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="model/package.html"><span class="name">model</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="io.xtech.babel.fish.parsing" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="parsing"></a>
+      <a id="parsing:parsing"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="parsing/package.html"><span class="name">parsing</span></a>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../lib/template.js"></script>
+    </body>
+      </html>
