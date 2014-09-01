@@ -1,256 +1,256 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="90.24" lines-covered="779" lines-valid="703" branches-covered="3" branches-valid="3" branch-rate="100.00" complexity="0" version="1.0" timestamp="1409575266154">
+<coverage line-rate="93.07" lines-covered="779" lines-valid="725" branches-covered="3" branches-valid="3" branch-rate="100.00" complexity="0" version="1.0" timestamp="1409576458776">
       <sources>
         <source>/src/main/scala</source>
       </sources>
       <packages>
-        <package name="io.xtech.babel.camel" line-rate="89.88" branch-rate="100.00" complexity="0">
+        <package name="io.xtech.babel.camel" line-rate="93.00" branch-rate="100.00" complexity="0">
       <classes>
         <class name="HandlerDSL" filename="src/main/scala/io/xtech/babel/camel/HandlerDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/HandlerDSL/handle" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="41" hits="215" branch="false"/><line number="42" hits="215" branch="false"/><line number="44" hits="215" branch="false"/>
+        <line number="41" hits="344" branch="false"/><line number="42" hits="344" branch="false"/><line number="44" hits="344" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel/HandlerDSL/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="36" hits="215" branch="false"/><line number="39" hits="215" branch="false"/><line number="39" hits="215" branch="false"/><line number="39" hits="215" branch="false"/>
+        <line number="36" hits="344" branch="false"/><line number="39" hits="344" branch="false"/><line number="39" hits="344" branch="false"/><line number="39" hits="344" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="36" hits="215" branch="false"/><line number="39" hits="215" branch="false"/><line number="39" hits="215" branch="false"/><line number="39" hits="215" branch="false"/><line number="41" hits="215" branch="false"/><line number="42" hits="215" branch="false"/><line number="44" hits="215" branch="false"/>
+        <line number="36" hits="344" branch="false"/><line number="39" hits="344" branch="false"/><line number="39" hits="344" branch="false"/><line number="39" hits="344" branch="false"/><line number="41" hits="344" branch="false"/><line number="42" hits="344" branch="false"/><line number="44" hits="344" branch="false"/>
       </lines>
     </class><class name="$anon" filename="src/main/scala/io/xtech/babel/camel/CamelDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/$anon/routeBuilder" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="83" hits="764" branch="false"/><line number="83" hits="764" branch="false"/><line number="83" hits="764" branch="false"/><line number="83" hits="764" branch="false"/><line number="83" hits="604" branch="false"/><line number="81" hits="604" branch="false"/><line number="86" hits="604" branch="false"/>
+        <line number="83" hits="1228" branch="false"/><line number="83" hits="1228" branch="false"/><line number="83" hits="1228" branch="false"/><line number="83" hits="1228" branch="false"/><line number="83" hits="971" branch="false"/><line number="81" hits="971" branch="false"/><line number="86" hits="971" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="83" hits="764" branch="false"/><line number="83" hits="764" branch="false"/><line number="83" hits="764" branch="false"/><line number="83" hits="764" branch="false"/><line number="83" hits="604" branch="false"/><line number="81" hits="604" branch="false"/><line number="86" hits="604" branch="false"/>
+        <line number="83" hits="1228" branch="false"/><line number="83" hits="1228" branch="false"/><line number="83" hits="1228" branch="false"/><line number="83" hits="1228" branch="false"/><line number="83" hits="971" branch="false"/><line number="81" hits="971" branch="false"/><line number="86" hits="971" branch="false"/>
       </lines>
     </class><class name="CamelDSL" filename="src/main/scala/io/xtech/babel/camel/CamelDSL.scala" line-rate="85.71" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/CamelDSL/&lt;none&gt;" signature="()V" line-rate="85.71" branch-rate="100.00">
       <lines>
-        <line number="59" hits="684" branch="false"/><line number="61" hits="915" branch="false"/><line number="63" hits="15" branch="false"/><line number="63" hits="5" branch="false"/><line number="63" hits="5" branch="false"/><line number="63" hits="5" branch="false"/><line number="68" hits="25" branch="false"/><line number="69" hits="5" branch="false"/><line number="72" hits="375" branch="false"/><line number="72" hits="375" branch="false"/><line number="90" hits="35" branch="false"/><line number="91" hits="35" branch="false"/><line number="92" hits="0" branch="false"/><line number="92" hits="0" branch="false"/>
+        <line number="59" hits="1100" branch="false"/><line number="61" hits="1471" branch="false"/><line number="63" hits="24" branch="false"/><line number="63" hits="8" branch="false"/><line number="63" hits="8" branch="false"/><line number="63" hits="8" branch="false"/><line number="68" hits="41" branch="false"/><line number="69" hits="8" branch="false"/><line number="72" hits="600" branch="false"/><line number="72" hits="600" branch="false"/><line number="90" hits="56" branch="false"/><line number="91" hits="56" branch="false"/><line number="92" hits="0" branch="false"/><line number="92" hits="0" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="59" hits="684" branch="false"/><line number="61" hits="915" branch="false"/><line number="63" hits="15" branch="false"/><line number="63" hits="5" branch="false"/><line number="63" hits="5" branch="false"/><line number="63" hits="5" branch="false"/><line number="68" hits="25" branch="false"/><line number="69" hits="5" branch="false"/><line number="72" hits="375" branch="false"/><line number="72" hits="375" branch="false"/><line number="90" hits="35" branch="false"/><line number="91" hits="35" branch="false"/><line number="92" hits="0" branch="false"/><line number="92" hits="0" branch="false"/>
+        <line number="59" hits="1100" branch="false"/><line number="61" hits="1471" branch="false"/><line number="63" hits="24" branch="false"/><line number="63" hits="8" branch="false"/><line number="63" hits="8" branch="false"/><line number="63" hits="8" branch="false"/><line number="68" hits="41" branch="false"/><line number="69" hits="8" branch="false"/><line number="72" hits="600" branch="false"/><line number="72" hits="600" branch="false"/><line number="90" hits="56" branch="false"/><line number="91" hits="56" branch="false"/><line number="92" hits="0" branch="false"/><line number="92" hits="0" branch="false"/>
       </lines>
     </class><class name="TransformationDSL" filename="src/main/scala/io/xtech/babel/camel/TransformationDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/TransformationDSL/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="32" hits="10" branch="false"/><line number="32" hits="10" branch="false"/><line number="32" hits="10" branch="false"/><line number="32" hits="10" branch="false"/><line number="32" hits="10" branch="false"/><line number="37" hits="5" branch="false"/><line number="37" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="45" hits="15" branch="false"/><line number="45" hits="15" branch="false"/><line number="45" hits="15" branch="false"/><line number="45" hits="15" branch="false"/><line number="45" hits="15" branch="false"/><line number="51" hits="10" branch="false"/><line number="51" hits="10" branch="false"/><line number="55" hits="5" branch="false"/><line number="55" hits="5" branch="false"/><line number="59" hits="10" branch="false"/><line number="59" hits="10" branch="false"/><line number="59" hits="10" branch="false"/><line number="59" hits="10" branch="false"/><line number="59" hits="10" branch="false"/><line number="65" hits="5" branch="false"/><line number="65" hits="5" branch="false"/><line number="69" hits="5" branch="false"/><line number="69" hits="5" branch="false"/>
+        <line number="32" hits="16" branch="false"/><line number="32" hits="16" branch="false"/><line number="32" hits="16" branch="false"/><line number="32" hits="16" branch="false"/><line number="32" hits="16" branch="false"/><line number="37" hits="8" branch="false"/><line number="37" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="45" hits="24" branch="false"/><line number="45" hits="24" branch="false"/><line number="45" hits="24" branch="false"/><line number="45" hits="24" branch="false"/><line number="45" hits="24" branch="false"/><line number="51" hits="16" branch="false"/><line number="51" hits="16" branch="false"/><line number="55" hits="8" branch="false"/><line number="55" hits="8" branch="false"/><line number="59" hits="16" branch="false"/><line number="59" hits="16" branch="false"/><line number="59" hits="16" branch="false"/><line number="59" hits="16" branch="false"/><line number="59" hits="16" branch="false"/><line number="65" hits="8" branch="false"/><line number="65" hits="8" branch="false"/><line number="69" hits="8" branch="false"/><line number="69" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="32" hits="10" branch="false"/><line number="32" hits="10" branch="false"/><line number="32" hits="10" branch="false"/><line number="32" hits="10" branch="false"/><line number="32" hits="10" branch="false"/><line number="37" hits="5" branch="false"/><line number="37" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="45" hits="15" branch="false"/><line number="45" hits="15" branch="false"/><line number="45" hits="15" branch="false"/><line number="45" hits="15" branch="false"/><line number="45" hits="15" branch="false"/><line number="51" hits="10" branch="false"/><line number="51" hits="10" branch="false"/><line number="55" hits="5" branch="false"/><line number="55" hits="5" branch="false"/><line number="59" hits="10" branch="false"/><line number="59" hits="10" branch="false"/><line number="59" hits="10" branch="false"/><line number="59" hits="10" branch="false"/><line number="59" hits="10" branch="false"/><line number="65" hits="5" branch="false"/><line number="65" hits="5" branch="false"/><line number="69" hits="5" branch="false"/><line number="69" hits="5" branch="false"/>
+        <line number="32" hits="16" branch="false"/><line number="32" hits="16" branch="false"/><line number="32" hits="16" branch="false"/><line number="32" hits="16" branch="false"/><line number="32" hits="16" branch="false"/><line number="37" hits="8" branch="false"/><line number="37" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="45" hits="24" branch="false"/><line number="45" hits="24" branch="false"/><line number="45" hits="24" branch="false"/><line number="45" hits="24" branch="false"/><line number="45" hits="24" branch="false"/><line number="51" hits="16" branch="false"/><line number="51" hits="16" branch="false"/><line number="55" hits="8" branch="false"/><line number="55" hits="8" branch="false"/><line number="59" hits="16" branch="false"/><line number="59" hits="16" branch="false"/><line number="59" hits="16" branch="false"/><line number="59" hits="16" branch="false"/><line number="59" hits="16" branch="false"/><line number="65" hits="8" branch="false"/><line number="65" hits="8" branch="false"/><line number="69" hits="8" branch="false"/><line number="69" hits="8" branch="false"/>
       </lines>
-    </class><class name="RecipientListDSL" filename="src/main/scala/io/xtech/babel/camel/RecipientListDSL.scala" line-rate="0.00" branch-rate="100.00" complexity="0">
+    </class><class name="RecipientListDSL" filename="src/main/scala/io/xtech/babel/camel/RecipientListDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
-        <method name="io.xtech.babel.camel/RecipientListDSL/&lt;none&gt;" signature="()V" line-rate="0.00" branch-rate="100.00">
+        <method name="io.xtech.babel.camel/RecipientListDSL/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="32" hits="0" branch="false"/><line number="32" hits="0" branch="false"/><line number="32" hits="0" branch="false"/><line number="32" hits="0" branch="false"/><line number="43" hits="0" branch="false"/><line number="43" hits="0" branch="false"/><line number="43" hits="0" branch="false"/>
+        <line number="32" hits="1" branch="false"/><line number="32" hits="1" branch="false"/><line number="32" hits="1" branch="false"/><line number="32" hits="1" branch="false"/><line number="43" hits="1" branch="false"/><line number="43" hits="1" branch="false"/><line number="43" hits="1" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="32" hits="0" branch="false"/><line number="32" hits="0" branch="false"/><line number="32" hits="0" branch="false"/><line number="32" hits="0" branch="false"/><line number="43" hits="0" branch="false"/><line number="43" hits="0" branch="false"/><line number="43" hits="0" branch="false"/>
+        <line number="32" hits="1" branch="false"/><line number="32" hits="1" branch="false"/><line number="32" hits="1" branch="false"/><line number="32" hits="1" branch="false"/><line number="43" hits="1" branch="false"/><line number="43" hits="1" branch="false"/><line number="43" hits="1" branch="false"/>
       </lines>
     </class><class name="RedeliveryDSL" filename="src/main/scala/io/xtech/babel/camel/HandlerDSL.scala" line-rate="33.33" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/RedeliveryDSL/&lt;none&gt;" signature="()V" line-rate="33.33" branch-rate="100.00">
       <lines>
-        <line number="209" hits="30" branch="false"/><line number="209" hits="30" branch="false"/><line number="209" hits="30" branch="false"/><line number="218" hits="0" branch="false"/><line number="218" hits="0" branch="false"/><line number="218" hits="0" branch="false"/><line number="227" hits="0" branch="false"/><line number="227" hits="0" branch="false"/><line number="227" hits="0" branch="false"/>
+        <line number="209" hits="48" branch="false"/><line number="209" hits="48" branch="false"/><line number="209" hits="48" branch="false"/><line number="218" hits="0" branch="false"/><line number="218" hits="0" branch="false"/><line number="218" hits="0" branch="false"/><line number="227" hits="0" branch="false"/><line number="227" hits="0" branch="false"/><line number="227" hits="0" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="209" hits="30" branch="false"/><line number="209" hits="30" branch="false"/><line number="209" hits="30" branch="false"/><line number="218" hits="0" branch="false"/><line number="218" hits="0" branch="false"/><line number="218" hits="0" branch="false"/><line number="227" hits="0" branch="false"/><line number="227" hits="0" branch="false"/><line number="227" hits="0" branch="false"/>
+        <line number="209" hits="48" branch="false"/><line number="209" hits="48" branch="false"/><line number="209" hits="48" branch="false"/><line number="218" hits="0" branch="false"/><line number="218" hits="0" branch="false"/><line number="218" hits="0" branch="false"/><line number="227" hits="0" branch="false"/><line number="227" hits="0" branch="false"/><line number="227" hits="0" branch="false"/>
       </lines>
     </class><class name="WireTapDSL" filename="src/main/scala/io/xtech/babel/camel/WireTapDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/WireTapDSL/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="32" hits="5" branch="false"/><line number="32" hits="5" branch="false"/><line number="32" hits="5" branch="false"/><line number="32" hits="5" branch="false"/>
+        <line number="32" hits="8" branch="false"/><line number="32" hits="8" branch="false"/><line number="32" hits="8" branch="false"/><line number="32" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="32" hits="5" branch="false"/><line number="32" hits="5" branch="false"/><line number="32" hits="5" branch="false"/><line number="32" hits="5" branch="false"/>
+        <line number="32" hits="8" branch="false"/><line number="32" hits="8" branch="false"/><line number="32" hits="8" branch="false"/><line number="32" hits="8" branch="false"/>
       </lines>
     </class><class name="ResequencerDSL" filename="src/main/scala/io/xtech/babel/camel/ResequencerDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/ResequencerDSL/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="39" hits="10" branch="false"/><line number="39" hits="10" branch="false"/><line number="39" hits="10" branch="false"/><line number="39" hits="10" branch="false"/><line number="52" hits="10" branch="false"/><line number="52" hits="10" branch="false"/><line number="52" hits="10" branch="false"/>
+        <line number="39" hits="16" branch="false"/><line number="39" hits="16" branch="false"/><line number="39" hits="16" branch="false"/><line number="39" hits="16" branch="false"/><line number="52" hits="16" branch="false"/><line number="52" hits="16" branch="false"/><line number="52" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="39" hits="10" branch="false"/><line number="39" hits="10" branch="false"/><line number="39" hits="10" branch="false"/><line number="39" hits="10" branch="false"/><line number="52" hits="10" branch="false"/><line number="52" hits="10" branch="false"/><line number="52" hits="10" branch="false"/>
+        <line number="39" hits="16" branch="false"/><line number="39" hits="16" branch="false"/><line number="39" hits="16" branch="false"/><line number="39" hits="16" branch="false"/><line number="52" hits="16" branch="false"/><line number="52" hits="16" branch="false"/><line number="52" hits="16" branch="false"/>
       </lines>
     </class><class name="RouteIdDSL" filename="src/main/scala/io/xtech/babel/camel/RouteIdDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/RouteIdDSL/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="33" hits="35" branch="false"/><line number="33" hits="40" branch="false"/><line number="33" hits="10" branch="false"/><line number="33" hits="40" branch="false"/><line number="35" hits="30" branch="false"/><line number="35" hits="30" branch="false"/><line number="35" hits="30" branch="false"/>
+        <line number="33" hits="56" branch="false"/><line number="33" hits="64" branch="false"/><line number="33" hits="16" branch="false"/><line number="33" hits="64" branch="false"/><line number="35" hits="48" branch="false"/><line number="35" hits="48" branch="false"/><line number="35" hits="48" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="33" hits="35" branch="false"/><line number="33" hits="40" branch="false"/><line number="33" hits="10" branch="false"/><line number="33" hits="40" branch="false"/><line number="35" hits="30" branch="false"/><line number="35" hits="30" branch="false"/><line number="35" hits="30" branch="false"/>
+        <line number="33" hits="56" branch="false"/><line number="33" hits="64" branch="false"/><line number="33" hits="16" branch="false"/><line number="33" hits="64" branch="false"/><line number="35" hits="48" branch="false"/><line number="35" hits="48" branch="false"/><line number="35" hits="48" branch="false"/>
       </lines>
-    </class><class name="EnricherDSL" filename="src/main/scala/io/xtech/babel/camel/EnricherDSL.scala" line-rate="0.00" branch-rate="100.00" complexity="0">
+    </class><class name="EnricherDSL" filename="src/main/scala/io/xtech/babel/camel/EnricherDSL.scala" line-rate="50.00" branch-rate="100.00" complexity="0">
       <methods>
-        <method name="io.xtech.babel.camel/EnricherDSL/&lt;none&gt;" signature="()V" line-rate="0.00" branch-rate="100.00">
+        <method name="io.xtech.babel.camel/EnricherDSL/&lt;none&gt;" signature="()V" line-rate="50.00" branch-rate="100.00">
       <lines>
-        <line number="42" hits="0" branch="false"/><line number="59" hits="0" branch="false"/>
+        <line number="42" hits="1" branch="false"/><line number="59" hits="0" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="42" hits="0" branch="false"/><line number="59" hits="0" branch="false"/>
+        <line number="42" hits="1" branch="false"/><line number="59" hits="0" branch="false"/>
       </lines>
     </class><class name="TransactionDSL" filename="src/main/scala/io/xtech/babel/camel/TransactionDSL.scala" line-rate="50.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/TransactionDSL/&lt;none&gt;" signature="()V" line-rate="50.00" branch-rate="100.00">
       <lines>
-        <line number="31" hits="20" branch="false"/><line number="31" hits="20" branch="false"/><line number="31" hits="20" branch="false"/><line number="31" hits="20" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/>
+        <line number="31" hits="32" branch="false"/><line number="31" hits="32" branch="false"/><line number="31" hits="32" branch="false"/><line number="31" hits="32" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="31" hits="20" branch="false"/><line number="31" hits="20" branch="false"/><line number="31" hits="20" branch="false"/><line number="31" hits="20" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/>
+        <line number="31" hits="32" branch="false"/><line number="31" hits="32" branch="false"/><line number="31" hits="32" branch="false"/><line number="31" hits="32" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/><line number="39" hits="0" branch="false"/>
       </lines>
     </class><class name="LogDSL" filename="src/main/scala/io/xtech/babel/camel/LogDSL.scala" line-rate="73.33" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/LogDSL/&lt;none&gt;" signature="()V" line-rate="73.33" branch-rate="100.00">
       <lines>
-        <line number="35" hits="10" branch="false"/><line number="35" hits="10" branch="false"/><line number="35" hits="10" branch="false"/><line number="35" hits="10" branch="false"/><line number="45" hits="5" branch="false"/><line number="45" hits="5" branch="false"/><line number="45" hits="5" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="68" hits="5" branch="false"/><line number="68" hits="5" branch="false"/><line number="68" hits="5" branch="false"/><line number="68" hits="5" branch="false"/>
+        <line number="35" hits="16" branch="false"/><line number="35" hits="16" branch="false"/><line number="35" hits="16" branch="false"/><line number="35" hits="16" branch="false"/><line number="45" hits="8" branch="false"/><line number="45" hits="8" branch="false"/><line number="45" hits="8" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="68" hits="8" branch="false"/><line number="68" hits="8" branch="false"/><line number="68" hits="8" branch="false"/><line number="68" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="35" hits="10" branch="false"/><line number="35" hits="10" branch="false"/><line number="35" hits="10" branch="false"/><line number="35" hits="10" branch="false"/><line number="45" hits="5" branch="false"/><line number="45" hits="5" branch="false"/><line number="45" hits="5" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="68" hits="5" branch="false"/><line number="68" hits="5" branch="false"/><line number="68" hits="5" branch="false"/><line number="68" hits="5" branch="false"/>
+        <line number="35" hits="16" branch="false"/><line number="35" hits="16" branch="false"/><line number="35" hits="16" branch="false"/><line number="35" hits="16" branch="false"/><line number="45" hits="8" branch="false"/><line number="45" hits="8" branch="false"/><line number="45" hits="8" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="68" hits="8" branch="false"/><line number="68" hits="8" branch="false"/><line number="68" hits="8" branch="false"/><line number="68" hits="8" branch="false"/>
       </lines>
     </class><class name="OnExceptionDSL" filename="src/main/scala/io/xtech/babel/camel/HandlerDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/OnExceptionDSL/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="243" hits="100" branch="false"/><line number="244" hits="100" branch="false"/><line number="253" hits="20" branch="false"/><line number="254" hits="20" branch="false"/><line number="263" hits="10" branch="false"/><line number="263" hits="10" branch="false"/><line number="272" hits="10" branch="false"/><line number="272" hits="10" branch="false"/><line number="281" hits="50" branch="false"/><line number="282" hits="50" branch="false"/><line number="291" hits="20" branch="false"/><line number="292" hits="20" branch="false"/><line number="301" hits="10" branch="false"/><line number="301" hits="10" branch="false"/><line number="310" hits="10" branch="false"/><line number="310" hits="10" branch="false"/>
+        <line number="243" hits="160" branch="false"/><line number="244" hits="160" branch="false"/><line number="253" hits="32" branch="false"/><line number="254" hits="32" branch="false"/><line number="263" hits="16" branch="false"/><line number="263" hits="16" branch="false"/><line number="272" hits="16" branch="false"/><line number="272" hits="16" branch="false"/><line number="281" hits="80" branch="false"/><line number="282" hits="80" branch="false"/><line number="291" hits="32" branch="false"/><line number="292" hits="32" branch="false"/><line number="301" hits="16" branch="false"/><line number="301" hits="16" branch="false"/><line number="310" hits="16" branch="false"/><line number="310" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="243" hits="100" branch="false"/><line number="244" hits="100" branch="false"/><line number="253" hits="20" branch="false"/><line number="254" hits="20" branch="false"/><line number="263" hits="10" branch="false"/><line number="263" hits="10" branch="false"/><line number="272" hits="10" branch="false"/><line number="272" hits="10" branch="false"/><line number="281" hits="50" branch="false"/><line number="282" hits="50" branch="false"/><line number="291" hits="20" branch="false"/><line number="292" hits="20" branch="false"/><line number="301" hits="10" branch="false"/><line number="301" hits="10" branch="false"/><line number="310" hits="10" branch="false"/><line number="310" hits="10" branch="false"/>
+        <line number="243" hits="160" branch="false"/><line number="244" hits="160" branch="false"/><line number="253" hits="32" branch="false"/><line number="254" hits="32" branch="false"/><line number="263" hits="16" branch="false"/><line number="263" hits="16" branch="false"/><line number="272" hits="16" branch="false"/><line number="272" hits="16" branch="false"/><line number="281" hits="80" branch="false"/><line number="282" hits="80" branch="false"/><line number="291" hits="32" branch="false"/><line number="292" hits="32" branch="false"/><line number="301" hits="16" branch="false"/><line number="301" hits="16" branch="false"/><line number="310" hits="16" branch="false"/><line number="310" hits="16" branch="false"/>
       </lines>
     </class><class name="HandlingDSL" filename="src/main/scala/io/xtech/babel/camel/HandlerDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/HandlingDSL/onBody" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="80" hits="40" branch="false"/><line number="80" hits="40" branch="false"/><line number="80" hits="40" branch="false"/><line number="82" hits="40" branch="false"/><line number="82" hits="40" branch="false"/><line number="82" hits="40" branch="false"/><line number="84" hits="40" branch="false"/>
+        <line number="80" hits="64" branch="false"/><line number="80" hits="64" branch="false"/><line number="80" hits="64" branch="false"/><line number="82" hits="64" branch="false"/><line number="82" hits="64" branch="false"/><line number="82" hits="64" branch="false"/><line number="84" hits="64" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel/HandlingDSL/deadletter" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="144" hits="15" branch="false"/><line number="146" hits="15" branch="false"/><line number="146" hits="15" branch="false"/><line number="146" hits="15" branch="false"/><line number="148" hits="15" branch="false"/>
+        <line number="144" hits="24" branch="false"/><line number="146" hits="24" branch="false"/><line number="146" hits="24" branch="false"/><line number="146" hits="24" branch="false"/><line number="148" hits="24" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel/HandlingDSL/defaultErrorHandler" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="130" hits="10" branch="false"/><line number="132" hits="10" branch="false"/><line number="132" hits="10" branch="false"/><line number="132" hits="10" branch="false"/><line number="134" hits="10" branch="false"/>
+        <line number="130" hits="16" branch="false"/><line number="132" hits="16" branch="false"/><line number="132" hits="16" branch="false"/><line number="132" hits="16" branch="false"/><line number="134" hits="16" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel/HandlingDSL/noErrorHandler" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="157" hits="10" branch="false"/><line number="159" hits="10" branch="false"/><line number="159" hits="10" branch="false"/><line number="159" hits="10" branch="false"/><line number="161" hits="10" branch="false"/>
+        <line number="157" hits="16" branch="false"/><line number="159" hits="16" branch="false"/><line number="159" hits="16" branch="false"/><line number="159" hits="16" branch="false"/><line number="161" hits="16" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel/HandlingDSL/on" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="65" hits="120" branch="false"/><line number="65" hits="120" branch="false"/><line number="65" hits="120" branch="false"/><line number="67" hits="120" branch="false"/><line number="67" hits="120" branch="false"/><line number="67" hits="120" branch="false"/><line number="69" hits="120" branch="false"/><line number="95" hits="40" branch="false"/><line number="95" hits="40" branch="false"/><line number="95" hits="40" branch="false"/><line number="97" hits="40" branch="false"/><line number="97" hits="40" branch="false"/><line number="97" hits="40" branch="false"/><line number="99" hits="40" branch="false"/>
+        <line number="65" hits="192" branch="false"/><line number="65" hits="192" branch="false"/><line number="65" hits="192" branch="false"/><line number="67" hits="192" branch="false"/><line number="67" hits="192" branch="false"/><line number="67" hits="192" branch="false"/><line number="69" hits="192" branch="false"/><line number="95" hits="64" branch="false"/><line number="95" hits="64" branch="false"/><line number="95" hits="64" branch="false"/><line number="97" hits="64" branch="false"/><line number="97" hits="64" branch="false"/><line number="97" hits="64" branch="false"/><line number="99" hits="64" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel/HandlingDSL/loggingErrorHandler" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="173" hits="10" branch="false"/><line number="175" hits="10" branch="false"/><line number="175" hits="10" branch="false"/><line number="175" hits="10" branch="false"/><line number="177" hits="10" branch="false"/>
+        <line number="173" hits="16" branch="false"/><line number="175" hits="16" branch="false"/><line number="175" hits="16" branch="false"/><line number="175" hits="16" branch="false"/><line number="177" hits="16" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel/HandlingDSL/transactionErrorHandler" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="187" hits="10" branch="false"/><line number="189" hits="10" branch="false"/><line number="189" hits="10" branch="false"/><line number="189" hits="10" branch="false"/><line number="191" hits="10" branch="false"/>
+        <line number="187" hits="16" branch="false"/><line number="189" hits="16" branch="false"/><line number="189" hits="16" branch="false"/><line number="189" hits="16" branch="false"/><line number="191" hits="16" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel/HandlingDSL/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="110" hits="20" branch="false"/><line number="121" hits="20" branch="false"/>
+        <line number="110" hits="32" branch="false"/><line number="121" hits="32" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="65" hits="120" branch="false"/><line number="65" hits="120" branch="false"/><line number="65" hits="120" branch="false"/><line number="67" hits="120" branch="false"/><line number="67" hits="120" branch="false"/><line number="67" hits="120" branch="false"/><line number="69" hits="120" branch="false"/><line number="80" hits="40" branch="false"/><line number="80" hits="40" branch="false"/><line number="80" hits="40" branch="false"/><line number="82" hits="40" branch="false"/><line number="82" hits="40" branch="false"/><line number="82" hits="40" branch="false"/><line number="84" hits="40" branch="false"/><line number="95" hits="40" branch="false"/><line number="95" hits="40" branch="false"/><line number="95" hits="40" branch="false"/><line number="97" hits="40" branch="false"/><line number="97" hits="40" branch="false"/><line number="97" hits="40" branch="false"/><line number="99" hits="40" branch="false"/><line number="110" hits="20" branch="false"/><line number="121" hits="20" branch="false"/><line number="130" hits="10" branch="false"/><line number="132" hits="10" branch="false"/><line number="132" hits="10" branch="false"/><line number="132" hits="10" branch="false"/><line number="134" hits="10" branch="false"/><line number="144" hits="15" branch="false"/><line number="146" hits="15" branch="false"/><line number="146" hits="15" branch="false"/><line number="146" hits="15" branch="false"/><line number="148" hits="15" branch="false"/><line number="157" hits="10" branch="false"/><line number="159" hits="10" branch="false"/><line number="159" hits="10" branch="false"/><line number="159" hits="10" branch="false"/><line number="161" hits="10" branch="false"/><line number="173" hits="10" branch="false"/><line number="175" hits="10" branch="false"/><line number="175" hits="10" branch="false"/><line number="175" hits="10" branch="false"/><line number="177" hits="10" branch="false"/><line number="187" hits="10" branch="false"/><line number="189" hits="10" branch="false"/><line number="189" hits="10" branch="false"/><line number="189" hits="10" branch="false"/><line number="191" hits="10" branch="false"/>
+        <line number="65" hits="192" branch="false"/><line number="65" hits="192" branch="false"/><line number="65" hits="192" branch="false"/><line number="67" hits="192" branch="false"/><line number="67" hits="192" branch="false"/><line number="67" hits="192" branch="false"/><line number="69" hits="192" branch="false"/><line number="80" hits="64" branch="false"/><line number="80" hits="64" branch="false"/><line number="80" hits="64" branch="false"/><line number="82" hits="64" branch="false"/><line number="82" hits="64" branch="false"/><line number="82" hits="64" branch="false"/><line number="84" hits="64" branch="false"/><line number="95" hits="64" branch="false"/><line number="95" hits="64" branch="false"/><line number="95" hits="64" branch="false"/><line number="97" hits="64" branch="false"/><line number="97" hits="64" branch="false"/><line number="97" hits="64" branch="false"/><line number="99" hits="64" branch="false"/><line number="110" hits="32" branch="false"/><line number="121" hits="32" branch="false"/><line number="130" hits="16" branch="false"/><line number="132" hits="16" branch="false"/><line number="132" hits="16" branch="false"/><line number="132" hits="16" branch="false"/><line number="134" hits="16" branch="false"/><line number="144" hits="24" branch="false"/><line number="146" hits="24" branch="false"/><line number="146" hits="24" branch="false"/><line number="146" hits="24" branch="false"/><line number="148" hits="24" branch="false"/><line number="157" hits="16" branch="false"/><line number="159" hits="16" branch="false"/><line number="159" hits="16" branch="false"/><line number="159" hits="16" branch="false"/><line number="161" hits="16" branch="false"/><line number="173" hits="16" branch="false"/><line number="175" hits="16" branch="false"/><line number="175" hits="16" branch="false"/><line number="175" hits="16" branch="false"/><line number="177" hits="16" branch="false"/><line number="187" hits="16" branch="false"/><line number="189" hits="16" branch="false"/><line number="189" hits="16" branch="false"/><line number="189" hits="16" branch="false"/><line number="191" hits="16" branch="false"/>
       </lines>
     </class><class name="MarshallerDSL" filename="src/main/scala/io/xtech/babel/camel/MarshallerDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/MarshallerDSL/unmarshal" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="62" hits="10" branch="false"/><line number="63" hits="10" branch="false"/><line number="63" hits="10" branch="false"/><line number="63" hits="10" branch="false"/><line number="75" hits="5" branch="false"/><line number="76" hits="5" branch="false"/><line number="76" hits="5" branch="false"/><line number="76" hits="5" branch="false"/>
+        <line number="62" hits="16" branch="false"/><line number="63" hits="16" branch="false"/><line number="63" hits="16" branch="false"/><line number="63" hits="16" branch="false"/><line number="75" hits="8" branch="false"/><line number="76" hits="8" branch="false"/><line number="76" hits="8" branch="false"/><line number="76" hits="8" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel/MarshallerDSL/marshal" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="36" hits="10" branch="false"/><line number="37" hits="10" branch="false"/><line number="37" hits="10" branch="false"/><line number="37" hits="10" branch="false"/><line number="49" hits="5" branch="false"/><line number="50" hits="5" branch="false"/><line number="50" hits="5" branch="false"/><line number="50" hits="5" branch="false"/>
+        <line number="36" hits="16" branch="false"/><line number="37" hits="16" branch="false"/><line number="37" hits="16" branch="false"/><line number="37" hits="16" branch="false"/><line number="49" hits="8" branch="false"/><line number="50" hits="8" branch="false"/><line number="50" hits="8" branch="false"/><line number="50" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="36" hits="10" branch="false"/><line number="37" hits="10" branch="false"/><line number="37" hits="10" branch="false"/><line number="37" hits="10" branch="false"/><line number="49" hits="5" branch="false"/><line number="50" hits="5" branch="false"/><line number="50" hits="5" branch="false"/><line number="50" hits="5" branch="false"/><line number="62" hits="10" branch="false"/><line number="63" hits="10" branch="false"/><line number="63" hits="10" branch="false"/><line number="63" hits="10" branch="false"/><line number="75" hits="5" branch="false"/><line number="76" hits="5" branch="false"/><line number="76" hits="5" branch="false"/><line number="76" hits="5" branch="false"/>
+        <line number="36" hits="16" branch="false"/><line number="37" hits="16" branch="false"/><line number="37" hits="16" branch="false"/><line number="37" hits="16" branch="false"/><line number="49" hits="8" branch="false"/><line number="50" hits="8" branch="false"/><line number="50" hits="8" branch="false"/><line number="50" hits="8" branch="false"/><line number="62" hits="16" branch="false"/><line number="63" hits="16" branch="false"/><line number="63" hits="16" branch="false"/><line number="63" hits="16" branch="false"/><line number="75" hits="8" branch="false"/><line number="76" hits="8" branch="false"/><line number="76" hits="8" branch="false"/><line number="76" hits="8" branch="false"/>
       </lines>
     </class><class name="ValidationDSL" filename="src/main/scala/io/xtech/babel/camel/ValidationDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/ValidationDSL/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="30" hits="5" branch="false"/><line number="30" hits="5" branch="false"/><line number="30" hits="5" branch="false"/><line number="30" hits="5" branch="false"/><line number="40" hits="5" branch="false"/><line number="40" hits="5" branch="false"/><line number="40" hits="5" branch="false"/><line number="50" hits="10" branch="false"/><line number="50" hits="10" branch="false"/><line number="50" hits="10" branch="false"/><line number="50" hits="10" branch="false"/>
+        <line number="30" hits="8" branch="false"/><line number="30" hits="8" branch="false"/><line number="30" hits="8" branch="false"/><line number="30" hits="8" branch="false"/><line number="40" hits="8" branch="false"/><line number="40" hits="8" branch="false"/><line number="40" hits="8" branch="false"/><line number="50" hits="16" branch="false"/><line number="50" hits="16" branch="false"/><line number="50" hits="16" branch="false"/><line number="50" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="30" hits="5" branch="false"/><line number="30" hits="5" branch="false"/><line number="30" hits="5" branch="false"/><line number="30" hits="5" branch="false"/><line number="40" hits="5" branch="false"/><line number="40" hits="5" branch="false"/><line number="40" hits="5" branch="false"/><line number="50" hits="10" branch="false"/><line number="50" hits="10" branch="false"/><line number="50" hits="10" branch="false"/><line number="50" hits="10" branch="false"/>
+        <line number="30" hits="8" branch="false"/><line number="30" hits="8" branch="false"/><line number="30" hits="8" branch="false"/><line number="30" hits="8" branch="false"/><line number="40" hits="8" branch="false"/><line number="40" hits="8" branch="false"/><line number="40" hits="8" branch="false"/><line number="50" hits="16" branch="false"/><line number="50" hits="16" branch="false"/><line number="50" hits="16" branch="false"/><line number="50" hits="16" branch="false"/>
       </lines>
     </class><class name="RouteConfigurationDSL" filename="src/main/scala/io/xtech/babel/camel/RouteConfigurationDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/RouteConfigurationDSL/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="35" hits="5" branch="false"/><line number="35" hits="5" branch="false"/><line number="35" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="57" hits="5" branch="false"/><line number="57" hits="5" branch="false"/><line number="57" hits="5" branch="false"/><line number="68" hits="5" branch="false"/><line number="68" hits="5" branch="false"/><line number="68" hits="5" branch="false"/><line number="79" hits="5" branch="false"/><line number="79" hits="5" branch="false"/><line number="79" hits="5" branch="false"/><line number="90" hits="5" branch="false"/><line number="90" hits="5" branch="false"/><line number="90" hits="5" branch="false"/><line number="101" hits="5" branch="false"/><line number="101" hits="5" branch="false"/><line number="101" hits="5" branch="false"/><line number="112" hits="5" branch="false"/><line number="112" hits="5" branch="false"/><line number="112" hits="5" branch="false"/><line number="123" hits="5" branch="false"/><line number="123" hits="5" branch="false"/><line number="123" hits="5" branch="false"/>
+        <line number="35" hits="8" branch="false"/><line number="35" hits="8" branch="false"/><line number="35" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="57" hits="8" branch="false"/><line number="57" hits="8" branch="false"/><line number="57" hits="8" branch="false"/><line number="68" hits="8" branch="false"/><line number="68" hits="8" branch="false"/><line number="68" hits="8" branch="false"/><line number="79" hits="8" branch="false"/><line number="79" hits="8" branch="false"/><line number="79" hits="8" branch="false"/><line number="90" hits="8" branch="false"/><line number="90" hits="8" branch="false"/><line number="90" hits="8" branch="false"/><line number="101" hits="8" branch="false"/><line number="101" hits="8" branch="false"/><line number="101" hits="8" branch="false"/><line number="112" hits="8" branch="false"/><line number="112" hits="8" branch="false"/><line number="112" hits="8" branch="false"/><line number="123" hits="8" branch="false"/><line number="123" hits="8" branch="false"/><line number="123" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="35" hits="5" branch="false"/><line number="35" hits="5" branch="false"/><line number="35" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="57" hits="5" branch="false"/><line number="57" hits="5" branch="false"/><line number="57" hits="5" branch="false"/><line number="68" hits="5" branch="false"/><line number="68" hits="5" branch="false"/><line number="68" hits="5" branch="false"/><line number="79" hits="5" branch="false"/><line number="79" hits="5" branch="false"/><line number="79" hits="5" branch="false"/><line number="90" hits="5" branch="false"/><line number="90" hits="5" branch="false"/><line number="90" hits="5" branch="false"/><line number="101" hits="5" branch="false"/><line number="101" hits="5" branch="false"/><line number="101" hits="5" branch="false"/><line number="112" hits="5" branch="false"/><line number="112" hits="5" branch="false"/><line number="112" hits="5" branch="false"/><line number="123" hits="5" branch="false"/><line number="123" hits="5" branch="false"/><line number="123" hits="5" branch="false"/>
+        <line number="35" hits="8" branch="false"/><line number="35" hits="8" branch="false"/><line number="35" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="57" hits="8" branch="false"/><line number="57" hits="8" branch="false"/><line number="57" hits="8" branch="false"/><line number="68" hits="8" branch="false"/><line number="68" hits="8" branch="false"/><line number="68" hits="8" branch="false"/><line number="79" hits="8" branch="false"/><line number="79" hits="8" branch="false"/><line number="79" hits="8" branch="false"/><line number="90" hits="8" branch="false"/><line number="90" hits="8" branch="false"/><line number="90" hits="8" branch="false"/><line number="101" hits="8" branch="false"/><line number="101" hits="8" branch="false"/><line number="101" hits="8" branch="false"/><line number="112" hits="8" branch="false"/><line number="112" hits="8" branch="false"/><line number="112" hits="8" branch="false"/><line number="123" hits="8" branch="false"/><line number="123" hits="8" branch="false"/><line number="123" hits="8" branch="false"/>
       </lines>
     </class><class name="SubRouteDSL" filename="src/main/scala/io/xtech/babel/camel/SubRouteDSL.scala" line-rate="85.71" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/SubRouteDSL/&lt;none&gt;" signature="()V" line-rate="85.71" branch-rate="100.00">
       <lines>
-        <line number="34" hits="70" branch="false"/><line number="34" hits="70" branch="false"/><line number="34" hits="0" branch="false"/><line number="34" hits="70" branch="false"/><line number="36" hits="70" branch="false"/><line number="36" hits="70" branch="false"/><line number="36" hits="70" branch="false"/>
+        <line number="34" hits="113" branch="false"/><line number="34" hits="113" branch="false"/><line number="34" hits="0" branch="false"/><line number="34" hits="113" branch="false"/><line number="36" hits="113" branch="false"/><line number="36" hits="113" branch="false"/><line number="36" hits="113" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="34" hits="70" branch="false"/><line number="34" hits="70" branch="false"/><line number="34" hits="0" branch="false"/><line number="34" hits="70" branch="false"/><line number="36" hits="70" branch="false"/><line number="36" hits="70" branch="false"/><line number="36" hits="70" branch="false"/>
+        <line number="34" hits="113" branch="false"/><line number="34" hits="113" branch="false"/><line number="34" hits="0" branch="false"/><line number="34" hits="113" branch="false"/><line number="36" hits="113" branch="false"/><line number="36" hits="113" branch="false"/><line number="36" hits="113" branch="false"/>
       </lines>
     </class><class name="SortDSL" filename="src/main/scala/io/xtech/babel/camel/SortDSL.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel/SortDSL/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="53" hits="5" branch="false"/><line number="53" hits="5" branch="false"/><line number="53" hits="5" branch="false"/><line number="53" hits="5" branch="false"/><line number="53" hits="5" branch="false"/><line number="59" hits="5" branch="false"/><line number="59" hits="5" branch="false"/><line number="59" hits="5" branch="false"/><line number="59" hits="5" branch="false"/><line number="65" hits="5" branch="false"/><line number="65" hits="5" branch="false"/><line number="65" hits="5" branch="false"/><line number="65" hits="5" branch="false"/>
+        <line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="53" hits="8" branch="false"/><line number="53" hits="8" branch="false"/><line number="53" hits="8" branch="false"/><line number="53" hits="8" branch="false"/><line number="53" hits="8" branch="false"/><line number="59" hits="8" branch="false"/><line number="59" hits="8" branch="false"/><line number="59" hits="8" branch="false"/><line number="59" hits="8" branch="false"/><line number="65" hits="8" branch="false"/><line number="65" hits="8" branch="false"/><line number="65" hits="8" branch="false"/><line number="65" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="53" hits="5" branch="false"/><line number="53" hits="5" branch="false"/><line number="53" hits="5" branch="false"/><line number="53" hits="5" branch="false"/><line number="53" hits="5" branch="false"/><line number="59" hits="5" branch="false"/><line number="59" hits="5" branch="false"/><line number="59" hits="5" branch="false"/><line number="59" hits="5" branch="false"/><line number="65" hits="5" branch="false"/><line number="65" hits="5" branch="false"/><line number="65" hits="5" branch="false"/><line number="65" hits="5" branch="false"/>
+        <line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="53" hits="8" branch="false"/><line number="53" hits="8" branch="false"/><line number="53" hits="8" branch="false"/><line number="53" hits="8" branch="false"/><line number="53" hits="8" branch="false"/><line number="59" hits="8" branch="false"/><line number="59" hits="8" branch="false"/><line number="59" hits="8" branch="false"/><line number="59" hits="8" branch="false"/><line number="65" hits="8" branch="false"/><line number="65" hits="8" branch="false"/><line number="65" hits="8" branch="false"/><line number="65" hits="8" branch="false"/>
       </lines>
     </class>
       </classes>
@@ -260,31 +260,31 @@
       <methods>
         <method name="io.xtech.babel.camel.builder/SpringRouteBuilder/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="33" hits="5" branch="false"/><line number="34" hits="5" branch="false"/>
+        <line number="33" hits="8" branch="false"/><line number="34" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="33" hits="5" branch="false"/><line number="34" hits="5" branch="false"/>
+        <line number="33" hits="8" branch="false"/><line number="34" hits="8" branch="false"/>
       </lines>
     </class><class name="RouteBuilder" filename="src/main/scala/io/xtech/babel/camel/builder/RouteBuilder.scala" line-rate="88.24" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.builder/RouteBuilder/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="33" hits="629" branch="false"/><line number="57" hits="604" branch="false"/>
+        <line number="33" hits="1011" branch="false"/><line number="57" hits="971" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel.builder/RouteBuilder/addRoutesToCamelContext" signature="()V" line-rate="66.67" branch-rate="100.00">
       <lines>
-        <line number="59" hits="604" branch="false"/><line number="60" hits="604" branch="false"/><line number="61" hits="604" branch="false"/><line number="58" hits="604" branch="false"/><line number="63" hits="0" branch="false"/><line number="63" hits="0" branch="false"/>
+        <line number="59" hits="971" branch="false"/><line number="60" hits="971" branch="false"/><line number="61" hits="971" branch="false"/><line number="58" hits="971" branch="false"/><line number="63" hits="0" branch="false"/><line number="63" hits="0" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel.builder/RouteBuilder/handle" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="41" hits="110" branch="false"/><line number="42" hits="110" branch="false"/><line number="44" hits="105" branch="false"/><line number="44" hits="105" branch="false"/><line number="44" hits="105" branch="false"/><line number="44" hits="105" branch="false"/><line number="46" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="48" hits="105" branch="false"/>
+        <line number="41" hits="176" branch="false"/><line number="42" hits="176" branch="false"/><line number="44" hits="168" branch="false"/><line number="44" hits="168" branch="false"/><line number="44" hits="168" branch="false"/><line number="44" hits="168" branch="false"/><line number="46" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="48" hits="168" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="33" hits="629" branch="false"/><line number="41" hits="110" branch="false"/><line number="42" hits="110" branch="false"/><line number="44" hits="105" branch="false"/><line number="44" hits="105" branch="false"/><line number="44" hits="105" branch="false"/><line number="44" hits="105" branch="false"/><line number="46" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="48" hits="105" branch="false"/><line number="57" hits="604" branch="false"/><line number="59" hits="604" branch="false"/><line number="60" hits="604" branch="false"/><line number="61" hits="604" branch="false"/><line number="58" hits="604" branch="false"/><line number="63" hits="0" branch="false"/><line number="63" hits="0" branch="false"/>
+        <line number="33" hits="1011" branch="false"/><line number="41" hits="176" branch="false"/><line number="42" hits="176" branch="false"/><line number="44" hits="168" branch="false"/><line number="44" hits="168" branch="false"/><line number="44" hits="168" branch="false"/><line number="44" hits="168" branch="false"/><line number="46" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="48" hits="168" branch="false"/><line number="57" hits="971" branch="false"/><line number="59" hits="971" branch="false"/><line number="60" hits="971" branch="false"/><line number="61" hits="971" branch="false"/><line number="58" hits="971" branch="false"/><line number="63" hits="0" branch="false"/><line number="63" hits="0" branch="false"/>
       </lines>
     </class>
       </classes>
@@ -294,477 +294,477 @@
       <methods>
         <method name="io.xtech.babel.camel.model/NoErrorHandlerDefinition/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="44" hits="10" branch="false"/>
+        <line number="44" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="44" hits="10" branch="false"/>
+        <line number="44" hits="16" branch="false"/>
       </lines>
     </class><class name="RedeliveryErrorHandling" filename="src/main/scala/io/xtech/babel/camel/model/ErrorHandling.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/RedeliveryErrorHandling/camelErrorHandlerBuilder" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="63" hits="30" branch="false"/><line number="64" hits="30" branch="false"/><line number="64" hits="30" branch="false"/><line number="64" hits="30" branch="false"/>
+        <line number="63" hits="48" branch="false"/><line number="64" hits="48" branch="false"/><line number="64" hits="48" branch="false"/><line number="64" hits="48" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel.model/RedeliveryErrorHandling/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="75" hits="30" branch="false"/><line number="75" hits="30" branch="false"/>
+        <line number="75" hits="48" branch="false"/><line number="75" hits="48" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="63" hits="30" branch="false"/><line number="64" hits="30" branch="false"/><line number="64" hits="30" branch="false"/><line number="64" hits="30" branch="false"/><line number="75" hits="30" branch="false"/><line number="75" hits="30" branch="false"/>
+        <line number="63" hits="48" branch="false"/><line number="64" hits="48" branch="false"/><line number="64" hits="48" branch="false"/><line number="64" hits="48" branch="false"/><line number="75" hits="48" branch="false"/><line number="75" hits="48" branch="false"/>
       </lines>
     </class><class name="ReduceBodyAggregationStrategy" filename="src/main/scala/io/xtech/babel/camel/model/AggregationStrategy.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/ReduceBodyAggregationStrategy/aggregate" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="61" hits="45" branch="false"/><line number="65" hits="30" branch="false"/><line number="66" hits="30" branch="false"/><line number="68" hits="30" branch="false"/><line number="70" hits="30" branch="false"/><line number="63" hits="45" branch="false"/>
+        <line number="61" hits="73" branch="false"/><line number="65" hits="49" branch="false"/><line number="66" hits="49" branch="false"/><line number="68" hits="49" branch="false"/><line number="70" hits="49" branch="false"/><line number="63" hits="73" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="61" hits="45" branch="false"/><line number="65" hits="30" branch="false"/><line number="66" hits="30" branch="false"/><line number="68" hits="30" branch="false"/><line number="70" hits="30" branch="false"/><line number="63" hits="45" branch="false"/>
+        <line number="61" hits="73" branch="false"/><line number="65" hits="49" branch="false"/><line number="66" hits="49" branch="false"/><line number="68" hits="49" branch="false"/><line number="70" hits="49" branch="false"/><line number="63" hits="73" branch="false"/>
       </lines>
     </class><class name="TransactionErrorHandlerDefinition" filename="src/main/scala/io/xtech/babel/camel/model/ErrorHandling.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/TransactionErrorHandlerDefinition/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="98" hits="10" branch="false"/>
+        <line number="98" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="98" hits="10" branch="false"/>
+        <line number="98" hits="16" branch="false"/>
       </lines>
     </class><class name="DeadLetterDefinition" filename="src/main/scala/io/xtech/babel/camel/model/ErrorHandling.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/DeadLetterDefinition/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="91" hits="10" branch="false"/>
+        <line number="91" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="91" hits="10" branch="false"/>
+        <line number="91" hits="16" branch="false"/>
       </lines>
     </class><class name="CamelMessageExpression" filename="src/main/scala/io/xtech/babel/camel/model/Expression.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/CamelMessageExpression/evaluate" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="36" hits="1780" branch="false"/><line number="37" hits="1780" branch="false"/>
+        <line number="36" hits="2849" branch="false"/><line number="37" hits="2849" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="36" hits="1780" branch="false"/><line number="37" hits="1780" branch="false"/>
+        <line number="36" hits="2849" branch="false"/><line number="37" hits="2849" branch="false"/>
       </lines>
     </class><class name="FoldBodyAggregationStrategy" filename="src/main/scala/io/xtech/babel/camel/model/AggregationStrategy.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/FoldBodyAggregationStrategy/aggregate" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="30" hits="45" branch="false"/><line number="34" hits="15" branch="false"/><line number="36" hits="15" branch="false"/><line number="36" hits="15" branch="false"/><line number="37" hits="15" branch="false"/><line number="41" hits="30" branch="false"/><line number="42" hits="30" branch="false"/><line number="44" hits="30" branch="false"/><line number="45" hits="30" branch="false"/><line number="39" hits="45" branch="false"/>
+        <line number="30" hits="72" branch="false"/><line number="34" hits="24" branch="false"/><line number="36" hits="24" branch="false"/><line number="36" hits="24" branch="false"/><line number="37" hits="24" branch="false"/><line number="41" hits="48" branch="false"/><line number="42" hits="48" branch="false"/><line number="44" hits="48" branch="false"/><line number="45" hits="48" branch="false"/><line number="39" hits="72" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="30" hits="45" branch="false"/><line number="34" hits="15" branch="false"/><line number="36" hits="15" branch="false"/><line number="36" hits="15" branch="false"/><line number="37" hits="15" branch="false"/><line number="41" hits="30" branch="false"/><line number="42" hits="30" branch="false"/><line number="44" hits="30" branch="false"/><line number="45" hits="30" branch="false"/><line number="39" hits="45" branch="false"/>
+        <line number="30" hits="72" branch="false"/><line number="34" hits="24" branch="false"/><line number="36" hits="24" branch="false"/><line number="36" hits="24" branch="false"/><line number="37" hits="24" branch="false"/><line number="41" hits="48" branch="false"/><line number="42" hits="48" branch="false"/><line number="44" hits="48" branch="false"/><line number="45" hits="48" branch="false"/><line number="39" hits="72" branch="false"/>
       </lines>
     </class><class name="CamelMessagePredicate" filename="src/main/scala/io/xtech/babel/camel/model/Predicate.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/CamelMessagePredicate/matches" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="38" hits="515" branch="false"/><line number="39" hits="515" branch="false"/>
+        <line number="38" hits="824" branch="false"/><line number="39" hits="824" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="38" hits="515" branch="false"/><line number="39" hits="515" branch="false"/>
+        <line number="38" hits="824" branch="false"/><line number="39" hits="824" branch="false"/>
       </lines>
     </class><class name="CamelMessage" filename="src/main/scala/io/xtech/babel/camel/model/CamelMessage.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/CamelMessage/bodyAs" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="39" hits="5" branch="false"/><line number="40" hits="5" branch="false"/><line number="41" hits="5" branch="false"/>
+        <line number="39" hits="8" branch="false"/><line number="40" hits="8" branch="false"/><line number="41" hits="8" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel.model/CamelMessage/withOptionalBody" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="52" hits="10" branch="false"/><line number="52" hits="5" branch="false"/><line number="52" hits="10" branch="false"/><line number="53" hits="10" branch="false"/><line number="54" hits="10" branch="false"/><line number="54" hits="10" branch="false"/><line number="55" hits="10" branch="false"/>
+        <line number="52" hits="16" branch="false"/><line number="52" hits="8" branch="false"/><line number="52" hits="16" branch="false"/><line number="53" hits="16" branch="false"/><line number="54" hits="16" branch="false"/><line number="54" hits="16" branch="false"/><line number="55" hits="16" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel.model/CamelMessage/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="29" hits="2575" branch="false"/><line number="29" hits="2575" branch="false"/><line number="32" hits="2575" branch="false"/><line number="32" hits="5" branch="false"/><line number="32" hits="2575" branch="false"/><line number="36" hits="2195" branch="false"/><line number="36" hits="2195" branch="false"/><line number="59" hits="35" branch="false"/><line number="59" hits="35" branch="false"/><line number="59" hits="35" branch="false"/><line number="63" hits="5" branch="false"/><line number="64" hits="5" branch="false"/><line number="78" hits="30" branch="false"/><line number="78" hits="30" branch="false"/><line number="78" hits="30" branch="false"/><line number="88" hits="10" branch="false"/><line number="89" hits="10" branch="false"/><line number="109" hits="10" branch="false"/><line number="118" hits="5" branch="false"/><line number="119" hits="5" branch="false"/><line number="126" hits="15" branch="false"/><line number="135" hits="10" branch="false"/><line number="136" hits="10" branch="false"/>
+        <line number="29" hits="4121" branch="false"/><line number="29" hits="4121" branch="false"/><line number="32" hits="4121" branch="false"/><line number="32" hits="8" branch="false"/><line number="32" hits="4121" branch="false"/><line number="36" hits="3512" branch="false"/><line number="36" hits="3512" branch="false"/><line number="59" hits="57" branch="false"/><line number="59" hits="57" branch="false"/><line number="59" hits="57" branch="false"/><line number="63" hits="8" branch="false"/><line number="64" hits="8" branch="false"/><line number="78" hits="48" branch="false"/><line number="78" hits="48" branch="false"/><line number="78" hits="48" branch="false"/><line number="88" hits="16" branch="false"/><line number="89" hits="16" branch="false"/><line number="109" hits="16" branch="false"/><line number="118" hits="8" branch="false"/><line number="119" hits="8" branch="false"/><line number="126" hits="24" branch="false"/><line number="135" hits="16" branch="false"/><line number="136" hits="16" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel.model/CamelMessage/withHeaders" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="68" hits="10" branch="false"/><line number="68" hits="10" branch="false"/><line number="68" hits="10" branch="false"/><line number="69" hits="10" branch="false"/><line number="70" hits="10" branch="false"/><line number="70" hits="10" branch="false"/><line number="71" hits="10" branch="false"/>
+        <line number="68" hits="16" branch="false"/><line number="68" hits="16" branch="false"/><line number="68" hits="16" branch="false"/><line number="69" hits="16" branch="false"/><line number="70" hits="16" branch="false"/><line number="70" hits="16" branch="false"/><line number="71" hits="16" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel.model/CamelMessage/withBody" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="45" hits="15" branch="false"/><line number="46" hits="15" branch="false"/><line number="47" hits="15" branch="false"/><line number="48" hits="15" branch="false"/>
+        <line number="45" hits="24" branch="false"/><line number="46" hits="24" branch="false"/><line number="47" hits="24" branch="false"/><line number="48" hits="24" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel.model/CamelMessage/withExchangeProperties" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="98" hits="15" branch="false"/><line number="98" hits="15" branch="false"/><line number="98" hits="15" branch="false"/><line number="99" hits="15" branch="false"/><line number="100" hits="15" branch="false"/><line number="100" hits="35" branch="false"/><line number="100" hits="15" branch="false"/><line number="101" hits="30" branch="false"/><line number="101" hits="30" branch="false"/><line number="101" hits="30" branch="false"/><line number="101" hits="15" branch="false"/><line number="102" hits="15" branch="false"/>
+        <line number="98" hits="24" branch="false"/><line number="98" hits="24" branch="false"/><line number="98" hits="24" branch="false"/><line number="99" hits="24" branch="false"/><line number="100" hits="24" branch="false"/><line number="100" hits="56" branch="false"/><line number="100" hits="24" branch="false"/><line number="101" hits="48" branch="false"/><line number="101" hits="48" branch="false"/><line number="101" hits="48" branch="false"/><line number="101" hits="24" branch="false"/><line number="102" hits="24" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="29" hits="2575" branch="false"/><line number="29" hits="2575" branch="false"/><line number="32" hits="2575" branch="false"/><line number="32" hits="5" branch="false"/><line number="32" hits="2575" branch="false"/><line number="36" hits="2195" branch="false"/><line number="36" hits="2195" branch="false"/><line number="39" hits="5" branch="false"/><line number="40" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="45" hits="15" branch="false"/><line number="46" hits="15" branch="false"/><line number="47" hits="15" branch="false"/><line number="48" hits="15" branch="false"/><line number="52" hits="10" branch="false"/><line number="52" hits="5" branch="false"/><line number="52" hits="10" branch="false"/><line number="53" hits="10" branch="false"/><line number="54" hits="10" branch="false"/><line number="54" hits="10" branch="false"/><line number="55" hits="10" branch="false"/><line number="59" hits="35" branch="false"/><line number="59" hits="35" branch="false"/><line number="59" hits="35" branch="false"/><line number="63" hits="5" branch="false"/><line number="64" hits="5" branch="false"/><line number="68" hits="10" branch="false"/><line number="68" hits="10" branch="false"/><line number="68" hits="10" branch="false"/><line number="69" hits="10" branch="false"/><line number="70" hits="10" branch="false"/><line number="70" hits="10" branch="false"/><line number="71" hits="10" branch="false"/><line number="78" hits="30" branch="false"/><line number="78" hits="30" branch="false"/><line number="78" hits="30" branch="false"/><line number="88" hits="10" branch="false"/><line number="89" hits="10" branch="false"/><line number="98" hits="15" branch="false"/><line number="98" hits="15" branch="false"/><line number="98" hits="15" branch="false"/><line number="99" hits="15" branch="false"/><line number="100" hits="15" branch="false"/><line number="100" hits="35" branch="false"/><line number="100" hits="15" branch="false"/><line number="101" hits="30" branch="false"/><line number="101" hits="30" branch="false"/><line number="101" hits="30" branch="false"/><line number="101" hits="15" branch="false"/><line number="102" hits="15" branch="false"/><line number="109" hits="10" branch="false"/><line number="118" hits="5" branch="false"/><line number="119" hits="5" branch="false"/><line number="126" hits="15" branch="false"/><line number="135" hits="10" branch="false"/><line number="136" hits="10" branch="false"/>
+        <line number="29" hits="4121" branch="false"/><line number="29" hits="4121" branch="false"/><line number="32" hits="4121" branch="false"/><line number="32" hits="8" branch="false"/><line number="32" hits="4121" branch="false"/><line number="36" hits="3512" branch="false"/><line number="36" hits="3512" branch="false"/><line number="39" hits="8" branch="false"/><line number="40" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="45" hits="24" branch="false"/><line number="46" hits="24" branch="false"/><line number="47" hits="24" branch="false"/><line number="48" hits="24" branch="false"/><line number="52" hits="16" branch="false"/><line number="52" hits="8" branch="false"/><line number="52" hits="16" branch="false"/><line number="53" hits="16" branch="false"/><line number="54" hits="16" branch="false"/><line number="54" hits="16" branch="false"/><line number="55" hits="16" branch="false"/><line number="59" hits="57" branch="false"/><line number="59" hits="57" branch="false"/><line number="59" hits="57" branch="false"/><line number="63" hits="8" branch="false"/><line number="64" hits="8" branch="false"/><line number="68" hits="16" branch="false"/><line number="68" hits="16" branch="false"/><line number="68" hits="16" branch="false"/><line number="69" hits="16" branch="false"/><line number="70" hits="16" branch="false"/><line number="70" hits="16" branch="false"/><line number="71" hits="16" branch="false"/><line number="78" hits="48" branch="false"/><line number="78" hits="48" branch="false"/><line number="78" hits="48" branch="false"/><line number="88" hits="16" branch="false"/><line number="89" hits="16" branch="false"/><line number="98" hits="24" branch="false"/><line number="98" hits="24" branch="false"/><line number="98" hits="24" branch="false"/><line number="99" hits="24" branch="false"/><line number="100" hits="24" branch="false"/><line number="100" hits="56" branch="false"/><line number="100" hits="24" branch="false"/><line number="101" hits="48" branch="false"/><line number="101" hits="48" branch="false"/><line number="101" hits="48" branch="false"/><line number="101" hits="24" branch="false"/><line number="102" hits="24" branch="false"/><line number="109" hits="16" branch="false"/><line number="118" hits="8" branch="false"/><line number="119" hits="8" branch="false"/><line number="126" hits="24" branch="false"/><line number="135" hits="16" branch="false"/><line number="136" hits="16" branch="false"/>
       </lines>
     </class><class name="CamelListExpression" filename="src/main/scala/io/xtech/babel/camel/model/Expression.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/CamelListExpression/evaluate" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="75" hits="20" branch="false"/><line number="77" hits="20" branch="false"/><line number="79" hits="10" branch="false"/><line number="79" hits="10" branch="false"/><line number="82" hits="10" branch="false"/><line number="82" hits="10" branch="false"/>
+        <line number="75" hits="32" branch="false"/><line number="77" hits="32" branch="false"/><line number="79" hits="16" branch="false"/><line number="79" hits="16" branch="false"/><line number="82" hits="16" branch="false"/><line number="82" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="75" hits="20" branch="false"/><line number="77" hits="20" branch="false"/><line number="79" hits="10" branch="false"/><line number="79" hits="10" branch="false"/><line number="82" hits="10" branch="false"/><line number="82" hits="10" branch="false"/>
+        <line number="75" hits="32" branch="false"/><line number="77" hits="32" branch="false"/><line number="79" hits="16" branch="false"/><line number="79" hits="16" branch="false"/><line number="82" hits="16" branch="false"/><line number="82" hits="16" branch="false"/>
       </lines>
     </class><class name="CamelBodyPredicate" filename="src/main/scala/io/xtech/babel/camel/model/Predicate.scala" line-rate="50.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/CamelBodyPredicate/&lt;none&gt;" signature="()V" line-rate="50.00" branch-rate="100.00">
       <lines>
-        <line number="54" hits="445" branch="false"/><line number="54" hits="445" branch="false"/><line number="54" hits="445" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/>
+        <line number="54" hits="712" branch="false"/><line number="54" hits="712" branch="false"/><line number="54" hits="712" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="54" hits="445" branch="false"/><line number="54" hits="445" branch="false"/><line number="54" hits="445" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/>
+        <line number="54" hits="712" branch="false"/><line number="54" hits="712" branch="false"/><line number="54" hits="712" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/>
       </lines>
     </class><class name="Predicates" filename="src/main/scala/io/xtech/babel/camel/model/Predicate.scala" line-rate="80.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/Predicates/&lt;none&gt;" signature="()V" line-rate="80.00" branch-rate="100.00">
       <lines>
-        <line number="75" hits="425" branch="false"/><line number="76" hits="185" branch="false"/><line number="76" hits="185" branch="false"/><line number="77" hits="220" branch="false"/><line number="77" hits="220" branch="false"/><line number="78" hits="15" branch="false"/><line number="78" hits="15" branch="false"/><line number="79" hits="5" branch="false"/><line number="80" hits="0" branch="false"/><line number="80" hits="0" branch="false"/>
+        <line number="75" hits="680" branch="false"/><line number="76" hits="296" branch="false"/><line number="76" hits="296" branch="false"/><line number="77" hits="352" branch="false"/><line number="77" hits="352" branch="false"/><line number="78" hits="24" branch="false"/><line number="78" hits="24" branch="false"/><line number="79" hits="8" branch="false"/><line number="80" hits="0" branch="false"/><line number="80" hits="0" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="75" hits="425" branch="false"/><line number="76" hits="185" branch="false"/><line number="76" hits="185" branch="false"/><line number="77" hits="220" branch="false"/><line number="77" hits="220" branch="false"/><line number="78" hits="15" branch="false"/><line number="78" hits="15" branch="false"/><line number="79" hits="5" branch="false"/><line number="80" hits="0" branch="false"/><line number="80" hits="0" branch="false"/>
+        <line number="75" hits="680" branch="false"/><line number="76" hits="296" branch="false"/><line number="76" hits="296" branch="false"/><line number="77" hits="352" branch="false"/><line number="77" hits="352" branch="false"/><line number="78" hits="24" branch="false"/><line number="78" hits="24" branch="false"/><line number="79" hits="8" branch="false"/><line number="80" hits="0" branch="false"/><line number="80" hits="0" branch="false"/>
       </lines>
     </class><class name="LoggingErrorHandlerDefinition" filename="src/main/scala/io/xtech/babel/camel/model/ErrorHandling.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/LoggingErrorHandlerDefinition/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="51" hits="10" branch="false"/>
+        <line number="51" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="51" hits="10" branch="false"/>
+        <line number="51" hits="16" branch="false"/>
       </lines>
     </class><class name="SeqCamelSink" filename="src/main/scala/io/xtech/babel/camel/model/CamelSink.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/SeqCamelSink/unapplySeq" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="34" hits="15" branch="false"/><line number="33" hits="5" branch="false"/><line number="33" hits="5" branch="false"/><line number="37" hits="5" branch="false"/>
+        <line number="34" hits="24" branch="false"/><line number="33" hits="8" branch="false"/><line number="33" hits="8" branch="false"/><line number="37" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="34" hits="15" branch="false"/><line number="33" hits="5" branch="false"/><line number="33" hits="5" branch="false"/><line number="37" hits="5" branch="false"/>
+        <line number="34" hits="24" branch="false"/><line number="33" hits="8" branch="false"/><line number="33" hits="8" branch="false"/><line number="37" hits="8" branch="false"/>
       </lines>
     </class><class name="DefaultErrorHandlerDefinition" filename="src/main/scala/io/xtech/babel/camel/model/ErrorHandling.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/DefaultErrorHandlerDefinition/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="84" hits="10" branch="false"/>
+        <line number="84" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="84" hits="10" branch="false"/>
+        <line number="84" hits="16" branch="false"/>
       </lines>
     </class><class name="Expressions" filename="src/main/scala/io/xtech/babel/camel/model/Expression.scala" line-rate="71.43" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/Expressions/&lt;none&gt;" signature="()V" line-rate="60.00" branch-rate="100.00">
       <lines>
-        <line number="117" hits="90" branch="false"/><line number="118" hits="35" branch="false"/><line number="118" hits="35" branch="false"/><line number="119" hits="30" branch="false"/><line number="119" hits="30" branch="false"/><line number="120" hits="25" branch="false"/><line number="121" hits="0" branch="false"/><line number="121" hits="0" branch="false"/><line number="122" hits="0" branch="false"/><line number="122" hits="0" branch="false"/>
+        <line number="117" hits="146" branch="false"/><line number="118" hits="56" branch="false"/><line number="118" hits="56" branch="false"/><line number="119" hits="49" branch="false"/><line number="119" hits="49" branch="false"/><line number="120" hits="41" branch="false"/><line number="121" hits="0" branch="false"/><line number="121" hits="0" branch="false"/><line number="122" hits="0" branch="false"/><line number="122" hits="0" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel.model/Expressions/toJavaListCamelExpression" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="149" hits="20" branch="false"/><line number="151" hits="20" branch="false"/>
+        <line number="149" hits="32" branch="false"/><line number="151" hits="32" branch="false"/>
       </lines>
     </method><method name="io.xtech.babel.camel.model/Expressions/toJavaIteratorCamelExpression" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="135" hits="40" branch="false"/><line number="137" hits="40" branch="false"/>
+        <line number="135" hits="64" branch="false"/><line number="137" hits="64" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="117" hits="90" branch="false"/><line number="118" hits="35" branch="false"/><line number="118" hits="35" branch="false"/><line number="119" hits="30" branch="false"/><line number="119" hits="30" branch="false"/><line number="120" hits="25" branch="false"/><line number="121" hits="0" branch="false"/><line number="121" hits="0" branch="false"/><line number="122" hits="0" branch="false"/><line number="122" hits="0" branch="false"/><line number="135" hits="40" branch="false"/><line number="137" hits="40" branch="false"/><line number="149" hits="20" branch="false"/><line number="151" hits="20" branch="false"/>
+        <line number="117" hits="146" branch="false"/><line number="118" hits="56" branch="false"/><line number="118" hits="56" branch="false"/><line number="119" hits="49" branch="false"/><line number="119" hits="49" branch="false"/><line number="120" hits="41" branch="false"/><line number="121" hits="0" branch="false"/><line number="121" hits="0" branch="false"/><line number="122" hits="0" branch="false"/><line number="122" hits="0" branch="false"/><line number="135" hits="64" branch="false"/><line number="137" hits="64" branch="false"/><line number="149" hits="32" branch="false"/><line number="151" hits="32" branch="false"/>
       </lines>
     </class><class name="ChannelDefinition" filename="src/main/scala/io/xtech/babel/camel/model/ChannelDefinition.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/ChannelDefinition/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="23" hits="70" branch="false"/><line number="23" hits="70" branch="false"/><line number="23" hits="70" branch="false"/><line number="23" hits="70" branch="false"/>
+        <line number="23" hits="113" branch="false"/><line number="23" hits="113" branch="false"/><line number="23" hits="113" branch="false"/><line number="23" hits="113" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="23" hits="70" branch="false"/><line number="23" hits="70" branch="false"/><line number="23" hits="70" branch="false"/><line number="23" hits="70" branch="false"/>
+        <line number="23" hits="113" branch="false"/><line number="23" hits="113" branch="false"/><line number="23" hits="113" branch="false"/><line number="23" hits="113" branch="false"/>
       </lines>
     </class><class name="CamelBodyExpression" filename="src/main/scala/io/xtech/babel/camel/model/Expression.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/CamelBodyExpression/evaluate" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="46" hits="40" branch="false"/><line number="46" hits="40" branch="false"/><line number="47" hits="40" branch="false"/>
+        <line number="46" hits="64" branch="false"/><line number="46" hits="64" branch="false"/><line number="47" hits="64" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="46" hits="40" branch="false"/><line number="46" hits="40" branch="false"/><line number="47" hits="40" branch="false"/>
+        <line number="46" hits="64" branch="false"/><line number="46" hits="64" branch="false"/><line number="47" hits="64" branch="false"/>
       </lines>
     </class><class name="OnExceptionDefinition" filename="src/main/scala/io/xtech/babel/camel/model/ErrorHandling.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/OnExceptionDefinition/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="108" hits="200" branch="false"/><line number="116" hits="70" branch="false"/><line number="116" hits="70" branch="false"/><line number="116" hits="70" branch="false"/><line number="126" hits="120" branch="false"/><line number="126" hits="120" branch="false"/><line number="126" hits="120" branch="false"/><line number="136" hits="80" branch="false"/><line number="136" hits="80" branch="false"/><line number="136" hits="200" branch="false"/><line number="138" hits="200" branch="false"/><line number="140" hits="120" branch="false"/><line number="140" hits="120" branch="false"/><line number="140" hits="120" branch="false"/><line number="140" hits="120" branch="false"/><line number="142" hits="70" branch="false"/><line number="142" hits="70" branch="false"/><line number="142" hits="70" branch="false"/><line number="142" hits="70" branch="false"/><line number="143" hits="10" branch="false"/><line number="143" hits="10" branch="false"/>
+        <line number="108" hits="320" branch="false"/><line number="116" hits="112" branch="false"/><line number="116" hits="112" branch="false"/><line number="116" hits="112" branch="false"/><line number="126" hits="192" branch="false"/><line number="126" hits="192" branch="false"/><line number="126" hits="192" branch="false"/><line number="136" hits="128" branch="false"/><line number="136" hits="128" branch="false"/><line number="136" hits="320" branch="false"/><line number="138" hits="320" branch="false"/><line number="140" hits="192" branch="false"/><line number="140" hits="192" branch="false"/><line number="140" hits="192" branch="false"/><line number="140" hits="192" branch="false"/><line number="142" hits="112" branch="false"/><line number="142" hits="112" branch="false"/><line number="142" hits="112" branch="false"/><line number="142" hits="112" branch="false"/><line number="143" hits="16" branch="false"/><line number="143" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="108" hits="200" branch="false"/><line number="116" hits="70" branch="false"/><line number="116" hits="70" branch="false"/><line number="116" hits="70" branch="false"/><line number="126" hits="120" branch="false"/><line number="126" hits="120" branch="false"/><line number="126" hits="120" branch="false"/><line number="136" hits="80" branch="false"/><line number="136" hits="80" branch="false"/><line number="136" hits="200" branch="false"/><line number="138" hits="200" branch="false"/><line number="140" hits="120" branch="false"/><line number="140" hits="120" branch="false"/><line number="140" hits="120" branch="false"/><line number="140" hits="120" branch="false"/><line number="142" hits="70" branch="false"/><line number="142" hits="70" branch="false"/><line number="142" hits="70" branch="false"/><line number="142" hits="70" branch="false"/><line number="143" hits="10" branch="false"/><line number="143" hits="10" branch="false"/>
+        <line number="108" hits="320" branch="false"/><line number="116" hits="112" branch="false"/><line number="116" hits="112" branch="false"/><line number="116" hits="112" branch="false"/><line number="126" hits="192" branch="false"/><line number="126" hits="192" branch="false"/><line number="126" hits="192" branch="false"/><line number="136" hits="128" branch="false"/><line number="136" hits="128" branch="false"/><line number="136" hits="320" branch="false"/><line number="138" hits="320" branch="false"/><line number="140" hits="192" branch="false"/><line number="140" hits="192" branch="false"/><line number="140" hits="192" branch="false"/><line number="140" hits="192" branch="false"/><line number="142" hits="112" branch="false"/><line number="142" hits="112" branch="false"/><line number="142" hits="112" branch="false"/><line number="142" hits="112" branch="false"/><line number="143" hits="16" branch="false"/><line number="143" hits="16" branch="false"/>
       </lines>
     </class><class name="CamelIteratorExpression" filename="src/main/scala/io/xtech/babel/camel/model/Expression.scala" line-rate="75.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.model/CamelIteratorExpression/evaluate" signature="()V" line-rate="75.00" branch-rate="100.00">
       <lines>
-        <line number="58" hits="45" branch="false"/><line number="60" hits="45" branch="false"/><line number="61" hits="0" branch="false"/><line number="61" hits="0" branch="false"/><line number="62" hits="40" branch="false"/><line number="62" hits="40" branch="false"/><line number="63" hits="5" branch="false"/><line number="63" hits="5" branch="false"/>
+        <line number="58" hits="72" branch="false"/><line number="60" hits="72" branch="false"/><line number="61" hits="0" branch="false"/><line number="61" hits="0" branch="false"/><line number="62" hits="64" branch="false"/><line number="62" hits="64" branch="false"/><line number="63" hits="8" branch="false"/><line number="63" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="58" hits="45" branch="false"/><line number="60" hits="45" branch="false"/><line number="61" hits="0" branch="false"/><line number="61" hits="0" branch="false"/><line number="62" hits="40" branch="false"/><line number="62" hits="40" branch="false"/><line number="63" hits="5" branch="false"/><line number="63" hits="5" branch="false"/>
+        <line number="58" hits="72" branch="false"/><line number="60" hits="72" branch="false"/><line number="61" hits="0" branch="false"/><line number="61" hits="0" branch="false"/><line number="62" hits="64" branch="false"/><line number="62" hits="64" branch="false"/><line number="63" hits="8" branch="false"/><line number="63" hits="8" branch="false"/>
       </lines>
     </class>
       </classes>
-    </package><package name="io.xtech.babel.camel.parsing" line-rate="89.12" branch-rate="100.00" complexity="0">
+    </package><package name="io.xtech.babel.camel.parsing" line-rate="93.24" branch-rate="100.00" complexity="0">
       <classes>
         <class name="RouteId" filename="src/main/scala/io/xtech/babel/camel/parsing/RouteId.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/RouteId/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="32" hits="40" branch="false"/><line number="38" hits="30" branch="false"/><line number="38" hits="30" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="32" hits="64" branch="false"/><line number="38" hits="48" branch="false"/><line number="38" hits="48" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="32" hits="40" branch="false"/><line number="38" hits="30" branch="false"/><line number="38" hits="30" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="32" hits="64" branch="false"/><line number="38" hits="48" branch="false"/><line number="38" hits="48" branch="false"/>
       </lines>
     </class><class name="Transaction" filename="src/main/scala/io/xtech/babel/camel/parsing/Transaction.scala" line-rate="87.50" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/Transaction/&lt;none&gt;" signature="()V" line-rate="87.50" branch-rate="100.00">
       <lines>
-        <line number="31" hits="604" branch="false"/><line number="31" hits="604" branch="false"/><line number="31" hits="604" branch="false"/><line number="33" hits="20" branch="false"/><line number="40" hits="20" branch="false"/><line number="40" hits="0" branch="false"/><line number="40" hits="20" branch="false"/><line number="40" hits="20" branch="false"/>
+        <line number="31" hits="971" branch="false"/><line number="31" hits="971" branch="false"/><line number="31" hits="971" branch="false"/><line number="33" hits="32" branch="false"/><line number="40" hits="32" branch="false"/><line number="40" hits="0" branch="false"/><line number="40" hits="32" branch="false"/><line number="40" hits="32" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="31" hits="604" branch="false"/><line number="31" hits="604" branch="false"/><line number="31" hits="604" branch="false"/><line number="33" hits="20" branch="false"/><line number="40" hits="20" branch="false"/><line number="40" hits="0" branch="false"/><line number="40" hits="20" branch="false"/><line number="40" hits="20" branch="false"/>
+        <line number="31" hits="971" branch="false"/><line number="31" hits="971" branch="false"/><line number="31" hits="971" branch="false"/><line number="33" hits="32" branch="false"/><line number="40" hits="32" branch="false"/><line number="40" hits="0" branch="false"/><line number="40" hits="32" branch="false"/><line number="40" hits="32" branch="false"/>
       </lines>
     </class><class name="$anon" filename="src/main/scala/io/xtech/babel/camel/parsing/RouteConfiguration.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/$anon/applyOrElse" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="48" hits="5" branch="false"/><line number="48" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="44" hits="5" branch="false"/><line number="58" hits="5" branch="false"/><line number="58" hits="5" branch="false"/><line number="56" hits="5" branch="false"/><line number="56" hits="5" branch="false"/><line number="54" hits="5" branch="false"/><line number="67" hits="5" branch="false"/><line number="66" hits="5" branch="false"/><line number="66" hits="5" branch="false"/><line number="64" hits="5" branch="false"/><line number="75" hits="5" branch="false"/><line number="74" hits="5" branch="false"/><line number="74" hits="5" branch="false"/><line number="72" hits="5" branch="false"/><line number="83" hits="5" branch="false"/><line number="82" hits="5" branch="false"/><line number="82" hits="5" branch="false"/><line number="80" hits="5" branch="false"/><line number="91" hits="10" branch="false"/><line number="90" hits="5" branch="false"/><line number="90" hits="5" branch="false"/><line number="88" hits="5" branch="false"/><line number="99" hits="5" branch="false"/><line number="98" hits="5" branch="false"/><line number="98" hits="5" branch="false"/><line number="96" hits="5" branch="false"/><line number="108" hits="5" branch="false"/><line number="105" hits="5" branch="false"/><line number="105" hits="5" branch="false"/><line number="104" hits="5" branch="false"/>
+        <line number="48" hits="8" branch="false"/><line number="48" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="44" hits="8" branch="false"/><line number="58" hits="8" branch="false"/><line number="58" hits="8" branch="false"/><line number="56" hits="8" branch="false"/><line number="56" hits="8" branch="false"/><line number="54" hits="8" branch="false"/><line number="67" hits="8" branch="false"/><line number="66" hits="8" branch="false"/><line number="66" hits="8" branch="false"/><line number="64" hits="8" branch="false"/><line number="75" hits="8" branch="false"/><line number="74" hits="8" branch="false"/><line number="74" hits="8" branch="false"/><line number="72" hits="8" branch="false"/><line number="83" hits="8" branch="false"/><line number="82" hits="8" branch="false"/><line number="82" hits="8" branch="false"/><line number="80" hits="8" branch="false"/><line number="91" hits="16" branch="false"/><line number="90" hits="8" branch="false"/><line number="90" hits="8" branch="false"/><line number="88" hits="8" branch="false"/><line number="99" hits="8" branch="false"/><line number="98" hits="8" branch="false"/><line number="98" hits="8" branch="false"/><line number="96" hits="8" branch="false"/><line number="108" hits="8" branch="false"/><line number="105" hits="8" branch="false"/><line number="105" hits="8" branch="false"/><line number="104" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="48" hits="5" branch="false"/><line number="48" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="46" hits="5" branch="false"/><line number="44" hits="5" branch="false"/><line number="58" hits="5" branch="false"/><line number="58" hits="5" branch="false"/><line number="56" hits="5" branch="false"/><line number="56" hits="5" branch="false"/><line number="54" hits="5" branch="false"/><line number="67" hits="5" branch="false"/><line number="66" hits="5" branch="false"/><line number="66" hits="5" branch="false"/><line number="64" hits="5" branch="false"/><line number="75" hits="5" branch="false"/><line number="74" hits="5" branch="false"/><line number="74" hits="5" branch="false"/><line number="72" hits="5" branch="false"/><line number="83" hits="5" branch="false"/><line number="82" hits="5" branch="false"/><line number="82" hits="5" branch="false"/><line number="80" hits="5" branch="false"/><line number="91" hits="10" branch="false"/><line number="90" hits="5" branch="false"/><line number="90" hits="5" branch="false"/><line number="88" hits="5" branch="false"/><line number="99" hits="5" branch="false"/><line number="98" hits="5" branch="false"/><line number="98" hits="5" branch="false"/><line number="96" hits="5" branch="false"/><line number="108" hits="5" branch="false"/><line number="105" hits="5" branch="false"/><line number="105" hits="5" branch="false"/><line number="104" hits="5" branch="false"/>
+        <line number="48" hits="8" branch="false"/><line number="48" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="46" hits="8" branch="false"/><line number="44" hits="8" branch="false"/><line number="58" hits="8" branch="false"/><line number="58" hits="8" branch="false"/><line number="56" hits="8" branch="false"/><line number="56" hits="8" branch="false"/><line number="54" hits="8" branch="false"/><line number="67" hits="8" branch="false"/><line number="66" hits="8" branch="false"/><line number="66" hits="8" branch="false"/><line number="64" hits="8" branch="false"/><line number="75" hits="8" branch="false"/><line number="74" hits="8" branch="false"/><line number="74" hits="8" branch="false"/><line number="72" hits="8" branch="false"/><line number="83" hits="8" branch="false"/><line number="82" hits="8" branch="false"/><line number="82" hits="8" branch="false"/><line number="80" hits="8" branch="false"/><line number="91" hits="16" branch="false"/><line number="90" hits="8" branch="false"/><line number="90" hits="8" branch="false"/><line number="88" hits="8" branch="false"/><line number="99" hits="8" branch="false"/><line number="98" hits="8" branch="false"/><line number="98" hits="8" branch="false"/><line number="96" hits="8" branch="false"/><line number="108" hits="8" branch="false"/><line number="105" hits="8" branch="false"/><line number="105" hits="8" branch="false"/><line number="104" hits="8" branch="false"/>
       </lines>
-    </class><class name="RecipientList" filename="src/main/scala/io/xtech/babel/camel/parsing/RecipientList.scala" line-rate="42.86" branch-rate="100.00" complexity="0">
+    </class><class name="RecipientList" filename="src/main/scala/io/xtech/babel/camel/parsing/RecipientList.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
-        <method name="io.xtech.babel.camel.parsing/RecipientList/&lt;none&gt;" signature="()V" line-rate="42.86" branch-rate="100.00">
+        <method name="io.xtech.babel.camel.parsing/RecipientList/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="32" hits="0" branch="false"/><line number="35" hits="604" branch="false"/><line number="35" hits="604" branch="false"/><line number="35" hits="604" branch="false"/><line number="40" hits="0" branch="false"/><line number="40" hits="0" branch="false"/><line number="40" hits="0" branch="false"/>
+        <line number="32" hits="2" branch="false"/><line number="35" hits="971" branch="false"/><line number="35" hits="971" branch="false"/><line number="35" hits="971" branch="false"/><line number="40" hits="2" branch="false"/><line number="40" hits="2" branch="false"/><line number="40" hits="2" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="32" hits="0" branch="false"/><line number="35" hits="604" branch="false"/><line number="35" hits="604" branch="false"/><line number="35" hits="604" branch="false"/><line number="40" hits="0" branch="false"/><line number="40" hits="0" branch="false"/><line number="40" hits="0" branch="false"/>
+        <line number="32" hits="2" branch="false"/><line number="35" hits="971" branch="false"/><line number="35" hits="971" branch="false"/><line number="35" hits="971" branch="false"/><line number="40" hits="2" branch="false"/><line number="40" hits="2" branch="false"/><line number="40" hits="2" branch="false"/>
       </lines>
     </class><class name="Validation" filename="src/main/scala/io/xtech/babel/camel/parsing/Validation.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/Validation/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="27" hits="604" branch="false"/><line number="27" hits="604" branch="false"/><line number="27" hits="604" branch="false"/><line number="29" hits="20" branch="false"/><line number="35" hits="20" branch="false"/><line number="35" hits="20" branch="false"/><line number="35" hits="20" branch="false"/>
+        <line number="27" hits="971" branch="false"/><line number="27" hits="971" branch="false"/><line number="27" hits="971" branch="false"/><line number="29" hits="32" branch="false"/><line number="35" hits="32" branch="false"/><line number="35" hits="32" branch="false"/><line number="35" hits="32" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="27" hits="604" branch="false"/><line number="27" hits="604" branch="false"/><line number="27" hits="604" branch="false"/><line number="29" hits="20" branch="false"/><line number="35" hits="20" branch="false"/><line number="35" hits="20" branch="false"/><line number="35" hits="20" branch="false"/>
+        <line number="27" hits="971" branch="false"/><line number="27" hits="971" branch="false"/><line number="27" hits="971" branch="false"/><line number="29" hits="32" branch="false"/><line number="35" hits="32" branch="false"/><line number="35" hits="32" branch="false"/><line number="35" hits="32" branch="false"/>
       </lines>
     </class><class name="Handler" filename="src/main/scala/io/xtech/babel/camel/parsing/Handler.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/Handler/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="33" hits="604" branch="false"/><line number="33" hits="604" branch="false"/><line number="33" hits="604" branch="false"/><line number="35" hits="110" branch="false"/><line number="39" hits="110" branch="false"/><line number="45" hits="200" branch="false"/><line number="48" hits="200" branch="false"/><line number="50" hits="70" branch="false"/><line number="50" hits="70" branch="false"/><line number="50" hits="70" branch="false"/><line number="51" hits="130" branch="false"/><line number="51" hits="130" branch="false"/><line number="53" hits="200" branch="false"/><line number="53" hits="200" branch="false"/><line number="63" hits="100" branch="false"/><line number="63" hits="100" branch="false"/><line number="63" hits="100" branch="false"/><line number="64" hits="100" branch="false"/><line number="62" hits="100" branch="false"/><line number="67" hits="30" branch="false"/><line number="67" hits="30" branch="false"/><line number="67" hits="30" branch="false"/><line number="66" hits="30" branch="false"/><line number="72" hits="100" branch="false"/><line number="72" hits="100" branch="false"/><line number="73" hits="100" branch="false"/><line number="74" hits="100" branch="false"/><line number="74" hits="100" branch="false"/><line number="71" hits="100" branch="false"/><line number="77" hits="20" branch="false"/><line number="77" hits="20" branch="false"/><line number="78" hits="20" branch="false"/><line number="76" hits="20" branch="false"/>
+        <line number="33" hits="971" branch="false"/><line number="33" hits="971" branch="false"/><line number="33" hits="971" branch="false"/><line number="35" hits="176" branch="false"/><line number="39" hits="176" branch="false"/><line number="45" hits="320" branch="false"/><line number="48" hits="320" branch="false"/><line number="50" hits="112" branch="false"/><line number="50" hits="112" branch="false"/><line number="50" hits="112" branch="false"/><line number="51" hits="208" branch="false"/><line number="51" hits="208" branch="false"/><line number="53" hits="320" branch="false"/><line number="53" hits="320" branch="false"/><line number="63" hits="160" branch="false"/><line number="63" hits="160" branch="false"/><line number="63" hits="160" branch="false"/><line number="64" hits="160" branch="false"/><line number="62" hits="160" branch="false"/><line number="67" hits="48" branch="false"/><line number="67" hits="48" branch="false"/><line number="67" hits="48" branch="false"/><line number="66" hits="48" branch="false"/><line number="72" hits="160" branch="false"/><line number="72" hits="160" branch="false"/><line number="73" hits="160" branch="false"/><line number="74" hits="160" branch="false"/><line number="74" hits="160" branch="false"/><line number="71" hits="160" branch="false"/><line number="77" hits="32" branch="false"/><line number="77" hits="32" branch="false"/><line number="78" hits="32" branch="false"/><line number="76" hits="32" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="33" hits="604" branch="false"/><line number="33" hits="604" branch="false"/><line number="33" hits="604" branch="false"/><line number="35" hits="110" branch="false"/><line number="39" hits="110" branch="false"/><line number="45" hits="200" branch="false"/><line number="48" hits="200" branch="false"/><line number="50" hits="70" branch="false"/><line number="50" hits="70" branch="false"/><line number="50" hits="70" branch="false"/><line number="51" hits="130" branch="false"/><line number="51" hits="130" branch="false"/><line number="53" hits="200" branch="false"/><line number="53" hits="200" branch="false"/><line number="63" hits="100" branch="false"/><line number="63" hits="100" branch="false"/><line number="63" hits="100" branch="false"/><line number="64" hits="100" branch="false"/><line number="62" hits="100" branch="false"/><line number="67" hits="30" branch="false"/><line number="67" hits="30" branch="false"/><line number="67" hits="30" branch="false"/><line number="66" hits="30" branch="false"/><line number="72" hits="100" branch="false"/><line number="72" hits="100" branch="false"/><line number="73" hits="100" branch="false"/><line number="74" hits="100" branch="false"/><line number="74" hits="100" branch="false"/><line number="71" hits="100" branch="false"/><line number="77" hits="20" branch="false"/><line number="77" hits="20" branch="false"/><line number="78" hits="20" branch="false"/><line number="76" hits="20" branch="false"/>
+        <line number="33" hits="971" branch="false"/><line number="33" hits="971" branch="false"/><line number="33" hits="971" branch="false"/><line number="35" hits="176" branch="false"/><line number="39" hits="176" branch="false"/><line number="45" hits="320" branch="false"/><line number="48" hits="320" branch="false"/><line number="50" hits="112" branch="false"/><line number="50" hits="112" branch="false"/><line number="50" hits="112" branch="false"/><line number="51" hits="208" branch="false"/><line number="51" hits="208" branch="false"/><line number="53" hits="320" branch="false"/><line number="53" hits="320" branch="false"/><line number="63" hits="160" branch="false"/><line number="63" hits="160" branch="false"/><line number="63" hits="160" branch="false"/><line number="64" hits="160" branch="false"/><line number="62" hits="160" branch="false"/><line number="67" hits="48" branch="false"/><line number="67" hits="48" branch="false"/><line number="67" hits="48" branch="false"/><line number="66" hits="48" branch="false"/><line number="72" hits="160" branch="false"/><line number="72" hits="160" branch="false"/><line number="73" hits="160" branch="false"/><line number="74" hits="160" branch="false"/><line number="74" hits="160" branch="false"/><line number="71" hits="160" branch="false"/><line number="77" hits="32" branch="false"/><line number="77" hits="32" branch="false"/><line number="78" hits="32" branch="false"/><line number="76" hits="32" branch="false"/>
       </lines>
-    </class><class name="Enricher" filename="src/main/scala/io/xtech/babel/camel/parsing/Enricher.scala" line-rate="18.75" branch-rate="100.00" complexity="0">
+    </class><class name="Enricher" filename="src/main/scala/io/xtech/babel/camel/parsing/Enricher.scala" line-rate="56.25" branch-rate="100.00" complexity="0">
       <methods>
-        <method name="io.xtech.babel.camel.parsing/Enricher/&lt;none&gt;" signature="()V" line-rate="18.75" branch-rate="100.00">
+        <method name="io.xtech.babel.camel.parsing/Enricher/&lt;none&gt;" signature="()V" line-rate="56.25" branch-rate="100.00">
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="32" hits="0" branch="false"/><line number="42" hits="0" branch="false"/><line number="43" hits="0" branch="false"/><line number="44" hits="0" branch="false"/><line number="46" hits="0" branch="false"/><line number="40" hits="0" branch="false"/><line number="54" hits="0" branch="false"/><line number="55" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="59" hits="0" branch="false"/><line number="52" hits="0" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="32" hits="1" branch="false"/><line number="42" hits="1" branch="false"/><line number="43" hits="1" branch="false"/><line number="44" hits="1" branch="false"/><line number="46" hits="1" branch="false"/><line number="40" hits="1" branch="false"/><line number="54" hits="0" branch="false"/><line number="55" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="59" hits="0" branch="false"/><line number="52" hits="0" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="32" hits="0" branch="false"/><line number="42" hits="0" branch="false"/><line number="43" hits="0" branch="false"/><line number="44" hits="0" branch="false"/><line number="46" hits="0" branch="false"/><line number="40" hits="0" branch="false"/><line number="54" hits="0" branch="false"/><line number="55" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="59" hits="0" branch="false"/><line number="52" hits="0" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="32" hits="1" branch="false"/><line number="42" hits="1" branch="false"/><line number="43" hits="1" branch="false"/><line number="44" hits="1" branch="false"/><line number="46" hits="1" branch="false"/><line number="40" hits="1" branch="false"/><line number="54" hits="0" branch="false"/><line number="55" hits="0" branch="false"/><line number="56" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="57" hits="0" branch="false"/><line number="59" hits="0" branch="false"/><line number="52" hits="0" branch="false"/>
       </lines>
     </class><class name="Resequencer" filename="src/main/scala/io/xtech/babel/camel/parsing/Resequencer.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/Resequencer/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="32" hits="604" branch="false"/><line number="32" hits="604" branch="false"/><line number="32" hits="604" branch="false"/><line number="34" hits="20" branch="false"/><line number="40" hits="10" branch="false"/><line number="40" hits="10" branch="false"/><line number="45" hits="10" branch="false"/><line number="45" hits="10" branch="false"/>
+        <line number="32" hits="971" branch="false"/><line number="32" hits="971" branch="false"/><line number="32" hits="971" branch="false"/><line number="34" hits="32" branch="false"/><line number="40" hits="16" branch="false"/><line number="40" hits="16" branch="false"/><line number="45" hits="16" branch="false"/><line number="45" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="32" hits="604" branch="false"/><line number="32" hits="604" branch="false"/><line number="32" hits="604" branch="false"/><line number="34" hits="20" branch="false"/><line number="40" hits="10" branch="false"/><line number="40" hits="10" branch="false"/><line number="45" hits="10" branch="false"/><line number="45" hits="10" branch="false"/>
+        <line number="32" hits="971" branch="false"/><line number="32" hits="971" branch="false"/><line number="32" hits="971" branch="false"/><line number="34" hits="32" branch="false"/><line number="40" hits="16" branch="false"/><line number="40" hits="16" branch="false"/><line number="45" hits="16" branch="false"/><line number="45" hits="16" branch="false"/>
       </lines>
     </class><class name="CamelMessageProcessor" filename="src/main/scala/io/xtech/babel/camel/parsing/Wrapper.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/CamelMessageProcessor/process" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="46" hits="100" branch="false"/><line number="47" hits="100" branch="false"/><line number="47" hits="50" branch="false"/>
+        <line number="46" hits="160" branch="false"/><line number="47" hits="160" branch="false"/><line number="47" hits="80" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="46" hits="100" branch="false"/><line number="47" hits="100" branch="false"/><line number="47" hits="50" branch="false"/>
+        <line number="46" hits="160" branch="false"/><line number="47" hits="160" branch="false"/><line number="47" hits="80" branch="false"/>
       </lines>
     </class><class name="Marshaller" filename="src/main/scala/io/xtech/babel/camel/parsing/Marshaller.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/Marshaller/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="32" hits="30" branch="false"/><line number="39" hits="5" branch="false"/><line number="39" hits="5" branch="false"/><line number="43" hits="10" branch="false"/><line number="43" hits="10" branch="false"/><line number="47" hits="5" branch="false"/><line number="47" hits="5" branch="false"/><line number="51" hits="10" branch="false"/><line number="51" hits="10" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="32" hits="48" branch="false"/><line number="39" hits="8" branch="false"/><line number="39" hits="8" branch="false"/><line number="43" hits="16" branch="false"/><line number="43" hits="16" branch="false"/><line number="47" hits="8" branch="false"/><line number="47" hits="8" branch="false"/><line number="51" hits="16" branch="false"/><line number="51" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="32" hits="30" branch="false"/><line number="39" hits="5" branch="false"/><line number="39" hits="5" branch="false"/><line number="43" hits="10" branch="false"/><line number="43" hits="10" branch="false"/><line number="47" hits="5" branch="false"/><line number="47" hits="5" branch="false"/><line number="51" hits="10" branch="false"/><line number="51" hits="10" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="32" hits="48" branch="false"/><line number="39" hits="8" branch="false"/><line number="39" hits="8" branch="false"/><line number="43" hits="16" branch="false"/><line number="43" hits="16" branch="false"/><line number="47" hits="8" branch="false"/><line number="47" hits="8" branch="false"/><line number="51" hits="16" branch="false"/><line number="51" hits="16" branch="false"/>
       </lines>
     </class><class name="RoutePolicyInterface" filename="src/main/scala/io/xtech/babel/camel/parsing/RouteConfiguration.scala" line-rate="87.50" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/RoutePolicyInterface/&lt;none&gt;" signature="()V" line-rate="87.50" branch-rate="100.00">
       <lines>
-        <line number="119" hits="10" branch="false"/><line number="121" hits="70" branch="false"/><line number="123" hits="10" branch="false"/><line number="125" hits="0" branch="false"/><line number="127" hits="70" branch="false"/><line number="129" hits="70" branch="false"/><line number="131" hits="70" branch="false"/><line number="133" hits="10" branch="false"/>
+        <line number="119" hits="16" branch="false"/><line number="121" hits="112" branch="false"/><line number="123" hits="16" branch="false"/><line number="125" hits="0" branch="false"/><line number="127" hits="112" branch="false"/><line number="129" hits="112" branch="false"/><line number="131" hits="112" branch="false"/><line number="133" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="119" hits="10" branch="false"/><line number="121" hits="70" branch="false"/><line number="123" hits="10" branch="false"/><line number="125" hits="0" branch="false"/><line number="127" hits="70" branch="false"/><line number="129" hits="70" branch="false"/><line number="131" hits="70" branch="false"/><line number="133" hits="10" branch="false"/>
+        <line number="119" hits="16" branch="false"/><line number="121" hits="112" branch="false"/><line number="123" hits="16" branch="false"/><line number="125" hits="0" branch="false"/><line number="127" hits="112" branch="false"/><line number="129" hits="112" branch="false"/><line number="131" hits="112" branch="false"/><line number="133" hits="16" branch="false"/>
       </lines>
     </class><class name="Log" filename="src/main/scala/io/xtech/babel/camel/parsing/Log.scala" line-rate="83.33" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/Log/&lt;none&gt;" signature="()V" line-rate="83.33" branch-rate="100.00">
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="32" hits="20" branch="false"/><line number="37" hits="10" branch="false"/><line number="37" hits="10" branch="false"/><line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="45" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="49" hits="5" branch="false"/><line number="49" hits="5" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="32" hits="32" branch="false"/><line number="37" hits="16" branch="false"/><line number="37" hits="16" branch="false"/><line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="45" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="49" hits="8" branch="false"/><line number="49" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="32" hits="20" branch="false"/><line number="37" hits="10" branch="false"/><line number="37" hits="10" branch="false"/><line number="41" hits="5" branch="false"/><line number="41" hits="5" branch="false"/><line number="45" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="49" hits="5" branch="false"/><line number="49" hits="5" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="32" hits="32" branch="false"/><line number="37" hits="16" branch="false"/><line number="37" hits="16" branch="false"/><line number="41" hits="8" branch="false"/><line number="41" hits="8" branch="false"/><line number="45" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="49" hits="8" branch="false"/><line number="49" hits="8" branch="false"/>
       </lines>
     </class><class name="Aggregation" filename="src/main/scala/io/xtech/babel/camel/parsing/Aggregation.scala" line-rate="71.43" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/Aggregation/&lt;none&gt;" signature="()V" line-rate="71.43" branch-rate="100.00">
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="34" hits="20" branch="false"/><line number="36" hits="0" branch="false"/><line number="36" hits="0" branch="false"/><line number="36" hits="0" branch="false"/><line number="39" hits="20" branch="false"/><line number="39" hits="20" branch="false"/><line number="39" hits="20" branch="false"/><line number="42" hits="0" branch="false"/><line number="42" hits="0" branch="false"/><line number="42" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="48" hits="0" branch="false"/><line number="48" hits="0" branch="false"/><line number="33" hits="20" branch="false"/><line number="60" hits="5" branch="false"/><line number="60" hits="5" branch="false"/><line number="62" hits="5" branch="false"/><line number="58" hits="5" branch="false"/><line number="69" hits="5" branch="false"/><line number="71" hits="5" branch="false"/><line number="67" hits="5" branch="false"/><line number="78" hits="5" branch="false"/><line number="80" hits="5" branch="false"/><line number="80" hits="5" branch="false"/><line number="82" hits="5" branch="false"/><line number="77" hits="5" branch="false"/><line number="89" hits="5" branch="false"/><line number="91" hits="5" branch="false"/><line number="91" hits="5" branch="false"/><line number="93" hits="5" branch="false"/><line number="88" hits="5" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="34" hits="32" branch="false"/><line number="36" hits="0" branch="false"/><line number="36" hits="0" branch="false"/><line number="36" hits="0" branch="false"/><line number="39" hits="32" branch="false"/><line number="39" hits="32" branch="false"/><line number="39" hits="32" branch="false"/><line number="42" hits="0" branch="false"/><line number="42" hits="0" branch="false"/><line number="42" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="48" hits="0" branch="false"/><line number="48" hits="0" branch="false"/><line number="33" hits="32" branch="false"/><line number="60" hits="8" branch="false"/><line number="60" hits="8" branch="false"/><line number="62" hits="8" branch="false"/><line number="58" hits="8" branch="false"/><line number="69" hits="8" branch="false"/><line number="71" hits="8" branch="false"/><line number="67" hits="8" branch="false"/><line number="78" hits="8" branch="false"/><line number="80" hits="8" branch="false"/><line number="80" hits="8" branch="false"/><line number="82" hits="8" branch="false"/><line number="77" hits="8" branch="false"/><line number="89" hits="8" branch="false"/><line number="91" hits="8" branch="false"/><line number="91" hits="8" branch="false"/><line number="93" hits="8" branch="false"/><line number="88" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="34" hits="20" branch="false"/><line number="36" hits="0" branch="false"/><line number="36" hits="0" branch="false"/><line number="36" hits="0" branch="false"/><line number="39" hits="20" branch="false"/><line number="39" hits="20" branch="false"/><line number="39" hits="20" branch="false"/><line number="42" hits="0" branch="false"/><line number="42" hits="0" branch="false"/><line number="42" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="48" hits="0" branch="false"/><line number="48" hits="0" branch="false"/><line number="33" hits="20" branch="false"/><line number="60" hits="5" branch="false"/><line number="60" hits="5" branch="false"/><line number="62" hits="5" branch="false"/><line number="58" hits="5" branch="false"/><line number="69" hits="5" branch="false"/><line number="71" hits="5" branch="false"/><line number="67" hits="5" branch="false"/><line number="78" hits="5" branch="false"/><line number="80" hits="5" branch="false"/><line number="80" hits="5" branch="false"/><line number="82" hits="5" branch="false"/><line number="77" hits="5" branch="false"/><line number="89" hits="5" branch="false"/><line number="91" hits="5" branch="false"/><line number="91" hits="5" branch="false"/><line number="93" hits="5" branch="false"/><line number="88" hits="5" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="34" hits="32" branch="false"/><line number="36" hits="0" branch="false"/><line number="36" hits="0" branch="false"/><line number="36" hits="0" branch="false"/><line number="39" hits="32" branch="false"/><line number="39" hits="32" branch="false"/><line number="39" hits="32" branch="false"/><line number="42" hits="0" branch="false"/><line number="42" hits="0" branch="false"/><line number="42" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="45" hits="0" branch="false"/><line number="48" hits="0" branch="false"/><line number="48" hits="0" branch="false"/><line number="33" hits="32" branch="false"/><line number="60" hits="8" branch="false"/><line number="60" hits="8" branch="false"/><line number="62" hits="8" branch="false"/><line number="58" hits="8" branch="false"/><line number="69" hits="8" branch="false"/><line number="71" hits="8" branch="false"/><line number="67" hits="8" branch="false"/><line number="78" hits="8" branch="false"/><line number="80" hits="8" branch="false"/><line number="80" hits="8" branch="false"/><line number="82" hits="8" branch="false"/><line number="77" hits="8" branch="false"/><line number="89" hits="8" branch="false"/><line number="91" hits="8" branch="false"/><line number="91" hits="8" branch="false"/><line number="93" hits="8" branch="false"/><line number="88" hits="8" branch="false"/>
       </lines>
     </class><class name="WireTap" filename="src/main/scala/io/xtech/babel/camel/parsing/WireTap.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/WireTap/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="32" hits="5" branch="false"/><line number="38" hits="5" branch="false"/><line number="38" hits="5" branch="false"/><line number="38" hits="5" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="32" hits="8" branch="false"/><line number="38" hits="8" branch="false"/><line number="38" hits="8" branch="false"/><line number="38" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="30" hits="604" branch="false"/><line number="32" hits="5" branch="false"/><line number="38" hits="5" branch="false"/><line number="38" hits="5" branch="false"/><line number="38" hits="5" branch="false"/>
+        <line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="30" hits="971" branch="false"/><line number="32" hits="8" branch="false"/><line number="38" hits="8" branch="false"/><line number="38" hits="8" branch="false"/><line number="38" hits="8" branch="false"/>
       </lines>
     </class><class name="Transformation" filename="src/main/scala/io/xtech/babel/camel/parsing/Transformation.scala" line-rate="93.10" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/Transformation/&lt;none&gt;" signature="()V" line-rate="93.10" branch-rate="100.00">
       <lines>
-        <line number="32" hits="604" branch="false"/><line number="32" hits="604" branch="false"/><line number="32" hits="604" branch="false"/><line number="34" hits="35" branch="false"/><line number="36" hits="0" branch="false"/><line number="38" hits="315" branch="false"/><line number="40" hits="70" branch="false"/><line number="50" hits="315" branch="false"/><line number="50" hits="315" branch="false"/><line number="51" hits="0" branch="false"/><line number="51" hits="315" branch="false"/><line number="48" hits="315" branch="false"/><line number="57" hits="70" branch="false"/><line number="57" hits="70" branch="false"/><line number="58" hits="5" branch="false"/><line number="58" hits="70" branch="false"/><line number="55" hits="70" branch="false"/><line number="64" hits="5" branch="false"/><line number="64" hits="5" branch="false"/><line number="64" hits="10" branch="false"/><line number="64" hits="10" branch="false"/><line number="71" hits="10" branch="false"/><line number="71" hits="5" branch="false"/><line number="71" hits="15" branch="false"/><line number="71" hits="15" branch="false"/><line number="77" hits="5" branch="false"/><line number="77" hits="5" branch="false"/><line number="77" hits="10" branch="false"/><line number="77" hits="10" branch="false"/>
+        <line number="32" hits="971" branch="false"/><line number="32" hits="971" branch="false"/><line number="32" hits="971" branch="false"/><line number="34" hits="56" branch="false"/><line number="36" hits="0" branch="false"/><line number="38" hits="504" branch="false"/><line number="40" hits="112" branch="false"/><line number="50" hits="504" branch="false"/><line number="50" hits="504" branch="false"/><line number="51" hits="0" branch="false"/><line number="51" hits="504" branch="false"/><line number="48" hits="504" branch="false"/><line number="57" hits="112" branch="false"/><line number="57" hits="112" branch="false"/><line number="58" hits="8" branch="false"/><line number="58" hits="112" branch="false"/><line number="55" hits="112" branch="false"/><line number="64" hits="8" branch="false"/><line number="64" hits="8" branch="false"/><line number="64" hits="16" branch="false"/><line number="64" hits="16" branch="false"/><line number="71" hits="16" branch="false"/><line number="71" hits="8" branch="false"/><line number="71" hits="24" branch="false"/><line number="71" hits="24" branch="false"/><line number="77" hits="8" branch="false"/><line number="77" hits="8" branch="false"/><line number="77" hits="16" branch="false"/><line number="77" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="32" hits="604" branch="false"/><line number="32" hits="604" branch="false"/><line number="32" hits="604" branch="false"/><line number="34" hits="35" branch="false"/><line number="36" hits="0" branch="false"/><line number="38" hits="315" branch="false"/><line number="40" hits="70" branch="false"/><line number="50" hits="315" branch="false"/><line number="50" hits="315" branch="false"/><line number="51" hits="0" branch="false"/><line number="51" hits="315" branch="false"/><line number="48" hits="315" branch="false"/><line number="57" hits="70" branch="false"/><line number="57" hits="70" branch="false"/><line number="58" hits="5" branch="false"/><line number="58" hits="70" branch="false"/><line number="55" hits="70" branch="false"/><line number="64" hits="5" branch="false"/><line number="64" hits="5" branch="false"/><line number="64" hits="10" branch="false"/><line number="64" hits="10" branch="false"/><line number="71" hits="10" branch="false"/><line number="71" hits="5" branch="false"/><line number="71" hits="15" branch="false"/><line number="71" hits="15" branch="false"/><line number="77" hits="5" branch="false"/><line number="77" hits="5" branch="false"/><line number="77" hits="10" branch="false"/><line number="77" hits="10" branch="false"/>
+        <line number="32" hits="971" branch="false"/><line number="32" hits="971" branch="false"/><line number="32" hits="971" branch="false"/><line number="34" hits="56" branch="false"/><line number="36" hits="0" branch="false"/><line number="38" hits="504" branch="false"/><line number="40" hits="112" branch="false"/><line number="50" hits="504" branch="false"/><line number="50" hits="504" branch="false"/><line number="51" hits="0" branch="false"/><line number="51" hits="504" branch="false"/><line number="48" hits="504" branch="false"/><line number="57" hits="112" branch="false"/><line number="57" hits="112" branch="false"/><line number="58" hits="8" branch="false"/><line number="58" hits="112" branch="false"/><line number="55" hits="112" branch="false"/><line number="64" hits="8" branch="false"/><line number="64" hits="8" branch="false"/><line number="64" hits="16" branch="false"/><line number="64" hits="16" branch="false"/><line number="71" hits="16" branch="false"/><line number="71" hits="8" branch="false"/><line number="71" hits="24" branch="false"/><line number="71" hits="24" branch="false"/><line number="77" hits="8" branch="false"/><line number="77" hits="8" branch="false"/><line number="77" hits="16" branch="false"/><line number="77" hits="16" branch="false"/>
       </lines>
     </class><class name="CamelBodyTypeValidation" filename="src/main/scala/io/xtech/babel/camel/parsing/Wrapper.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/CamelBodyTypeValidation/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="58" hits="5" branch="false"/><line number="59" hits="5" branch="false"/><line number="60" hits="5" branch="false"/><line number="61" hits="5" branch="false"/><line number="62" hits="5" branch="false"/><line number="63" hits="5" branch="false"/><line number="64" hits="5" branch="false"/><line number="65" hits="5" branch="false"/><line number="66" hits="5" branch="false"/><line number="67" hits="25" branch="false"/><line number="67" hits="5" branch="false"/><line number="79" hits="35" branch="false"/><line number="80" hits="35" branch="false"/><line number="80" hits="35" branch="false"/><line number="80" hits="35" branch="false"/><line number="80" hits="35" branch="false"/><line number="80" hits="5" branch="false"/><line number="80" hits="5" branch="false"/><line number="81" hits="30" branch="false"/><line number="81" hits="30" branch="false"/><line number="81" hits="20" branch="false"/><line number="81" hits="20" branch="false"/><line number="82" hits="10" branch="false"/><line number="82" hits="10" branch="false"/>
+        <line number="58" hits="8" branch="false"/><line number="59" hits="8" branch="false"/><line number="60" hits="8" branch="false"/><line number="61" hits="8" branch="false"/><line number="62" hits="8" branch="false"/><line number="63" hits="8" branch="false"/><line number="64" hits="8" branch="false"/><line number="65" hits="8" branch="false"/><line number="66" hits="8" branch="false"/><line number="67" hits="40" branch="false"/><line number="67" hits="8" branch="false"/><line number="79" hits="56" branch="false"/><line number="80" hits="56" branch="false"/><line number="80" hits="56" branch="false"/><line number="80" hits="56" branch="false"/><line number="80" hits="56" branch="false"/><line number="80" hits="8" branch="false"/><line number="80" hits="8" branch="false"/><line number="81" hits="48" branch="false"/><line number="81" hits="48" branch="false"/><line number="81" hits="32" branch="false"/><line number="81" hits="32" branch="false"/><line number="82" hits="16" branch="false"/><line number="82" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="58" hits="5" branch="false"/><line number="59" hits="5" branch="false"/><line number="60" hits="5" branch="false"/><line number="61" hits="5" branch="false"/><line number="62" hits="5" branch="false"/><line number="63" hits="5" branch="false"/><line number="64" hits="5" branch="false"/><line number="65" hits="5" branch="false"/><line number="66" hits="5" branch="false"/><line number="67" hits="25" branch="false"/><line number="67" hits="5" branch="false"/><line number="79" hits="35" branch="false"/><line number="80" hits="35" branch="false"/><line number="80" hits="35" branch="false"/><line number="80" hits="35" branch="false"/><line number="80" hits="35" branch="false"/><line number="80" hits="5" branch="false"/><line number="80" hits="5" branch="false"/><line number="81" hits="30" branch="false"/><line number="81" hits="30" branch="false"/><line number="81" hits="20" branch="false"/><line number="81" hits="20" branch="false"/><line number="82" hits="10" branch="false"/><line number="82" hits="10" branch="false"/>
+        <line number="58" hits="8" branch="false"/><line number="59" hits="8" branch="false"/><line number="60" hits="8" branch="false"/><line number="61" hits="8" branch="false"/><line number="62" hits="8" branch="false"/><line number="63" hits="8" branch="false"/><line number="64" hits="8" branch="false"/><line number="65" hits="8" branch="false"/><line number="66" hits="8" branch="false"/><line number="67" hits="40" branch="false"/><line number="67" hits="8" branch="false"/><line number="79" hits="56" branch="false"/><line number="80" hits="56" branch="false"/><line number="80" hits="56" branch="false"/><line number="80" hits="56" branch="false"/><line number="80" hits="56" branch="false"/><line number="80" hits="8" branch="false"/><line number="80" hits="8" branch="false"/><line number="81" hits="48" branch="false"/><line number="81" hits="48" branch="false"/><line number="81" hits="32" branch="false"/><line number="81" hits="32" branch="false"/><line number="82" hits="16" branch="false"/><line number="82" hits="16" branch="false"/>
       </lines>
     </class><class name="RouteConfiguration" filename="src/main/scala/io/xtech/babel/camel/parsing/RouteConfiguration.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/RouteConfiguration/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="33" hits="604" branch="false"/><line number="33" hits="604" branch="false"/><line number="33" hits="604" branch="false"/><line number="35" hits="45" branch="false"/><line number="41" hits="5" branch="false"/><line number="39" hits="5" branch="false"/>
+        <line number="33" hits="971" branch="false"/><line number="33" hits="971" branch="false"/><line number="33" hits="971" branch="false"/><line number="35" hits="72" branch="false"/><line number="41" hits="8" branch="false"/><line number="39" hits="8" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="33" hits="604" branch="false"/><line number="33" hits="604" branch="false"/><line number="33" hits="604" branch="false"/><line number="35" hits="45" branch="false"/><line number="41" hits="5" branch="false"/><line number="39" hits="5" branch="false"/>
+        <line number="33" hits="971" branch="false"/><line number="33" hits="971" branch="false"/><line number="33" hits="971" branch="false"/><line number="35" hits="72" branch="false"/><line number="41" hits="8" branch="false"/><line number="39" hits="8" branch="false"/>
       </lines>
     </class><class name="Sort" filename="src/main/scala/io/xtech/babel/camel/parsing/Sort.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/Sort/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="31" hits="604" branch="false"/><line number="31" hits="604" branch="false"/><line number="31" hits="604" branch="false"/><line number="33" hits="20" branch="false"/><line number="39" hits="10" branch="false"/><line number="39" hits="10" branch="false"/><line number="39" hits="10" branch="false"/><line number="45" hits="10" branch="false"/><line number="45" hits="10" branch="false"/><line number="45" hits="10" branch="false"/>
+        <line number="31" hits="971" branch="false"/><line number="31" hits="971" branch="false"/><line number="31" hits="971" branch="false"/><line number="33" hits="32" branch="false"/><line number="39" hits="16" branch="false"/><line number="39" hits="16" branch="false"/><line number="39" hits="16" branch="false"/><line number="45" hits="16" branch="false"/><line number="45" hits="16" branch="false"/><line number="45" hits="16" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="31" hits="604" branch="false"/><line number="31" hits="604" branch="false"/><line number="31" hits="604" branch="false"/><line number="33" hits="20" branch="false"/><line number="39" hits="10" branch="false"/><line number="39" hits="10" branch="false"/><line number="39" hits="10" branch="false"/><line number="45" hits="10" branch="false"/><line number="45" hits="10" branch="false"/><line number="45" hits="10" branch="false"/>
+        <line number="31" hits="971" branch="false"/><line number="31" hits="971" branch="false"/><line number="31" hits="971" branch="false"/><line number="33" hits="32" branch="false"/><line number="39" hits="16" branch="false"/><line number="39" hits="16" branch="false"/><line number="39" hits="16" branch="false"/><line number="45" hits="16" branch="false"/><line number="45" hits="16" branch="false"/><line number="45" hits="16" branch="false"/>
       </lines>
-    </class><class name="Basics" filename="src/main/scala/io/xtech/babel/camel/parsing/Basics.scala" line-rate="94.44" branch-rate="100.00" complexity="0">
+    </class><class name="Basics" filename="src/main/scala/io/xtech/babel/camel/parsing/Basics.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
-        <method name="io.xtech.babel.camel.parsing/Basics/&lt;none&gt;" signature="()V" line-rate="94.44" branch-rate="100.00">
+        <method name="io.xtech.babel.camel.parsing/Basics/&lt;none&gt;" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="35" hits="0" branch="false"/><line number="37" hits="604" branch="false"/><line number="38" hits="604" branch="false"/><line number="39" hits="604" branch="false"/><line number="40" hits="604" branch="false"/><line number="41" hits="604" branch="false"/><line number="42" hits="604" branch="false"/><line number="43" hits="604" branch="false"/><line number="44" hits="604" branch="false"/><line number="45" hits="604" branch="false"/><line number="46" hits="604" branch="false"/><line number="47" hits="604" branch="false"/><line number="37" hits="604" branch="false"/><line number="52" hits="664" branch="false"/><line number="52" hits="664" branch="false"/><line number="59" hits="100" branch="false"/><line number="59" hits="100" branch="false"/><line number="67" hits="70" branch="false"/><line number="69" hits="0" branch="false"/><line number="69" hits="0" branch="false"/><line number="69" hits="0" branch="false"/><line number="72" hits="70" branch="false"/><line number="72" hits="70" branch="false"/><line number="76" hits="70" branch="false"/><line number="76" hits="70" branch="false"/><line number="76" hits="70" branch="false"/><line number="65" hits="70" branch="false"/><line number="83" hits="5" branch="false"/><line number="83" hits="5" branch="false"/><line number="83" hits="5" branch="false"/><line number="83" hits="5" branch="false"/><line number="83" hits="10" branch="false"/><line number="83" hits="915" branch="false"/><line number="84" hits="915" branch="false"/><line number="82" hits="915" branch="false"/><line number="91" hits="15" branch="false"/><line number="91" hits="5" branch="false"/><line number="91" hits="5" branch="false"/><line number="92" hits="5" branch="false"/><line number="92" hits="5" branch="false"/><line number="93" hits="5" branch="false"/><line number="89" hits="5" branch="false"/><line number="101" hits="350" branch="false"/><line number="101" hits="350" branch="false"/><line number="108" hits="35" branch="false"/><line number="108" hits="35" branch="false"/><line number="108" hits="35" branch="false"/><line number="119" hits="40" branch="false"/><line number="122" hits="40" branch="false"/><line number="126" hits="95" branch="false"/><line number="126" hits="95" branch="false"/><line number="126" hits="95" branch="false"/><line number="128" hits="95" branch="false"/><line number="128" hits="95" branch="false"/><line number="127" hits="95" branch="false"/><line number="125" hits="40" branch="false"/><line number="134" hits="30" branch="false"/><line number="135" hits="30" branch="false"/><line number="133" hits="30" branch="false"/><line number="133" hits="40" branch="false"/><line number="142" hits="40" branch="false"/><line number="117" hits="40" branch="false"/><line number="154" hits="40" branch="false"/><line number="154" hits="40" branch="false"/><line number="154" hits="40" branch="false"/><line number="166" hits="40" branch="false"/><line number="166" hits="40" branch="false"/><line number="164" hits="40" branch="false"/><line number="178" hits="250" branch="false"/><line number="178" hits="250" branch="false"/><line number="178" hits="210" branch="false"/><line number="177" hits="210" branch="false"/>
+        <line number="35" hits="1" branch="false"/><line number="37" hits="971" branch="false"/><line number="38" hits="971" branch="false"/><line number="39" hits="971" branch="false"/><line number="40" hits="971" branch="false"/><line number="41" hits="971" branch="false"/><line number="42" hits="971" branch="false"/><line number="43" hits="971" branch="false"/><line number="44" hits="971" branch="false"/><line number="45" hits="971" branch="false"/><line number="46" hits="971" branch="false"/><line number="47" hits="971" branch="false"/><line number="37" hits="971" branch="false"/><line number="52" hits="1068" branch="false"/><line number="52" hits="1068" branch="false"/><line number="59" hits="160" branch="false"/><line number="59" hits="160" branch="false"/><line number="67" hits="113" branch="false"/><line number="69" hits="1" branch="false"/><line number="69" hits="1" branch="false"/><line number="69" hits="1" branch="false"/><line number="72" hits="112" branch="false"/><line number="72" hits="112" branch="false"/><line number="76" hits="113" branch="false"/><line number="76" hits="113" branch="false"/><line number="76" hits="113" branch="false"/><line number="65" hits="113" branch="false"/><line number="83" hits="8" branch="false"/><line number="83" hits="8" branch="false"/><line number="83" hits="8" branch="false"/><line number="83" hits="8" branch="false"/><line number="83" hits="16" branch="false"/><line number="83" hits="1470" branch="false"/><line number="84" hits="1470" branch="false"/><line number="82" hits="1470" branch="false"/><line number="91" hits="24" branch="false"/><line number="91" hits="8" branch="false"/><line number="91" hits="8" branch="false"/><line number="92" hits="8" branch="false"/><line number="92" hits="8" branch="false"/><line number="93" hits="8" branch="false"/><line number="89" hits="8" branch="false"/><line number="101" hits="562" branch="false"/><line number="101" hits="562" branch="false"/><line number="108" hits="56" branch="false"/><line number="108" hits="56" branch="false"/><line number="108" hits="56" branch="false"/><line number="119" hits="64" branch="false"/><line number="122" hits="64" branch="false"/><line number="126" hits="152" branch="false"/><line number="126" hits="152" branch="false"/><line number="126" hits="152" branch="false"/><line number="128" hits="152" branch="false"/><line number="128" hits="152" branch="false"/><line number="127" hits="152" branch="false"/><line number="125" hits="64" branch="false"/><line number="134" hits="48" branch="false"/><line number="135" hits="48" branch="false"/><line number="133" hits="48" branch="false"/><line number="133" hits="64" branch="false"/><line number="142" hits="64" branch="false"/><line number="117" hits="64" branch="false"/><line number="154" hits="64" branch="false"/><line number="154" hits="64" branch="false"/><line number="154" hits="64" branch="false"/><line number="166" hits="64" branch="false"/><line number="166" hits="64" branch="false"/><line number="164" hits="64" branch="false"/><line number="178" hits="400" branch="false"/><line number="178" hits="400" branch="false"/><line number="178" hits="336" branch="false"/><line number="177" hits="336" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="35" hits="0" branch="false"/><line number="37" hits="604" branch="false"/><line number="38" hits="604" branch="false"/><line number="39" hits="604" branch="false"/><line number="40" hits="604" branch="false"/><line number="41" hits="604" branch="false"/><line number="42" hits="604" branch="false"/><line number="43" hits="604" branch="false"/><line number="44" hits="604" branch="false"/><line number="45" hits="604" branch="false"/><line number="46" hits="604" branch="false"/><line number="47" hits="604" branch="false"/><line number="37" hits="604" branch="false"/><line number="52" hits="664" branch="false"/><line number="52" hits="664" branch="false"/><line number="59" hits="100" branch="false"/><line number="59" hits="100" branch="false"/><line number="67" hits="70" branch="false"/><line number="69" hits="0" branch="false"/><line number="69" hits="0" branch="false"/><line number="69" hits="0" branch="false"/><line number="72" hits="70" branch="false"/><line number="72" hits="70" branch="false"/><line number="76" hits="70" branch="false"/><line number="76" hits="70" branch="false"/><line number="76" hits="70" branch="false"/><line number="65" hits="70" branch="false"/><line number="83" hits="5" branch="false"/><line number="83" hits="5" branch="false"/><line number="83" hits="5" branch="false"/><line number="83" hits="5" branch="false"/><line number="83" hits="10" branch="false"/><line number="83" hits="915" branch="false"/><line number="84" hits="915" branch="false"/><line number="82" hits="915" branch="false"/><line number="91" hits="15" branch="false"/><line number="91" hits="5" branch="false"/><line number="91" hits="5" branch="false"/><line number="92" hits="5" branch="false"/><line number="92" hits="5" branch="false"/><line number="93" hits="5" branch="false"/><line number="89" hits="5" branch="false"/><line number="101" hits="350" branch="false"/><line number="101" hits="350" branch="false"/><line number="108" hits="35" branch="false"/><line number="108" hits="35" branch="false"/><line number="108" hits="35" branch="false"/><line number="119" hits="40" branch="false"/><line number="122" hits="40" branch="false"/><line number="126" hits="95" branch="false"/><line number="126" hits="95" branch="false"/><line number="126" hits="95" branch="false"/><line number="128" hits="95" branch="false"/><line number="128" hits="95" branch="false"/><line number="127" hits="95" branch="false"/><line number="125" hits="40" branch="false"/><line number="134" hits="30" branch="false"/><line number="135" hits="30" branch="false"/><line number="133" hits="30" branch="false"/><line number="133" hits="40" branch="false"/><line number="142" hits="40" branch="false"/><line number="117" hits="40" branch="false"/><line number="154" hits="40" branch="false"/><line number="154" hits="40" branch="false"/><line number="154" hits="40" branch="false"/><line number="166" hits="40" branch="false"/><line number="166" hits="40" branch="false"/><line number="164" hits="40" branch="false"/><line number="178" hits="250" branch="false"/><line number="178" hits="250" branch="false"/><line number="178" hits="210" branch="false"/><line number="177" hits="210" branch="false"/>
+        <line number="35" hits="1" branch="false"/><line number="37" hits="971" branch="false"/><line number="38" hits="971" branch="false"/><line number="39" hits="971" branch="false"/><line number="40" hits="971" branch="false"/><line number="41" hits="971" branch="false"/><line number="42" hits="971" branch="false"/><line number="43" hits="971" branch="false"/><line number="44" hits="971" branch="false"/><line number="45" hits="971" branch="false"/><line number="46" hits="971" branch="false"/><line number="47" hits="971" branch="false"/><line number="37" hits="971" branch="false"/><line number="52" hits="1068" branch="false"/><line number="52" hits="1068" branch="false"/><line number="59" hits="160" branch="false"/><line number="59" hits="160" branch="false"/><line number="67" hits="113" branch="false"/><line number="69" hits="1" branch="false"/><line number="69" hits="1" branch="false"/><line number="69" hits="1" branch="false"/><line number="72" hits="112" branch="false"/><line number="72" hits="112" branch="false"/><line number="76" hits="113" branch="false"/><line number="76" hits="113" branch="false"/><line number="76" hits="113" branch="false"/><line number="65" hits="113" branch="false"/><line number="83" hits="8" branch="false"/><line number="83" hits="8" branch="false"/><line number="83" hits="8" branch="false"/><line number="83" hits="8" branch="false"/><line number="83" hits="16" branch="false"/><line number="83" hits="1470" branch="false"/><line number="84" hits="1470" branch="false"/><line number="82" hits="1470" branch="false"/><line number="91" hits="24" branch="false"/><line number="91" hits="8" branch="false"/><line number="91" hits="8" branch="false"/><line number="92" hits="8" branch="false"/><line number="92" hits="8" branch="false"/><line number="93" hits="8" branch="false"/><line number="89" hits="8" branch="false"/><line number="101" hits="562" branch="false"/><line number="101" hits="562" branch="false"/><line number="108" hits="56" branch="false"/><line number="108" hits="56" branch="false"/><line number="108" hits="56" branch="false"/><line number="119" hits="64" branch="false"/><line number="122" hits="64" branch="false"/><line number="126" hits="152" branch="false"/><line number="126" hits="152" branch="false"/><line number="126" hits="152" branch="false"/><line number="128" hits="152" branch="false"/><line number="128" hits="152" branch="false"/><line number="127" hits="152" branch="false"/><line number="125" hits="64" branch="false"/><line number="134" hits="48" branch="false"/><line number="135" hits="48" branch="false"/><line number="133" hits="48" branch="false"/><line number="133" hits="64" branch="false"/><line number="142" hits="64" branch="false"/><line number="117" hits="64" branch="false"/><line number="154" hits="64" branch="false"/><line number="154" hits="64" branch="false"/><line number="154" hits="64" branch="false"/><line number="166" hits="64" branch="false"/><line number="166" hits="64" branch="false"/><line number="164" hits="64" branch="false"/><line number="178" hits="400" branch="false"/><line number="178" hits="400" branch="false"/><line number="178" hits="336" branch="false"/><line number="177" hits="336" branch="false"/>
       </lines>
     </class><class name="CamelBodyProcessor" filename="src/main/scala/io/xtech/babel/camel/parsing/Wrapper.scala" line-rate="100.00" branch-rate="100.00" complexity="0">
       <methods>
         <method name="io.xtech.babel.camel.parsing/CamelBodyProcessor/process" signature="()V" line-rate="100.00" branch-rate="100.00">
       <lines>
-        <line number="31" hits="450" branch="false"/><line number="31" hits="450" branch="false"/><line number="32" hits="170" branch="false"/>
+        <line number="31" hits="720" branch="false"/><line number="31" hits="720" branch="false"/><line number="32" hits="272" branch="false"/>
       </lines>
     </method>
       </methods>
       <lines>
-        <line number="31" hits="450" branch="false"/><line number="31" hits="450" branch="false"/><line number="32" hits="170" branch="false"/>
+        <line number="31" hits="720" branch="false"/><line number="31" hits="720" branch="false"/><line number="32" hits="272" branch="false"/>
       </lines>
     </class>
       </classes>

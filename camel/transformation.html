@@ -324,7 +324,36 @@ For example : XML &lt;-&gt; JSON</p>
 <h2>Enrich<a class="headerlink" href="#enrich" title="Permalink to this headline">¶</a></h2>
 <p>The <em>enrich</em> and pollEnrich retrieves additional data from an endpoint and let you combine the original and new message with
 an aggregator. The <em>enrich</em> is using a request-reply pattern with the endpoint.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:enricherRoute&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:enricher&quot;</span><span class="o">)</span>
+
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="c1">//enriches the input with the enricherRoute messages</span>
+    <span class="c1">//  using the aggregationStrategy</span>
+    <span class="n">enrich</span><span class="o">(</span><span class="s">&quot;direct:enricherRoute&quot;</span><span class="o">,</span> <span class="s">&quot;aggregationStrategy&quot;</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="k">val</span> <span class="n">registry</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SimpleRegistry</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">put</span><span class="o">(</span><span class="s">&quot;aggregationStrategy&quot;</span><span class="o">,</span>
+  <span class="c1">//the used aggregation strategy is stored in a registry</span>
+  <span class="k">new</span> <span class="nc">ReduceBodyAggregationStrategy</span><span class="o">[</span><span class="kt">String</span><span class="o">]((</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">))</span>
+<span class="n">camelContext</span><span class="o">.</span><span class="n">setRegistry</span><span class="o">(</span><span class="n">registry</span><span class="o">)</span>
+</pre></div>
+</div>
 <p>The pollEnrich is more polling the endpoint with a timeout if no message is received after a while.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="n">pollEnrich</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="s">&quot;aggregationStrategy&quot;</span><span class="o">,</span> <span class="mi">1000</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="k">val</span> <span class="n">registry</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SimpleRegistry</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">put</span><span class="o">(</span><span class="s">&quot;aggregationStrategy&quot;</span><span class="o">,</span>
+  <span class="k">new</span> <span class="nc">ReduceBodyAggregationStrategy</span><span class="o">[</span><span class="kt">String</span><span class="o">]((</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">))</span>
+<span class="n">camelContext</span><span class="o">.</span><span class="n">setRegistry</span><span class="o">(</span><span class="n">registry</span><span class="o">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="processors">
 <h2>Processors<a class="headerlink" href="#processors" title="Permalink to this headline">¶</a></h2>

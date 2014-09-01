@@ -332,6 +332,16 @@ From Camel point of view, a Babel Message may be understood as the in Message of
 <div class="section" id="sub-routes">
 <h2>Sub routes<a class="headerlink" href="#sub-routes" title="Permalink to this headline">¶</a></h2>
 <p>With a <strong>sub</strong>, you can define the following steps as part of a new route.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:before&quot;</span><span class="o">).</span>
+    <span class="c1">//defines a new route called &quot;subroute&quot; which</span>
+    <span class="c1">//   will send its incoming message to the next mock endpoint</span>
+    <span class="n">sub</span><span class="o">(</span><span class="s">&quot;subroute&quot;</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:after&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 <p>This example would just create two routes:</p>
 <ul class="simple">
 <li>the &#8220;master-route&#8221; from the &#8220;input&#8221; to the &#8220;before&#8221; to the &#8220;subroute&#8221;</li>
