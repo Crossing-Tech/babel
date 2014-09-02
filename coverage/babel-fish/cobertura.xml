@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="67.83" lines-covered="143" lines-valid="97" branches-covered="0" branches-valid="0" branch-rate="100.00" complexity="0" version="1.0" timestamp="1409662707705">
+<coverage line-rate="67.83" lines-covered="143" lines-valid="97" branches-covered="0" branches-valid="0" branch-rate="100.00" complexity="0" version="1.0" timestamp="1409664250075">
       <sources>
         <source>/src/main/scala</source>
       </sources>
