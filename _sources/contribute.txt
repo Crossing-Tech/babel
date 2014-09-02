@@ -25,7 +25,7 @@ We will examine and hopefully accept your code contribution with pleasure. Pleas
 
 * Read and sign the CLA (coming soon).
 * Make sure a github issue exists (to avoid other people to work on the same topic).
-* Ensure your using the Crossing-Tech `copyright <legal/copyright.html>`_, you are not addding dependencies incompatible with the licence Apache2.
+* Ensure your using the Crossing-Tech `copyright <legal.html>`_, you are not addding dependencies incompatible with the licence Apache2.
 * Shape your contribution into a Github `Pull request <https://help.github.com/articles/using-pull-requests>`_ .
 * Please take the Pull request review as an opportunity to improve the quality of your contribution. Creating the Pull request is certainly not your the final goal.
 * Once the Pull requested is accepted, please clean your git branch (it should be more often a single commit).
@@ -33,6 +33,6 @@ We will examine and hopefully accept your code contribution with pleasure. Pleas
 We would like to keep the contribution process as simple and effective as possible. This procedure may get improve with the time, do not hesitate if you have an opinion.
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
-    rights
+   legal
