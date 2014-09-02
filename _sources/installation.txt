@@ -26,6 +26,19 @@ To build Babel from sources using `Apache Maven <http://maven.apache.org/>`_, in
   export MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
   mvn install
 
+.. _ArchetypeInstall:
+
+Build Babel Maven archetype
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to also install the Babel Camel Archetype locally, you only need to add the ``archetype`` maven profile to the previous script::
+
+  git clone https://github.com/babel-dsl/babel.git
+  cd babel
+  export MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
+  mvn -Parchetype install
+
+
 
 Build Babel with Sbt
 ++++++++++++++++++++

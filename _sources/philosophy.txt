@@ -2,7 +2,14 @@
 Babel Philosophy
 ================
 
-Babel way of thinking is to use the functional and typed way to write integration code. This vision is clearly taken from the `Scala <www.scala-lang.org/>`_ language.
+Babel way of thinking is to use the functional and typed way to write integration code. This vision is clearly taken from the `Scala <www.scala-lang.org/>`_ language. We have summarized this vision in the following 3 topics:
+
+- Babel is a typed DSL
+- Babel is a functional DSL
+- Babel is a simple DSL
+
+Babel little story
+++++++++++++++++++
 
 Babel, in its conception, was inspired by the way Java developer may improve their code using the Scala language.
 First, adding stricter management of the types provides validation at compile time which means less required tests and more powerful IDE.
@@ -15,8 +22,8 @@ Integration definition should be as easy as possible to let the complexity where
 
 Babel has grown and we experiment it using other integration frameworks such as Spring Framework Integration. We also tends to provide a Java API for the Babel Camel DSL, but the main focus of the project has been done on the Babel Camel DSL for Scala.
 
-Babel as a typed DSL for Camel
-++++++++++++++++++++++++++++++
+Babel as a typed DSL
+++++++++++++++++++++
 
 Babel provides typing of the exchange payload (called "exchange body" or simply "body") in Camel routes. This means, when you look at your Babel Camel route source code, at each step, you may infer what is the type of the body while entering an endpoint or a processor (which actually means any keyword, by the way). Do not be afraid, your IDE will be able to infer the type for you.
 This provides actually 3 interesting features:
@@ -30,8 +37,8 @@ Finally, the fact that the exchange body  is typed provides a great and powerful
 .. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/sample/SamplePhilosophySpec.scala#doc:babel-camel-sample-2
 
 
-Babel as a functional DSL for Camel
-+++++++++++++++++++++++++++++++++++
+Babel as a functional DSL
++++++++++++++++++++++++++
 
 Do you really require defining a ``Processor`` class just to provide a ``process`` method to your route? Well, it's not only the fact we may save 2 lines of code but also to improve the meaning of each statement.
 A transformation may be represented through an object (and Babel also allows such semantic), but a transformation is, in essence, functions.
@@ -40,8 +47,8 @@ Moreover, combining the typed and the functional aspect of Babel ensures that yo
 
 .. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/sample/SamplePhilosophySpec.scala#doc:babel-camel-sample-3
 
-Babel as a simple DSL for Camel
-+++++++++++++++++++++++++++++++
+Babel as a simple DSL
++++++++++++++++++++++
 
 Finally, based on the experience we had with Camel Java DSL, we have been through some difficulties while choosing between several possible implementations. Camel has a great (even a greatest) number of configurations and we would say most of them are overlapping.
 One of the most important feature of Camel, its wide range of possibilities, may also be a difficulty for those who, trying to learn the language, have difficulties to choose how to implement their use case. The main goal of Babel is to ensure writing an integration solution is as simple as possible, knowing the main difficulties are expected to be elsewhere.

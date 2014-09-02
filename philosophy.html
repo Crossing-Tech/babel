@@ -91,9 +91,10 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Babel Philosophy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#babel-little-story">Babel little story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-typed-dsl">Babel as a typed DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-functional-dsl">Babel as a functional DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#babel-as-a-simple-dsl">Babel as a simple DSL</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="howtostart.html">How to start a Babel project</a><ul>
@@ -134,9 +135,10 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Babel Philosophy</a><ul>
-<li><a class="reference internal" href="#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
-<li><a class="reference internal" href="#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
-<li><a class="reference internal" href="#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
+<li><a class="reference internal" href="#babel-little-story">Babel little story</a></li>
+<li><a class="reference internal" href="#babel-as-a-typed-dsl">Babel as a typed DSL</a></li>
+<li><a class="reference internal" href="#babel-as-a-functional-dsl">Babel as a functional DSL</a></li>
+<li><a class="reference internal" href="#babel-as-a-simple-dsl">Babel as a simple DSL</a></li>
 </ul>
 </li>
 </ul>
@@ -184,7 +186,14 @@
       
   <div class="section" id="babel-philosophy">
 <h1>Babel Philosophy<a class="headerlink" href="#babel-philosophy" title="Permalink to this headline">¶</a></h1>
-<p>Babel way of thinking is to use the functional and typed way to write integration code. This vision is clearly taken from the <a class="reference external" href="www.scala-lang.org/">Scala</a> language.</p>
+<p>Babel way of thinking is to use the functional and typed way to write integration code. This vision is clearly taken from the <a class="reference external" href="www.scala-lang.org/">Scala</a> language. We have summarized this vision in the following 3 topics:</p>
+<ul class="simple">
+<li>Babel is a typed DSL</li>
+<li>Babel is a functional DSL</li>
+<li>Babel is a simple DSL</li>
+</ul>
+<div class="section" id="babel-little-story">
+<h2>Babel little story<a class="headerlink" href="#babel-little-story" title="Permalink to this headline">¶</a></h2>
 <p>Babel, in its conception, was inspired by the way Java developer may improve their code using the Scala language.
 First, adding stricter management of the types provides validation at compile time which means less required tests and more powerful IDE.
 Secondly, using directly the functions reduces the amount of code for each simple implementation.</p>
@@ -192,8 +201,9 @@ Secondly, using directly the functions reduces the amount of code for each simpl
 Moreover, we had encountered several implementations where the Camel possibilities were just let aside, developers prefer to implement a large number of Camel features by themselves as they had not felt comfortable enough to do it through the Camel Java DSL.</p>
 <p>Integration definition should be as easy as possible to let the complexity where it is effectively: the integration with other systems.</p>
 <p>Babel has grown and we experiment it using other integration frameworks such as Spring Framework Integration. We also tends to provide a Java API for the Babel Camel DSL, but the main focus of the project has been done on the Babel Camel DSL for Scala.</p>
-<div class="section" id="babel-as-a-typed-dsl-for-camel">
-<h2>Babel as a typed DSL for Camel<a class="headerlink" href="#babel-as-a-typed-dsl-for-camel" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="babel-as-a-typed-dsl">
+<h2>Babel as a typed DSL<a class="headerlink" href="#babel-as-a-typed-dsl" title="Permalink to this headline">¶</a></h2>
 <p>Babel provides typing of the exchange payload (called &#8220;exchange body&#8221; or simply &#8220;body&#8221;) in Camel routes. This means, when you look at your Babel Camel route source code, at each step, you may infer what is the type of the body while entering an endpoint or a processor (which actually means any keyword, by the way). Do not be afraid, your IDE will be able to infer the type for you.
 This provides actually 3 interesting features:</p>
 <ul class="simple">
@@ -223,8 +233,8 @@ This provides actually 3 interesting features:</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="babel-as-a-functional-dsl-for-camel">
-<h2>Babel as a functional DSL for Camel<a class="headerlink" href="#babel-as-a-functional-dsl-for-camel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="babel-as-a-functional-dsl">
+<h2>Babel as a functional DSL<a class="headerlink" href="#babel-as-a-functional-dsl" title="Permalink to this headline">¶</a></h2>
 <p>Do you really require defining a <tt class="docutils literal"><span class="pre">Processor</span></tt> class just to provide a <tt class="docutils literal"><span class="pre">process</span></tt> method to your route? Well, it&#8217;s not only the fact we may save 2 lines of code but also to improve the meaning of each statement.
 A transformation may be represented through an object (and Babel also allows such semantic), but a transformation is, in essence, functions.</p>
 <p>Moreover, combining the typed and the functional aspect of Babel ensures that you provide the correct type directly to what will do the transformation. You may think about that just as coming back to an API, with simple method calls.</p>
@@ -253,8 +263,8 @@ A transformation may be represented through an object (and Babel also allows suc
 </pre></div>
 </div>
 </div>
-<div class="section" id="babel-as-a-simple-dsl-for-camel">
-<h2>Babel as a simple DSL for Camel<a class="headerlink" href="#babel-as-a-simple-dsl-for-camel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="babel-as-a-simple-dsl">
+<h2>Babel as a simple DSL<a class="headerlink" href="#babel-as-a-simple-dsl" title="Permalink to this headline">¶</a></h2>
 <p>Finally, based on the experience we had with Camel Java DSL, we have been through some difficulties while choosing between several possible implementations. Camel has a great (even a greatest) number of configurations and we would say most of them are overlapping.
 One of the most important feature of Camel, its wide range of possibilities, may also be a difficulty for those who, trying to learn the language, have difficulties to choose how to implement their use case. The main goal of Babel is to ensure writing an integration solution is as simple as possible, knowing the main difficulties are expected to be elsewhere.</p>
 </div>

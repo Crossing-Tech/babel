@@ -35,4 +35,4 @@ We would like to keep the contribution process as simple and effective as possib
 .. toctree::
    :maxdepth: 1
 
-    rig2hts
+    rights

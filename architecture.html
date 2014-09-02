@@ -92,9 +92,10 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Babel Philosophy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-little-story">Babel little story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-typed-dsl">Babel as a typed DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-functional-dsl">Babel as a functional DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-simple-dsl">Babel as a simple DSL</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="howtostart.html">How to start a Babel project</a><ul>
@@ -135,6 +136,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Babel Architecture</a><ul>
+<li><a class="reference internal" href="#babel-overview">Babel overview</a></li>
 <li><a class="reference internal" href="#babel-modules">Babel Modules</a></li>
 <li><a class="reference internal" href="#babel-structure">Babel Structure</a><ul>
 <li><a class="reference internal" href="#dsl">DSL</a></li>
@@ -189,17 +191,26 @@
       
   <div class="section" id="babel-architecture">
 <h1>Babel Architecture<a class="headerlink" href="#babel-architecture" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="babel-modules">
-<h2>Babel Modules<a class="headerlink" href="#babel-modules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="babel-overview">
+<h2>Babel overview<a class="headerlink" href="#babel-overview" title="Permalink to this headline">¶</a></h2>
+<p>Babel is a Domain Specific Language (DSL). This means Babel helps you to specify what you want to achieve and not to make it directly.</p>
 <p>You may see Babel as one more DSL for Apache Camel, among well-known ones such as the Java, Scala and XML DSL:</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/architecture-camel.png"><img alt="_images/architecture-camel.png" src="_images/architecture-camel.png" style="width: 299.25px; height: 182.25px;" /></a>
+<a class="reference internal image-reference" href="_images/architecture-camel.png"><img alt="_images/architecture-camel.png" src="_images/architecture-camel.png" style="width: 218.25px; height: 251.25px;" /></a>
 <p class="caption">Babel Camel is another way to write Apache Camel routes.</p>
 </div>
-<p>This Babel Camel DSL is provided through the <strong>babel-camel</strong> module which may be seen as the Babel connector for Apache Camel. If you want to use the Spring Framework Integration, you should use the <strong>babel-spring</strong> module. Finally, both are depending on the <strong>babel-fish</strong> which may be seen as the core of Babel.</p>
+</div>
+<div class="section" id="babel-modules">
+<h2>Babel Modules<a class="headerlink" href="#babel-modules" title="Permalink to this headline">¶</a></h2>
+<p>Babel is splitted into modules:</p>
+<ul class="simple">
+<li><strong>babel-fish</strong> is the core of Babel</li>
+<li><strong>babel-camel</strong> is a connector for Apache Camel</li>
+<li><strong>babel-spring</strong> is an experimental connector for Spring Integration</li>
+</ul>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/architecture.png"><img alt="_images/architecture.png" src="_images/architecture.png" style="width: 247.0px; height: 180.05px;" /></a>
-<p class="caption">Babel provides two main DSL to work either with Apache Camel or Spring Framework Integration, both depending on the core of Babel: <strong>babel-fish</strong>.</p>
+<a class="reference internal image-reference" href="_images/architecture.png"><img alt="_images/architecture.png" src="_images/architecture.png" style="width: 218.25px; height: 210.0px;" /></a>
+<p class="caption">Babel&#8217;s modules : <strong>babel-fish</strong>, <strong>babel-camel</strong> and the experimental <strong>babel-spring</strong></p>
 </div>
 </div>
 <div class="section" id="babel-structure">

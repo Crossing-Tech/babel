@@ -92,9 +92,10 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Babel Philosophy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-little-story">Babel little story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-typed-dsl">Babel as a typed DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-functional-dsl">Babel as a functional DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-simple-dsl">Babel as a simple DSL</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="howtostart.html">How to start a Babel project</a><ul>
@@ -136,7 +137,10 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Babel Installation Guide</a><ul>
 <li><a class="reference internal" href="#project-requirements">Project Requirements</a></li>
-<li><a class="reference internal" href="#build-babel-with-maven">Build Babel with Maven</a></li>
+<li><a class="reference internal" href="#build-babel-with-maven">Build Babel with Maven</a><ul>
+<li><a class="reference internal" href="#build-babel-maven-archetype">Build Babel Maven archetype</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#build-babel-with-sbt">Build Babel with Sbt</a></li>
 <li><a class="reference internal" href="#generate-the-documentation">Generate the documentation</a></li>
 </ul>
@@ -214,6 +218,16 @@
 <span class="nb">export </span><span class="nv">MAVEN_OPTS</span><span class="o">=</span><span class="s2">&quot;-XX:MaxPermSize=256m -Xmx1024m&quot;</span>
 mvn install
 </pre></div>
+</div>
+<div class="section" id="build-babel-maven-archetype">
+<span id="archetypeinstall"></span><h3>Build Babel Maven archetype<a class="headerlink" href="#build-babel-maven-archetype" title="Permalink to this headline">¶</a></h3>
+<p>If you want to also install the Babel Camel Archetype locally, you only need to add the <tt class="docutils literal"><span class="pre">archetype</span></tt> maven profile to the previous script:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git clone https://github.com/babel-dsl/babel.git
+<span class="nb">cd </span>babel
+<span class="nb">export </span><span class="nv">MAVEN_OPTS</span><span class="o">=</span><span class="s2">&quot;-XX:MaxPermSize=256m -Xmx1024m&quot;</span>
+mvn -Parchetype install
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="build-babel-with-sbt">
