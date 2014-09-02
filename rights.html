@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Babel Installation Guide &mdash; Babel 0.6.0-SNAPSHOT documentation</title>
+    <title>Babel copyright notice &mdash; Babel 0.6.0-SNAPSHOT documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -30,9 +30,6 @@
     <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="Babel 0.6.0-SNAPSHOT documentation" href="index.html" />
-    <link rel="up" title="Babel for developers" href="devguide.html" />
-    <link rel="next" title="Babel development" href="development.html" />
-    <link rel="prev" title="Babel Architecture" href="architecture.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -90,7 +87,7 @@
      href="index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
+      aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Babel Philosophy</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
@@ -112,9 +109,9 @@
 <li class="toctree-l2"><a class="reference internal" href="camel/samples.html">Babel Camel Samples</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="devguide.html">Babel for developers</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="devguide.html">Babel for developers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="architecture.html">Babel Architecture</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Babel Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Babel Installation Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development.html">Babel development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contribute.html">Contribute to Babel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extension/extension.html">Babel Extension</a></li>
@@ -134,13 +131,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Babel Installation Guide</a><ul>
-<li><a class="reference internal" href="#project-requirements">Project Requirements</a></li>
-<li><a class="reference internal" href="#build-babel-with-maven">Build Babel with Maven</a></li>
-<li><a class="reference internal" href="#build-babel-with-sbt">Build Babel with Sbt</a></li>
-<li><a class="reference internal" href="#generate-the-documentation">Generate the documentation</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Babel copyright notice</a></li>
 </ul>
 </ul>
 </li>
@@ -149,14 +140,6 @@
             
               
                 
-  <li>
-    <a href="architecture.html" title="Previous Chapter: Babel Architecture"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Babel Architectu...</span>
-    </a>
-  </li>
-  <li>
-    <a href="development.html" title="Next Chapter: Babel development"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Babel developmen... &raquo;</span>
-    </a>
-  </li>
               
             
             
@@ -184,62 +167,20 @@
   <div class="row">
     <div class="col-md-12">
       
-  <div class="section" id="babel-installation-guide">
-<h1>Babel Installation Guide<a class="headerlink" href="#babel-installation-guide" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="project-requirements">
-<h2>Project Requirements<a class="headerlink" href="#project-requirements" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="40%" />
-<col width="60%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>Operating System</td>
-<td>GNU/Linux, Mac OS X, MS Windows</td>
-</tr>
-<tr class="row-even"><td>Java VM</td>
-<td>Oracle JDK 6</td>
-</tr>
-<tr class="row-odd"><td>Maven</td>
-<td>3.0.5</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="build-babel-with-maven">
-<span id="maveninstall"></span><h2>Build Babel with Maven<a class="headerlink" href="#build-babel-with-maven" title="Permalink to this headline">¶</a></h2>
-<p>To build Babel from sources using <a class="reference external" href="http://maven.apache.org/">Apache Maven</a>, in a regular shell:</p>
-<div class="highlight-bash"><div class="highlight"><pre>git clone https://github.com/babel-dsl/babel.git
-<span class="nb">cd </span>babel
-<span class="nb">export </span><span class="nv">MAVEN_OPTS</span><span class="o">=</span><span class="s2">&quot;-XX:MaxPermSize=256m -Xmx1024m&quot;</span>
-mvn install
+  <div class="section" id="babel-copyright-notice">
+<h1>Babel copyright notice<a class="headerlink" href="#babel-copyright-notice" title="Permalink to this headline">¶</a></h1>
+<p>The copyright notice should look like:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="cm">/*</span>
+<span class="cm"> *</span>
+<span class="cm"> *  Copyright STARTING_YEAR-CURRENT_YEAR Crossing-Tech SA, EPFL QI-J, CH-1015 Lausanne, Switzerland.</span>
+<span class="cm"> *  All rights reserved.</span>
+<span class="cm"> *</span>
+<span class="cm"> * ==================================================================================</span>
+<span class="cm"> */</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="build-babel-with-sbt">
-<h2>Build Babel with Sbt<a class="headerlink" href="#build-babel-with-sbt" title="Permalink to this headline">¶</a></h2>
-<p>To build Babel from sources using <a class="reference external" href="http://www.scala-sbt.org/">Sbt</a>, in a regular shell:</p>
-<div class="highlight-bash"><div class="highlight"><pre>git clone https://github.com/babel-dsl/babel.git
-<span class="nb">cd </span>babel
-<span class="nb">export </span><span class="nv">SBT_OPTS</span><span class="o">=</span><span class="s2">&quot;-XX:MaxPermSize=256m -Xmx1024m&quot;</span>
-sbt <span class="nb">test </span>publish-local
-</pre></div>
-</div>
-</div>
-<div class="section" id="generate-the-documentation">
-<h2>Generate the documentation<a class="headerlink" href="#generate-the-documentation" title="Permalink to this headline">¶</a></h2>
-<p>to generate the documentation, first install the sphinx documentation generator and then, run:</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">babel</span><span class="o">-</span><span class="n">dsl</span><span class="o">/</span><span class="n">babel</span><span class="o">.</span><span class="n">git</span>
-<span class="n">cd</span> <span class="n">babel</span><span class="o">/</span><span class="n">babel</span><span class="o">-</span><span class="n">doc</span>
-<span class="n">make</span> <span class="n">html</span>
-<span class="k">#</span><span class="n">browse</span> <span class="n">build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Akka provides some nice documentation on how to generate documentation with Sphinx: <a class="reference external" href="http://doc.akka.io/docs/akka/2.0/dev/documentation.html">Akka Sphinx Documentation</a></p>
-</div>
-</div>
+<p>Where the STARTING_YEAR states the creation of the file and the CURRENT_YEAR states the last modification of the file.</p>
+<p>Please avoid any mention of author information in the file. Instead of this, please make sure your name get mentioned with the first release of your contribution.</p>
 </div>
 
 
