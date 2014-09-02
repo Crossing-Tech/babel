@@ -1,0 +1,955 @@
+<html>
+      <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title id="title">Scales Code Coverage</title>
+      <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+      <style>
+        .meter {
+        height: 14px;
+        position: relative;
+        background: #BB2020;
+}
+.meter span {
+	display: block;
+	height: 100%;
+	background-color: rgb(43,194,83);
+	background-image: -webkit-gradient(
+	  linear,
+	  left bottom,
+	  left top,
+	  color-stop(0, rgb(43,194,83)),
+	  color-stop(1, rgb(84,240,84))
+	 );
+	background-image: -webkit-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -moz-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -ms-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -o-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	-webkit-box-shadow:
+	  inset 0 2px 9px  rgba(255,255,255,0.3),
+	  inset 0 -2px 6px rgba(0,0,0,0.4);
+	-moz-box-shadow:
+	  inset 0 2px 9px  rgba(255,255,255,0.3),
+	  inset 0 -2px 6px rgba(0,0,0,0.4);
+	position: relative;
+	overflow: hidden;
+}
+      </style>
+    </head><body style="font-family: monospace;">
+      <table class="table table-striped" style="font-size:13px">
+      <thead>
+        <tr>
+          <th>
+            Class
+          </th>
+          <th>
+            Source file
+          </th>
+          <th>
+            Lines
+          </th>
+          <th>
+            Methods
+          </th>
+          <th>
+            Statements
+          </th>
+          <th>
+            Invoked
+          </th>
+          <th>
+            Coverage
+          </th>
+          <th>
+          </th>
+          <th>
+            Branches
+          </th>
+          <th>
+            Invoked
+          </th>
+          <th>
+            Coverage
+          </th>
+          <th>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+      <td>
+        <a href="CamelDSL.scala.html">
+          $anon
+        </a>
+      </td>
+      <td>
+        CamelDSL.scala
+      </td>
+      <td>
+        81
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="CamelDSL.scala.html">
+          CamelDSL
+        </a>
+      </td>
+      <td>
+        CamelDSL.scala
+      </td>
+      <td>
+        87
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        14
+      </td>
+      <td>
+        12
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 86%"></span>
+        </div>
+      </td>
+      <td>
+        85.71
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="EnricherDSL.scala.html">
+          EnricherDSL
+        </a>
+      </td>
+      <td>
+        EnricherDSL.scala
+      </td>
+      <td>
+        54
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        2
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 50%"></span>
+        </div>
+      </td>
+      <td>
+        50.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="HandlerDSL.scala.html">
+          HandlerDSL
+        </a>
+      </td>
+      <td>
+        HandlerDSL.scala
+      </td>
+      <td>
+        39
+      </td>
+      <td>
+        2
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="HandlerDSL.scala.html">
+          HandlingDSL
+        </a>
+      </td>
+      <td>
+        HandlerDSL.scala
+      </td>
+      <td>
+        186
+      </td>
+      <td>
+        8
+      </td>
+      <td>
+        48
+      </td>
+      <td>
+        48
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="LogDSL.scala.html">
+          LogDSL
+        </a>
+      </td>
+      <td>
+        LogDSL.scala
+      </td>
+      <td>
+        63
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        15
+      </td>
+      <td>
+        11
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 73%"></span>
+        </div>
+      </td>
+      <td>
+        73.33
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="MarshallerDSL.scala.html">
+          MarshallerDSL
+        </a>
+      </td>
+      <td>
+        MarshallerDSL.scala
+      </td>
+      <td>
+        71
+      </td>
+      <td>
+        2
+      </td>
+      <td>
+        16
+      </td>
+      <td>
+        16
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="HandlerDSL.scala.html">
+          OnExceptionDSL
+        </a>
+      </td>
+      <td>
+        HandlerDSL.scala
+      </td>
+      <td>
+        305
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        16
+      </td>
+      <td>
+        16
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="RecipientListDSL.scala.html">
+          RecipientListDSL
+        </a>
+      </td>
+      <td>
+        RecipientListDSL.scala
+      </td>
+      <td>
+        38
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="HandlerDSL.scala.html">
+          RedeliveryDSL
+        </a>
+      </td>
+      <td>
+        HandlerDSL.scala
+      </td>
+      <td>
+        222
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        9
+      </td>
+      <td>
+        3
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 33%"></span>
+        </div>
+      </td>
+      <td>
+        33.33
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="ResequencerDSL.scala.html">
+          ResequencerDSL
+        </a>
+      </td>
+      <td>
+        ResequencerDSL.scala
+      </td>
+      <td>
+        47
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="RouteConfigurationDSL.scala.html">
+          RouteConfigurationDSL
+        </a>
+      </td>
+      <td>
+        RouteConfigurationDSL.scala
+      </td>
+      <td>
+        118
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        27
+      </td>
+      <td>
+        27
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="RouteIdDSL.scala.html">
+          RouteIdDSL
+        </a>
+      </td>
+      <td>
+        RouteIdDSL.scala
+      </td>
+      <td>
+        30
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="SortDSL.scala.html">
+          SortDSL
+        </a>
+      </td>
+      <td>
+        SortDSL.scala
+      </td>
+      <td>
+        60
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        18
+      </td>
+      <td>
+        18
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="SubRouteDSL.scala.html">
+          SubRouteDSL
+        </a>
+      </td>
+      <td>
+        SubRouteDSL.scala
+      </td>
+      <td>
+        31
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        7
+      </td>
+      <td>
+        6
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 86%"></span>
+        </div>
+      </td>
+      <td>
+        85.71
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="TransactionDSL.scala.html">
+          TransactionDSL
+        </a>
+      </td>
+      <td>
+        TransactionDSL.scala
+      </td>
+      <td>
+        34
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        8
+      </td>
+      <td>
+        4
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 50%"></span>
+        </div>
+      </td>
+      <td>
+        50.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="TransformationDSL.scala.html">
+          TransformationDSL
+        </a>
+      </td>
+      <td>
+        TransformationDSL.scala
+      </td>
+      <td>
+        64
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        27
+      </td>
+      <td>
+        27
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="ValidationDSL.scala.html">
+          ValidationDSL
+        </a>
+      </td>
+      <td>
+        ValidationDSL.scala
+      </td>
+      <td>
+        45
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        11
+      </td>
+      <td>
+        11
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr><tr>
+      <td>
+        <a href="WireTapDSL.scala.html">
+          WireTapDSL
+        </a>
+      </td>
+      <td>
+        WireTapDSL.scala
+      </td>
+      <td>
+        27
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        4
+      </td>
+      <td>
+        4
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <div class="meter">
+          <span style="width: 100%"></span>
+        </div>
+      </td>
+      <td>
+        100.00
+        %
+      </td>
+    </tr>
+      </tbody>
+    </table>
+    </body>
+    </html>
