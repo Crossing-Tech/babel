@@ -2,6 +2,11 @@
 How to start a Babel project
 ============================
 
+Babel depends mainly on the following artifacts:
+
+* org.scala-lang/scala-library/2.10.4
+* org.apache.camel/camel-core/2.12.4
+
 Using Maven
 +++++++++++
 
