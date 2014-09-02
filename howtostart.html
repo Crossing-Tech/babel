@@ -208,6 +208,8 @@
 <h2>Using Sbt<a class="headerlink" href="#using-sbt" title="Permalink to this headline">¶</a></h2>
 <p>To add Babel Camel in a Sbt project, you may just add the following dependencies to your build configuration:</p>
 <pre class="literal-block">
+resolvers += &quot;Sonatype OSS Snapshots&quot; at &quot;<a class="reference external" href="https://oss.sonatype.org/content/repositories/snapshots">https://oss.sonatype.org/content/repositories/snapshots</a>
+
 libraryDependencies += &quot;io.xtech.babel&quot; % &quot;babel-camel-core&quot; % &quot;0.6.0-SNAPSHOT&quot;
 //if you want to use the mock keyword to simplify your tests:
 libraryDependencies += &quot;io.xtech.babel&quot; % &quot;babel-camel-mock&quot; % &quot;0.6.0-SNAPSHOT&quot; % &quot;test&quot;
@@ -237,7 +239,7 @@ Once you have installed the babel project locally, use the following command to 
       
     </p>
     <p>
-        &copy; Copyright 2014, Crossing-Tech SA. All rights reserved..<br/>
+        &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
     </p>
   </div>

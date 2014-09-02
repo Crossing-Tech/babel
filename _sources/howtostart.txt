@@ -37,6 +37,8 @@ To add Babel Camel in a Sbt project, you may just add the following dependencies
 
 .. parsed-literal::
 
+  resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots
+  
   libraryDependencies += "io.xtech.babel" % "babel-camel-core" % "|version|"
   //if you want to use the mock keyword to simplify your tests:
   libraryDependencies += "io.xtech.babel" % "babel-camel-mock" % "|version|" % "test"
