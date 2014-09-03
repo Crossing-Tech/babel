@@ -1,5 +1,5 @@
 <scoverage 
-statement-count="12" statements-invoked="12" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1409669024560">
+statement-count="12" statements-invoked="12" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1409734609565">
     <packages>
         <package name="io.xtech.babel.camel.mock" statement-count="12" statements-invoked="12" statement-rate="100.00">
             <classes>
