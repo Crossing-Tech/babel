@@ -22,5 +22,5 @@ mock component
 
 For testing a mock endpoint can be declared with the mock endpoint.
 
-.. includecode:: ../../../babel-camel/babel-camel-mock/src/test/scala/io/xtech/babel/camel/MockTest.scala#doc:babel-camel-mock
+.. includecode:: ../../../babel-camel/babel-camel-mock/src/test/scala/io/xtech/babel/camel/MockSpec.scala#doc:babel-camel-mock
 

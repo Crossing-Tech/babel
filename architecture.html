@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -16,7 +15,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '0.6.0-SNAPSHOT',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -31,8 +30,9 @@
     <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="Babel 0.6.0-SNAPSHOT documentation" href="index.html" />
+    <link rel="up" title="Babel for developers" href="devguide.html" />
     <link rel="next" title="Babel Installation Guide" href="installation.html" />
-    <link rel="prev" title="Babel Philosophy" href="philosophy.html" />
+    <link rel="prev" title="Babel for developers" href="devguide.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -91,85 +91,35 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="philosophy.html">Babel Philosophy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Babel Architecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#babel-modules">Babel Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#babel-structure">Babel Structure</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Babel Installation Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#project-requirements">Project Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#build-babel-from-sources">Build Babel from sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#generate-the-documentation">Generate the documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-little-story">Babel little story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-typed-dsl">Babel as a typed DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-functional-dsl">Babel as a functional DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-simple-dsl">Babel as a simple DSL</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="howtostart.html">How to start a Babel project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howtostart.html#using-maven">Using Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtostart.html#using-sbt">Using Sbt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="howtostart.html#babel-archetypes">Babel Archetypes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="camel/cameluserguide.html">Babel Camel User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="camel/spring.html">Babel Camel using the Spring Application Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/samples.html">Babel Camel Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="camel/basics.html">Babel Camel Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="camel/transformation.html">Babel Camel Transformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="camel/routing.html">Babel Camel Routing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="camel/errormanagement.html">Babel Camel Error management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="camel/spring.html">Babel Camel using the Spring Application Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="camel/samples.html">Babel Camel Samples</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="extension/extension.html">Babel Extension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#existing-extensions">Existing Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#create-an-extension">Create an extension</a></li>
-</ul>
-</li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Babel Philosophy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-typed-dsl-for-camel">Babel as a typed DSL for Camel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-functional-dsl-for-camel">Babel as a functional DSL for Camel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-simple-dsl-for-camel">Babel as a simple DSL for Camel</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Babel Architecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#babel-modules">Babel Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#babel-structure">Babel Structure</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Babel Installation Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#project-requirements">Project Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#build-babel-from-sources">Build Babel from sources</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#generate-the-documentation">Generate the documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="howtostart.html">How to start a Babel project</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="howtostart.html#babel-archetypes">Babel Archetypes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="camel/cameluserguide.html">Babel Camel User Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="camel/basics.html">Babel Camel Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="camel/transformation.html">Babel Camel Transformations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="camel/routing.html">Babel Camel Routing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="camel/errormanagement.html">Babel Camel Error management</a></li>
-<li class="toctree-l2"><a class="reference internal" href="camel/spring.html">Babel Camel using the Spring Application Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="camel/samples.html">Babel Camel Samples</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="extension/extension.html">Babel Extension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#existing-extensions">Existing Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extension/extension.html#create-an-extension">Create an extension</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="presentations.html">Babel presentations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="links.html">Technical links</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="links.html#scaladoc">Scaladoc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="links.html#test-reports">Test reports</a></li>
-<li class="toctree-l2"><a class="reference internal" href="links.html#test-coverage">Test coverage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="devguide.html">Babel for developers</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">Babel Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Babel Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">Babel development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">Contribute to Babel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension/extension.html">Babel Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html">Technical links</a></li>
 </ul>
 </li>
 </ul>
@@ -186,6 +136,7 @@
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Babel Architecture</a><ul>
+<li><a class="reference internal" href="#babel-overview">Babel overview</a></li>
 <li><a class="reference internal" href="#babel-modules">Babel Modules</a></li>
 <li><a class="reference internal" href="#babel-structure">Babel Structure</a><ul>
 <li><a class="reference internal" href="#dsl">DSL</a></li>
@@ -202,14 +153,16 @@
             
             
               
+                
   <li>
-    <a href="philosophy.html" title="Previous Chapter: Babel Philosophy"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Babel Philosophy</span>
+    <a href="devguide.html" title="Previous Chapter: Babel for developers"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Babel for develo...</span>
     </a>
   </li>
   <li>
     <a href="installation.html" title="Next Chapter: Babel Installation Guide"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Babel Installati... &raquo;</span>
     </a>
   </li>
+              
             
             
             
@@ -238,17 +191,26 @@
       
   <div class="section" id="babel-architecture">
 <h1>Babel Architecture<a class="headerlink" href="#babel-architecture" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="babel-modules">
-<h2>Babel Modules<a class="headerlink" href="#babel-modules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="babel-overview">
+<h2>Babel overview<a class="headerlink" href="#babel-overview" title="Permalink to this headline">¶</a></h2>
+<p>Babel is a Domain Specific Language (DSL). This means Babel helps you to specify what you want to achieve and not to make it directly.</p>
 <p>You may see Babel as one more DSL for Apache Camel, among well-known ones such as the Java, Scala and XML DSL:</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/architecture-camel.png"><img alt="_images/architecture-camel.png" src="_images/architecture-camel.png" style="width: 299.25px; height: 182.25px;" /></a>
+<a class="reference internal image-reference" href="_images/architecture-camel.png"><img alt="_images/architecture-camel.png" src="_images/architecture-camel.png" style="width: 218.25px; height: 251.25px;" /></a>
 <p class="caption">Babel Camel is another way to write Apache Camel routes.</p>
 </div>
-<p>This Babel Camel DSL is provided through the <strong>babel-camel</strong> module which may be seen as the Babel connector for Apache Camel. If you want to use the Spring Framework Integration, you should use the <strong>babel-spring</strong> module. Finally, both are depending on the <strong>babel-fish</strong> which may be seen as the core of Babel.</p>
+</div>
+<div class="section" id="babel-modules">
+<h2>Babel Modules<a class="headerlink" href="#babel-modules" title="Permalink to this headline">¶</a></h2>
+<p>Babel is splitted into modules:</p>
+<ul class="simple">
+<li><strong>babel-fish</strong> is the core of Babel</li>
+<li><strong>babel-camel</strong> is a connector for Apache Camel</li>
+<li><strong>babel-spring</strong> is an experimental connector for Spring Integration</li>
+</ul>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/architecture.png"><img alt="_images/architecture.png" src="_images/architecture.png" style="width: 247.0px; height: 180.05px;" /></a>
-<p class="caption">Babel provides two main DSL to work either with Apache Camel or Spring Framework Integration, both depending on the core of Babel: <strong>babel-fish</strong>.</p>
+<a class="reference internal image-reference" href="_images/architecture.png"><img alt="_images/architecture.png" src="_images/architecture.png" style="width: 218.25px; height: 210.0px;" /></a>
+<p class="caption">Babel&#8217;s modules : <strong>babel-fish</strong>, <strong>babel-camel</strong> and the experimental <strong>babel-spring</strong></p>
 </div>
 </div>
 <div class="section" id="babel-structure">
@@ -295,8 +257,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2014, Crossing-Tech SA.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+        &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
     </p>
   </div>
 </footer>
