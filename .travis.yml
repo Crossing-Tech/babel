@@ -1,14 +1,17 @@
 language: java
 
-brefore_script:
-   - export MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
+global:
+   env:
+     - MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
 
-script: mvn -Parchetype -Pscaladoc clean install 
+install: mvn -Parchetype -Preformat -DskipTests clean install
+
+script:
+   - mvn -Parchetype  test
+   - .travis/reformat.sh
 
 jdk:
    - openjdk6
-   - oraclejdk7
-   - oraclejdk8
 
 notifications:
   email:
