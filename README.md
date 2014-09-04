@@ -1,14 +1,28 @@
 Babel
 =====
 
+### Build Status ###
+
 Master: [![Build Status](https://travis-ci.org/Crossing-Tech/babel.svg?branch=master)](https://travis-ci.org/Crossing-Tech/babel)
+
+### Description ###
 
 Babel is an efficient way to write your integration solution. It stands as a generic Domain Specific Language (DSL) especially maid for integration duties.
 
 Implementation of Babel have been done for [Apache Camel](http://camel.apache.org "Apache Camel website").
 
+### Communication ###
+
+ * [Babel documentation](http://crossing-tech.github.io/babel)
+ * [mailing list](https://groups.google.com/forum/#!forum/babel-user)
+
+##### IRC #####
+ * Server: irc.codehaus.org
+ * Port: 6667
+ * Channel: #babel
+
 ### Project Requirements ###
- * Operarting System: GNU/Linux, Mac OS X, Windows
+ * Operating System: GNU/Linux, Mac OS X, Windows
  * Java VM: Oracle JDK 6
  * Maven 3.0.5
  
@@ -66,26 +80,3 @@ cd babel
 export MAVEN_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
 mvn -Parchetype install
 ```
-
-#### How to generate the documentation ####
-
-To generate the documentation, you need to have [Sphinx](http://sphinx-doc.org/index.html `Sphinx website`) installed in your Python environment. Then just enter 
-```
-cd babel-doc
-make html
-```
-to generate the main documentation in the build directory.
-
-In order to generate the full babel documentation, you may use the `babel-doc/documentation.sh` script:
-```
-bash babel-doc/documentation.sh
-```
-and then browse the `babel-doc/build/html` directory.
-
-
-Because of a bug with the Mac OS X Terminal (ValueError: unknown locale: UTF-8), you will maybe need to set these variables
-```
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-```
-in your environment.

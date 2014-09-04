@@ -29,13 +29,18 @@ cd ../..
 mkdir build/html/slides
 cp -R slides/overview/_build/html build/html/slides/overview
 
-#################################################
-#To be done manually                            #
-#git checkout gh-pages                          #
-#git rm -rf .                                   #
-#git reset HEAD .gitignore .nojekyll            #
-#git checkout -- .gitignore .nojekyll           #
-#cp -R  babel-doc/build/html/* .                #
-#git add .                                      #
-#################################################
+########################################################################################################################
+#To be done manually (as a step in a build system)
+########################################################################################################################
+#git fetch --all
+#bash babel-doc/documentation.sh
+#git checkout gh-pages
+#git rm -rf .
+#git reset HEAD .gitignore .nojekyll
+#git checkout -- .gitignore .nojekyll
+#cp -R  babel-doc/build/html/* .
+#git add .
+#git commit -m "documentation update" --author "Crossing-Tech SA <github@crossing-tech.com>"
+#git push origin gh-pages
+########################################################################################################################
 
