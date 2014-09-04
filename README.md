@@ -14,12 +14,8 @@ Implementation of Babel have been done for [Apache Camel](http://camel.apache.or
 ### Communication ###
 
  * [Babel documentation](http://crossing-tech.github.io/babel)
- * [mailing list](https://groups.google.com/forum/#!forum/babel-user)
-
-##### IRC #####
- * Server: irc.codehaus.org
- * Port: 6667
- * Channel: #babel
+ * Google Group [Babel User List](https://groups.google.com/forum/#!forum/babel-user)
+ * IRC: irc.codehaus.org:6697 #babel
 
 ### Project Requirements ###
  * Operating System: GNU/Linux, Mac OS X, Windows
