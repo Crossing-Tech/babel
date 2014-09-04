@@ -23,7 +23,7 @@ object Build extends Build {
   lazy val babelcamelcore = Project(id = "babel-camel-core",
     base = file("babel-camel/babel-camel-core"),
     settings = Defaults.defaultSettings ++ Seq(
-      camelVersion := "2.12.0",
+      camelVersion := "2.12.4",
       version <<= camelVersion { dv => "camel-" + dv + "-" + artifactVersion },
       libraryDependencies <++= (camelVersion) { (dv) =>
         Dependencies.test ++ Dependencies.camel(dv) ++ Seq(Dependencies.cglib, Dependencies.h2, Dependencies.slf4j, Dependencies.commoncsv)
@@ -33,7 +33,7 @@ object Build extends Build {
   lazy val babelcamelmock = Project(id = "babel-camel-mock",
     base = file("babel-camel/babel-camel-mock"),
     settings = Defaults.defaultSettings ++ Seq(
-      camelVersion := "2.12.0",
+      camelVersion := "2.12.4",
       version <<= camelVersion { dv => "camel-" + dv + "-" + artifactVersion },
       libraryDependencies <++= (camelVersion) { (dv) =>
         Dependencies.test ++ Dependencies.camel(dv) ++ Seq(Dependencies.commoncsv)
