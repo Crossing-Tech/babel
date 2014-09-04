@@ -1,5 +1,5 @@
 <scoverage 
-statement-count="779" statements-invoked="725" statement-rate="93.07" branch-rate="100.00" version="1.0" timestamp="1409828232626">
+statement-count="779" statements-invoked="725" statement-rate="93.07" branch-rate="100.00" version="1.0" timestamp="1409828781684">
     <packages>
         <package name="io.xtech.babel.camel" statement-count="257" statements-invoked="239" statement-rate="93.00">
             <classes>
