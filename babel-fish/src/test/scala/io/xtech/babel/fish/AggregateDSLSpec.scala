@@ -9,6 +9,7 @@
 package io.xtech.babel.fish
 
 import io.xtech.babel.fish.model._
+import org.specs2.matcher.MatchResult
 import org.specs2.mutable.SpecificationWithJUnit
 
 class AggregateDSLSpec extends SpecificationWithJUnit {
@@ -29,20 +30,20 @@ class AggregateDSLSpec extends SpecificationWithJUnit {
       definitions.head.from.source.uri mustEqual "direct:input"
 
       val bodyConvStep = for { step <- definitions.head.from.next } yield step
-      bodyConvStep must beSome.like {
+      bodyConvStep must beSome.like[MatchResult[Any]] {
         case step: BodyConvertorDefinition[_, _] => {
           step.outClass mustEqual classOf[String]
         }
       }
 
       val aggregatorStep = for { previous <- bodyConvStep; step <- previous.next } yield step
-      aggregatorStep must beSome.like {
+      aggregatorStep must beSome.like[MatchResult[Any]] {
         case step: AggregationDefinition[_, _] =>
           step.configuration must haveClass[AP[String, String]]
       }
 
       val endpointStep = for { previous <- aggregatorStep; step <- previous.next } yield step
-      endpointStep must beSome.like {
+      endpointStep must beSome.like[MatchResult[Any]] {
         case step: EndpointDefinition[_, _] => {
           step.sink.uri mustEqual "mock:output"
         }
