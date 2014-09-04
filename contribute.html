@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Contribute to Babel &mdash; Babel 0.6.0-SNAPSHOT documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.1.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.6.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Babel 0.6.0-SNAPSHOT documentation" href="index.html" />
+    <link rel="up" title="Babel for developers" href="devguide.html" />
+    <link rel="next" title="Babel copyright notice" href="legal.html" />
+    <link rel="prev" title="Babel development" href="development.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/crossing-tech/babel.git"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+
+    //$(function () {
+    //  var navHeight = $(".navbar .container").css("height");
+    //  $("#re-banner").css("top", navHeight);
+    //});
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Babel</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.6.0-SNAPSHOT</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://crossing-tech.com">Company</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="philosophy.html">Babel Philosophy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-little-story">Babel little story</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-typed-dsl">Babel as a typed DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-functional-dsl">Babel as a functional DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="philosophy.html#babel-as-a-simple-dsl">Babel as a simple DSL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howtostart.html">How to start a Babel project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howtostart.html#using-maven">Using Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtostart.html#using-sbt">Using Sbt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howtostart.html#babel-archetypes">Babel Archetypes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="camel/cameluserguide.html">Babel Camel User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="camel/spring.html">Babel Camel using the Spring Application Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/samples.html">Babel Camel Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/basics.html">Babel Camel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/transformation.html">Babel Camel Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/routing.html">Babel Camel Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/errormanagement.html">Babel Camel Error management</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="devguide.html">Babel for developers</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Babel Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Babel Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">Babel development</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Contribute to Babel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension/extension.html">Babel Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="links.html">Technical links</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Contribute to Babel</a><ul>
+<li><a class="reference internal" href="#how-to-contribute">How to contribute?</a><ul>
+<li><a class="reference internal" href="#contribute-with-feedback">Contribute with feedback</a></li>
+<li><a class="reference internal" href="#contribute-with-code">Contribute with code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="development.html" title="Previous Chapter: Babel development"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Babel developmen...</span>
+    </a>
+  </li>
+  <li>
+    <a href="legal.html" title="Next Chapter: Babel copyright notice"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Babel copyright ... &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="contribute-to-babel">
+<h1>Contribute to Babel<a class="headerlink" href="#contribute-to-babel" title="Permalink to this headline">¶</a></h1>
+<p>First of all, thank you for wanting to improve the Babel project. These guidelines may help you in your trip to enrich Babel with your skills, whatever they are.</p>
+<div class="section" id="how-to-contribute">
+<h2>How to contribute?<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="contribute-with-feedback">
+<h3>Contribute with feedback<a class="headerlink" href="#contribute-with-feedback" title="Permalink to this headline">¶</a></h3>
+<p>Maybe the first way to contribute to the Babel project is to test it and to provide us feedback about your experience.</p>
+<p>First, even if it may be obvious, have a look to the current documentation, the existing posts in the mailing list and the github issues. As computer scientists, we love when not repeating ourselves unnecessary.</p>
+<p>The best place to ask your questions (and potentially to get answer) is the <a class="reference external" href="https://groups.google.com/forum/#!forum/babel-user">mailing list</a> .
+You may also (but not always) chat in our irc room (at irc.codehaus.net, channel #babel)</p>
+</div>
+<div class="section" id="contribute-with-code">
+<h3>Contribute with code<a class="headerlink" href="#contribute-with-code" title="Permalink to this headline">¶</a></h3>
+<p>We will examine and hopefully accept your code contribution with pleasure. Please have a look to the following points which may help you to contribute:</p>
+<ul class="simple">
+<li>Read and sign the CLA (coming soon).</li>
+<li>Make sure a github issue exists (to avoid other people to work on the same topic).</li>
+<li>Ensure your using the Crossing-Tech <a class="reference external" href="legal.html">copyright</a>, you are not addding dependencies incompatible with the licence Apache2.</li>
+<li>Shape your contribution into a Github <a class="reference external" href="https://help.github.com/articles/using-pull-requests">Pull request</a> .</li>
+<li>Please take the Pull request review as an opportunity to improve the quality of your contribution. Creating the Pull request is certainly not your the final goal.</li>
+<li>Once the Pull requested is accepted, please clean your git branch (it should be more often a single commit).</li>
+</ul>
+<p>We would like to keep the contribution process as simple and effective as possible. This procedure may get improve with the time, do not hesitate if you have an opinion.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -2,8 +2,10 @@
 Babel Architecture
 ==================
 
-Babel Modules
-+++++++++++++
+Babel overview
+++++++++++++++
+
+Babel is a Domain Specific Language (DSL). This means Babel helps you to specify what you want to achieve and not to make it directly.
 
 You may see Babel as one more DSL for Apache Camel, among well-known ones such as the Java, Scala and XML DSL:
 
@@ -13,14 +15,21 @@ You may see Babel as one more DSL for Apache Camel, among well-known ones such a
 
    Babel Camel is another way to write Apache Camel routes.
 
+Babel Modules
++++++++++++++
 
-This Babel Camel DSL is provided through the **babel-camel** module which may be seen as the Babel connector for Apache Camel. If you want to use the Spring Framework Integration, you should use the **babel-spring** module. Finally, both are depending on the **babel-fish** which may be seen as the core of Babel.
+Babel is splitted into modules:
+
+* **babel-fish** is the core of Babel
+* **babel-camel** is a connector for Apache Camel
+* **babel-spring** is an experimental connector for Spring Integration
 
 .. figure:: ../images/architecture.png
    :align: center
-   :scale: 65%
+   :scale: 75%
 
-   Babel provides two main DSL to work either with Apache Camel or Spring Framework Integration, both depending on the core of Babel: **babel-fish**.
+   Babel's modules : **babel-fish**, **babel-camel** and the experimental **babel-spring**
+
 
 Babel Structure
 +++++++++++++++

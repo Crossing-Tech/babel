@@ -17,28 +17,28 @@ Basics
 
 A simple route without changing or routing the message. The output will be the same as the input.
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelDSLTest.scala#doc:babel-camel-basic-1
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelDSLSpec.scala#doc:babel-camel-basic-1
 
 The producer may set the exchange as InOnly by setting the second argument of to, to false. This would override the default behaviour of the producer.
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelDSLTest.scala#doc:babel-camel-basic-2
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelDSLSpec.scala#doc:babel-camel-basic-2
 
 The producer may set the exchange as InOut by setting the second argument of to, to true. This would override the default behaviour of the producer.
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelDSLTest.scala#doc:babel-camel-basic-3
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelDSLSpec.scala#doc:babel-camel-basic-3
 
 Route Id
 ++++++++
 
 The **routeId** will give an id to the route, then this id can be used for the monitoring or during testing.
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteIdTest.scala#doc:babel-camel-routeId
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteIdSpec.scala#doc:babel-camel-routeId
 
 The **routeId** can not be specified as null nor an empty string.
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteIdTest.scala#doc:babel-camel-routeId-exception-1
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteIdSpec.scala#doc:babel-camel-routeId-exception-1
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteIdTest.scala#doc:babel-camel-routeId-exception-2
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteIdSpec.scala#doc:babel-camel-routeId-exception-2
 
 .. note::
    The **routeId** keyword is member of a set of keywords which should follow directly the **from** keyword or any keyword of this set.
@@ -48,18 +48,18 @@ As
 
 A basic example with type transformation. The keyword *as* will coerce the type of the message passing within a route to a given type.
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/AsTest.scala#doc:babel-camel-as
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/AsSpec.scala#doc:babel-camel-as
 
 RequireAs
 +++++++++
 
 A basic example with type requirement. The *requireAs* will type the exchange body for the next keyword and will accept only a message with the given type.
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RequireAsTest.scala#doc:babel-camel-requireAs
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RequireAsSpec.scala#doc:babel-camel-requireAs
 
 The **requiredAs** lets you ensure you will always receive the expected body type. For example, the following may not work.
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RequireAsTest.scala#doc:babel-camel-requireAs-exception
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RequireAsSpec.scala#doc:babel-camel-requireAs-exception
 
 .. warning:: Camel also provides tools to handle data type at runtime (which may be referred to as "runtime typing"). This may cause the regular typing to modify your data after the *requireAs* keyword depending on your ecosystem. Unfortunately, there is no way for Babel to prevent such variable behaviour.
 
@@ -72,14 +72,14 @@ With a **log**, you can log a defined string (which may use Camel Simple Express
 * the Log name
 * a marker for this Log event
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/LogTest.scala#doc:babel-camel-logging
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/LogSpec.scala#doc:babel-camel-logging
 
 Sub routes
 ++++++++++
 
 With a **sub**, you can define the following steps as part of a new route.
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/SubRouteTest.scala#doc:babel-camel-sub
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/SubRouteSpec.scala#doc:babel-camel-sub
 
 This example would just create two routes:
 
@@ -100,18 +100,18 @@ Callbacks may be added to a given route in order to manage its lifecycle such as
 * **onStop**
 * **onRemove**
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteConfigurationTest.scala#doc:babel-camel-route-conf-2
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteConfigurationSpec.scala#doc:babel-camel-route-conf-2
 
 Concerning the exchange lifecycle :
 
 * **onExchangeBegin**
 * **onExchangeDone**
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteConfigurationTest.scala#doc:babel-camel-route-conf-3
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteConfigurationSpec.scala#doc:babel-camel-route-conf-3
 
 Moreover, you may prevent a route from being started automatically using the **noAutoStartup** keyword.
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteConfigurationTest.scala#doc:babel-camel-route-conf-1
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteConfigurationSpec.scala#doc:babel-camel-route-conf-1
 
 
 
