@@ -14,7 +14,7 @@ Babel is an elegant way to write your integration solution. It tries to provide 
 
 Babel is a layer on top of the main integration frameworks and may be used from Scala and Java source code. The following documentation should guide you into your journey toward a new way to write integration in a secure and efficient way.
 
-Currently, Babel has an provides an API on top of Apache Camel which may be used in Scala. Java API and other integration frameworks implementation would be implemented into the Babel experimental project (coming soon).
+Currently, Babel provides an API on top of Apache Camel which may be used in Scala. Java API and other integration frameworks implementation would be implemented into the Babel experimental project (coming soon).
 
 .. raw::  html
 
