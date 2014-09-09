@@ -15,7 +15,7 @@ object Build extends Build {
 
   val artifactVersion = "0.6.0-SNAPSHOT"
 
-  val defaultSettings = Defaults.defaultSettings ++ Publish.settings ++ intsrumentSettings ++ coverallsSettings ++ Seq(
+  val defaultSettings = Defaults.defaultSettings ++ Publish.settings ++ instrumentSettings ++ coverallsSettings ++ Seq(
     version := artifactVersion
   )
 
