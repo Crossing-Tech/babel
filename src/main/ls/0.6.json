@@ -1,0 +1,21 @@
+{
+ "organization":"io.xtech.babel",
+ "name":"babel",
+ "version":"0.6",
+ "description":"Babel is an efficient way to write your integration solution. It stands as a generic Domain Specific Language (DSL) especially maid for integration duties.",
+ "site":"http://crossing-tech.github.io/babel",
+ "tags":["scala", "camel" , "dsl", "mediation"],
+ "docs":"http://crossing-tech.github.io/babel",
+ "licenses": [{
+   "name": "Apache 2",
+   "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  }],
+ "resolvers": ["https://oss.sonatype.org/content/repositories/snapshots"],
+ "dependencies": [{
+ "organization":"org.apache.camel",
+    "name": "camel-core",
+    "version": "2.10.4"
+ }],
+ "scalas": ["2.10.3-4, 2.11.0-2"],
+ "sbt": false
+}

@@ -106,7 +106,7 @@ class TransactionSpec extends CachedBabelSpringSpecification {
       jdbcTemplate.execute("delete from users")
 
       val routeDef = new RouteBuilder {
-        from("direct:input2").transacted.to("sql:insert into users (name) values (#)?dataSourceRef=dataSource").as[String].process(m => throw new Exception("bla")).to("sql:insert into users (name) values (#)?dataSourceRef=dataSource")
+        from("direct:input2").transacted.to("sql:insert into users (name) values (#)?dataSourceRef=dataSource").as[String].process(m => throw new Exception("Expected exception")).to("sql:insert into users (name) values (#)?dataSourceRef=dataSource")
       }
       routeDef.addRoutesToCamelContext(camelContext)
 
@@ -129,7 +129,7 @@ class TransactionSpec extends CachedBabelSpringSpecification {
       jdbcTemplate.execute("delete from users")
 
       val routeDef = new RouteBuilder {
-        from("direct:input3").to("sql:insert into users (name) values (#)?dataSourceRef=dataSource").as[String].process(m => throw new Exception("bla")).to("sql:insert into users (name) values (#)?dataSourceRef=dataSource")
+        from("direct:input3").to("sql:insert into users (name) values (#)?dataSourceRef=dataSource").as[String].process(m => throw new Exception("Expected exception")).to("sql:insert into users (name) values (#)?dataSourceRef=dataSource")
       }
       routeDef.addRoutesToCamelContext(camelContext)
 
@@ -162,7 +162,7 @@ class TransactionSpec extends CachedBabelSpringSpecification {
           .to("mock:in-the-middle-route")
           .as[String].process(m => {
             tries -= 1
-            if (tries != 0) throw new Exception("bli") else m
+            if (tries != 0) throw new Exception("Expected exception") else m
           })
           .to("sql:insert into users (name) values (#)?dataSourceRef=dataSource")
           .to("mock:final-route")
@@ -205,7 +205,7 @@ class TransactionSpec extends CachedBabelSpringSpecification {
           .to("mock:in-the-middle-route-builder")
           .as[String].process(m => {
             tries -= 1;
-            if (tries != 0) throw new Exception("bli") else m
+            if (tries != 0) throw new Exception("Expected exception") else m
           })
           .to("sql:insert into users (name) values (#)?dataSourceRef=dataSource")
           .to("mock:final-route-builder")

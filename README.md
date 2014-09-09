@@ -3,7 +3,7 @@ Babel
 
 ### Build Status ###
 
-Master: [![Build Status](https://travis-ci.org/Crossing-Tech/babel.svg?branch=master)](https://travis-ci.org/Crossing-Tech/babel)
+Master: [![Build Status](https://travis-ci.org/Crossing-Tech/babel.svg?branch=master)](https://travis-ci.org/Crossing-Tech/babel) [![Coverage Status](https://img.shields.io/coveralls/crossing-tech/babel.svg)](https://coveralls.io/r/crossing-tech/babel?branch=master)
 
 ### Description ###
 
@@ -32,7 +32,7 @@ Implementation of Babel have been done for [Apache Camel](http://camel.apache.or
 
 To include Babel Camel in an existing Sbt project, just add the following dependency in your configuration file (replacing BABEL_VERSION by the version you want to use):
 
-```libraryDependencies += "io.xtech.babel" % "babel-camel-core" % "BABEL_VERSION"```
+```libraryDependencies += "io.xtech.babel" %% "babel-camel-core" % "BABEL_VERSION"```
 
 If you are not installing the Babel project locally, you would also need to specify the Sonatype Snapshot repository in your project configuration:
 

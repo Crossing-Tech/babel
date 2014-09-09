@@ -13,9 +13,9 @@
 
     <parent>
         <groupId>io.xtech.babel</groupId>
-        <artifactId>babel-parent-core</artifactId>
+        <artifactId>babel-parent</artifactId>
         <version>0.6.0-SNAPSHOT</version>
-        <relativePath>../../babel-parent/babel-parent-core/pom.xml</relativePath>
+        <relativePath>../../babel-parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>babel-camel-mock</artifactId>
@@ -87,48 +87,14 @@
 
     </dependencies>
 
-    <profiles>
-        <!-- profile for the coverate report -->
-        <profile>
-            <id>coverage</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.scoverage</groupId>
-                        <artifactId>maven-scoverage-plugin</artifactId>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>wagon-maven-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
     <build>
-        <resources>
-            <resource>
-                <directory>${project.basedir}/src/main/resources/</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*</include>
-                </includes>
-            </resource>
-        </resources>
+
         <plugins>
 
             <!-- scala compilation -->
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-            </plugin>
-
-            <!-- bundlelization -->
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
             </plugin>
 
         </plugins>
