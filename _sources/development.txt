@@ -34,16 +34,26 @@ Test coverage reports are generated using scoverage through the Maven build conf
 Deployment
 +++++++++++
 
+With Maven
+~~~~~~~~~~
 Snapshots are deployed using the Maven build configuration as following:
 ::
 
    mvn -Parchetype deploy
 
+With Sbt
+~~~~~~~~
+Snapshots are deployed using the Sbt build configuration as following:
+::
+
+   sbt publish-local
+
+Maven archetype won't be installed using this command.
 
 Release
 +++++++
 
-Releases are done using the Maven build configuration (coming soon)
+Releases are done using the Sbt/Maven build configuration (coming soon)
 
 
 .. highlight:: scala

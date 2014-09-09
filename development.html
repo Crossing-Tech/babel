@@ -139,7 +139,11 @@
 <li><a class="reference internal" href="#build">Build</a></li>
 <li><a class="reference internal" href="#source-code">Source Code</a></li>
 <li><a class="reference internal" href="#tests">Tests</a></li>
-<li><a class="reference internal" href="#deployment">Deployment</a></li>
+<li><a class="reference internal" href="#deployment">Deployment</a><ul>
+<li><a class="reference internal" href="#with-maven">With Maven</a></li>
+<li><a class="reference internal" href="#with-sbt">With Sbt</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#release">Release</a></li>
 </ul>
 </li>
@@ -212,14 +216,25 @@ To reformat the code:</p>
 </div>
 <div class="section" id="deployment">
 <h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="with-maven">
+<h3>With Maven<a class="headerlink" href="#with-maven" title="Permalink to this headline">¶</a></h3>
 <p>Snapshots are deployed using the Maven build configuration as following:</p>
 <div class="highlight-bash"><div class="highlight"><pre>mvn -Parchetype deploy
 </pre></div>
 </div>
 </div>
+<div class="section" id="with-sbt">
+<h3>With Sbt<a class="headerlink" href="#with-sbt" title="Permalink to this headline">¶</a></h3>
+<p>Snapshots are deployed using the Sbt build configuration as following:</p>
+<div class="highlight-bash"><div class="highlight"><pre>sbt publish-local
+</pre></div>
+</div>
+<p>Maven archetype won&#8217;t be installed using this command.</p>
+</div>
+</div>
 <div class="section" id="release">
 <h2>Release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h2>
-<p>Releases are done using the Maven build configuration (coming soon)</p>
+<p>Releases are done using the Sbt/Maven build configuration (coming soon)</p>
 </div>
 </div>
 
