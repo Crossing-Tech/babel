@@ -18,6 +18,7 @@ object Build extends Build {
     )
   )
 
+  //camelVersion allows you to use ``sbt "set camelVersion=2.10.4" test`` in order to test a specific version of camel
   lazy val camelVersion = SettingKey[String]("x-camel-version")
 
   lazy val babelcamelcore = Project(id = "babel-camel-core",

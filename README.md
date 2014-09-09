@@ -25,8 +25,20 @@ Implementation of Babel have been done for [Apache Camel](http://camel.apache.or
 ### Project main dependencies ###
  * Scala library (2.10.4)
  * Apache camel (2.12.4)
+ 
+### Quick Sbt Start Guide ###
 
-### Quick Start Guide ###
+#### Add Babel to an existing sbt project ####
+
+To include Babel Camel in an existing Sbt project, just add the following dependency in your configuration file (replacing BABEL_VERSION by the version you want to use):
+
+```libraryDependencies += "io.xtech.babel" % "babel-camel-core" % "BABEL_VERSION"```
+
+If you are not installing the Babel project locally, you would also need to specify the Sonatype Snapshot repository in your project configuration:
+
+```resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"```
+
+### Quick Maven Start Guide ###
 
 #### Add Babel to an existing Maven project ####
 
@@ -53,7 +65,6 @@ If you are not installing the Babel project locally, you would also need to spec
 </repository>
 ```
 
-
 #### Create a new Maven project with Babel Camel ####
 
 You may use the babel-camel-archetype in order to create a new Maven project. This project includes Babel dependencies and provide a default Babel Camel route. 
@@ -68,7 +79,18 @@ Then, in a regular shell, just enter:
 
 ### Quick Installation Guide ###
 
-#### Build Babel from sources ####
+#### Build Babel from sources with Sbt ####
+```
+#in a regular shell:
+git clone https://github.com/crossing-tech/babel.git
+cd babel
+export SBT_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
+sbt test publish-local 
+#or if you want to publish artifacts for maven
+sbt test publish-m2 
+```
+
+#### Build Babel from sources with Maven ####
 ```
 #in a regular shell:
 git clone https://github.com/crossing-tech/babel.git
