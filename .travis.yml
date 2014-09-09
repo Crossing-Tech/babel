@@ -11,8 +11,6 @@ env:
       - SBT_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
 
 script:  
-   - sbt ++$TRAVIS_SCALA_VERSION "set camelVersion := \"2.12.4\"" test
-   - sbt ++$TRAVIS_SCALA_VERSION "set camelVersion := \"2.13.2\"" test
    - sbt coveralls
 
 
