@@ -9,6 +9,7 @@
 package io.xtech.babel.fish
 
 import io.xtech.babel.fish.model._
+import org.specs2.matcher.MatchResult
 import org.specs2.mutable.SpecificationWithJUnit
 
 class SplitterDSLSpec extends SpecificationWithJUnit {
@@ -34,21 +35,21 @@ class SplitterDSLSpec extends SpecificationWithJUnit {
       }
 
       val splitterStep = for { previous <- bodyConvStep; step <- previous.next } yield step
-      splitterStep must beSome.like {
+      splitterStep must beSome.like[MatchResult[Any]] {
         case step: SplitterDefinition[_, _] => {
           step.expression must haveClass[BodyExpression[_, _]]
         }
       }
 
       val bodyProcStep = for { previous <- splitterStep; step <- previous.next } yield step
-      bodyProcStep must beSome.like {
+      bodyProcStep must beSome.like[MatchResult[Any]] {
         case step: TransformerDefinition[_, _] => {
           step.expression must haveClass[BodyExpression[_, _]]
         }
       }
 
       val endpointStep = for { previous <- bodyProcStep; step <- previous.next } yield step
-      endpointStep must beSome.like {
+      endpointStep must beSome.like[MatchResult[Any]] {
         case step: EndpointDefinition[_, _] => {
           step.sink.uri mustEqual "mock:output"
         }
@@ -71,28 +72,28 @@ class SplitterDSLSpec extends SpecificationWithJUnit {
       definitions.head.from.source.uri mustEqual "direct:input"
 
       val bodyConvStep = for { step <- definitions.head.from.next } yield step
-      bodyConvStep must beSome.like {
+      bodyConvStep must beSome.like[MatchResult[Any]] {
         case step: BodyConvertorDefinition[_, _] => {
           step.outClass mustEqual classOf[List[String]]
         }
       }
 
       val splitterStep = for { previous <- bodyConvStep; step <- previous.next } yield step
-      splitterStep must beSome.like {
+      splitterStep must beSome.like[MatchResult[Any]] {
         case step: SplitterDefinition[_, _] => {
           step.expression must haveClass[MessageExpression[_, _]]
         }
       }
 
       val bodyProcStep = for { previous <- splitterStep; step <- previous.next } yield step
-      bodyProcStep must beSome.like {
+      bodyProcStep must beSome.like[MatchResult[Any]] {
         case step: TransformerDefinition[_, _] => {
           step.expression must haveClass[BodyExpression[_, _]]
         }
       }
 
       val endpointStep = for { previous <- bodyProcStep; step <- previous.next } yield step
-      endpointStep must beSome.like {
+      endpointStep must beSome.like[MatchResult[Any]] {
         case step: EndpointDefinition[_, _] => {
           step.sink.uri mustEqual "mock:output"
         }
@@ -121,21 +122,21 @@ class SplitterDSLSpec extends SpecificationWithJUnit {
       }
 
       val splitterStep = for { previous <- bodyConvStep; step <- previous.next } yield step
-      splitterStep must beSome.like {
+      splitterStep must beSome.like[MatchResult[Any]] {
         case step: SplitterDefinition[_, _] => {
           step.expression must haveClass[TestSplitterExpression]
         }
       }
 
       val bodyProcStep = for { previous <- splitterStep; step <- previous.next } yield step
-      bodyProcStep must beSome.like {
+      bodyProcStep must beSome.like[MatchResult[Any]] {
         case step: TransformerDefinition[_, _] => {
           step.expression must haveClass[BodyExpression[_, _]]
         }
       }
 
       val endpointStep = for { previous <- bodyProcStep; step <- previous.next } yield step
-      endpointStep must beSome.like {
+      endpointStep must beSome.like[MatchResult[Any]] {
         case step: EndpointDefinition[_, _] => {
           step.sink.uri mustEqual "mock:output"
         }
