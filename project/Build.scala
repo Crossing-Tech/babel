@@ -8,12 +8,14 @@
 
 import sbt._
 import Keys._
+import scoverage.ScoverageSbtPlugin.instrumentSettings
+import org.scoverage.coveralls.CoverallsPlugin.coverallsSettings
 
 object Build extends Build {
 
   val artifactVersion = "0.6.0-SNAPSHOT"
 
-  val defaultSettings = Defaults.defaultSettings ++ Publish.settings ++ Seq(
+  val defaultSettings = Defaults.defaultSettings ++ Publish.settings ++ intsrumentSettings ++ coverallsSettings ++ Seq(
     version := artifactVersion
   )
 
