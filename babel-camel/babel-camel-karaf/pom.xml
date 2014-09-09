@@ -11,10 +11,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <artifactId>babel-parent-base</artifactId>
+        <artifactId>babel-parent</artifactId>
         <groupId>io.xtech.babel</groupId>
         <version>0.6.0-SNAPSHOT</version>
-        <relativePath>../../babel-parent/babel-parent-base/pom.xml</relativePath>
+        <relativePath>../../babel-parent/pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
