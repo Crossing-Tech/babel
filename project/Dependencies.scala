@@ -1,10 +1,29 @@
-/**
- * Created by babel on 9/9/14.
+/*
+ *
+ *  Copyright 2010-2014 Crossing-Tech SA, EPFL QI-J, CH-1015 Lausanne, Switzerland.
+ *  All rights reserved.
+ *
+ * ==================================================================================
  */
 
 import sbt._
 import sbt.Keys._
 object Dependencies {
+
+  lazy val camelSettings = Seq(
+    Build.camelVersion := "2.12.4",
+    version <<= Build.camelVersion { dv => "camel-" + dv + "-" + Build.artifactVersion },
+    libraryDependencies <++= (Build.camelVersion) { (dv) =>
+      Dependencies.test ++ Dependencies.camel(dv) ++ Seq(Dependencies.commoncsv)
+      Dependencies.test ++ Dependencies.camel(dv) ++ Seq(Dependencies.cglib, Dependencies.h2, Dependencies.slf4j, Dependencies.commoncsv)
+    }
+  )
+
+  lazy val camelTestsSettings = Seq(
+    libraryDependencies <++= (Build.camelVersion) { (dv) =>
+      Seq(Dependencies.cglib, Dependencies.h2, Dependencies.slf4j)
+    }
+  )
 
   def camelCore(camelVersion: String) = "org.apache.camel" % "camel-core" % camelVersion
   def camelXmlJson(camelVersion: String) = "org.apache.camel" % "camel-xmljson" % camelVersion % "test"

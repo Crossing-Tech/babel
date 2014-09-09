@@ -1,6 +1,13 @@
+/*
+ *
+ *  Copyright 2010-2014 Crossing-Tech SA, EPFL QI-J, CH-1015 Lausanne, Switzerland.
+ *  All rights reserved.
+ *
+ * ==================================================================================
+ */
+
 import sbt._
 import sbt.Keys._
-
 
 object Publish {
 
