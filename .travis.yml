@@ -18,7 +18,6 @@ script:
 jdk:
   - openjdk6
 
-
 notifications:
   email:
      recipients:
