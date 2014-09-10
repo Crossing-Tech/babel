@@ -11,8 +11,8 @@ package io.xtech.babel.camel
 import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.test._
 
-import org.apache.camel.impl.{DefaultExchange, DefaultCamelContext}
-import org.specs2.mutable.{After, SpecificationWithJUnit}
+import org.apache.camel.impl.{ DefaultExchange, DefaultCamelContext }
+import org.specs2.mutable.{ After, SpecificationWithJUnit }
 
 class MockSpec extends SpecificationWithJUnit {
   sequential
@@ -35,7 +35,6 @@ class MockSpec extends SpecificationWithJUnit {
     routeDef.addRoutesToCamelContext(camelContext)
 
     camelContext.start()
-
 
     val mockEndpoint = camelContext.getMockEndpoint("output")
 

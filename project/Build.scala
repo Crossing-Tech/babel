@@ -8,6 +8,9 @@
 
 import sbt._
 import Keys._
+import scalariform.formatter.preferences._
+import com.typesafe.sbt.SbtScalariform
+import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 import scoverage.ScoverageSbtPlugin.instrumentSettings
 import org.scoverage.coveralls.CoverallsPlugin.coverallsSettings
 
@@ -15,7 +18,7 @@ object Build extends Build {
 
   val artifactVersion = "0.6.0-SNAPSHOT"
 
-  val defaultSettings = Defaults.defaultSettings ++ Publish.settings ++ instrumentSettings ++ coverallsSettings ++ Seq(
+  lazy val defaultSettings = Defaults.defaultSettings ++ Publish.settings ++ instrumentSettings ++ coverallsSettings ++ formatSettings  ++ Seq(
     version := artifactVersion
   )
 
@@ -43,6 +46,13 @@ object Build extends Build {
     settings = defaultSettings ++ Dependencies.camelSettings,
     dependencies = Seq(babelcamelcore % "compile->compile;test->test")
   ) dependsOn(babelfish)
+
+  lazy val formatSettings = SbtScalariform.scalariformSettings ++ Seq(
+    ScalariformKeys.preferences in Compile := Formatting.formattingPreferences,
+    ScalariformKeys.preferences in Test    := Formatting.formattingPreferences
+  )
+
+
 
 }
 
