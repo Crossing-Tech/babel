@@ -29,7 +29,6 @@
     <modules>
         <module>babel-camel-core</module>
         <module>babel-camel-mock</module>
-        <module>babel-camel-karaf</module>
     </modules>
 
 </project>
