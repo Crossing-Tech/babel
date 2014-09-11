@@ -14,14 +14,14 @@ import com.typesafe.sbt.osgi.{OsgiKeys, SbtOsgi}
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 import scoverage.ScoverageSbtPlugin.instrumentSettings
 import org.scoverage.coveralls.CoverallsPlugin.coverallsSettings
+import sbtrelease.ReleasePlugin.releaseSettings
+import sbtrelease.ReleasePlugin.ReleaseKeys
 
 object Build extends Build {
 
-  val artifactVersion = "0.6.0-SNAPSHOT"
+  val artifactVersion = version
 
-  lazy val basicSettings = Defaults.defaultSettings ++ Publish.settings ++ instrumentSettings ++ coverallsSettings   ++ Seq(
-    version := artifactVersion
-  )
+  lazy val basicSettings = Defaults.defaultSettings ++ Publish.settings ++ instrumentSettings ++ coverallsSettings ++ releaseSettings ++ Seq(ReleaseKeys.crossBuild := true)
   lazy val defaultSettings = basicSettings ++  formatSettings ++ SbtOsgi.osgiSettings
 
   lazy val root = Project(id = "babel",

@@ -18,7 +18,7 @@ object Dependencies {
 
   private lazy val camelDependencies = Seq(
     Build.camelVersion := "2.12.4",
-    version <<= Build.camelVersion { dv => Build.artifactVersion.replace("-SNAPSHOT","") +"-camel-" + dv  + {if (Build.artifactVersion.endsWith("-SNAPSHOT")) "-SNAPSHOT" else ""}},
+    version <<= (version, Build.camelVersion) { (babel,camel) => babel.replace("-SNAPSHOT","") +"-camel-" + camel  + {if (babel.endsWith("-SNAPSHOT")) "-SNAPSHOT" else ""}},
     libraryDependencies <++= (Build.camelVersion) { (dv) =>
       Dependencies.test ++ Dependencies.camel(dv) ++ Seq(Dependencies.commoncsv)
     }
