@@ -13,9 +13,9 @@
 
     <parent>
         <groupId>io.xtech.babel</groupId>
-        <artifactId>babel-parent-core</artifactId>
+        <artifactId>babel-parent</artifactId>
         <version>0.6.0-SNAPSHOT</version>
-        <relativePath>../../babel-parent/babel-parent-core/pom.xml</relativePath>
+        <relativePath>../../babel-parent/pom.xml</relativePath>
     </parent>
 
     <artifactId>babel-camel-core</artifactId>
@@ -117,48 +117,6 @@
 
     </dependencies>
 
-    <profiles>
-
-        <!-- profile for the coverate report -->
-        <profile>
-
-            <id>coverage</id>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.scoverage</groupId>
-                        <artifactId>maven-scoverage-plugin</artifactId>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>wagon-maven-plugin</artifactId>
-                    </plugin>
-
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>reformat</id>
-
-            <build>
-
-                <plugins>
-                    <plugin>
-                        <groupId>org.scalariform</groupId>
-                        <artifactId>scalariform-maven-plugin</artifactId>
-                    </plugin>
-
-                </plugins>
-
-            </build>
-
-        </profile>
-
-    </profiles>
-
     <build>
 
         <plugins>
@@ -169,12 +127,7 @@
                 <artifactId>scala-maven-plugin</artifactId>
             </plugin>
 
-            <!-- bundlelization -->
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-            </plugin>
-
+            <!-- exports test classes in order to let babel-camel-mock use those -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>

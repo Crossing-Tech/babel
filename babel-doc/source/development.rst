@@ -14,21 +14,21 @@ Babel is build using Apache Maven (even if a Sbt configuration is synchronized w
 Source Code
 +++++++++++
 
-The Code is reformatted by the Maven reformat profile (which uses `scalariform <https://github.com/sbt/sbt-scalariform>`_)
+The Code is reformatted while compiling the sources using sbt (which uses `scalariform <https://github.com/sbt/sbt-scalariform>`_)
 To reformat the code:
 ::
 
-   mvn -Preformat process-sources
+   sbt test-compile
 
 Tests
 +++++
 
 In the Babel modules implemented using Scala, `Specs2 <http://etorreborre.github.io/specs2/>`_ is the used testing framework.
 
-Test coverage reports are generated using scoverage through the Maven build configuration following:
+Test coverage reports are generated using scoverage through the sbt build configuration following:
 ::
 
-   mvn -Pcoverage verify
+   sbt scoverage:test
    #browse test reports in modules target directory (target/classes/coverage-report)
 
 Deployment

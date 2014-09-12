@@ -12,7 +12,7 @@
 
     <parent>
         <groupId>io.xtech.babel</groupId>
-        <artifactId>babel-parent-core</artifactId>
+        <artifactId>babel-parent</artifactId>
         <version>${project.version}</version>
         <relativePath/>
     </parent>

@@ -10,12 +10,13 @@ env:
    global:
       - SBT_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
 
-script:  sbt ++$TRAVIS_SCALA_VERSION "set camelVersion := \"2.12.4\"" test "set camelVersion := \"2.13.2\"" test
+script:  
+   - sbt ++$TRAVIS_SCALA_VERSION "set camelVersion := \"2.12.4\"" coveralls
+   - sbt ++$TRAVIS_SCALA_VERSION "set camelVersion := \"2.13.2\"" coveralls
 
 
 jdk:
   - openjdk6
-
 
 notifications:
   email:

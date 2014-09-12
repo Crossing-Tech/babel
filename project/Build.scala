@@ -1,75 +1,72 @@
+/*
+ *
+ *  Copyright 2010-2014 Crossing-Tech SA, EPFL QI-J, CH-1015 Lausanne, Switzerland.
+ *  All rights reserved.
+ *
+ * ==================================================================================
+ */
+
 import sbt._
 import Keys._
+import scalariform.formatter.preferences._
+import com.typesafe.sbt.SbtScalariform
+import com.typesafe.sbt.osgi.{OsgiKeys, SbtOsgi}
+import com.typesafe.sbt.SbtScalariform.ScalariformKeys
+import scoverage.ScoverageSbtPlugin.instrumentSettings
+import org.scoverage.coveralls.CoverallsPlugin.coverallsSettings
+import sbtrelease.ReleasePlugin.releaseSettings
+import sbtrelease.ReleasePlugin.ReleaseKeys
 
 object Build extends Build {
 
-  val artifactVersion = "0.6.0-SNAPSHOT"
+  val artifactVersion = version
+
+  lazy val basicSettings = Defaults.defaultSettings ++ Publish.settings ++ instrumentSettings ++ coverallsSettings ++ releaseSettings ++ Seq(ReleaseKeys.crossBuild := true)
+  lazy val defaultSettings = basicSettings ++  formatSettings ++ SbtOsgi.osgiSettings
 
   lazy val root = Project(id = "babel",
     base = file("."),
-    settings = Defaults.defaultSettings ++ Seq(version := artifactVersion)
+    settings = basicSettings ++ Seq(
+      publishArtifact in(Compile, packageBin) := false,
+      publishArtifact in(Compile, packageSrc) := false,
+      publishArtifact in(Compile, packageDoc) := false
+    )
   ) aggregate(babelfish, babelcamelcore, babelcamelmock)
 
   lazy val babelfish = Project(id = "babel-fish",
     base = file("babel-fish"),
-    settings = Defaults.defaultSettings ++ Seq(
-      version := artifactVersion,
-      libraryDependencies ++= Dependencies.test
+    settings = defaultSettings ++ Seq(
+      libraryDependencies ++= Dependencies.test,
+      OsgiKeys.exportPackage := Seq("io.xtech.babel.fish.*")
     )
   )
 
-  //camelVersion allows you to use ``sbt "set camelVersion=2.10.4" test`` in order to test a specific version of camel
+  //allows you to define a camelVersion by prompting "set camelVersion=2.10.4" for example.
   lazy val camelVersion = SettingKey[String]("x-camel-version")
 
   lazy val babelcamelcore = Project(id = "babel-camel-core",
     base = file("babel-camel/babel-camel-core"),
-    settings = Defaults.defaultSettings ++ Seq(
-      camelVersion := "2.12.4",
-      version <<= camelVersion { dv => "camel-" + dv + "-" + artifactVersion },
-      libraryDependencies <++= (camelVersion) { (dv) =>
-        Dependencies.test ++ Dependencies.camel(dv) ++ Seq(Dependencies.cglib, Dependencies.h2, Dependencies.slf4j, Dependencies.commoncsv)
-      }
-    )) dependsOn (babelfish)
+    settings = defaultSettings ++ Dependencies.babelCamelCore++ Seq(
+      publishArtifact in(Test, packageBin) := true
+    )
+  ).dependsOn(babelfish)
+
 
   lazy val babelcamelmock = Project(id = "babel-camel-mock",
     base = file("babel-camel/babel-camel-mock"),
-    settings = Defaults.defaultSettings ++ Seq(
-      camelVersion := "2.12.4",
-      version <<= camelVersion { dv => "camel-" + dv + "-" + artifactVersion },
-      libraryDependencies <++= (camelVersion) { (dv) =>
-        Dependencies.test ++ Dependencies.camel(dv) ++ Seq(Dependencies.commoncsv)
-      }
-    ),
+    settings = defaultSettings ++ Dependencies.babelCamelMock,
     dependencies = Seq(babelcamelcore % "compile->compile;test->test")
-  ) dependsOn(babelfish)
-
-}
-
-object Dependencies {
-
-  def camelCore(camelVersion: String) = "org.apache.camel" % "camel-core" % camelVersion
-  def camelXmlJson(camelVersion: String) = "org.apache.camel" % "camel-xmljson" % camelVersion % "test"
-  def camelCsv(camelVersion: String) = "org.apache.camel" % "camel-csv" % camelVersion % "test"
-  def camelSql(camelVersion: String) = "org.apache.camel" % "camel-sql" % camelVersion % "test"
-  def camelSpring(camelVersion: String) = "org.apache.camel" % "camel-spring" % camelVersion % "optional"
-  def camelScala(camelVersion: String) = "org.apache.camel" % "camel-scala" % camelVersion % "test"
-
-  def camel(camelVersion: String) = Seq(camelCore(camelVersion), camelXmlJson(camelVersion), camelCsv(camelVersion), camelSql(camelVersion), camelSpring(camelVersion), camelScala(camelVersion))
-
-  val commoncsv = "org.apache.servicemix.bundles" % "org.apache.servicemix.bundles.commons-csv" % "1.0-r706900_3" % "test"
+  ).dependsOn(babelfish)
 
 
 
-  val cglib = "cglib" % "cglib-nodep" % "2.2" % "test"
-  val h2 = "com.h2database" % "h2" % "1.3.174" % "test"
-
-
-  val specs2 = "org.specs2" %% "specs2" % "2.4.1" % "test"
-  val junit = "junit" % "junit" % "4.11" % "test"
-
-  val test = Seq(junit, specs2)
-
-  val slf4j = "org.slf4j" % "slf4j-log4j12" % "1.7.3"
+  //reformatting enforced for compile phase
+  lazy val formatSettings = SbtScalariform.scalariformSettings ++ Seq(
+    ScalariformKeys.preferences in Compile := Formatting.formattingPreferences,
+    ScalariformKeys.preferences in Test := Formatting.formattingPreferences
+  )
 
 
 }
+
+
