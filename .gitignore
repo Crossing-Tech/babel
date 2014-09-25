@@ -12,3 +12,6 @@ build/
 *.pdf
 atlassian-ide-plugin.xml
 .jira-url
+.classpath
+.project
+.settings

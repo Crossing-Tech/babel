@@ -8,14 +8,14 @@ sbt_args: -no-colors
 
 env:
    global:
-      - SBT_OPTS="-XX:MaxPermSize=256m -Xmx1024m"
+      - JVM_OPTS="-XX:MaxPermSize=256m -Xmx1024m -XX:ReservedCodeCacheSize=128m"
 
-script:  sbt ++$TRAVIS_SCALA_VERSION "set camelVersion := \"2.12.4\"" test "set camelVersion := \"2.13.2\"" test
+script: sbt ++$TRAVIS_SCALA_VERSION  clean coveralls
 
 
 jdk:
   - openjdk6
-
+  - oraclejdk7
 
 notifications:
   email:

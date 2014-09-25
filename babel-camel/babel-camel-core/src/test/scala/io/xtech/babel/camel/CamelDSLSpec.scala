@@ -269,7 +269,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
         from("direct:input").
           process(msg => {
             assert(msg.exchangeException == null)
-            msg.withExchangeException(new Exception("bla"))
+            msg.withExchangeException(new Exception("Expected exception"))
           }).
           to("mock:output")
       }
