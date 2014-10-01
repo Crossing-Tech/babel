@@ -1,0 +1,38 @@
+First open source version
+=========================
+
+The initial open source release of Babel essentially presents a set of keyword to be used with Apache Camel. It also provides a core module (Babel fish) in order to implement other DSL.
+
+
+Keywords
+--------
+
+- Basics
+   - sources and sinks (from, to, sub)
+   - route hooks (routeId, onStart, onInit, ...)
+   - exchange hooks (onExchangeDone, ...)
+   - logging (log)
+- Typing (requireAs, marshal, ...)
+- Routing (choice, multicast, recipientList, filter, aggregate, split, vaidate)
+- Transformation (enrich, pollEnrich, process, resequence, sort, bean)
+- Error handling (handle, on[Throwable], continued, deadletter, loggingErrorHandler, defaultErrorHandler)
+
+
+Mock extension
+--------------
+
+- Define a subset DSL (Mock) for Babel Camel which may be mix in RouteBuilder to add functionnalities
+
+
+Feature
+-------
+
+- Integration with the legacy Apache Camel context (RouteBuilder)
+- Integration with the Camel Spring context (SpringRouteBuilder)
+
+Improvement
+-----------
+
+- Improve the support of scala types (scala.Int, scala.Byte, etc...)
+
+See the project [readme](https://github.com/crossing-tech/babel) for more information.

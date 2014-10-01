@@ -20,13 +20,24 @@ object Dependencies {
     OsgiKeys.exportPackage := Seq("io.xtech.babel.camel.*")
   )
 
+  private val fixedCamelVersion = "2.13.2"
+
   private lazy val camelDependencies = Seq(
-    Build.camelVersion := "2.12.4",
-    version  <<= (version, Build.camelVersion) { (babel,camel) => babel.replace("-SNAPSHOT","") +"-camel-" + camel  + {if (babel.endsWith("-SNAPSHOT")) "-SNAPSHOT" else ""}},
+    Build.camelVersion := fixedCamelVersion,
+    version  <<= (version, Build.camelVersion) { parseCamelVersion },
     libraryDependencies <++= (Build.camelVersion) { (dv) =>
       Dependencies.test ++ Dependencies.camel(dv) ++ Seq(Dependencies.commoncsv)
     }
   )
+
+  private def parseCamelVersion(babel: String, camel: String): String = {
+    val camelVersion = if (camel != fixedCamelVersion) {
+      "-camel-" + camel // todo for next version : .split("\\.").take(2).mkString(".")
+    }else{
+    ""
+    }
+    babel.replace("-SNAPSHOT","") + camelVersion + {if (babel.endsWith("-SNAPSHOT")) {"-SNAPSHOT"} else {""}}
+  }
 
   private lazy val camelTestsDependencies = Seq(
     libraryDependencies <++= (Build.camelVersion) { (dv) =>

@@ -10,18 +10,6 @@ make clean
 #generate the main documentation
 make html
 
-#copy the generated report and scaladoc
-mkdir  build/html/coverage/
-
-cp -R ../babel-fish/target/site/scaladocs build/html/babel-fish 
-cp -R ../babel-fish/target/classes/coverage-report/ build/html/coverage/babel-fish
-
-cp -R ../babel-camel/babel-camel-core/target/site/scaladocs build/html/babel-camel-core
-cp -R ../babel-camel/babel-camel-core/target/classes/coverage-report/ build/html/coverage/babel-camel-core
-
-cp -R ../babel-camel/babel-camel-mock/target/site/scaladocs build/html/babel-camel-mock 
-cp -R ../babel-camel/babel-camel-mock/target/classes/coverage-report/ build/html/coverage/babel-camel-mock
-
 #generate the slides
 cd slides/overview
 make html

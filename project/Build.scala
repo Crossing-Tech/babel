@@ -23,7 +23,7 @@ import sbtrelease.Version
 
 object Build extends Build {
 
-  val artifactVersion = "0.6.0-SNAPSHOT"
+  val artifactVersion = "0.6.0"
 
   lazy val basicSettings = Defaults.defaultSettings ++ Publish.settings ++ instrumentSettings ++ coverallsSettings ++ releaseSettings ++ Seq(
     version := artifactVersion,

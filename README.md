@@ -24,7 +24,13 @@ Implementation of Babel have been done for [Apache Camel](http://camel.apache.or
  
 ### Project main dependencies ###
  * Scala library (2.10.4)
- * Apache camel (2.12.4)
+ * Apache camel (2.13.2)
+ 
+#### Backward compatibity ####
+  
+Babel provides also artifacts for earlier versions of Apache Camel:
+
+To use Apache Camel version 2.12.x, use Babel with version 0.6.0-camel-2.12.4
  
 ### Quick Sbt Start Guide ###
 
