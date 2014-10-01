@@ -35,14 +35,16 @@ If you don't want to build the Babel project on your machine (otherwise, see :re
 
 If you also want to use the Babel Camel Mock extension for your tests, you may also add:
 
-.. parsed-literal::
+::
 
    <dependency>
      <groupId>io.xtech.babel</groupId>
      <artifactId>babel-camel-mock</artifactId>
-     <version> |version| </version>
+     <version>BABEL_VERSION</version>
      <scope>test</scope>
    </dependency>
+
+Where BABEL_VERSION is replaced by the actual Babel version.
 
 Using Sbt
 +++++++++
@@ -51,15 +53,15 @@ Using Sbt
 
 To add Babel Camel in a Sbt project, you may just add the following dependencies and resolver to your build configuration:
 
-.. parsed-literal::
+::
 
   resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots
 
-  libraryDependencies += "io.xtech.babel" % "babel-camel-core" % "|version|"
+  libraryDependencies += "io.xtech.babel" %% "babel-camel-core" % "BABEL_VERSION"
   //if you want to use the mock keyword to simplify your tests:
-  libraryDependencies += "io.xtech.babel" % "babel-camel-mock" % "|version|" % "test"
+  libraryDependencies += "io.xtech.babel" %% "babel-camel-mock" % "BABEL_VERSION" % "test"
 
-
+Where BABEL_VERSION is replaced by the actual Babel version.
 
 Babel Archetypes
 ++++++++++++++++

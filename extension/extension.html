@@ -224,7 +224,7 @@ The DSL will take a <tt class="docutils literal"><span class="pre">io.xtech.babe
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">package</span> <span class="nn">io.xtech.babel.camel.mock</span>
 
 <span class="k">import</span> <span class="nn">io.xtech.babel.camel.parsing.CamelParsing</span>
-<span class="k">import</span> <span class="nn">io.xtech.babel.fish.</span><span class="o">{</span><span class="nc">DSL2BaseDSL</span><span class="o">,</span> <span class="nc">BaseDSL</span><span class="o">}</span>
+<span class="k">import</span> <span class="nn">io.xtech.babel.fish.</span><span class="o">{</span> <span class="nc">DSL2BaseDSL</span><span class="o">,</span> <span class="nc">BaseDSL</span> <span class="o">}</span>
 <span class="k">import</span> <span class="nn">io.xtech.babel.fish.model.StepDefinition</span>
 <span class="k">import</span> <span class="nn">io.xtech.babel.fish.parsing.StepInformation</span>
 
@@ -233,17 +233,16 @@ The DSL will take a <tt class="docutils literal"><span class="pre">io.xtech.babe
 <span class="k">import</span> <span class="nn">scala.language.implicitConversions</span>
 <span class="k">import</span> <span class="nn">scala.reflect.ClassTag</span>
 
-
 <span class="k">case</span> <span class="k">class</span> <span class="nc">MockDefinition</span><span class="o">(</span><span class="n">filePath</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">StepDefinition</span>
 
 <span class="k">class</span> <span class="nc">MockDSL</span><span class="o">[</span><span class="kt">I:</span> <span class="kt">ClassTag</span><span class="o">](</span><span class="k">protected</span> <span class="k">val</span> <span class="n">baseDsl</span><span class="k">:</span> <span class="kt">BaseDSL</span><span class="o">[</span><span class="kt">I</span><span class="o">])</span> <span class="k">extends</span> <span class="nc">DSL2BaseDSL</span><span class="o">[</span><span class="kt">I</span><span class="o">]</span> <span class="o">{</span>
 
   <span class="cm">/**</span>
-<span class="cm">   * The mock keyword. Stores received exchanges in order to assert properties in tests.</span>
-<span class="cm">   * @param endpointUri target mock endpoint which translates to &quot;mock:endpointUri&quot;</span>
-<span class="cm">   * @see  io.xtech.babel.camel.mock</span>
-<span class="cm">   * @return the possibility to add other steps to the current DSL</span>
-<span class="cm">   */</span>
+<span class="cm">    * The mock keyword. Stores received exchanges in order to assert properties in tests.</span>
+<span class="cm">    * @param endpointUri target mock endpoint which translates to &quot;mock:endpointUri&quot;</span>
+<span class="cm">    * @see  io.xtech.babel.camel.mock</span>
+<span class="cm">    * @return the possibility to add other steps to the current DSL</span>
+<span class="cm">    */</span>
   <span class="k">def</span> <span class="n">mock</span><span class="o">(</span><span class="n">endpointUri</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">BaseDSL</span><span class="o">[</span><span class="kt">I</span><span class="o">]</span> <span class="k">=</span> <span class="nc">MockDefinition</span><span class="o">(</span><span class="n">endpointUri</span><span class="o">)</span>
 <span class="o">}</span>
 

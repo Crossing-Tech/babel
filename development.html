@@ -199,17 +199,17 @@
 </div>
 <div class="section" id="source-code">
 <h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
-<p>The Code is reformatted by the Maven reformat profile (which uses <a class="reference external" href="https://github.com/sbt/sbt-scalariform">scalariform</a>)
+<p>The Code is reformatted while compiling the sources using sbt (which uses <a class="reference external" href="https://github.com/sbt/sbt-scalariform">scalariform</a>)
 To reformat the code:</p>
-<div class="highlight-bash"><div class="highlight"><pre>mvn -Preformat process-sources
+<div class="highlight-bash"><div class="highlight"><pre>sbt <span class="nb">test</span>-compile
 </pre></div>
 </div>
 </div>
 <div class="section" id="tests">
 <h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
 <p>In the Babel modules implemented using Scala, <a class="reference external" href="http://etorreborre.github.io/specs2/">Specs2</a> is the used testing framework.</p>
-<p>Test coverage reports are generated using scoverage through the Maven build configuration following:</p>
-<div class="highlight-bash"><div class="highlight"><pre>mvn -Pcoverage verify
+<p>Test coverage reports are generated using scoverage through the sbt build configuration following:</p>
+<div class="highlight-bash"><div class="highlight"><pre>sbt scoverage:test
 <span class="c">#browse test reports in modules target directory (target/classes/coverage-report)</span>
 </pre></div>
 </div>

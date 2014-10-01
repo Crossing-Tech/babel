@@ -212,25 +212,27 @@
 </pre></div>
 </div>
 <p>If you also want to use the Babel Camel Mock extension for your tests, you may also add:</p>
-<pre class="literal-block">
-&lt;dependency&gt;
-  &lt;groupId&gt;io.xtech.babel&lt;/groupId&gt;
-  &lt;artifactId&gt;babel-camel-mock&lt;/artifactId&gt;
-  &lt;version&gt; 0.6.0-SNAPSHOT &lt;/version&gt;
-  &lt;scope&gt;test&lt;/scope&gt;
-&lt;/dependency&gt;
-</pre>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>io.xtech.babel<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>babel-camel-mock<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>BABEL_VERSION<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>Where BABEL_VERSION is replaced by the actual Babel version.</p>
 </div>
 <div class="section" id="using-sbt">
 <h2>Using Sbt<a class="headerlink" href="#using-sbt" title="Permalink to this headline">¶</a></h2>
 <p>To add Babel Camel in a Sbt project, you may just add the following dependencies and resolver to your build configuration:</p>
-<pre class="literal-block">
-resolvers += &quot;Sonatype OSS Snapshots&quot; at &quot;<a class="reference external" href="https://oss.sonatype.org/content/repositories/snapshots">https://oss.sonatype.org/content/repositories/snapshots</a>
+<div class="highlight-scala"><div class="highlight"><pre>resolvers += &quot;Sonatype OSS Snapshots&quot; at &quot;https://oss.sonatype.org/content/repositories/snapshots
 
-libraryDependencies += &quot;io.xtech.babel&quot; % &quot;babel-camel-core&quot; % &quot;0.6.0-SNAPSHOT&quot;
+libraryDependencies += &quot;io.xtech.babel&quot; %% &quot;babel-camel-core&quot; % &quot;BABEL_VERSION&quot;
 //if you want to use the mock keyword to simplify your tests:
-libraryDependencies += &quot;io.xtech.babel&quot; % &quot;babel-camel-mock&quot; % &quot;0.6.0-SNAPSHOT&quot; % &quot;test&quot;
-</pre>
+libraryDependencies += &quot;io.xtech.babel&quot; %% &quot;babel-camel-mock&quot; % &quot;BABEL_VERSION&quot; % &quot;test&quot;
+</pre></div>
+</div>
+<p>Where BABEL_VERSION is replaced by the actual Babel version.</p>
 </div>
 <div class="section" id="babel-archetypes">
 <h2>Babel Archetypes<a class="headerlink" href="#babel-archetypes" title="Permalink to this headline">¶</a></h2>
