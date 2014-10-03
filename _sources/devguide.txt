@@ -11,4 +11,3 @@ This sections provides information if you want to develop or understand better B
    development
    contribute
    extension/extension
-   links

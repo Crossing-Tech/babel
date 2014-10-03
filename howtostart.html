@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 
@@ -5,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>How to start a Babel project &mdash; Babel 0.6.0-SNAPSHOT documentation</title>
+    <title>How to start a Babel project &mdash; Babel 0.6.0 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,8 +16,8 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.6.0-SNAPSHOT',
+        URL_ROOT:    '',
+        VERSION:     '0.6.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -29,7 +30,7 @@
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Babel 0.6.0-SNAPSHOT documentation" href="index.html" />
+    <link rel="top" title="Babel 0.6.0 documentation" href="index.html" />
     <link rel="next" title="Babel Camel User Guide" href="camel/cameluserguide.html" />
     <link rel="prev" title="Babel Philosophy" href="philosophy.html" />
 <meta charset='utf-8'>
@@ -71,7 +72,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           Babel</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.6.0-SNAPSHOT</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.6.0</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -118,7 +119,6 @@
 <li class="toctree-l2"><a class="reference internal" href="development.html">Babel development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contribute.html">Contribute to Babel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extension/extension.html">Babel Extension</a></li>
-<li class="toctree-l2"><a class="reference internal" href="links.html">Technical links</a></li>
 </ul>
 </li>
 </ul>
@@ -147,7 +147,6 @@
             
             
               
-                
   <li>
     <a href="philosophy.html" title="Previous Chapter: Babel Philosophy"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Babel Philosophy</span>
     </a>
@@ -156,7 +155,6 @@
     <a href="camel/cameluserguide.html" title="Next Chapter: Babel Camel User Guide"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Babel Camel User... &raquo;</span>
     </a>
   </li>
-              
             
             
             
@@ -197,7 +195,7 @@
 &lt;dependency&gt;
   &lt;groupId&gt;io.xtech.babel&lt;/groupId&gt;
   &lt;artifactId&gt;babel-camel-core&lt;/artifactId&gt;
-  &lt;version&gt; 0.6.0-SNAPSHOT &lt;/version&gt;
+  &lt;version&gt; 0.6.0 &lt;/version&gt;
 &lt;/dependency&gt;
 </pre>
 <p>If you don&#8217;t want to build the Babel project on your machine (otherwise, see <a class="reference internal" href="installation.html#maveninstall"><em>Build Babel with Maven</em></a>), use the Sonatype Snapshot repository to your Maven configuration:</p>
@@ -225,12 +223,11 @@
 <div class="section" id="using-sbt">
 <h2>Using Sbt<a class="headerlink" href="#using-sbt" title="Permalink to this headline">¶</a></h2>
 <p>To add Babel Camel in a Sbt project, you may just add the following dependencies and resolver to your build configuration:</p>
-<div class="highlight-scala"><div class="highlight"><pre>resolvers += &quot;Sonatype OSS Snapshots&quot; at &quot;https://oss.sonatype.org/content/repositories/snapshots
+<div class="highlight-scala"><pre>resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots
 
-libraryDependencies += &quot;io.xtech.babel&quot; %% &quot;babel-camel-core&quot; % &quot;BABEL_VERSION&quot;
+libraryDependencies += "io.xtech.babel" %% "babel-camel-core" % "BABEL_VERSION"
 //if you want to use the mock keyword to simplify your tests:
-libraryDependencies += &quot;io.xtech.babel&quot; %% &quot;babel-camel-mock&quot; % &quot;BABEL_VERSION&quot; % &quot;test&quot;
-</pre></div>
+libraryDependencies += "io.xtech.babel" %% "babel-camel-mock" % "BABEL_VERSION" % "test"</pre>
 </div>
 <p>Where BABEL_VERSION is replaced by the actual Babel version.</p>
 </div>
@@ -259,7 +256,7 @@ Once you have installed the babel project locally, use the following command to 
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
     </p>
   </div>
 </footer>
