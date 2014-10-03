@@ -15,10 +15,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>io.xtech.babel</groupId>
+    <parent>
+        <groupId>io.xtech.babel</groupId>
+        <artifactId>babel-parent</artifactId>
+        <version>0.6.0</version>
+        <relativePath>../../babel-parent/pom.xml</relativePath>
+    </parent>
     <artifactId>babel-camel-archetype</artifactId>
-    <version>0.6.0-SNAPSHOT</version>
+
     <packaging>maven-archetype</packaging>
 
     <name>Babel :: Camel :: Archetype</name>
@@ -39,6 +43,28 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+    <description>Maven Archetype for Babel</description>
+    <url>http://www.crossing-tech.com</url>
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>leifh</id>
+            <name>Leif Hallgren</name>
+            <url>https://twitter.com/lhallgren</url>
+        </developer>
+        <developer>
+            <id>chpache</id>
+            <name>Christophe Pache</name>
+            <url>https://twitter.com/chpache</url>
+        </developer>
+    </developers>
 
     <build>
 
