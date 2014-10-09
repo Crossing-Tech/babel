@@ -1,7 +1,6 @@
-
 .. _babel-camel-guide:
 
-Babel Camel User Guide
+Babel Camel User guide
 ======================
 
 .. todo : be able to create a pdf only for babel camel user guide
@@ -17,10 +16,11 @@ Most of the keywords are dealing with the Camel Message, unless specified as bod
 .. toctree::
   :maxdepth: 2
 
-  spring
-  samples
-  basics
-  transformation
-  routing
-  errormanagement
+  camel/spring
+  camel/samples
+  camel/basics
+  camel/transformation
+  camel/routing
+  camel/errormanagement
+  camel/mock
 

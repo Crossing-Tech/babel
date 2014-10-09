@@ -2,6 +2,8 @@
 Mock Extension
 ===============
 
+Mock is the first extension of the Babel Camel DSL. For more information on the extension, please have a look to :ref:`babel-dev-extension` guide.
+
 Description
 +++++++++++
 
