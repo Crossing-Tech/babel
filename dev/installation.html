@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Babel Installation Guide &mdash; Babel 0.7.0-SNAPSHOT documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Babel 0.7.0-SNAPSHOT documentation" href="../index.html" />
+    <link rel="up" title="Babel Development guide" href="../devguide.html" />
+    <link rel="next" title="Babel development" href="development.html" />
+    <link rel="prev" title="Babel Structure" href="structure.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/crossing-tech/babel.git"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+
+    //$(function () {
+    //  var navHeight = $(".navbar .container").css("height");
+    //  $("#re-banner").css("top", navHeight);
+    //});
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Babel</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7.0-SNAPSHOT</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://crossing-tech.com">Company</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../opinion.html">Babel Opinion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../opinion.html#simple-dsl">Simple DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opinion.html#explicit-dsl">Explicit DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opinion.html#explicit-and-simple-dsl">Explicit and Simple DSL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Babel Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#babel-overview">Babel overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#babel-modules">Babel Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstartguide.html">Quick start guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-maven">Using Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-sbt">Using Sbt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#babel-archetypes">Babel Archetypes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cameluserguide.html">Babel Camel User guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../camel/spring.html">Babel Camel using the Spring Application Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camel/samples.html">Babel Camel Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camel/basics.html">Babel Camel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camel/transformation.html">Babel Camel Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camel/routing.html">Babel Camel Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camel/errormanagement.html">Babel Camel Error management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camel/mock.html">Mock Extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../devguide.html">Babel Development guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="structure.html">Babel Structure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Babel Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development.html">Babel development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contribute.html">Contribute to Babel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html">Babel Extension creation</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Babel Installation Guide</a><ul>
+<li><a class="reference internal" href="#project-requirements">Project Requirements</a></li>
+<li><a class="reference internal" href="#build-babel-with-maven">Build Babel with Maven</a><ul>
+<li><a class="reference internal" href="#build-babel-maven-archetype">Build Babel Maven archetype</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#build-babel-with-sbt">Build Babel with Sbt</a></li>
+<li><a class="reference internal" href="#generate-the-documentation">Generate the documentation</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+  <li>
+    <a href="structure.html" title="Previous Chapter: Babel Structure"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Babel Structure</span>
+    </a>
+  </li>
+  <li>
+    <a href="development.html" title="Next Chapter: Babel development"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Babel developmen... &raquo;</span>
+    </a>
+  </li>
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="babel-installation-guide">
+<h1>Babel Installation Guide<a class="headerlink" href="#babel-installation-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="project-requirements">
+<h2>Project Requirements<a class="headerlink" href="#project-requirements" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Operating System</td>
+<td>GNU/Linux, Mac OS X, MS Windows</td>
+</tr>
+<tr class="row-even"><td>Java VM</td>
+<td>Oracle JDK 6</td>
+</tr>
+<tr class="row-odd"><td>Maven</td>
+<td>3.0.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="build-babel-with-maven">
+<span id="maveninstall"></span><h2>Build Babel with Maven<a class="headerlink" href="#build-babel-with-maven" title="Permalink to this headline">¶</a></h2>
+<p>To build Babel from sources using <a class="reference external" href="http://maven.apache.org/">Apache Maven</a>, in a regular shell:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git clone https://github.com/babel-dsl/babel.git
+<span class="nb">cd </span>babel
+<span class="nb">export </span><span class="nv">MAVEN_OPTS</span><span class="o">=</span><span class="s2">&quot;-XX:MaxPermSize=256m -Xmx1024m&quot;</span>
+mvn install
+</pre></div>
+</div>
+<div class="section" id="build-babel-maven-archetype">
+<span id="archetypeinstall"></span><h3>Build Babel Maven archetype<a class="headerlink" href="#build-babel-maven-archetype" title="Permalink to this headline">¶</a></h3>
+<p>If you want to also install the Babel Camel Archetype locally, you only need to add the <tt class="docutils literal"><span class="pre">archetype</span></tt> maven profile to the previous script:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git clone https://github.com/babel-dsl/babel.git
+<span class="nb">cd </span>babel
+<span class="nb">export </span><span class="nv">MAVEN_OPTS</span><span class="o">=</span><span class="s2">&quot;-XX:MaxPermSize=256m -Xmx1024m&quot;</span>
+mvn -Parchetype install
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="build-babel-with-sbt">
+<h2>Build Babel with Sbt<a class="headerlink" href="#build-babel-with-sbt" title="Permalink to this headline">¶</a></h2>
+<p>To build Babel from sources using <a class="reference external" href="http://www.scala-sbt.org/">Sbt</a>, in a regular shell:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git clone https://github.com/babel-dsl/babel.git
+<span class="nb">cd </span>babel
+<span class="nb">export </span><span class="nv">SBT_OPTS</span><span class="o">=</span><span class="s2">&quot;-XX:MaxPermSize=256m -Xmx1024m&quot;</span>
+sbt <span class="nb">test </span>publish-local
+</pre></div>
+</div>
+</div>
+<div class="section" id="generate-the-documentation">
+<h2>Generate the documentation<a class="headerlink" href="#generate-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>to generate the documentation, first install the sphinx documentation generator and then, run:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">babel</span><span class="o">-</span><span class="n">dsl</span><span class="o">/</span><span class="n">babel</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">babel</span><span class="o">/</span><span class="n">babel</span><span class="o">-</span><span class="n">doc</span>
+<span class="n">make</span> <span class="n">html</span>
+<span class="k">#</span><span class="n">browse</span> <span class="n">build</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Akka provides some nice documentation on how to generate documentation with Sphinx: <a class="reference external" href="http://doc.akka.io/docs/akka/2.0/dev/documentation.html">Akka Sphinx Documentation</a></p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Babel Opinion &mdash; Babel 0.7.0-SNAPSHOT documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.1.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.7.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Babel 0.7.0-SNAPSHOT documentation" href="index.html" />
+    <link rel="next" title="Babel Architecture" href="architecture.html" />
+    <link rel="prev" title="Welcome to Babel’s documentation!" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+  
+  <a href="https://github.com/crossing-tech/babel.git"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
+    alt="Fork me on GitHub"></a>
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+
+    //$(function () {
+    //  var navHeight = $(".navbar .container").css("height");
+    //  $("#re-banner").css("top", navHeight);
+    //});
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Babel</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7.0-SNAPSHOT</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="http://crossing-tech.com">Company</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Babel Opinion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simple-dsl">Simple DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explicit-dsl">Explicit DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#explicit-and-simple-dsl">Explicit and Simple DSL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Babel Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-overview">Babel overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-modules">Babel Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstartguide.html">Quick start guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstartguide.html#using-maven">Using Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstartguide.html#using-sbt">Using Sbt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstartguide.html#babel-archetypes">Babel Archetypes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cameluserguide.html">Babel Camel User guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="camel/spring.html">Babel Camel using the Spring Application Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/samples.html">Babel Camel Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/basics.html">Babel Camel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/transformation.html">Babel Camel Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/routing.html">Babel Camel Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/errormanagement.html">Babel Camel Error management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/mock.html">Mock Extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="devguide.html">Babel Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev/structure.html">Babel Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/installation.html">Babel Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/development.html">Babel development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/contribute.html">Contribute to Babel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/extension.html">Babel Extension creation</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Babel Opinion</a><ul>
+<li><a class="reference internal" href="#simple-dsl">Simple DSL</a></li>
+<li><a class="reference internal" href="#explicit-dsl">Explicit DSL</a></li>
+<li><a class="reference internal" href="#explicit-and-simple-dsl">Explicit and Simple DSL</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+  <li>
+    <a href="index.html" title="Previous Chapter: Welcome to Babel’s documentation!"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm">&laquo; Welcome to Babel...</span>
+    </a>
+  </li>
+  <li>
+    <a href="architecture.html" title="Next Chapter: Babel Architecture"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Babel Architectu... &raquo;</span>
+    </a>
+  </li>
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="babel-opinion">
+<span id="id1"></span><h1>Babel Opinion<a class="headerlink" href="#babel-opinion" title="Permalink to this headline">¶</a></h1>
+<p>Babel opinion is that code which defines integration should be easy to write and to read. From the experience we have got using Apache Camel (Java DSL), we have raise the following points:</p>
+<ul class="simple">
+<li>A DSL needs to be simple to make it easy to write</li>
+<li>A DSL needs to be explicit to make it easy to read</li>
+</ul>
+<p>We have been influenced by the <a class="reference external" href="www.scala-lang.org/">Scala</a> language. In other words, we just want to have the same features we already had with Scala at the route layer. Let&#8217;s take a look at those points:</p>
+<div class="section" id="simple-dsl">
+<h2>Simple DSL<a class="headerlink" href="#simple-dsl" title="Permalink to this headline">¶</a></h2>
+<p>Simple means we would provide one way to do things. This means selection. Currently, the amount of possibilities does not facilitate the coding process.</p>
+<p>Actually, &#8220;simple&#8221; means composed by one thing, without duplicity nor ornamentation but plain. At this point, simple means also easy in the sense we have tried to restrict the possibilities to the most interesting. Babel adds as less as possible new Interfaces and tries as much as possible to rely on existing and basic tools such as Functions. As we will see latter, clear auto-completion provided by your IDE increase the coding process and adds confidence into what you are actually writing. Select the best way to achieve your task and then <em>transform a good practice into API</em> could be the main goal of the Babel project.</p>
+</div>
+<div class="section" id="explicit-dsl">
+<h2>Explicit DSL<a class="headerlink" href="#explicit-dsl" title="Permalink to this headline">¶</a></h2>
+<p>As a first taste, explicit means to avoid some implicits. In Apache Camel, an implict we found really dangerous and not advantageous was the Implict type converters: Apache Camel implicitely add type conversion depending on your code expectations.
+In other words, with Apache Camel, if your code expects some type concerning its input which is not the output of the previous step, this will be fixed implicitely at runtime.
+On the contrary, with Babel, the input type is as explicit as possible. For convenience, it is simply computed from the previous step output. Even if you do not see it in your code, your IDE may compute it at compile time and this is used to validate your code before having actually run it.</p>
+<p>More important is the fact that adding information about the input type helps to read your code (and also to review it). Babel tends also to separate (explicit) type conversion from input transformation.</p>
+</div>
+<div class="section" id="explicit-and-simple-dsl">
+<h2>Explicit and Simple DSL<a class="headerlink" href="#explicit-and-simple-dsl" title="Permalink to this headline">¶</a></h2>
+<p>Now let&#8217;s have a look to what does those two feature provide together to the coding process. Actually, we may also resume those two aspects as <strong>typed</strong> and <strong>functional</strong>.</p>
+<p>In other words, Babel lets you define processing in functional way and raise Scala type inference at the route level.</p>
+<p>Auto completion takes advantages from the typing as much as from the simplicity:</p>
+<ul class="simple">
+<li>Having only the possible keywords in completion helps to find the good one</li>
+<li>Type inference checks and provides inputs type to your functions</li>
+</ul>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic|Lancelot' rel='stylesheet' type='text/css'>
+    
+    <title>Welcome to Babel documentation</title>
+    
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/impress-demo.css" type="text/css" />
+  </head>
+  <body>
+    <div id="impress">
+      <div class="fallback-message">
+        <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b> or <b>Safari</b> browser. Firefox 10 (to be released soon) will also handle it.</p>
+      </div>
+      
+  <div class="section" id="welcome-to-babel-documentation">
+<h1>Welcome to Babel documentation<a class="headerlink" href="#welcome-to-babel-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="step" data-x="0" data-y="0" id="title">
+<p class="first">io.xtech.babel</p>
+<p class="last">The efficient way to write integration solution</p>
+</div>
+<div class="step" data-x="2000" data-y="0" id="features">
+<blockquote class="first last">
+<div><p>Available DSL</p>
+<ul class="simple">
+<li>Babel Camel Scala</li>
+<li>Babel Camel Java (experimental)</li>
+<li>Babel Spring Integration Scala (experimental)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="step" data-x="4000" data-y="0" id="dsls">
+<blockquote class="first last">
+<div><p>Babel Camel route example</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="c1">//sends what is received in the direct</span>
+  <span class="c1">//  endpoint to the mock endpoint</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="step" data-x="6000" data-y="0" id="example">
+<blockquote class="first last">
+<div><p>Babel is much more than that</p>
+<ul class="simple">
+<li><strong>Typed</strong>: validates your route through statically typing</li>
+<li><strong>Functional</strong>: defines your route in an elegant way</li>
+<li><strong>Modular</strong> let you decide what you want to use</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="step" data-x="8000" data-y="0" id="more">
+<p class="first">Babel is typed and functional</p>
+<div class="last highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="c1">//message bodies are converted to String if required</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+    <span class="c1">//processBody concatenates received string with &quot;bli&quot;</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="n">string</span> <span class="k">=&gt;</span> <span class="n">string</span> <span class="o">+</span> <span class="s">&quot;bli&quot;</span><span class="o">).</span>
+    <span class="c1">//sends the concatenated string to the mock endpoint</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="step" data-x="10000" data-y="0" id="modules">
+<p class="first">Babel is composable</p>
+<div class="last highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.mock._</span>
+
+<span class="c1">//The Mock extension is added simply by</span>
+<span class="c1">//  extending the RouteBuilder with</span>
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="k">with</span> <span class="nc">Mock</span> <span class="o">{</span>
+  <span class="c1">//the mock keyword is the same as typing</span>
+  <span class="c1">//  to(&quot;mock:output&quot;)</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">mock</span><span class="o">(</span><span class="s">&quot;output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="step" data-x="12000" data-y="0" id="debug">
+<p class="first">Babel is debuggable</p>
+<img alt="_images/breakpoint.png" class="last" src="_images/breakpoint.png" />
+</div>
+<div class="step" data-x="14000" data-y="0" id="links">
+<p class="first"><em>Links:</em></p>
+<p><a class="reference external" href="http://crossing-tech.github.io/babel/index.html">documentation</a>, <a class="reference external" href="https://groups.google.com/forum/#!forum/babel-user">mailing-list</a></p>
+<p class="last">Feel free to come and discuss with the Babel team!</p>
+</div>
+</div>
+
+
+    </div>
+    <div class="hint">
+      <b>Use a space bar or arrow keys to navigate</b>
+    </div>
+    
+    <script type="text/javascript" src="_static/impress.js"></script>
+  </body>
+</html>
