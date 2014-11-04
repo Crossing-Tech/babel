@@ -8,7 +8,9 @@
 
 package io.xtech.babel.camel.model
 
-import io.xtech.babel.fish.model.Sink
+import io.xtech.babel.camel.SubRouteDSL
+import io.xtech.babel.fish.BaseDSL
+import io.xtech.babel.fish.model.{ScopeDefinition, StepDefinition, Sink}
 
 import scala.collection.immutable
 
