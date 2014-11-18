@@ -24,10 +24,10 @@ trait Mock extends CamelParsing {
 
   case class MockDefinition(filePath: String) extends StepDefinition
 
-  abstract override def steps = super.steps :+ {
+  abstract override def steps = super.steps :+ ({
     case StepInformation(MockDefinition(uri), camelProcessor: ProcessorDefinition[_]) =>
       camelProcessor.to(s"mock:$uri")
-  }
+  }: Process)
 
   implicit def mockDSLExtension[I: ClassTag](dsl: BaseDSL[I]) = new DSL2BaseDSL[I] {
 
