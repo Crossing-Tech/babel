@@ -8,15 +8,14 @@
 
 package io.xtech.babel.camel.choice
 
-
-import io.xtech.babel.camel.model.Aggregation.{ReduceBody, CompletionSize, FoldBody}
-import io.xtech.babel.camel.model.{CamelSink, CamelSource}
+import io.xtech.babel.camel.model.Aggregation.{ ReduceBody, CompletionSize, FoldBody }
+import io.xtech.babel.camel.model.{ CamelSink, CamelSource }
 import io.xtech.babel.camel.test.camel
-import io.xtech.babel.fish.{BaseDSL, FromDSL}
+import io.xtech.babel.fish.{ BaseDSL, FromDSL }
 import io.xtech.babel.fish.model.Message
 import org.apache.camel.component.mock.MockEndpoint
-import org.apache.camel.processor.aggregate.{AggregationStrategy, UseLatestAggregationStrategy}
-import org.apache.camel.{Exchange, Predicate, Processor}
+import org.apache.camel.processor.aggregate.{ AggregationStrategy, UseLatestAggregationStrategy }
+import org.apache.camel.{ Exchange, Predicate, Processor }
 import org.specs2.mutable.SpecificationWithJUnit
 
 import scala.collection.JavaConverters._
@@ -25,9 +24,7 @@ class DemoSpec extends SpecificationWithJUnit {
 
   "demo route" in new camel {
 
-
     sequential
-
 
     //#doc:babel-camel-demo-2
     val doAggregate = ReduceBody(
@@ -39,10 +36,7 @@ class DemoSpec extends SpecificationWithJUnit {
       completionStrategies = List(CompletionSize(3))
     )
 
-
     //#doc:babel-camel-demo-2
-
-
 
     //#doc:babel-camel-demo-1
     import io.xtech.babel.camel.builder.RouteBuilder
@@ -54,18 +48,15 @@ class DemoSpec extends SpecificationWithJUnit {
         aggregate(doAggregate).
 
         choice { c =>
-        c.whenBody(_ > 0).
-          to("mock:database")
+          c.whenBody(_ > 0).
+            to("mock:database")
 
-        c.whenBody(_ < 0).
-          processBody(int => s"$int is negative").
-          to("mock:error")
-      }
+          c.whenBody(_ < 0).
+            processBody(int => s"$int is negative").
+            to("mock:error")
+        }
     }
     //#doc:babel-camel-demo-1
-
-
-
 
     myRoute.addRoutesToCamelContext(camelContext)
     camelContext.start()
@@ -89,22 +80,20 @@ class DemoSpec extends SpecificationWithJUnit {
   "demo camel-scalaroute" in new camel {
     sequential
 
-
     //#doc:babel-camel-demo-scala-2
     val aggregationStrategy = new AggregationStrategy {
       def aggregate(old: Exchange, news: Exchange) =
         (old, news) match {
-          case (old, null) => old
+          case (old, null)  => old
           case (null, news) => news
           case (old, news) =>
             old.getIn.setBody(
               old.getIn.getBody(classOf[Int]) +
-              news.getIn.getBody(classOf[Int]))
+                news.getIn.getBody(classOf[Int]))
             old
         }
     }
     //#doc:babel-camel-demo-scala-2
-
 
     //#doc:babel-camel-demo-scala-1
     import org.apache.camel.scala.dsl.builder.RouteBuilder
@@ -116,13 +105,13 @@ class DemoSpec extends SpecificationWithJUnit {
         aggregate("a", aggregationStrategy).completionSize(3).
 
         choice {
-        when(_.in[Int] > 0).
-          to("mock:database-camel-scala")
+          when(_.in[Int] > 0).
+            to("mock:database-camel-scala")
 
-        when(_.in[Int] < 0).
-          process(msg =>msg.in = s"${msg.in} is negative").
-          to("mock:error-camel-scala")
-      }
+          when(_.in[Int] < 0).
+            process(msg => msg.in = s"${msg.in} is negative").
+            to("mock:error-camel-scala")
+        }
     }
     //#doc:babel-camel-demo-scala-1
 

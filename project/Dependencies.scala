@@ -25,6 +25,7 @@ object Dependencies {
   private lazy val camelDependencies = Seq(
     Build.camelVersion := fixedCamelVersion,
     version  <<= (version, Build.camelVersion) { parseCamelVersion },
+    //libraryDependencies ++= Seq("com.novocode" % "junit-interface" % "0.8" % "test->default"),
     libraryDependencies <++= (Build.camelVersion) { (dv) =>
       Dependencies.test ++ Dependencies.camel(dv) ++ Seq(Dependencies.commoncsv)
     }
@@ -45,14 +46,15 @@ object Dependencies {
     }
   )
 
-  private def camelCore(camelVersion: String) = "org.apache.camel" % "camel-core" % camelVersion
-  private def camelXmlJson(camelVersion: String) = "org.apache.camel" % "camel-xmljson" % camelVersion % "test"
-  private def camelCsv(camelVersion: String) = "org.apache.camel" % "camel-csv" % camelVersion % "test"
-  private def camelSql(camelVersion: String) = "org.apache.camel" % "camel-sql" % camelVersion % "test"
-  private def camelSpring(camelVersion: String) = "org.apache.camel" % "camel-spring" % camelVersion % "optional"
-  private def camelScala(camelVersion: String) = "org.apache.camel" % "camel-scala" % camelVersion % "optional"
+  private val camelCore = (camelVersion: String) => "org.apache.camel" % "camel-core" % camelVersion
+  private val camelXmlJson = (camelVersion: String) => "org.apache.camel" % "camel-xmljson" % camelVersion % "test"
+  private val camelCsv = (camelVersion: String) => "org.apache.camel" % "camel-csv" % camelVersion % "test"
+  private val camelSql = (camelVersion: String) => "org.apache.camel" % "camel-sql" % camelVersion % "test"
+  private val camelSpring = (camelVersion: String) => "org.apache.camel" % "camel-spring" % camelVersion % "optional"
+  private val camelScala = (camelVersion: String) => "org.apache.camel" % "camel-scala" % camelVersion % "optional"
+  private val camelTest = (camelVersion: String) => "org.apache.camel" % "camel-test" % camelVersion % "test"
 
-  private def camel(camelVersion: String) = Seq(camelCore(camelVersion), camelXmlJson(camelVersion), camelCsv(camelVersion), camelSql(camelVersion), camelSpring(camelVersion), camelScala(camelVersion))
+  private def camel(camelVersion: String) = Seq(camelCore, camelXmlJson, camelCsv, camelSql, camelSpring, camelScala, camelTest).map(x => (x(camelVersion)))
 
   private val commoncsv = "org.apache.servicemix.bundles" % "org.apache.servicemix.bundles.commons-csv" % "1.0-r706900_3" % "test"
 
