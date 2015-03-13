@@ -59,14 +59,20 @@ Stream resequencing re-orders (continuous) message streams based on the detectio
 Enrich
 ++++++
 
-The *enrich* and pollEnrich retrieves additional data from an endpoint and let you combine the original and new message with
-an aggregator. The *enrich* is using a request-reply pattern with the endpoint.
+The *enrich* and *pollEnrich* keywords retrieve additional data from an endpoint and let you combine the original and the new message with
+an aggregator.
+
+The *enrich* is using a request-reply pattern with a endpoint (ex: Web Service) to obtain more data.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-enricher-1
 
-The pollEnrich is more polling the endpoint with a timeout if no message is received after a while.
-
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-enricher-2
+
+The *pollEnrich* is using a Polling Consumer from an endpoint (ex: JMS, SEDA, File) to obtain more data.
+
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-enricher-3
+
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-enricher-4
 
 .. warning:: It's not recommended to us the enrich and pollEnrich keywords with the io.xtech.babel.camel.model.FoldBodyAggregationStrategy. The only supported Aggregation strategy are io.xtech.babel.camel.model.ReduceBodyAggregationStrategy and custom implementations of the org.apache.camel.processor.aggregate.AggregationStrategy Interface.
 

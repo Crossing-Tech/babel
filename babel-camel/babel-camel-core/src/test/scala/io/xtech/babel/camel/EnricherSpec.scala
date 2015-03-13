@@ -19,7 +19,7 @@ class EnricherSpec extends SpecificationWithJUnit {
 
   "Enricher DSL" should {
 
-    "enrich a message with the enrich keyword" in new camel {
+    "enrich a message with the enrich keyword and a reference to an aggregationStrategy" in new camel {
 
       import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -31,7 +31,7 @@ class EnricherSpec extends SpecificationWithJUnit {
         from("direct:input").
           //enriches the input with the enricherRoute messages
           //  using the aggregationStrategy
-          enrich("direct:enricherRoute", "aggregationStrategy").
+          enrichRef("direct:enricherRoute", "aggregationStrategy").
           to("mock:output")
       }
 
@@ -57,17 +57,51 @@ class EnricherSpec extends SpecificationWithJUnit {
       mockEndpoint.assertIsSatisfied()
     }
 
-    "enrich a message with the pollEnrich keyword" in new camel {
+    "enrich a message with the enrich keyword and an instance of an aggregationStrategy" in new camel {
 
       import io.xtech.babel.camel.builder.RouteBuilder
 
-      pending
+      //#doc:babel-camel-enricher-2
+      val aggregationStrategy = new ReduceBodyAggregationStrategy[String]((a, b) => a + b)
+
+      val routeDef = new RouteBuilder {
+        from("direct:enricherRoute").to("mock:enricher")
+
+        from("direct:input").
+          //enriches the input with the enricherRoute messages
+          //  using the aggregationStrategy
+          enrich("direct:enricherRoute", aggregationStrategy).
+          to("mock:output")
+      }
 
       //#doc:babel-camel-enricher-2
 
+      routeDef.addRoutesToCamelContext(camelContext)
+      camelContext.start()
+
+      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
+
+      mockEndpoint.expectedBodiesReceived("bla123")
+
+      val producer = camelContext.createProducerTemplate()
+      producer.sendBody("direct:input", "bla")
+
+      mockEndpoint.assertIsSatisfied()
+    }
+
+    "enrich a message with the pollEnrich keyword and a reference to an aggregationStrategy" in new camel {
+
+      import io.xtech.babel.camel.builder.RouteBuilder
+
+     // pending
+
+      //#doc:babel-camel-enricher-3
+
       val routeDef = new RouteBuilder {
         from("direct:input").
-          pollEnrich("seda:enrichRoute", "aggregationStrategy", 1000).
+          pollEnrichRef("seda:enrichRoute", "aggregationStrategy", 1000).
           to("mock:output")
       }
 
@@ -75,7 +109,40 @@ class EnricherSpec extends SpecificationWithJUnit {
       registry.put("aggregationStrategy",
         new ReduceBodyAggregationStrategy[String]((a, b) => a + b))
       camelContext.setRegistry(registry)
-      //#doc:babel-camel-enricher-2
+      //#doc:babel-camel-enricher-3
+
+      routeDef.addRoutesToCamelContext(camelContext)
+      camelContext.start()
+
+      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
+
+      mockEndpoint.expectedBodiesReceived("bla123")
+
+      val producer = camelContext.createProducerTemplate()
+      producer.sendBody("seda:enrichRoute", "123")
+      producer.sendBody("direct:input", "bla")
+
+      mockEndpoint.assertIsSatisfied()
+    }
+
+    "enrich a message with the pollEnrich keyword and an instance of an aggregationStrategy" in new camel {
+
+      import io.xtech.babel.camel.builder.RouteBuilder
+
+      //pending
+
+      //#doc:babel-camel-enricher-4
+
+      val aggregationStrategy = new ReduceBodyAggregationStrategy[String]((a, b) => a + b)
+
+      val routeDef = new RouteBuilder {
+        from("direct:input").
+          pollEnrich("seda:enrichRoute", aggregationStrategy, 1000).
+          to("mock:output")
+      }
+      //#doc:babel-camel-enricher-4
 
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.start()

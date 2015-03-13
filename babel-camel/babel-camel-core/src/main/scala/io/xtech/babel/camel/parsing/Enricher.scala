@@ -9,7 +9,7 @@
 package io.xtech.babel.camel.parsing
 
 import io.xtech.babel.camel.EnricherDSL
-import io.xtech.babel.camel.model.{ PollEnrichDefinition, CamelSink, EnrichDefinition }
+import io.xtech.babel.camel.model._
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
 
@@ -31,8 +31,8 @@ private[babel] trait Enricher extends CamelParsing {
     */
   private def parse: Process = {
 
-    // parsing of the enrich keyword
-    case StepInformation(EnrichDefinition(CamelSink(resourceUri), aggregationRef), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    // parsing of the enrichRef keyword
+    case StepInformation(EnrichRefDefinition(CamelSink(resourceUri), aggregationRef), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
       val camelEnrichDefinition = new CamelEnrichDefinition
       camelEnrichDefinition.setResourceUri(resourceUri)
@@ -43,8 +43,20 @@ private[babel] trait Enricher extends CamelParsing {
       camelProcessorDefinition
     }
 
-    // parsing of the pollenrich keyword
-    case StepInformation(PollEnrichDefinition(CamelSink(resourceUri), aggregationRef, timeout), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    // parsing of the enrich keyword
+    case StepInformation(EnrichDefinition(CamelSink(resourceUri), aggregationStrategy), camelProcessorDefinition: ProcessorDefinition[_]) => {
+
+      val camelEnrichDefinition = new CamelEnrichDefinition
+      camelEnrichDefinition.setResourceUri(resourceUri)
+      camelEnrichDefinition.setAggregationStrategy(aggregationStrategy)
+
+      camelProcessorDefinition.addOutput(camelEnrichDefinition)
+
+      camelProcessorDefinition
+    }
+
+    // parsing of the pollEnrich keyword
+    case StepInformation(PollEnrichRefDefinition(CamelSink(resourceUri), aggregationRef, timeout), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
       val camelPollEnrichDefinition = new CamelPollEnrichDefinition
       camelPollEnrichDefinition.setResourceUri(resourceUri)
@@ -56,6 +68,18 @@ private[babel] trait Enricher extends CamelParsing {
       camelProcessorDefinition
     }
 
+    // parsing of the pollEnrichRef keyword
+    case StepInformation(PollEnrichDefinition(CamelSink(resourceUri), aggregationStrategy, timeout), camelProcessorDefinition: ProcessorDefinition[_]) => {
+
+      val camelPollEnrichDefinition = new CamelPollEnrichDefinition
+      camelPollEnrichDefinition.setResourceUri(resourceUri)
+      camelPollEnrichDefinition.setAggregationStrategy(aggregationStrategy)
+      camelPollEnrichDefinition.setTimeout(timeout)
+
+      camelProcessorDefinition.addOutput(camelPollEnrichDefinition)
+
+      camelProcessorDefinition
+    }
   }
 
 }
