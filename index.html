@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -10,13 +9,13 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.1.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.2.0/cosmo/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '0.7.0-SNAPSHOT',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -28,7 +27,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="Babel 0.7.0-SNAPSHOT documentation" href="#" />
     <link rel="next" title="Babel Opinion" href="opinion.html" />
@@ -76,7 +75,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
                 <li><a href="http://crossing-tech.com">Company</a></li>
             
@@ -138,9 +136,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Welcome to Babel&#8217;s documentation!</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Welcome to Babel&#8217;s documentation!</a></li>
 </ul>
 </ul>
 </li>
@@ -148,10 +144,12 @@
             
             
               
+                
   <li>
-    <a href="opinion.html" title="Next Chapter: Babel Opinion"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm">Babel Opinion &raquo;</span>
+    <a href="opinion.html" title="Next Chapter: Babel Opinion"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Babel Opinion &raquo;</span>
     </a>
   </li>
+              
             
             
             
@@ -211,8 +209,9 @@
   <p>Babel may run into OSGi environment and is also packaged for Apache Karaf.</p>
 </span>
 <br/>
-</div><p>This documentation concerns the version 0.7.0-SNAPSHOT. You may also access the documentation of the latest release version <a class="reference external" href="0.6.0/index.html">here</a> .</p>
-<p>To use Babel on top of Camel, you may use the Babel Camel module. Please have a look to the <a class="reference internal" href="quickstartguide.html#babel-quick-start"><em>Quick start guide</em></a> and to the <a class="reference internal" href="cameluserguide.html#babel-camel-guide"><em>Babel Camel User guide</em></a> for more details and examples.</p>
+</div>
+
+This documentation concerns the version 0.7.0-SNAPSHOT. You may also access the documentation of the latest release version `here <0.6.0/index.html>`_ .<p>To use Babel on top of Camel, you may use the Babel Camel module. Please have a look to the <a class="reference internal" href="quickstartguide.html#babel-quick-start"><em>Quick start guide</em></a> and to the <a class="reference internal" href="cameluserguide.html#babel-camel-guide"><em>Babel Camel User guide</em></a> for more details and examples.</p>
 <p>To have a better intuition of what is Babel, you would find it in the <a class="reference internal" href="opinion.html#babel-opinion"><em>Babel Opinion</em></a> and the <a class="reference internal" href="architecture.html#babel-architecture"><em>Babel Architecture</em></a> pages</p>
 <p>In the following code snippet, we compare Babel and Camel Scala DSL. Those two routes are summing the a list of number, provided as a String and routing this sum depending on its positivity.</p>
 <table border="1" class="docutils">
@@ -233,13 +232,13 @@
     <span class="n">aggregate</span><span class="o">(</span><span class="n">doAggregate</span><span class="o">).</span>
 
     <span class="n">choice</span> <span class="o">{</span> <span class="n">c</span> <span class="k">=&gt;</span>
-    <span class="n">c</span><span class="o">.</span><span class="n">whenBody</span><span class="o">(</span><span class="k">_</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">).</span>
-      <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:database&quot;</span><span class="o">)</span>
+      <span class="n">c</span><span class="o">.</span><span class="n">whenBody</span><span class="o">(</span><span class="k">_</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">).</span>
+        <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:database&quot;</span><span class="o">)</span>
 
-    <span class="n">c</span><span class="o">.</span><span class="n">whenBody</span><span class="o">(</span><span class="k">_</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">).</span>
-      <span class="n">processBody</span><span class="o">(</span><span class="n">int</span> <span class="k">=&gt;</span> <span class="n">s</span><span class="s">&quot;$int is negative&quot;</span><span class="o">).</span>
-      <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:error&quot;</span><span class="o">)</span>
-  <span class="o">}</span>
+      <span class="n">c</span><span class="o">.</span><span class="n">whenBody</span><span class="o">(</span><span class="k">_</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">).</span>
+        <span class="n">processBody</span><span class="o">(</span><span class="n">int</span> <span class="k">=&gt;</span> <span class="n">s</span><span class="s">&quot;$int is negative&quot;</span><span class="o">).</span>
+        <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:error&quot;</span><span class="o">)</span>
+    <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -253,13 +252,13 @@
     <span class="n">aggregate</span><span class="o">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="n">aggregationStrategy</span><span class="o">).</span><span class="n">completionSize</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span>
 
     <span class="n">choice</span> <span class="o">{</span>
-    <span class="n">when</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">in</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">).</span>
-      <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:database-camel-scala&quot;</span><span class="o">)</span>
+      <span class="n">when</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">in</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">).</span>
+        <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:database-camel-scala&quot;</span><span class="o">)</span>
 
-    <span class="n">when</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">in</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">).</span>
-      <span class="n">process</span><span class="o">(</span><span class="n">msg</span> <span class="k">=&gt;</span><span class="n">msg</span><span class="o">.</span><span class="n">in</span> <span class="k">=</span> <span class="n">s</span><span class="s">&quot;${msg.in} is negative&quot;</span><span class="o">).</span>
-      <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:error-camel-scala&quot;</span><span class="o">)</span>
-  <span class="o">}</span>
+      <span class="n">when</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">in</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">).</span>
+        <span class="n">process</span><span class="o">(</span><span class="n">msg</span> <span class="k">=&gt;</span> <span class="n">msg</span><span class="o">.</span><span class="n">in</span> <span class="k">=</span> <span class="n">s</span><span class="s">&quot;${msg.in} is negative&quot;</span><span class="o">).</span>
+        <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:error-camel-scala&quot;</span><span class="o">)</span>
+    <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -281,7 +280,7 @@
 <td><div class="first last highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">aggregationStrategy</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">AggregationStrategy</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">aggregate</span><span class="o">(</span><span class="n">old</span><span class="k">:</span> <span class="kt">Exchange</span><span class="o">,</span> <span class="n">news</span><span class="k">:</span> <span class="kt">Exchange</span><span class="o">)</span> <span class="k">=</span>
     <span class="o">(</span><span class="n">old</span><span class="o">,</span> <span class="n">news</span><span class="o">)</span> <span class="k">match</span> <span class="o">{</span>
-      <span class="k">case</span> <span class="o">(</span><span class="n">old</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">old</span>
+      <span class="k">case</span> <span class="o">(</span><span class="n">old</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>  <span class="k">=&gt;</span> <span class="n">old</span>
       <span class="k">case</span> <span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">news</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">news</span>
       <span class="k">case</span> <span class="o">(</span><span class="n">old</span><span class="o">,</span> <span class="n">news</span><span class="o">)</span> <span class="k">=&gt;</span>
         <span class="n">old</span><span class="o">.</span><span class="n">getIn</span><span class="o">.</span><span class="n">setBody</span><span class="o">(</span>
@@ -334,7 +333,7 @@
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
     </p>
   </div>
 </footer>
