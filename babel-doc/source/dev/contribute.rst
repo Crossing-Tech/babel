@@ -23,7 +23,7 @@ Contribute with code
 
 We will examine and hopefully accept your code contribution with pleasure. Please have a look to the following points which may help you to contribute:
 
-* Read and sign the CLA (coming soon).
+* Read and sign the `CLA <https://github.com/Crossing-Tech/babel/blob/master/babel-doc/CLA.md>`_ .
 * Make sure a github issue exists (to avoid other people to work on the same topic).
 * Ensure your using the Crossing-Tech `copyright <legal.html>`_, you are not addding dependencies incompatible with the licence Apache2.
 * Shape your contribution into a Github `Pull request <https://help.github.com/articles/using-pull-requests>`_ .

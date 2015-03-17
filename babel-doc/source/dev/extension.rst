@@ -1,19 +1,21 @@
 
-Babel Extension
-===============
+.. _babel-dev-extension:
+
+Babel Extension creation
+========================
 
 This page will explains how you can extends the DSL from Babel Camel by adding new keywords and grammar parts to the existing DSL.
 
 .. warning::
   The extension of the DSL requires some knowledge of the Scala language.
-  
+
 Existing Extensions
 +++++++++++++++++++
 
 .. toctree::
     :maxdepth: 1
 
-    mock
+    ../camel/mock
 
 Create an extension
 +++++++++++++++++++

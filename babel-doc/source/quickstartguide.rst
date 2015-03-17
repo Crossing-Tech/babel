@@ -1,6 +1,7 @@
+.. _babel-quick-start:
 
-How to start a Babel project
-============================
+Quick start guide
+=================
 
 Babel depends mainly on the following artifacts:
 
@@ -14,12 +15,12 @@ Using Maven
 
 To add Babel Camel in a Maven project, just add the following dependencies to your pom.xml file:
 
-.. parsed-literal::
+::
 
    <dependency>
      <groupId>io.xtech.babel</groupId>
      <artifactId>babel-camel-core</artifactId>
-     <version> |version| </version>
+     <version>BABEL_VERSION</version>
    </dependency>
 
 If you don't want to build the Babel project on your machine (otherwise, see :ref:`MavenInstall`), use the Sonatype Snapshot repository to your Maven configuration::

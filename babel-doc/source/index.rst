@@ -14,7 +14,7 @@ Babel is an elegant way to write your integration solution. It tries to provide 
 
 Babel is a layer on top of the main integration frameworks and may be used from Scala and Java source code. The following documentation should guide you into your journey toward a new way to write integration in a secure and efficient way.
 
-Currently, Babel provides an API on top of Apache Camel which may be used in Scala. Java API and other integration frameworks implementation would be implemented into the Babel experimental project (coming soon).
+Currently, Babel provides an API on top of Apache Camel which may be used in Scala. Java API and other integration frameworks implementation would be implemented into the `Babel experimental <https://github.com/crossing-tech/babel-experimental>`_ project.
 
 .. raw::  html
 
@@ -47,21 +47,38 @@ Currently, Babel provides an API on top of Apache Camel which may be used in Sca
       <br/>
       </div>
 
-.. only:: html
+      This documentation concerns the version 0.7.0-SNAPSHOT. You may also access the documentation of the latest release version `here <0.6.0/index.html>`_ .
 
-   To get a rapid feeling over the main features provided by Babel, you may have a look at those slides: `Babel overview <slides/overview/index.html>`_ .
 
-To use Babel on top of Camel, you may use the Babel Camel module. Please have a look to the :ref:`babel-camel-guide` for more details and examples.
+To use Babel on top of Camel, you may use the Babel Camel module. Please have a look to the :ref:`babel-quick-start` and to the :ref:`babel-camel-guide` for more details and examples.
 
-.. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/SortSpec.scala#doc:babel-camel-sort-1
+To have a better intuition of what is Babel, you would find it in the :ref:`babel-opinion` and the :ref:`babel-architecture` pages
 
+In the following code snippet, we compare Babel and Camel Scala DSL. Those two routes are summing the a list of number, provided as a String and routing this sum depending on its positivity.
+
+
+==========================================================================================================================================   ==========================================================================================================================================
+**Babel sample**                                                                                                                             **Camel scala sample**
+.. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-1         .. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-scala-1
+Concerning the route structure, the main aspect is the fact we need to repeat the type everywhere. Moreover, you may also use pure functions in the Babel Code where you need mutability in the Camel Scala process method call. Let's have a look at how aggregation is configured:
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+.. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-2         .. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-scala-2
+Babel Camel has add simple interfaces in order to simplify and concentrate your code: The trivial behavior for first and last input is more clear using a Reduce or a Fold pattern. Moreover, the correlation and the completion is define in a single place which makes the aggregation more uniform.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+==========================================================================================================================================   ==========================================================================================================================================
+
+In the following sections,
 
 .. toctree::
    :maxdepth: 1
 
-   philosophy
-   howtostart
-   camel/cameluserguide
+   opinion
+   architecture
+   quickstartguide
+   cameluserguide
    devguide
 
 
