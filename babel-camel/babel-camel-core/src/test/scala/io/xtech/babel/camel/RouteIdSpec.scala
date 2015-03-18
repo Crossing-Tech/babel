@@ -36,7 +36,7 @@ class RouteIdSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      camelContext.getRouteDefinition("bla") mustNotEqual null
+      Option(camelContext.getRouteDefinition("bla")) must beSome
     }
 
     "not be empty" in new camel {

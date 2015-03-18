@@ -10,7 +10,7 @@ package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.test.camel
-import org.apache.camel.builder.{ ValueBuilder, RouteBuilder => CRouteBuilder }
+import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder, ValueBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.model.language.HeaderExpression
 import org.specs2.mutable.SpecificationWithJUnit
@@ -29,7 +29,7 @@ class RecipientListSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-recipientList
 
     val nativeRoute = new CRouteBuilder() {
-      def configure() {
+      def configure(): Unit = {
         from("direct:inputCamel").
           recipientList(header("recipients")).
           to("mock:output4")
@@ -82,7 +82,7 @@ class RecipientListSpec extends SpecificationWithJUnit {
     }
 
     val nativeRoute = new CRouteBuilder() {
-      def configure() {
+      def configure(): Unit = {
         from("direct:inputCamel").
           recipientList(header("recipients")).
           to("mock:output4")

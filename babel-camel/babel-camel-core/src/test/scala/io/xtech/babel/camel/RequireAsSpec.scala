@@ -8,10 +8,8 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.builder.RouteBuilder
-import io.xtech.babel.camel.RequireAsSpec.{ B, A }
+import io.xtech.babel.camel.RequireAsSpec.{ A, B }
 import io.xtech.babel.camel.test.camel
-
 import org.apache.camel.CamelExecutionException
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit

@@ -15,7 +15,6 @@ import org.specs2.mutable.SpecificationWithJUnit
 import org.specs2.specification.{ AfterExample, BeforeExample, Fragments, Step }
 import org.springframework.context.ApplicationContext
 import org.springframework.context.support.AbstractApplicationContext
-
 import scala.reflect._
 
 trait SpringSpecification {
@@ -49,16 +48,16 @@ trait CachedBabelSpringSpecification extends SpecificationWithJUnit with SpringS
     */
   val applicationContext: ContextType
 
-  private def startContext() {
+  private[this] def startContext() {
     applicationContext.start()
   }
 
-  private def stopContext() {
+  private[this] def stopContext(): Unit = {
     applicationContext.close()
   }
 
   /** the map method allows to "post-process" the fragments after their creation */
-  override def map(fs: => Fragments) = Step(startContext()) ^ fs ^ Step(stopContext())
+  override def map(fs: => Fragments): Fragments = Step(startContext()) ^ fs ^ Step(stopContext())
 }
 
 /**
@@ -66,7 +65,7 @@ trait CachedBabelSpringSpecification extends SpecificationWithJUnit with SpringS
   */
 trait BabelSpringSpecification extends SpecificationWithJUnit with SpringSpecification with CamelSpecification with BeforeExample with AfterExample {
 
-  private var appContext: Option[ContextType] = _
+  private[this] var appContext: Option[ContextType] = _
 
   /**
     * Type of the Application Context

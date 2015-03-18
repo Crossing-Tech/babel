@@ -35,7 +35,7 @@ class SimpleSplitFilterSpec extends SpecificationWithJUnit {
       //#doc:babel-camel-filter
 
       val otherRoute = new CRouteBuilder() {
-        def configure() {
+        def configure(): Unit = {
           from("direct:camel").split(body.tokenize(",")).filter(body.contains("true")).to("mock:camel")
         }
       }
@@ -76,7 +76,7 @@ class SimpleSplitFilterSpec extends SpecificationWithJUnit {
       //#doc:babel-camel-filter
 
       val otherRoute = new CRouteBuilder() {
-        def configure() {
+        def configure(): Unit = {
           from("direct:camel").split(body.tokenize(",")).filter(body.contains("true")).to("mock:camel")
         }
       }
@@ -119,7 +119,7 @@ class SimpleSplitFilterSpec extends SpecificationWithJUnit {
       //#doc:babel-camel-splitter
 
       val otherRoute = new CRouteBuilder() {
-        def configure() {
+        def configure(): Unit = {
           from("direct:camel").split(body.tokenize(",")).filter(body.contains("true")).to("mock:camel")
             .split(body.tokenize(" ")).filter(body.isEqualTo("false")).to("mock:camelfalse")
         }

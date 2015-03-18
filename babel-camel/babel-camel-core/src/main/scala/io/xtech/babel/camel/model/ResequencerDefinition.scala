@@ -8,8 +8,7 @@
 
 package io.xtech.babel.camel.model
 
-import io.xtech.babel.fish.model.{ StepDefinition, Expression }
-
+import io.xtech.babel.fish.model.{ Expression, StepDefinition }
 import org.apache.camel.model.config.ResequencerConfig
 
 /**

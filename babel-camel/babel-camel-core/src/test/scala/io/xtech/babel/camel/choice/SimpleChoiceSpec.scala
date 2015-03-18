@@ -8,15 +8,12 @@
 
 package io.xtech.babel.camel.choice
 
-import io.xtech.babel.camel.CamelDSL
 import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.test.camel
-
-import org.apache.camel.{ Processor, Exchange, Predicate }
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
+import org.apache.camel.{ Exchange, Predicate, Processor }
 import org.specs2.mutable.SpecificationWithJUnit
-
 import scala.collection.JavaConverters._
 
 class SimpleChoiceSpec extends SpecificationWithJUnit {
@@ -53,12 +50,12 @@ class SimpleChoiceSpec extends SpecificationWithJUnit {
     }
 
     val processor = new Processor {
-      def process(p1: Exchange) {
+      def process(p1: Exchange): Unit = {
         p1.getIn().setBody(p1.getIn.getBody + "done")
       }
     }
     val routeBuilder = new CRouteBuilder() {
-      def configure() {
+      def configure(): Unit = {
         from("direct:input").multicast()
           .to("direct:camel")
           .to("direct:babel")
@@ -155,12 +152,12 @@ class SimpleChoiceSpec extends SpecificationWithJUnit {
     }
 
     val processor = new Processor {
-      def process(p1: Exchange) {
+      def process(p1: Exchange): Unit = {
         p1.getIn().setBody(p1.getIn.getBody + "done")
       }
     }
     val routeBuilder = new CRouteBuilder() {
-      def configure() {
+      def configure(): Unit = {
         from("direct:input").multicast()
           .to("direct:camel")
           .to("direct:babel")

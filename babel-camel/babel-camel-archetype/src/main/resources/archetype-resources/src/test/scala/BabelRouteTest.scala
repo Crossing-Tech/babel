@@ -1,13 +1,5 @@
 package ${package}
 
-import org.apache.camel.builder.AdviceWithRouteBuilder
-import org.apache.camel.model.ModelCamelContext
-import org.specs2.mutable.SpecificationWithJUnit
-import org.specs2.specification.After
-import org.springframework.context.support.ClassPathXmlApplicationContext
-
-import io.xtech.babel.camel.mock._
-
 class BabelRouteTest extends SpecificationWithJUnit {
 
 
@@ -22,7 +14,7 @@ class BabelRouteTest extends SpecificationWithJUnit {
       applicationContext.start()
 
       camelContext.getRouteDefinition("route1").adviceWith(camelContext, new AdviceWithRouteBuilder {
-        def configure() {
+        def configure(): Unit = {
           mockEndpointsAndSkip("direct:output")
         }
       })

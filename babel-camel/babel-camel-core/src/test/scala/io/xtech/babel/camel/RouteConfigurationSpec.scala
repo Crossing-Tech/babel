@@ -36,7 +36,7 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
       //#doc:babel-camel-route-conf-1
 
       val camelRoute = new org.apache.camel.builder.RouteBuilder() {
-        def configure() {
+        def configure(): Unit = {
           from("direct:inputCamel").routeId("camel").noAutoStartup().
             to("mock:output")
         }
@@ -60,7 +60,7 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
         }
 
         val camelRoute = new org.apache.camel.builder.RouteBuilder() {
-          def configure() {
+          def configure(): Unit = {
             from("direct:inputCamel").routeId("camel").routePolicy(new RoutePolicyInterface {
               override def onStop(route: Route) {
                 csuccess = true
@@ -88,9 +88,9 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
         }
 
         val camelRoute = new org.apache.camel.builder.RouteBuilder() {
-          def configure() {
+          def configure(): Unit = {
             from("direct:inputCamel").routeId("camel").routePolicy(new RoutePolicyInterface {
-              override def onStart(route: Route) {
+              override def onStart(route: Route): Unit = {
                 csuccess = true
               }
             }).
@@ -118,9 +118,9 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
         }
         //#doc:babel-camel-route-conf-2
         val camelRoute = new org.apache.camel.builder.RouteBuilder() {
-          def configure() {
+          def configure(): Unit = {
             from("direct:inputCamel").routeId("camel").routePolicy(new RoutePolicyInterface {
-              override def onInit(route: Route) {
+              override def onInit(route: Route): Unit = {
                 csuccess = true
               }
             }).
@@ -147,9 +147,9 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
           }).to("mock:output")
         }
         val camelRoute = new org.apache.camel.builder.RouteBuilder() {
-          def configure() {
+          def configure(): Unit = {
             from("direct:inputCamel").routeId("camel").routePolicy(new RoutePolicyInterface {
-              override def onSuspend(route: Route) {
+              override def onSuspend(route: Route): Unit = {
                 csuccess = true
               }
             }).
@@ -175,9 +175,9 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
         }
 
         val camelRoute = new org.apache.camel.builder.RouteBuilder() {
-          def configure() {
+          def configure(): Unit = {
             from("direct:inputCamel").routeId("camel").routePolicy(new RoutePolicyInterface {
-              override def onResume(route: Route) {
+              override def onResume(route: Route): Unit = {
                 csuccess = true
               }
             }).
@@ -206,9 +206,9 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
           from("direct:input").routeId("toto").onRemove(route => success = true).to("mock:output")
         }
         val camelRoute = new org.apache.camel.builder.RouteBuilder() {
-          def configure() {
+          def configure(): Unit = {
             from("direct:inputCamel").routeId("camel").routePolicy(new RoutePolicyInterface {
-              override def onRemove(route: Route) {
+              override def onRemove(route: Route): Unit = {
                 csuccess = true
               }
             }).
@@ -234,9 +234,9 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
           from("direct:input").onExchangeBegin((route, message) => success = true).to("mock:output")
         }
         val camelRoute = new org.apache.camel.builder.RouteBuilder() {
-          def configure() {
+          def configure(): Unit = {
             from("direct:inputCamel").routeId("camel").routePolicy(new RoutePolicyInterface {
-              override def onExchangeBegin(route: Route, exchange: Exchange) {
+              override def onExchangeBegin(route: Route, exchange: Exchange): Unit = {
                 csuccess = true
               }
             }).
@@ -268,9 +268,9 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
         }
         //#doc:babel-camel-route-conf-3
         val camelRoute = new org.apache.camel.builder.RouteBuilder() {
-          def configure() {
+          def configure(): Unit = {
             from("direct:inputCamel").routeId("camel").routePolicy(new RoutePolicyInterface {
-              override def onExchangeDone(route: Route, exchange: Exchange) {
+              override def onExchangeDone(route: Route, exchange: Exchange): Unit = {
                 csuccess = true
               }
             }).

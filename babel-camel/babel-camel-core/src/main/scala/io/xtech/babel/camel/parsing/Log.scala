@@ -12,21 +12,21 @@ import io.xtech.babel.camel.LogDSL
 import io.xtech.babel.camel.model._
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
-
 import org.apache.camel.model.ProcessorDefinition
-import scala.reflect.ClassTag
+import scala.collection.immutable
 import scala.language.implicitConversions
+import scala.reflect.ClassTag
 
 /**
   * The log parser.
   */
 private[babel] trait Log extends CamelParsing {
 
-  abstract override def steps = super.steps :+ parse
+  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
-  implicit def logDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new LogDSL(baseDsl)
+  implicit def logDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): LogDSL[I] = new LogDSL(baseDsl)
 
-  private def parse: Process = {
+  private[this] def parse: Process = {
 
     case StepInformation(LogDefinition(LogMessage(message)), camelProcessorDefinition: ProcessorDefinition[_]) => {
       camelProcessorDefinition.log(message)

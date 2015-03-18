@@ -10,11 +10,10 @@ package io.xtech.babel.camel.builder
 
 import io.xtech.babel.camel._
 import io.xtech.babel.camel.model.EmptyDefinition
-import io.xtech.babel.fish.{ NoDSL, DSL }
 import io.xtech.babel.fish.model.RouteDefinition
-
-import org.apache.camel.{ RuntimeCamelException, CamelContext, RoutesBuilder }
+import io.xtech.babel.fish.{ DSL, NoDSL }
 import org.apache.camel.model.ModelCamelContext
+import org.apache.camel.{ CamelContext, RoutesBuilder, RuntimeCamelException }
 
 /**
   * Facility trait used to implement RouteBuilder in order to be more integrated into Camel.
@@ -25,7 +24,7 @@ abstract class RouteBuilder extends DSL with CamelDSL with RoutesBuilder {
   /**
     * stores the RouteBuilder scope configuration
     */
-  private var handle: Option[EmptyDefinition] = None
+  private[this] var handle: Option[EmptyDefinition] = None
 
   /**
     * defines a set of rules that are applied on the RouteBuilder itself and not on a route.

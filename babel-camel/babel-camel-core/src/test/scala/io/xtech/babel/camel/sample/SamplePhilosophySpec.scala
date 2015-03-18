@@ -10,9 +10,8 @@ package io.xtech.babel.camel.sample
 
 import io.xtech.babel.camel.builder.{ RouteBuilder => BabelRouteBuilder }
 import io.xtech.babel.camel.test.camel
-
-import org.specs2.mutable.SpecificationWithJUnit
 import org.apache.camel.component.mock.MockEndpoint
+import org.specs2.mutable.SpecificationWithJUnit
 
 class SamplePhilosophySpec extends SpecificationWithJUnit {
 

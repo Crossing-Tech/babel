@@ -10,9 +10,7 @@ package io.xtech.babel.camel
 
 import io.xtech.babel.camel.model._
 import io.xtech.babel.fish.{ BaseDSL2FromDSL, FromDSL }
-
 import org.apache.camel.Route
-
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 

@@ -8,10 +8,11 @@
 
 package io.xtech.babel.camel.model
 
-import io.xtech.babel.fish.{ BodyPredicate, MessagePredicate }
 import io.xtech.babel.fish.model.{ Message, Predicate }
-import org.apache.camel.{ Exchange, Predicate => CamelPredicate }
+import io.xtech.babel.fish.{ BodyPredicate, MessagePredicate }
 import org.apache.camel.builder.xml.XPathBuilder
+import org.apache.camel.{ Exchange, Predicate => CamelPredicate }
+import scala.util.{ Failure, Success, Try }
 
 /**
   * XPath defines a xpath used for an expression or a predicate.
@@ -45,11 +46,14 @@ class CamelBodyPredicate[I](predicate: (I => Boolean)) extends CamelPredicate {
   /**
     * @see org.apache.camel.Predicate
     */
-  def matches(exchange: Exchange): Boolean = try {
+  def matches(exchange: Exchange): Boolean = Try {
     predicate(exchange.getIn.getBody.asInstanceOf[I])
-  }
-  catch {
-    case ex: Throwable => ex.printStackTrace(); throw ex
+  } match {
+    case Success(result) =>
+      result
+    case Failure(ex) =>
+      ex.printStackTrace()
+      throw ex
   }
 
 }

@@ -10,7 +10,6 @@ package io.xtech.babel.camel.model
 
 import io.xtech.babel.fish.model.Message
 import org.apache.camel.{ ExchangePattern, Message => NativeMessage }
-
 import scala.collection.JavaConverters._
 import scala.reflect._
 
@@ -23,7 +22,7 @@ class CamelMessage[I](message: NativeMessage) extends Message[I] {
 
   validateCamelMessage(message)
 
-  private def validateCamelMessage(msg: NativeMessage) {
+  private[this] def validateCamelMessage(msg: NativeMessage): Unit = {
     require(msg != null, "a camel message is mandatory")
     // TODO needs final version of scala reflection
   }

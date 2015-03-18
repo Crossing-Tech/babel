@@ -9,12 +9,11 @@
 package io.xtech.babel.camel.parsing
 
 import io.xtech.babel.camel.SortDSL
-import io.xtech.babel.camel.model.{ SortDefinition, Expressions }
+import io.xtech.babel.camel.model.{ Expressions, SortDefinition }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
-
 import org.apache.camel.model.ProcessorDefinition
-
+import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
@@ -23,11 +22,11 @@ import scala.reflect.ClassTag
   */
 private[babel] trait Sort extends CamelParsing {
 
-  abstract override def steps = super.steps :+ parse
+  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
-  implicit def sortDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new SortDSL(baseDsl)
+  implicit def sortDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): SortDSL[I] = new SortDSL(baseDsl)
 
-  private def parse: Process = {
+  private[this] def parse: Process = {
 
     case StepInformation(SortDefinition(expression, Some(comparator)), camelProcessorDefinition: ProcessorDefinition[_]) => {
 

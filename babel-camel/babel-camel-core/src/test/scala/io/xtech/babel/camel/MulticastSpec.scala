@@ -31,7 +31,7 @@ class MulticastSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-multicast
 
     val nativeRoute = new CRouteBuilder() {
-      def configure() {
+      def configure(): Unit = {
         from("direct:inputCamel").
           multicast().to("mock:output1", "mock:output2", "mock:output3").
           to("mock:output4")

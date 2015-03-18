@@ -9,24 +9,17 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
+import io.xtech.babel.camel.model.Aggregation.{ CamelAggregation, CompletionSize, ReduceBody, _ }
 import io.xtech.babel.camel.test.camel
-
+import io.xtech.babel.fish.MessageExpression
 import io.xtech.babel.fish.model.Message
-
 import org.apache.camel.Exchange
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.impl.SimpleRegistry
 import org.apache.camel.processor.aggregate.{ AggregationStrategy, GroupedExchangeAggregationStrategy }
 import org.specs2.mutable.SpecificationWithJUnit
-
 import scala.collection.JavaConverters._
-import io.xtech.babel.camel.model.Aggregation._
-import io.xtech.babel.camel.model.Aggregation.CamelReferenceAggregation
-import io.xtech.babel.camel.model.Aggregation.CompletionSize
-import io.xtech.babel.fish.MessageExpression
-import io.xtech.babel.camel.model.Aggregation.ReduceBody
-import io.xtech.babel.camel.model.Aggregation.CamelAggregation
 
 class AggregateSpec extends SpecificationWithJUnit {
   sequential
@@ -50,7 +43,7 @@ class AggregateSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-aggregate-camel-1
 
     val camelRoute = new CRouteBuilder {
-      def configure() {
+      def configure(): Unit = {
         from("direct:camel").aggregate(constant("1"), new GroupedExchangeAggregationStrategy).completionSize(3).to("mock:camel")
       }
     }
@@ -112,7 +105,7 @@ class AggregateSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-aggregate-camel-2
 
     val camelRoute = new CRouteBuilder {
-      def configure() {
+      def configure(): Unit = {
         from("direct:camel").aggregate(constant("1")).aggregationStrategyRef("aggregationStrategy").completionSize(3).to("mock:camel")
       }
     }
@@ -184,7 +177,7 @@ class AggregateSpec extends SpecificationWithJUnit {
         }
       }
 
-      def configure() {
+      def configure(): Unit = {
         from("direct:input").multicast().to("direct:babel").to("direct:camel").end
         from("direct:camel").aggregate(constant("a"), strategy).completionSize(3).to("mock:camel")
       }
@@ -252,7 +245,7 @@ class AggregateSpec extends SpecificationWithJUnit {
         }
       }
 
-      def configure() {
+      def configure(): Unit = {
         from("direct:input").multicast().to("direct:babel").to("direct:camel").end
         from("direct:camel").aggregate(constant("a"), strategy).completionSize(3).to("mock:camel")
       }

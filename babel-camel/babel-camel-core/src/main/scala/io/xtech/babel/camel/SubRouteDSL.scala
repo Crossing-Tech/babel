@@ -9,8 +9,7 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.model.ChannelDefinition
-import io.xtech.babel.fish.{ BaseDSL2FromDSL, BaseDSL, FromDSL }
-
+import io.xtech.babel.fish.{ BaseDSL, BaseDSL2FromDSL, FromDSL }
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 

@@ -10,8 +10,7 @@ package io.xtech.babel.camel.parsing
 
 import io.xtech.babel.camel.model.CamelMessage
 import io.xtech.babel.fish.model.Message
-
-import org.apache.camel.{ InvalidPayloadException, Processor, Exchange }
+import org.apache.camel.{ Exchange, InvalidPayloadException, Processor }
 
 /**
   * Wrapper for a scala function in a Camel Processor.
@@ -21,7 +20,7 @@ import org.apache.camel.{ InvalidPayloadException, Processor, Exchange }
   * @tparam O the output type of the function.
   */
 private[camel] class CamelBodyProcessor[I, O](proc: (I => O)) extends Processor {
-  def process(exchange: Exchange) {
+  def process(exchange: Exchange): Unit = {
 
     val newBody = proc(exchange.getIn.getBody.asInstanceOf[I])
     exchange.getIn.setBody(newBody)
@@ -36,7 +35,7 @@ private[camel] class CamelBodyProcessor[I, O](proc: (I => O)) extends Processor 
   * @tparam O the output type of the function.
   */
 private[camel] class CamelMessageProcessor[I, O](proc: (Message[I] => Message[O])) extends Processor {
-  def process(exchange: Exchange) {
+  def process(exchange: Exchange): Unit = {
 
     val msg = new CamelMessage[I](exchange.getIn)
     proc(msg)
@@ -69,7 +68,7 @@ private[camel] object CamelBodyTypeValidation {
   */
 private[camel] class CamelBodyTypeValidation[O](outputClass: Class[O]) extends Processor {
 
-  def process(exchange: Exchange) {
+  def process(exchange: Exchange): Unit = {
 
     exchange.getIn.getMandatoryBody match {
       case c if outputClass.isPrimitive & CamelBodyTypeValidation.primitiveToBoxed(outputClass).isAssignableFrom(c.getClass) =>
