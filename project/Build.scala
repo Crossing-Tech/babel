@@ -14,7 +14,7 @@ import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 import com.typesafe.sbt.pgp.PgpKeys
 import com.typesafe.sbt.osgi.{OsgiKeys, SbtOsgi}
 
-import scoverage.ScoverageSbtPlugin.instrumentSettings
+//import scoverage.ScoverageSbtPlugin.instrumentSettings
 import org.scoverage.coveralls.CoverallsPlugin.coverallsSettings
 
 import sbtrelease.ReleasePlugin.releaseSettings
@@ -25,7 +25,7 @@ object Build extends Build {
 
   val artifactVersion = "0.7.0-SNAPSHOT"
 
-  lazy val basicSettings = Defaults.defaultSettings ++ Publish.settings ++ instrumentSettings ++ coverallsSettings ++ releaseSettings ++ Seq(
+  lazy val basicSettings = Defaults.defaultSettings ++ Publish.settings  ++ coverallsSettings ++ releaseSettings ++ Seq(
     version := artifactVersion,
     ReleaseKeys.crossBuild := true,
     ReleaseKeys.versionBump := Version.Bump.Minor,

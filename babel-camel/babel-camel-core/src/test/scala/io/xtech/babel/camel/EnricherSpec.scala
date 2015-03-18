@@ -95,7 +95,7 @@ class EnricherSpec extends SpecificationWithJUnit {
 
       import io.xtech.babel.camel.builder.RouteBuilder
 
-     // pending
+      // pending
 
       //#doc:babel-camel-enricher-3
 

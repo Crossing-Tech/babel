@@ -1,9 +1,13 @@
 
 resolvers += Classpaths.sbtPluginReleases
 
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "0.99.7.1")
+resolvers += "Typesafe Repository" at "https://repo.typesafe.com/typesafe/releases/"
+
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.0.4")
 
 addSbtPlugin("org.scoverage" %% "sbt-coveralls" % "0.99.0")
+
+addSbtPlugin("com.codacy" % "sbt-codacy-coverage" % "1.0.3")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-scalariform" % "1.3.0")
 
