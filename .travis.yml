@@ -10,7 +10,12 @@ env:
    global:
       - JVM_OPTS="-XX:MaxPermSize=256m -Xmx1024m -XX:ReservedCodeCacheSize=128m"
 
-script: sbt ++$TRAVIS_SCALA_VERSION  clean coveralls coverage test coverageReport coverageAggregate codacyCoverage
+script: sbt ++$TRAVIS_SCALA_VERSION  clean coverage test
+
+after_success:
+- sbt coverageReport coverageAggregate
+- sbt coveralls
+- sbt codacyCoverage
 
 
 jdk:
