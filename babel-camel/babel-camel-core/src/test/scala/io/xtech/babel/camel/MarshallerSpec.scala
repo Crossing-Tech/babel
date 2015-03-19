@@ -15,8 +15,8 @@ import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.dataformat.csv.CsvDataFormat
 import org.apache.camel.dataformat.xmljson.XmlJsonDataFormat
 import org.apache.camel.impl.SimpleRegistry
-import org.apache.commons.csv.writer.{ CSVConfig, CSVField }
 import org.specs2.mutable.SpecificationWithJUnit
+import scala.collection.JavaConverters._
 
 object MarshallerSpec {
 
@@ -32,14 +32,7 @@ object MarshallerSpec {
     lazy val csvDataFormat = {
       val csvDataFormat = new CsvDataFormat
 
-      val csvConfig = new CSVConfig()
-      csvConfig.addField(new CSVField("a"))
-      csvConfig.addField(new CSVField("b"))
-      csvConfig.addField(new CSVField("c"))
-      csvConfig.addField(new CSVField("d"))
-      csvConfig.addField(new CSVField("e"))
-
-      csvDataFormat.setConfig(csvConfig)
+      csvDataFormat //.setHeader(List("B").toArray)
 
       csvDataFormat
     }
@@ -54,6 +47,7 @@ object MarshallerSpec {
       row.put("e", "5")
       expectedValue.add(row)
       expectedValue
+      row
     }
 
     lazy val outputData = {
@@ -66,6 +60,7 @@ object MarshallerSpec {
       row.add("5")
       expectedValue.add(row)
       expectedValue
+      row
     }
 
     val csvString = "1,2,3,4,5\n"
@@ -128,12 +123,16 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
 
-      mockEndpoint.expectedBodiesReceived(csvString)
+      mockEndpoint.expectedMessageCount(1)
 
       val producer = camelContext.createProducerTemplate()
+
       producer.sendBody("direct:input", inputData)
 
       mockEndpoint.assertIsSatisfied()
+      val received = mockEndpoint.getReceivedExchanges.get(0).getIn.getBody(classOf[String]).split("\r\n|\r|\n").head
+
+      received.split(",").map(_.toInt).sorted === outputData.asScala.toArray.map(_.toInt)
     }
 
     "marshal a HashMap to a csv string with an instance" in new camelCsv {
@@ -153,12 +152,15 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
 
-      mockEndpoint.expectedBodiesReceived(csvString)
+      mockEndpoint.expectedMessageCount(1)
 
       val producer = camelContext.createProducerTemplate()
       producer.sendBody("direct:input", inputData)
 
       mockEndpoint.assertIsSatisfied()
+      val received = mockEndpoint.getReceivedExchanges.get(0).getIn.getBody(classOf[String]).split("\r\n|\r|\n").head
+
+      received.split(",").map(_.toInt).sorted === outputData.asScala.toArray.map(_.toInt)
     }
 
     "unmarshal a csv string to an ArrayList with an instance" in new camelCsv {

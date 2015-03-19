@@ -5,6 +5,6 @@ name := "babel"
 
 version := "0.6.0-SNAPSHOT"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.11.5"
 
-crossScalaVersions := Seq("2.10.4", "2.11.2")
+crossScalaVersions := Seq("2.10.5", "2.11.6")

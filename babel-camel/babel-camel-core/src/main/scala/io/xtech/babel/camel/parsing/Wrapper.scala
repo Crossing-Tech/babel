@@ -71,8 +71,8 @@ private[camel] class CamelBodyTypeValidation[O](outputClass: Class[O]) extends P
   def process(exchange: Exchange): Unit = {
 
     exchange.getIn.getMandatoryBody match {
-      case c if outputClass.isPrimitive & CamelBodyTypeValidation.primitiveToBoxed(outputClass).isAssignableFrom(c.getClass) =>
-      case c if outputClass.isAssignableFrom(c.getClass) =>
+      case c: Any if outputClass.isPrimitive & CamelBodyTypeValidation.primitiveToBoxed(outputClass).isAssignableFrom(c.getClass) =>
+      case c: Any if outputClass.isAssignableFrom(c.getClass) =>
       case _ => throw new InvalidPayloadException(exchange, outputClass)
     }
   }

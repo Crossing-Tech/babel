@@ -22,20 +22,20 @@ object Dependencies {
     OsgiKeys.exportPackage := Seq("io.xtech.babel.camel.*")
   )
 
-  private[this] val fixedCamelVersion = "2.13.2"
+  private[this] val fixedCamelVersion = "2.15.0"
 
   private[this] lazy val camelDependencies = Seq(
     Build.camelVersion := fixedCamelVersion,
     version  <<= (version, Build.camelVersion) { parseCamelVersion },
     //libraryDependencies ++= Seq("com.novocode" % "junit-interface" % "0.8" % "test->default"),
     libraryDependencies <++= (Build.camelVersion) { (dv) =>
-     test ++ camel(dv) ++ Seq(commoncsv)
+     test ++ camel(dv) ++ Seq(csvForTest, xomForTest)
     }
   )
 
   private[this] def parseCamelVersion(babel: String, camel: String): String = {
     val camelVersion = if (camel != fixedCamelVersion) {
-      "-camel-" + camel // todo for next version : .split("\\.").take(2).mkString(".")
+      "-camel-" + camel.split("\\.").take(2).mkString(".")
     }else{
     ""
     }
@@ -55,6 +55,8 @@ object Dependencies {
   private[this] val camelSpring = (camelVersion: String) => "org.apache.camel" % "camel-spring" % camelVersion % "optional"
   private[this] val camelScala = (camelVersion: String) => "org.apache.camel" % "camel-scala" % camelVersion % "optional"
   private[this] val camelTest = (camelVersion: String) => "org.apache.camel" % "camel-test" % camelVersion % "test"
+  private[this] val csvForTest = "org.apache.commons" % "commons-csv" % "1.1" % "test"
+  private[this] val xomForTest = "xom" % "xom" % "1.2.5" % "test"
 
   private[this] def camel(camelVersion: String) = Seq(camelCore, camelXmlJson, camelCsv, camelSql, camelSpring, camelScala, camelTest).map(x => (x(camelVersion)))
 

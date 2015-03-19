@@ -40,7 +40,7 @@ object TransactionSpec {
     }
 
     @Bean
-    def txManager(dataSource: DataSource) : DataSourceTransactionManager = {
+    def txManager(dataSource: DataSource): DataSourceTransactionManager = {
       new DataSourceTransactionManager(dataSource)
     }
 

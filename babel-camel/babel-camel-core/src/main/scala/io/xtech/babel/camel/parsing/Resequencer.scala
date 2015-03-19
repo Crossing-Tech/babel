@@ -25,7 +25,7 @@ private[babel] trait Resequencer extends CamelParsing {
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
-  implicit def resequencerDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) : ResequencerDSL[I] = new ResequencerDSL(baseDsl)
+  implicit def resequencerDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): ResequencerDSL[I] = new ResequencerDSL(baseDsl)
 
   private[this] def parse: Process = {
 
