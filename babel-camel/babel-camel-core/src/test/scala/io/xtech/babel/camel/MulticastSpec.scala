@@ -74,4 +74,47 @@ class MulticastSpec extends SpecificationWithJUnit {
     mockEndpoint3.assertIsSatisfied()
     mockEndpoint4.assertIsSatisfied()
   }
+
+  "create a multicast in a functional way" in new camel {
+
+    import io.xtech.babel.camel.builder.RouteBuilder
+
+    //#doc:babel-camel-multicast-functional
+
+    val routeDef = new RouteBuilder {
+      from("direct:input").as[String].
+        //received messages are sent to those three mock endpoints
+        multi(cast => {
+         cast.route("output1").processBody(_ + "1").to("mock:output1")
+         cast.route("output2").processBody(_ + "2").to("mock:output2")
+         cast.route("output3").processBody(_ + "3").to("mock:output3")
+      }).
+        to("mock:output4")
+    }
+    //#doc:babel-camel-multicast-functional
+
+    routeDef.addRoutesToCamelContext(camelContext)
+
+    camelContext.start()
+
+    val mockEndpoint1 = camelContext.getEndpoint("mock:output1").asInstanceOf[MockEndpoint]
+    val mockEndpoint2 = camelContext.getEndpoint("mock:output2").asInstanceOf[MockEndpoint]
+    val mockEndpoint3 = camelContext.getEndpoint("mock:output3").asInstanceOf[MockEndpoint]
+    val mockEndpoint4 = camelContext.getEndpoint("mock:output4").asInstanceOf[MockEndpoint]
+
+    mockEndpoint1.expectedBodiesReceived("test1")
+    mockEndpoint2.expectedBodiesReceived("test2")
+    mockEndpoint3.expectedBodiesReceived("test3")
+    mockEndpoint4.expectedBodiesReceived("test")
+
+    val producer = camelContext.createProducerTemplate()
+
+    producer.sendBody("direct:input", "test")
+
+    mockEndpoint1.assertIsSatisfied()
+    mockEndpoint2.assertIsSatisfied()
+    mockEndpoint3.assertIsSatisfied()
+    mockEndpoint4.assertIsSatisfied()
+  }
+
 }

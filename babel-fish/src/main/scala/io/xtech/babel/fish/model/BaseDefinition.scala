@@ -38,6 +38,19 @@ case class EndpointDefinition[I, O](sink: Sink[I, O], requestReply: Option[Boole
 case class MulticastDefinition[I](sinks: immutable.Seq[Sink[I, _]]) extends StepDefinition
 
 /**
+ * The definition of a multicast. A multicast routes the same message to multiple endpoints (sink).
+ * @tparam I the body type of the input message.
+ */
+case class MulticastFunctionalDefinition[I]() extends ScopeDefinition[MultiDefinition[I]]
+
+/**
+ * The definition of a multicast branch.
+ * @param branchId to identify the branch where the messages are sent
+ * @tparam I the body type of the input message.
+ */
+case class MultiDefinition[I](branchId: String) extends StepDefinition
+
+/**
   * The definition of a body message conversion.
   * @param outClass the new type of the body message.
   */
