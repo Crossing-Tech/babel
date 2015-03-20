@@ -24,7 +24,7 @@ class MulticastFunctionalDSL[I: ClassTag](multi: MulticastFunctionalDefinition[I
   /**
    * @return the possibility to add other steps to the current DSL
    */
-  def castTo(id: String): BaseDSL[I] = {
+  def route(id: String): BaseDSL[I] = {
 
     val whenDef = new MultiDefinition[I](id)
 

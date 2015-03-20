@@ -85,9 +85,9 @@ class MulticastSpec extends SpecificationWithJUnit {
       from("direct:input").as[String].
         //received messages are sent to those three mock endpoints
         multi(cast => {
-         cast.castTo("output1").processBody(_ + "1").to("mock:output1")
-         cast.castTo("output2").processBody(_ + "2").to("mock:output2")
-         cast.castTo("output3").processBody(_ + "3").to("mock:output3")
+         cast.route("output1").processBody(_ + "1").to("mock:output1")
+         cast.route("output2").processBody(_ + "2").to("mock:output2")
+         cast.route("output3").processBody(_ + "3").to("mock:output3")
       }).
         to("mock:output4")
     }
