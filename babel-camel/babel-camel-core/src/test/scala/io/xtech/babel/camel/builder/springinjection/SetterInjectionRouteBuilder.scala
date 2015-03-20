@@ -18,7 +18,6 @@ class MyBeanProcessor {
 
 //#doc:babel-camel-spring-setter
 import org.springframework.beans.factory.annotation.Autowired
-
 import scala.beans.BeanProperty
 
 class SetterInjectionRouteBuilder extends SpringRouteBuilder {
@@ -27,7 +26,7 @@ class SetterInjectionRouteBuilder extends SpringRouteBuilder {
   @BeanProperty
   var aBean: MyBeanProcessor = _
 
-  def configure() {
+  def configure(): Unit = {
     from("direct:babel-rb-setter").as[String].
       processBody(aBean.doSomething).
       to("mock:babel-rb-setter")

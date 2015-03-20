@@ -7,10 +7,9 @@
  */
 package io.xtech.babel.camel
 
-import io.xtech.babel.fish.model.Message
-
-import org.specs2.mutable.Specification
 import io.xtech.babel.camel.model.Aggregation.{ CompletionSize, ReduceBody }
+import io.xtech.babel.fish.model.Message
+import org.specs2.mutable.Specification
 
 class CompilationSpec extends Specification {
 

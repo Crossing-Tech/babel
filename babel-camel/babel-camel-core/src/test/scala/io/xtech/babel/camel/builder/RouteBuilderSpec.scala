@@ -9,9 +9,9 @@
 package io.xtech.babel.camel.builder
 
 import io.xtech.babel.camel.test.springContext
-import org.specs2.mutable.SpecificationWithJUnit
 import org.apache.camel.CamelContext
 import org.apache.camel.component.mock.MockEndpoint
+import org.specs2.mutable.SpecificationWithJUnit
 
 class RouteBuilderSpec extends SpecificationWithJUnit {
   sequential

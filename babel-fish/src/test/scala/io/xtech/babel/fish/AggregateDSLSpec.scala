@@ -17,7 +17,7 @@ class AggregateDSLSpec extends SpecificationWithJUnit {
 
   "aggregate keyword" should {
     "create a route definition with a route containing an aggregation" in {
-      import Test._
+      import io.xtech.babel.fish.Test._
 
       case class AP[I, O](func: (I => O)) extends AggregationConfiguration[I, O]
 
@@ -27,9 +27,13 @@ class AggregateDSLSpec extends SpecificationWithJUnit {
       }.build()
 
       // tests the definition generated from the DSL
-      definitions.head.from.source.uri mustEqual "direct:input"
+      definitions.headOption.map(_.from.source.uri) mustEqual Some("direct:input")
 
-      val bodyConvStep = for { step <- definitions.head.from.next } yield step
+      val bodyConvStep = for {
+        s <- definitions.headOption
+        step <- s.from.next
+      } yield step
+
       bodyConvStep must beSome.like[MatchResult[Any]] {
         case step: BodyConvertorDefinition[_, _] => {
           step.outClass mustEqual classOf[String]

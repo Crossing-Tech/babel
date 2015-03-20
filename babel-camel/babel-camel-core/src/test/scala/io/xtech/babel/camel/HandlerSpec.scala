@@ -8,24 +8,24 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.test.camel
-import org.specs2.mutable.SpecificationWithJUnit
-import org.apache.camel.component.mock.MockEndpoint
-import org.apache.camel.{ LoggingLevel, Exchange, Processor }
 import io.xtech.babel.camel.builder.RouteBuilder
+import io.xtech.babel.camel.test.camel
+import io.xtech.babel.fish.model.Message
+import io.xtech.babel.fish.{ BodyPredicate, MessagePredicate }
+import org.apache.camel.component.mock.MockEndpoint
+import org.apache.camel.{ Exchange, LoggingLevel, Processor }
+import org.apache.log4j.spi.LoggingEvent
 import org.apache.log4j.{ AppenderSkeleton, Level }
 import org.slf4j.LoggerFactory
+import org.specs2.mutable.SpecificationWithJUnit
 import scala.collection.immutable
-import org.apache.log4j.spi.LoggingEvent
-import io.xtech.babel.fish.model.Message
-import io.xtech.babel.fish.{ MessagePredicate, BodyPredicate }
 
 class HandlerSpec extends SpecificationWithJUnit {
 
   def validateLog(event: LoggingEvent, loggerName: String) = {
     event.getLevel === Level.TRACE
     event.getLoggerName === loggerName
-    event.getMessage.toString.split("\n").head must beMatching("Failed delivery for (.*). Exhausted after delivery attempt: 1 caught: java.lang.Exception")
+    event.getMessage.toString.split("\n").headOption.getOrElse(throw new Exception("no logs received")) must beMatching("Failed delivery for (.*). Exhausted after delivery attempt: 1 caught: java.lang.Exception")
   }
 
   "Error handling at Route level" should {
@@ -563,7 +563,7 @@ class HandlerSpec extends SpecificationWithJUnit {
       }
 
       class CamelRoute extends org.apache.camel.builder.RouteBuilder {
-        def configure() {
+        def configure(): Unit = {
           from("direct:camel").errorHandler(deadLetterChannel("mock:camel-error").maximumRedeliveries(2)).process(camelProcessor).to("mock:camel-success")
         }
       }
@@ -621,7 +621,7 @@ class HandlerSpec extends SpecificationWithJUnit {
       }
 
       class CamelRoute extends org.apache.camel.builder.RouteBuilder {
-        def configure() {
+        def configure(): Unit = {
           from("direct:camel").errorHandler(deadLetterChannel("mock:camel-error").maximumRedeliveries(2)).process(camelProcessor).to("mock:camel-success")
         }
       }
@@ -676,7 +676,7 @@ class HandlerSpec extends SpecificationWithJUnit {
     "provide noErrorHandler" in new camel {
 
       class MyMasterRoutes extends org.apache.camel.builder.RouteBuilder {
-        def configure() {
+        def configure(): Unit = {
           onException(classOf[IllegalArgumentException]).continued(true)
           //end is used to end a route on onException, not used with continued...
           from("direct:camel").to("direct:b").to("mock:end")
@@ -684,7 +684,7 @@ class HandlerSpec extends SpecificationWithJUnit {
       }
 
       class MyErrorRoutes extends org.apache.camel.builder.RouteBuilder {
-        def configure() {
+        def configure(): Unit = {
           //let the parent route manage the error
           //otherwise, exception raises caller
           errorHandler(noErrorHandler())
@@ -739,7 +739,7 @@ class HandlerSpec extends SpecificationWithJUnit {
     "provide loggingErrorHandler" in new camel {
 
       class CamelRoute extends org.apache.camel.builder.RouteBuilder {
-        def configure() {
+        def configure(): Unit = {
           from("direct:camel").errorHandler(loggingErrorHandler(LoggerFactory.getLogger("my.cool.tata"), LoggingLevel.TRACE))
             .throwException(new Exception()).to("mock:camel-success")
         }
@@ -779,9 +779,9 @@ class HandlerSpec extends SpecificationWithJUnit {
       mockSuccess.assertIsSatisfied()
       mockCamelSuccess.assertIsSatisfied()
 
-      val eventCamel = ErrorSharedLogs.events.head
+      val eventCamel = ErrorSharedLogs.events.headOption.getOrElse(throw new Exception("no log received"))
       validateLog(eventCamel, "my.cool.tata")
-      val eventBabel = ErrorSharedLogs.events.tail.head
+      val eventBabel = ErrorSharedLogs.events.tail.headOption.getOrElse(throw new Exception("no log received"))
       validateLog(eventBabel, "my.cool.tata")
 
     }
@@ -1324,7 +1324,7 @@ class HandlerSpec extends SpecificationWithJUnit {
       }
 
       class CamelRoute extends org.apache.camel.builder.RouteBuilder {
-        def configure() {
+        def configure(): Unit = {
           errorHandler(defaultErrorHandler().maximumRedeliveries(0).maximumRedeliveries(2))
           from("direct:camel").process(camelProcessor).to("mock:camel-success")
         }
@@ -1382,7 +1382,7 @@ class HandlerSpec extends SpecificationWithJUnit {
       }
 
       class CamelRoute extends org.apache.camel.builder.RouteBuilder {
-        def configure() {
+        def configure(): Unit = {
           errorHandler(deadLetterChannel("mock:camel-error").maximumRedeliveries(2))
           from("direct:camel").process(camelProcessor).to("mock:camel-success")
         }
@@ -1441,7 +1441,7 @@ class HandlerSpec extends SpecificationWithJUnit {
     "provide noErrorHandler" in new camel {
 
       class MyMasterRoutes extends org.apache.camel.builder.RouteBuilder {
-        def configure() {
+        def configure(): Unit = {
           onException(classOf[IllegalArgumentException]).continued(true)
           //end is used to end a route on onException, not used with continued...
           from("direct:camel").to("direct:b").to("mock:end")
@@ -1449,7 +1449,7 @@ class HandlerSpec extends SpecificationWithJUnit {
       }
 
       class MyErrorRoutes extends org.apache.camel.builder.RouteBuilder {
-        def configure() {
+        def configure(): Unit = {
           //let the parent route manage the error
           //otherwise, exception raises caller
           from("direct:b").errorHandler(noErrorHandler()).throwException(new IllegalArgumentException("Forced")) to ("mock:toto")
@@ -1507,7 +1507,7 @@ class HandlerSpec extends SpecificationWithJUnit {
     "provide loggingErrorHandler" in new camel {
 
       class CamelRoute extends org.apache.camel.builder.RouteBuilder {
-        def configure() {
+        def configure(): Unit = {
           errorHandler(loggingErrorHandler(LoggerFactory.getLogger("my.cool.titi"), LoggingLevel.TRACE))
 
           from("direct:camel")
@@ -1541,9 +1541,9 @@ class HandlerSpec extends SpecificationWithJUnit {
       mockSuccess.assertIsSatisfied()
       mockCamelSuccess.assertIsSatisfied()
 
-      val eventCamel = RBErrorSharedLogs.events.head
+      val eventCamel = RBErrorSharedLogs.events.headOption.getOrElse(throw new Exception("no log received"))
       validateLog(eventCamel, "my.cool.titi")
-      val eventBabel = RBErrorSharedLogs.events.tail.head
+      val eventBabel = RBErrorSharedLogs.events.tail.headOption.getOrElse(throw new Exception("no log received"))
       validateLog(eventBabel, "my.cool.titi")
 
     }
@@ -1577,11 +1577,11 @@ object ErrorSharedLogs {
 
 class ErrorAppender extends AppenderSkeleton {
 
-  def append(event: LoggingEvent) {
+  def append(event: LoggingEvent): Unit = {
     ErrorSharedLogs.events :+= event
   }
 
-  def close() {}
+  def close(): Unit = {}
 
   def requiresLayout(): Boolean = false
 }
@@ -1592,11 +1592,11 @@ object RBErrorSharedLogs {
 
 class RBErrorAppender extends AppenderSkeleton {
 
-  def append(event: LoggingEvent) {
+  def append(event: LoggingEvent): Unit = {
     RBErrorSharedLogs.events :+= event
   }
 
-  def close() {}
+  def close(): Unit = {}
 
   def requiresLayout(): Boolean = false
 }

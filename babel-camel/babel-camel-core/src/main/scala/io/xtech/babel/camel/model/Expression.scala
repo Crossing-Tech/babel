@@ -8,11 +8,10 @@
 
 package io.xtech.babel.camel.model
 
-import io.xtech.babel.fish.{ BodyExpression, MessageExpression }
 import io.xtech.babel.fish.model.{ Expression, Message }
-import org.apache.camel.{ Exchange, Expression => CamelExpression }
+import io.xtech.babel.fish.{ BodyExpression, MessageExpression }
 import org.apache.camel.builder.xml.XPathBuilder
-
+import org.apache.camel.{ Exchange, Expression => CamelExpression }
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 

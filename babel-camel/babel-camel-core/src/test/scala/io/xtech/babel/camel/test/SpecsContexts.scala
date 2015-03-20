@@ -8,6 +8,7 @@
 
 package io.xtech.babel.camel.test
 
+import org.apache.camel.Exchange
 import org.apache.camel.impl.{ DefaultCamelContext, DefaultExchange }
 import org.specs2.mutable.After
 import org.springframework.context.support.ClassPathXmlApplicationContext
@@ -19,9 +20,9 @@ class camel extends After {
 
   lazy implicit val camelContext = new DefaultCamelContext()
 
-  def createExchange() = new DefaultExchange(camelContext)
+  def createExchange(): Exchange = new DefaultExchange(camelContext)
 
-  def after {
+  def after: Unit = {
     camelContext.shutdown()
   }
 }
@@ -34,7 +35,7 @@ class springContext(configLocation: String) extends After {
 
   lazy val spring = new ClassPathXmlApplicationContext(configLocation)
 
-  def after {
+  def after: Unit = {
     spring.close()
   }
 }

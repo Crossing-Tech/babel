@@ -14,6 +14,10 @@ import org.apache.camel.component.mock.MockEndpoint
 package object mock {
 
   implicit class CamelContextWithMock(val self: CamelContext) extends AnyVal {
-    def getMockEndpoint(uri: String): MockEndpoint = self.getEndpoint(s"mock:$uri").asInstanceOf[MockEndpoint]
+
+    def getMockEndpoint(uri: String): MockEndpoint = mockEndpoint(uri)
+
+    def mockEndpoint(uri: String): MockEndpoint = self.getEndpoint(s"mock:$uri").asInstanceOf[MockEndpoint]
   }
+
 }

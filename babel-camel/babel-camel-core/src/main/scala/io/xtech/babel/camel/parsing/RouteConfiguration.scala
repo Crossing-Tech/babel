@@ -12,11 +12,10 @@ import io.xtech.babel.camel.RouteConfigurationDSL
 import io.xtech.babel.camel.model._
 import io.xtech.babel.fish.FromDSL
 import io.xtech.babel.fish.parsing.StepInformation
-
-import org.apache.camel.{ Exchange, Route }
 import org.apache.camel.model.RouteDefinition
 import org.apache.camel.spi.RoutePolicy
-
+import org.apache.camel.{ Exchange, Route }
+import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
@@ -25,11 +24,11 @@ import scala.reflect.ClassTag
   */
 private[babel] trait RouteConfiguration extends CamelParsing {
 
-  abstract override def steps = super.steps :+ parse
+  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
   implicit def routeConfigurationDSLExtension[I: ClassTag](baseDsl: FromDSL[I]) = new RouteConfigurationDSL[I](baseDsl)
 
-  private def parse: Process = {
+  private[this] def parse: Process = {
 
     case StepInformation(NoAutoStartDefinition(), camelProcessorDefinition: RouteDefinition) =>
 

@@ -9,7 +9,6 @@
 package io.xtech.babel.camel.model
 
 import io.xtech.babel.fish.model.Sink
-
 import scala.collection.immutable
 
 /**

@@ -18,16 +18,19 @@ class SplitterDSLSpec extends SpecificationWithJUnit {
 
     "accept a function" in {
 
-      import Test._
+      import io.xtech.babel.fish.Test._
 
       val definitions = new DSL {
         from("direct:input").as[List[String]].splitBody(_.iterator).processBody((str: String) => str.toInt).to("mock:output")
       }.build()
 
       // tests the definition generated from the DSL
-      definitions.head.from.source.uri mustEqual "direct:input"
+      definitions.headOption.map(_.from.source.uri) mustEqual Some("direct:input")
 
-      val bodyConvStep = for { step <- definitions.head.from.next } yield step
+      val bodyConvStep = for {
+        s <- definitions.headOption
+        step <- s.from.next
+      } yield step
       bodyConvStep must beSome.like {
         case step: BodyConvertorDefinition[_, _] => {
           step.outClass mustEqual classOf[List[String]]
@@ -69,9 +72,12 @@ class SplitterDSLSpec extends SpecificationWithJUnit {
       }.build()
 
       // tests the definition generated from the DSL
-      definitions.head.from.source.uri mustEqual "direct:input"
+      definitions.headOption.map(_.from.source.uri) mustEqual Some("direct:input")
 
-      val bodyConvStep = for { step <- definitions.head.from.next } yield step
+      val bodyConvStep = for {
+        s <- definitions.headOption
+        step <- s.from.next
+      } yield step
       bodyConvStep must beSome.like[MatchResult[Any]] {
         case step: BodyConvertorDefinition[_, _] => {
           step.outClass mustEqual classOf[List[String]]
@@ -112,9 +118,12 @@ class SplitterDSLSpec extends SpecificationWithJUnit {
       }.build()
 
       // tests the definition generated from the DSL
-      definitions.head.from.source.uri mustEqual "direct:input"
+      definitions.headOption.map(_.from.source.uri) mustEqual Some("direct:input")
 
-      val bodyConvStep = for { step <- definitions.head.from.next } yield step
+      val bodyConvStep = for {
+        s <- definitions.headOption
+        step <- s.from.next
+      } yield step
       bodyConvStep must beSome.like {
         case step: BodyConvertorDefinition[_, _] => {
           step.outClass mustEqual classOf[List[String]]

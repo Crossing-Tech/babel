@@ -29,21 +29,21 @@ trait ErrorHandling {
     * Defines the way to translate to a Camel error handler builder which may build such error handler.
     * @return an errorhandlerbuilder to set camel errorhandling configuration
     */
-  protected[camel] def camelErrorHandlerBuilder(): ErrorHandlerBuilder
+  protected[camel] def camelErrorHandlerBuilder: ErrorHandlerBuilder
 }
 
 /**
   * NoErrorHandler keyword configuration
   */
 object NoErrorHandlerDefinition extends StepDefinition with ErrorHandling {
-  def camelErrorHandlerBuilder = new NoErrorHandlerBuilder()
+  def camelErrorHandlerBuilder: ErrorHandlerBuilder = new NoErrorHandlerBuilder()
 }
 
 /**
   * LoggingErrorHandler keyword configuration
   */
 class LoggingErrorHandlerDefinition(log: Logger, level: LoggingLevel) extends StepDefinition with ErrorHandling {
-  def camelErrorHandlerBuilder() = new LoggingErrorHandlerBuilder(log, level)
+  def camelErrorHandlerBuilder: ErrorHandlerBuilder = new LoggingErrorHandlerBuilder(log, level)
 }
 
 /**
@@ -52,9 +52,9 @@ class LoggingErrorHandlerDefinition(log: Logger, level: LoggingLevel) extends St
 trait RedeliveryErrorHandling extends ErrorHandling {
   protected def routeErrorHandler(): DefaultErrorHandlerBuilder
 
-  private var _redeliveryPolicy: Function[RedeliveryPolicy, RedeliveryPolicy] = (x: RedeliveryPolicy) => x
+  private[this] var _redeliveryPolicy: Function[RedeliveryPolicy, RedeliveryPolicy] = (x: RedeliveryPolicy) => x
 
-  def camelErrorHandlerBuilder() = {
+  def camelErrorHandlerBuilder: ErrorHandlerBuilder = {
     val handler = routeErrorHandler()
     handler.setRedeliveryPolicy(_redeliveryPolicy(handler.getRedeliveryPolicy()))
     handler
@@ -76,7 +76,7 @@ trait RedeliveryErrorHandling extends ErrorHandling {
   * DefaultErrorHandler keyword configuration
   */
 class DefaultErrorHandlerDefinition() extends StepDefinition with RedeliveryErrorHandling {
-  protected def routeErrorHandler = new DefaultErrorHandlerBuilder()
+  protected def routeErrorHandler: DefaultErrorHandlerBuilder = new DefaultErrorHandlerBuilder()
 }
 
 /**
@@ -100,7 +100,7 @@ class TransactionErrorHandlerDefinition extends StepDefinition with RedeliveryEr
   */
 case class OnExceptionDefinition[T <: Throwable](exception: Class[T],
                                                  when: Option[Predicate[Any]] = None) extends StepDefinition {
-  private var predicate: Option[(Boolean, Predicate[Any])] = None
+  private[this] var predicate: Option[(Boolean, Predicate[Any])] = None
 
   /**
     * used by the *handled* and the *handledMessage* keywords to set an handled predicate

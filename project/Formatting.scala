@@ -7,12 +7,10 @@
  */
 
 import scalariform.formatter.preferences._
-import com.typesafe.sbt.SbtScalariform
-import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 
 object Formatting{
 
-  def formattingPreferences = FormattingPreferences()
+  def formattingPreferences: FormattingPreferences = FormattingPreferences()
     .setPreference(AlignSingleLineCaseStatements, true)
     .setPreference(DoubleIndentClassDeclaration, true)
     .setPreference(PreserveDanglingCloseParenthesis, true)

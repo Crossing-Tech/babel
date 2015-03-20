@@ -13,7 +13,6 @@ import org.apache.camel.builder.Builder
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.model.config.StreamResequencerConfig
 import org.specs2.mutable.SpecificationWithJUnit
-
 import scala.collection.JavaConverters._
 
 class ResequencerSpec extends SpecificationWithJUnit {

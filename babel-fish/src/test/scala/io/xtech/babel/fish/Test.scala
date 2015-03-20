@@ -9,7 +9,6 @@
 package io.xtech.babel.fish
 
 import io.xtech.babel.fish.model.{ Sink, Source }
-
 import scala.collection.immutable
 import scala.language.implicitConversions
 

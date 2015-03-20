@@ -8,13 +8,10 @@
 
 package io.xtech.babel.fish
 
-import io.xtech.babel.fish.model._
 import io.xtech.babel.fish.Test._
+import io.xtech.babel.fish.model._
 import org.specs2.matcher.MatchResult
-
 import org.specs2.mutable.SpecificationWithJUnit
-
-import scala.collection.immutable
 
 class DSLSpec extends SpecificationWithJUnit {
   sequential
@@ -23,7 +20,7 @@ class DSLSpec extends SpecificationWithJUnit {
 
     "create a route definition with a simple route (form,processBody,process,endpoint)" in {
 
-      import Test._
+      import io.xtech.babel.fish.Test._
 
       // create a route
       val definitions = new DSL {
@@ -31,9 +28,13 @@ class DSLSpec extends SpecificationWithJUnit {
       }.build()
 
       // tests the definition generated from the DSL
-      definitions.head.from.source.uri mustEqual "direct:input"
+      definitions.headOption.map(_.from.source.uri) mustEqual Some("direct:input")
 
-      val bodyProcStep = for (step <- definitions.head.from.next) yield step
+      val bodyProcStep = for {
+        s <- definitions.headOption
+        step <- s.from.next
+      } yield step
+
       bodyProcStep must beSome.like[MatchResult[Any]] {
         case step: TransformerDefinition[_, _] => {
           step.expression must haveClass[BodyExpression[_, _]]
@@ -59,7 +60,7 @@ class DSLSpec extends SpecificationWithJUnit {
     }
 
     "create a route definition with a route containing a choice (router)" in {
-      import Test._
+      import io.xtech.babel.fish.Test._
 
       // create a route
       val definitions = new DSL() {
@@ -72,9 +73,12 @@ class DSLSpec extends SpecificationWithJUnit {
       }.build()
 
       // tests the definition generated from the DSL
-      definitions.head.from.source.uri mustEqual "direct:input"
+      definitions.headOption.map(_.from.source.uri) mustEqual Some("direct:input")
 
-      val bodyConvStep = for { step <- definitions.head.from.next } yield step
+      val bodyConvStep = for {
+        s <- definitions.headOption
+        step <- s.from.next
+      } yield step
       bodyConvStep must beSome.like[MatchResult[Any]] {
         case step: BodyConvertorDefinition[_, _] => {
           step.outClass mustEqual classOf[String]
@@ -117,7 +121,7 @@ class DSLSpec extends SpecificationWithJUnit {
     }
 
     "create a route definition with a route containing a bodiesplitter and filter" in {
-      import Test._
+      import io.xtech.babel.fish.Test._
 
       // create a route
       val definitions = new DSL() {
@@ -125,9 +129,12 @@ class DSLSpec extends SpecificationWithJUnit {
       }.build()
 
       // tests the definition generated from the DSL
-      definitions.head.from.source.uri mustEqual "direct:input"
+      definitions.headOption.map(_.from.source.uri) mustEqual Some("direct:input")
 
-      val bodyConvStep = for { step <- definitions.head.from.next } yield step
+      val bodyConvStep = for {
+        s <- definitions.headOption
+        step <- s.from.next
+      } yield step
       bodyConvStep must beSome.like[MatchResult[Any]] {
         case step: BodyConvertorDefinition[_, _] => {
           step.outClass mustEqual classOf[String]
@@ -160,7 +167,7 @@ class DSLSpec extends SpecificationWithJUnit {
     }
 
     "create a route definition with a route containing a mulitcast" in {
-      import Test._
+      import io.xtech.babel.fish.Test._
 
       // create a route
       val definitions = new DSL() {
@@ -168,9 +175,12 @@ class DSLSpec extends SpecificationWithJUnit {
       }.build()
 
       // tests the definition generated from the DSL
-      definitions.head.from.source.uri mustEqual "direct:input"
+      definitions.headOption.map(_.from.source.uri) mustEqual Some("direct:input")
 
-      val bodyConvStep = for { step <- definitions.head.from.next } yield step
+      val bodyConvStep = for {
+        s <- definitions.headOption
+        step <- s.from.next
+      } yield step
       bodyConvStep must beSome.like[MatchResult[Any]] {
         case step: BodyConvertorDefinition[_, _] => {
           step.outClass mustEqual classOf[String]
@@ -204,11 +214,10 @@ class DSLSpec extends SpecificationWithJUnit {
       val evil = FromDefinition(classOf[Any], "direct:evil")
       definition.next = Some(evil)
       definition.validate() must beLike {
-        case validation: immutable.Seq[ValidationError] =>
-          validation.size === 2
-          validation.head.errorMessage must contain("may not end using a from")
-          validation.tail.head.errorMessage must contain("from may only start a route")
-          validation.head.definition === Some(evil)
+        case List(validation: ValidationError, second: ValidationError) =>
+          validation.errorMessage must contain("may not end using a from")
+          second.errorMessage must contain("from may only start a route")
+          validation.definition === Some(evil)
       }
     }
 
@@ -219,16 +228,15 @@ class DSLSpec extends SpecificationWithJUnit {
       val third = EndpointDefinition("direct:tata")
       second.next = Some(third)
       definition.validate() must beLike {
-        case validation: immutable.Seq[ValidationError] =>
-          validation.size === 1
-          validation.head.errorMessage must contain("from may only start a route")
-          validation.head.definition === Some(second)
+        case List(validation: ValidationError) =>
+          validation.errorMessage must contain("from may only start a route")
+          validation.definition === Some(second)
       }
     }
 
     //because might be inout, there is no validation on last step of a route
     "not throw a Validation exception when a route finishing with a filter" in {
-      import Test._
+      import io.xtech.babel.fish.Test._
       val routeDef = new DSL {
         from("direct:input").as[String].filter(_.body.exists(_ == "false"))
       }

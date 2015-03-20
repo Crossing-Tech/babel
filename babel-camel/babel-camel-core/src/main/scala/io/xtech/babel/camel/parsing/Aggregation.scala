@@ -8,13 +8,11 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.model.{ FoldBodyAggregationStrategy, ReduceBodyAggregationStrategy, Expressions, CamelMessageExpression }
 import io.xtech.babel.camel.model.Aggregation._
+import io.xtech.babel.camel.model.{ CamelMessageExpression, Expressions, FoldBodyAggregationStrategy, ReduceBodyAggregationStrategy }
 import io.xtech.babel.fish.model.AggregationDefinition
 import io.xtech.babel.fish.parsing.StepInformation
-
 import org.apache.camel.model.{ AggregateDefinition, ProcessorDefinition }
-
 import scala.collection.immutable
 
 /**
@@ -22,9 +20,9 @@ import scala.collection.immutable
   */
 private[babel] trait Aggregation extends CamelParsing {
 
-  abstract override def steps = super.steps :+ parse
+  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
-  private def setCompetion(aggregateDefinition: AggregateDefinition, completionStrategies: immutable.Seq[CompletionStrategy]) {
+  private[this] def competion(aggregateDefinition: AggregateDefinition, completionStrategies: immutable.Seq[CompletionStrategy]) {
     for (completion <- completionStrategies) {
       completion match {
         case CompletionInterval(time) => {
@@ -47,14 +45,14 @@ private[babel] trait Aggregation extends CamelParsing {
   }
 
   // parsing of an aggregation definition
-  private def parse: Process = {
+  private[this] def parse: Process = {
 
     // parse a native camel aggregation
     case StepInformation(AggregationDefinition(CamelAggregation(correlationExpression, aggregationStrategy, completionStrategies)), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
       val nextProcDef = camelProcessorDefinition.aggregate(Expressions.toCamelExpression(correlationExpression), aggregationStrategy)
 
-      setCompetion(nextProcDef, completionStrategies)
+      competion(nextProcDef, completionStrategies)
 
       nextProcDef
     }
@@ -63,7 +61,7 @@ private[babel] trait Aggregation extends CamelParsing {
 
       val nextProcDef = camelProcessorDefinition.aggregate.expression(Expressions.toCamelExpression(correlationExpression)).aggregationStrategyRef(ref)
 
-      setCompetion(nextProcDef, completionStrategies)
+      competion(nextProcDef, completionStrategies)
 
       nextProcDef
     }
@@ -74,7 +72,7 @@ private[babel] trait Aggregation extends CamelParsing {
 
       val nextProcDef = camelProcessorDefinition.aggregate(CamelMessageExpression(groupBy), aggregationStrategy)
 
-      setCompetion(nextProcDef, completionStrategies)
+      competion(nextProcDef, completionStrategies)
 
       nextProcDef
     }
@@ -85,7 +83,7 @@ private[babel] trait Aggregation extends CamelParsing {
 
       val nextProcDef = camelProcessorDefinition.aggregate(CamelMessageExpression(groupBy), aggregationStrategy)
 
-      setCompetion(nextProcDef, completionStrategies)
+      competion(nextProcDef, completionStrategies)
 
       nextProcDef
     }

@@ -12,8 +12,8 @@ import io.xtech.babel.camel.EnricherDSL
 import io.xtech.babel.camel.model._
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
-
 import org.apache.camel.model.{ EnrichDefinition => CamelEnrichDefinition, PollEnrichDefinition => CamelPollEnrichDefinition, ProcessorDefinition }
+import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
@@ -22,14 +22,14 @@ import scala.reflect.ClassTag
   */
 private[babel] trait Enricher extends CamelParsing {
 
-  abstract override def steps = super.steps :+ parse
+  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
   implicit def enrichDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new EnricherDSL(baseDsl)
 
   /**
     * Parsing of the enricher feature
     */
-  private def parse: Process = {
+  private[this] def parse: Process = {
 
     // parsing of the enrichRef keyword
     case StepInformation(EnrichRefDefinition(CamelSink(resourceUri), aggregationRef), camelProcessorDefinition: ProcessorDefinition[_]) => {

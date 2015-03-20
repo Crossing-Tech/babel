@@ -6,19 +6,15 @@
  * ==================================================================================
  */
 
-import sbt._
-import Keys._
 
 import com.typesafe.sbt.SbtScalariform
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
+import com.typesafe.sbt.osgi.SbtOsgi
 import com.typesafe.sbt.pgp.PgpKeys
-import com.typesafe.sbt.osgi.{OsgiKeys, SbtOsgi}
-
-//import scoverage.ScoverageSbtPlugin.instrumentSettings
 import org.scoverage.coveralls.CoverallsPlugin.coverallsSettings
-
-import sbtrelease.ReleasePlugin.releaseSettings
-import sbtrelease.ReleasePlugin.ReleaseKeys
+import sbt.Keys._
+import sbt._
+import sbtrelease.ReleasePlugin.{ReleaseKeys, releaseSettings}
 import sbtrelease.Version
 
 object Build extends Build {
@@ -47,10 +43,7 @@ object Build extends Build {
 
   lazy val babelfish = Project(id = "babel-fish",
     base = file("babel-fish"),
-    settings = defaultSettings ++ Seq(
-      libraryDependencies ++= Dependencies.test,
-      OsgiKeys.exportPackage := Seq("io.xtech.babel.fish.*")
-    )
+    settings = defaultSettings ++ Dependencies.babelFish
   )
 
   //allows you to define a camelVersion by prompting "set camelVersion=2.10.4" for example.

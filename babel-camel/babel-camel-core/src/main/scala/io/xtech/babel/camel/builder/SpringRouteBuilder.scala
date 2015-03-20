@@ -24,7 +24,7 @@ trait SpringRouteBuilder extends RouteBuilder {
 
   def configure(): Unit
 
-  override def addRoutesToCamelContext(context: CamelContext) = {
+  override def addRoutesToCamelContext(context: CamelContext): Unit = {
     configure()
     super.addRoutesToCamelContext(context)
   }

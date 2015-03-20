@@ -8,9 +8,8 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.fish.{ DSL2BaseDSL, BaseDSL }
 import io.xtech.babel.camel.model.{ CamelSink, WireTapDefinition }
-
+import io.xtech.babel.fish.{ BaseDSL, DSL2BaseDSL }
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 

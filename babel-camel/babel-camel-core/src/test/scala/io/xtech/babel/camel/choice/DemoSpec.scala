@@ -8,17 +8,13 @@
 
 package io.xtech.babel.camel.choice
 
-import io.xtech.babel.camel.model.Aggregation.{ ReduceBody, CompletionSize, FoldBody }
-import io.xtech.babel.camel.model.{ CamelSink, CamelSource }
+import io.xtech.babel.camel.model.Aggregation.{ CompletionSize, ReduceBody }
 import io.xtech.babel.camel.test.camel
-import io.xtech.babel.fish.{ BaseDSL, FromDSL }
 import io.xtech.babel.fish.model.Message
+import org.apache.camel.Exchange
 import org.apache.camel.component.mock.MockEndpoint
-import org.apache.camel.processor.aggregate.{ AggregationStrategy, UseLatestAggregationStrategy }
-import org.apache.camel.{ Exchange, Predicate, Processor }
+import org.apache.camel.processor.aggregate.AggregationStrategy
 import org.specs2.mutable.SpecificationWithJUnit
-
-import scala.collection.JavaConverters._
 
 class DemoSpec extends SpecificationWithJUnit {
 
@@ -39,6 +35,7 @@ class DemoSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-demo-2
 
     //#doc:babel-camel-demo-1
+
     import io.xtech.babel.camel.builder.RouteBuilder
 
     val myRoute = new RouteBuilder {
@@ -96,6 +93,7 @@ class DemoSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-demo-scala-2
 
     //#doc:babel-camel-demo-scala-1
+
     import org.apache.camel.scala.dsl.builder.RouteBuilder
 
     val routing = new RouteBuilder {

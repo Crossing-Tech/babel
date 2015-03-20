@@ -18,6 +18,9 @@ class CamelMessageSpec extends SpecificationWithJUnit {
 
   "A CamelMessage" should {
 
+    val headerA = "a"
+    val headerB = "b"
+
     "not be created with a null camel message" in new camel {
 
       val message = new CamelMessage(null) must throwA[IllegalArgumentException]
@@ -82,40 +85,40 @@ class CamelMessageSpec extends SpecificationWithJUnit {
     "return the headers" in new camel {
       val camelExchange = createExchange()
       val camelMessage = camelExchange.getIn()
-      camelMessage.setHeader("a", 1)
-      camelMessage.setHeader("b", "2")
+      camelMessage.setHeader(headerA, 1)
+      camelMessage.setHeader(headerB, "2")
 
       val message = new CamelMessage[String](camelMessage)
-      message.headers must havePairs("a" -> 1, "b" -> "2")
+      message.headers must havePairs(headerA -> 1, headerB -> "2")
     }
 
     "update a header" in new camel {
       val camelExchange = createExchange()
       val camelMessage = camelExchange.getIn()
-      camelMessage.setHeader("a", 1)
-      camelMessage.setHeader("b", "2")
+      camelMessage.setHeader(headerA, 1)
+      camelMessage.setHeader(headerB, "2")
 
       val message = new CamelMessage[String](camelMessage)
       val newMsg = message.withHeader("c", 42)
-      message.headers must havePairs("a" -> 1, "b" -> "2", "c" -> 42)
+      message.headers must havePairs(headerA -> 1, headerB -> "2", "c" -> 42)
     }
 
     "update headers" in new camel {
       val camelExchange = createExchange()
       val camelMessage = camelExchange.getIn()
-      camelMessage.setHeader("a", 1)
-      camelMessage.setHeader("b", "2")
+      camelMessage.setHeader(headerA, 1)
+      camelMessage.setHeader(headerB, "2")
 
       val message = new CamelMessage[String](camelMessage)
       val newMsg = message.withHeaders(headers => headers ++ Map("c" -> 42, "d" -> "dd"))
-      message.headers must havePairs("a" -> 1, "b" -> "2", "c" -> 42, "d" -> "dd")
+      message.headers must havePairs(headerA -> 1, headerB -> "2", "c" -> 42, "d" -> "dd")
 
     }
 
     "remove headers" in new camel {
       val camelExchange = createExchange()
       val camelMessage = camelExchange.getIn()
-      camelMessage.setHeader("a", "to be removed")
+      camelMessage.setHeader(headerA, "to be removed")
 
       val message = new CamelMessage[String](camelMessage)
       val newMsg = message.withHeaders(headers => Map("c" -> 42))
@@ -127,40 +130,40 @@ class CamelMessageSpec extends SpecificationWithJUnit {
     "return the properties" in new camel {
       val camelExchange = createExchange()
       val camelMessage = camelExchange.getIn()
-      camelMessage.getExchange.setProperty("a", 1)
-      camelMessage.getExchange.setProperty("b", "2")
+      camelMessage.getExchange.setProperty(headerA, 1)
+      camelMessage.getExchange.setProperty(headerB, "2")
 
       val message = new CamelMessage[String](camelMessage)
-      message.exchangeProperties must havePairs("a" -> 1, "b" -> "2")
+      message.exchangeProperties must havePairs(headerA -> 1, headerB -> "2")
     }
 
     "update a header" in new camel {
       val camelExchange = createExchange()
       val camelMessage = camelExchange.getIn()
-      camelMessage.getExchange.setProperty("a", 1)
-      camelMessage.getExchange.setProperty("b", "2")
+      camelMessage.getExchange.setProperty(headerA, 1)
+      camelMessage.getExchange.setProperty(headerB, "2")
 
       val message = new CamelMessage[String](camelMessage)
       val newMsg = message.withExchangeProperty("c", 42)
-      message.exchangeProperties must havePairs("a" -> 1, "b" -> "2", "c" -> 42)
+      message.exchangeProperties must havePairs(headerA -> 1, headerB -> "2", "c" -> 42)
     }
 
     "update properties" in new camel {
       val camelExchange = createExchange()
       val camelMessage = camelExchange.getIn()
-      camelMessage.getExchange.setProperty("a", 1)
-      camelMessage.getExchange.setProperty("b", "2")
+      camelMessage.getExchange.setProperty(headerA, 1)
+      camelMessage.getExchange.setProperty(headerB, "2")
 
       val message = new CamelMessage[String](camelMessage)
       val newMsg = message.withExchangeProperties(properties => properties ++ Map("c" -> 42, "d" -> "dd"))
-      message.exchangeProperties must havePairs("a" -> 1, "b" -> "2", "c" -> 42, "d" -> "dd")
+      message.exchangeProperties must havePairs(headerA -> 1, headerB -> "2", "c" -> 42, "d" -> "dd")
 
     }
 
     "remove properties" in new camel {
       val camelExchange = createExchange()
       val camelMessage = camelExchange.getIn()
-      camelMessage.getExchange.setProperty("a", "to be removed")
+      camelMessage.getExchange.setProperty(headerA, "to be removed")
 
       val message = new CamelMessage[String](camelMessage)
       val newMsg = message.withExchangeProperties(properties => Map("c" -> 42))

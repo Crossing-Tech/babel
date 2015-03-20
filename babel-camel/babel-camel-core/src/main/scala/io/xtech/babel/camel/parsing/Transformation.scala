@@ -10,35 +10,32 @@ package io.xtech.babel.camel.parsing
 
 import io.xtech.babel.camel.TransformationDSL
 import io.xtech.babel.camel.model.{ BeanClassExpression, BeanNameExpression, BeanObjectExpression }
-import io.xtech.babel.fish.{ MessageTransformationExpression, BodyExpression, BaseDSL }
-import io.xtech.babel.fish.model.{ TransformerDefinition, Message }
+import io.xtech.babel.fish.model.{ Message, TransformerDefinition }
 import io.xtech.babel.fish.parsing.StepInformation
-
+import io.xtech.babel.fish.{ BaseDSL, BodyExpression, MessageTransformationExpression }
 import org.apache.camel.model.ProcessorDefinition
-
-import scala.reflect.ClassTag
+import scala.collection.immutable
 import scala.language.implicitConversions
+import scala.reflect.ClassTag
 
 /**
   * Parser for the transformation definitions
   */
 private[babel] trait Transformation extends CamelParsing {
 
-  abstract override def steps = super.steps :+ parse
+  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
-  implicit def transformationDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new TransformationDSL(baseDsl)
+  implicit def transformationDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): TransformationDSL[I] = new TransformationDSL(baseDsl)
 
-  def toProcessor[I, O](function: (I => O)) = new CamelBodyProcessor(function)
+  private[this] def bodyFunctionToProcess[I, O](function: (I => O)): org.apache.camel.Processor = new CamelBodyProcessor(function)
 
-  def bodyFunctionToProcess[I, O](function: (I => O)): org.apache.camel.Processor = new CamelBodyProcessor(function)
-
-  def messageFunctionToProcess[I, O](function: (Message[I] => Message[O])): org.apache.camel.Processor = new CamelMessageProcessor(function)
+  private[this] def messageFunctionToProcess[I, O](function: (Message[I] => Message[O])): org.apache.camel.Processor = new CamelMessageProcessor(function)
 
   /**
     * Parses the "processBody" statement.
     * @see CamelDSL.StepImplementation
     */
-  private def parse: Process = {
+  private[this] def parse: Process = {
 
     case StepInformation(TransformerDefinition(BodyExpression(function), processorId), camelProcessorDefinition: ProcessorDefinition[_]) => {
 

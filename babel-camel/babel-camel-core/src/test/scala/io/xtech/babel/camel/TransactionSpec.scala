@@ -8,23 +8,18 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.builder.RouteBuilder
-
-import javax.sql.DataSource
-
+import io.xtech.babel.camel.TransactionSpec.TransactionTestContext
 import io.xtech.babel.camel.test.CachedBabelSpringSpecification
+import javax.sql.DataSource
+import org.apache.camel.component.mock.MockEndpoint
+import org.apache.camel.model.ModelCamelContext
 import org.apache.camel.spring.SpringCamelContext
-
-import org.specs2.mutable.SpecificationWithJUnit
-
-import org.springframework.context.annotation.{ Bean, Configuration, AnnotationConfigApplicationContext }
+import org.springframework.context.annotation.{ AnnotationConfigApplicationContext, Bean, Configuration }
 import org.springframework.core.io.DefaultResourceLoader
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.datasource.DataSourceTransactionManager
 import org.springframework.jdbc.datasource.embedded.{ EmbeddedDatabaseFactoryBean, EmbeddedDatabaseType }
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator
-import io.xtech.babel.camel.TransactionSpec.TransactionTestContext
-import org.apache.camel.component.mock.MockEndpoint
 
 object TransactionSpec {
 
@@ -45,15 +40,15 @@ object TransactionSpec {
     }
 
     @Bean
-    def txManager(dataSource: DataSource) = {
+    def txManager(dataSource: DataSource): DataSourceTransactionManager = {
       new DataSourceTransactionManager(dataSource)
     }
 
     @Bean
-    def camelContext = new SpringCamelContext
+    def camelContext: ModelCamelContext = new SpringCamelContext
 
     @Bean
-    def jdbcTemplate(dataSource: DataSource) = new JdbcTemplate(dataSource)
+    def jdbcTemplate(dataSource: DataSource): JdbcTemplate = new JdbcTemplate(dataSource)
 
   }
 

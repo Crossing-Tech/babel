@@ -1,8 +1,8 @@
 language: scala
 
 scala:
-   - 2.10.4
-   - 2.11.2
+   - 2.10.5
+   - 2.11.6
 
 sbt_args: -no-colors
 
@@ -10,12 +10,18 @@ env:
    global:
       - JVM_OPTS="-XX:MaxPermSize=256m -Xmx1024m -XX:ReservedCodeCacheSize=128m"
 
-script: sbt ++$TRAVIS_SCALA_VERSION  clean coveralls
+script: sbt ++$TRAVIS_SCALA_VERSION  clean coverage test
+
+after_success:
+- sbt coverageReport coverageAggregate
+- sbt coveralls
+- sbt codacyCoverage
 
 
 jdk:
-  - openjdk6
   - oraclejdk7
+  - openjdk7
+  - oraclejdk8
 
 notifications:
   email:

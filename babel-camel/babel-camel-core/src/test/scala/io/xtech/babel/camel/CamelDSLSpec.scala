@@ -11,11 +11,10 @@ package io.xtech.babel.camel
 import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.RouteDefinitionException
-
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.impl.DefaultExchange
+import org.apache.camel.{ Exchange, ExchangePattern, Processor }
 import org.specs2.mutable.SpecificationWithJUnit
-import org.apache.camel.{ Exchange, Processor, ExchangePattern }
 
 class CamelDSLSpec extends SpecificationWithJUnit {
   sequential

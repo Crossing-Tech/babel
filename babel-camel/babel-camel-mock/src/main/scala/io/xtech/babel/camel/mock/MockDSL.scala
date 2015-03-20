@@ -11,12 +11,11 @@
 package io.xtech.babel.camel.mock
 
 import io.xtech.babel.camel.parsing.CamelParsing
-import io.xtech.babel.fish.{ DSL2BaseDSL, BaseDSL }
 import io.xtech.babel.fish.model.StepDefinition
 import io.xtech.babel.fish.parsing.StepInformation
-
+import io.xtech.babel.fish.{ BaseDSL, DSL2BaseDSL }
 import org.apache.camel.model.ProcessorDefinition
-
+import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
@@ -35,7 +34,7 @@ class MockDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) extends DSL2BaseDS
 
 trait Mock extends CamelParsing {
 
-  abstract override def steps = super.steps :+ parse
+  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
   val parse: Process = {
     case StepInformation(MockDefinition(uri), camelProcessor: ProcessorDefinition[_]) =>

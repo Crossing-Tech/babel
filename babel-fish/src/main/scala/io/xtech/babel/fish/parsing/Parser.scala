@@ -34,7 +34,7 @@ trait Parsing[T] {
 
 trait StepProcessor[B] extends Parsing[B] {
 
-  private lazy val parse: Function1[StepInformation[B], Option[Any]] = steps.reduce(_ orElse _).lift
+  private[this] lazy val parse: Function1[StepInformation[B], Option[Any]] = steps.reduce(_ orElse _).lift
 
   /**
     * Processes each step recursively (but the from, managed by the process method.
