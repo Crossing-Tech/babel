@@ -17,8 +17,6 @@ version = '0.1.2'
 # -- Options for HTML output -----------------------------------
 
 extensions = ['sphinxjp.themecore',
-              'sphinxcontrib.blockdiag',
-              'sphinxcontrib.seqdiag',
               'includecode']
 
 highlight_language = 'scala'
