@@ -9,12 +9,17 @@
 pip install sphinx sphinx_bootstrap_theme
 #concerning the slides
 pip install sphinxjp.themecore sphinxjp.themes.impressjs
-
+#diagram generation
+pip install sphinxcontrib-blockdiag
 cd babel-doc
 make clean
 
 #generate the main documentation
 make html
+
+#generate the main documentation in pdf
+make latexpdf
+cp build/latex/Babel.pdf build/html/_static/
 
 #generate the slides
 cd slides/overview
