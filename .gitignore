@@ -9,7 +9,6 @@ build/
 *.out
 *.snm
 *.log
-*.pdf
 atlassian-ide-plugin.xml
 .jira-url
 babel-doc
