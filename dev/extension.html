@@ -39,7 +39,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
   
   <a href="https://github.com/crossing-tech/babel.git"
      class="visible-desktop hidden-xs"><img
@@ -47,6 +47,7 @@
     style="position: absolute; top: 50px; right: 0; border: 0;"
     src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
     alt="Fork me on GitHub"></a>
+
   <script>
     // Adjust banner height.
     $(function () {
@@ -58,6 +59,16 @@
     //  var navHeight = $(".navbar .container").css("height");
     //  $("#re-banner").css("top", navHeight);
     //});
+
+  </script>
+  <script>
+$(function () {
+    //Adds a pdf link
+    var eleContainer = document.getElementsByClassName("form-group")[0];
+
+    eleContainer.innerHTML = eleContainer.innerHTML   +   '<div id="pdf-link"> <a href="_static/Babel.pdf" > <img src="http://www.adobe.com/images/pdficon_large.png" alt="Babel PDF documentation"> doc as pdf </a></div>'  ;
+
+    });
   </script>
 
 
@@ -211,12 +222,12 @@
 <div class="section" id="explanation">
 <h3>Explanation<a class="headerlink" href="#explanation" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Choose a package for your the new extension like <tt class="docutils literal"><span class="pre">io.xtech.babel.camel.mock</span></tt></li>
-<li>Create some definition objects that extends <tt class="docutils literal"><span class="pre">io.xtech.babel.fish.parsing.StepDefinition</span></tt>.</li>
+<li>Choose a package for your the new extension like <code class="docutils literal"><span class="pre">io.xtech.babel.camel.mock</span></code></li>
+<li>Create some definition objects that extends <code class="docutils literal"><span class="pre">io.xtech.babel.fish.parsing.StepDefinition</span></code>.</li>
 <li>Create a DSL with your new keywords using the definition objects.
-The DSL will take a <tt class="docutils literal"><span class="pre">io.xtech.babel.fish.BaseDSL</span></tt> and extends a <tt class="docutils literal"><span class="pre">io.xtech.babel.fish.DSL2BaseDSL</span></tt></li>
-<li>Create a trait that extends <tt class="docutils literal"><span class="pre">io.xtech.babel.camel.parsing.CamelParsing</span></tt>.<ol class="loweralpha">
-<li>Declare your parser by defining a parse method which returns a <tt class="docutils literal"><span class="pre">Process</span></tt> type and add it to the <tt class="docutils literal"><span class="pre">steps</span></tt> of the trait.</li>
+The DSL will take a <code class="docutils literal"><span class="pre">io.xtech.babel.fish.BaseDSL</span></code> and extends a <code class="docutils literal"><span class="pre">io.xtech.babel.fish.DSL2BaseDSL</span></code></li>
+<li>Create a trait that extends <code class="docutils literal"><span class="pre">io.xtech.babel.camel.parsing.CamelParsing</span></code>.<ol class="loweralpha">
+<li>Declare your parser by defining a parse method which returns a <code class="docutils literal"><span class="pre">Process</span></code> type and add it to the <code class="docutils literal"><span class="pre">steps</span></code> of the trait.</li>
 <li>Declare an implicit method using your new DSL.</li>
 </ol>
 </li>
@@ -227,12 +238,11 @@ The DSL will take a <tt class="docutils literal"><span class="pre">io.xtech.babe
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">package</span> <span class="nn">io.xtech.babel.camel.mock</span>
 
 <span class="k">import</span> <span class="nn">io.xtech.babel.camel.parsing.CamelParsing</span>
-<span class="k">import</span> <span class="nn">io.xtech.babel.fish.</span><span class="o">{</span> <span class="nc">DSL2BaseDSL</span><span class="o">,</span> <span class="nc">BaseDSL</span> <span class="o">}</span>
 <span class="k">import</span> <span class="nn">io.xtech.babel.fish.model.StepDefinition</span>
 <span class="k">import</span> <span class="nn">io.xtech.babel.fish.parsing.StepInformation</span>
-
+<span class="k">import</span> <span class="nn">io.xtech.babel.fish.</span><span class="o">{</span> <span class="nc">BaseDSL</span><span class="o">,</span> <span class="nc">DSL2BaseDSL</span> <span class="o">}</span>
 <span class="k">import</span> <span class="nn">org.apache.camel.model.ProcessorDefinition</span>
-
+<span class="k">import</span> <span class="nn">scala.collection.immutable</span>
 <span class="k">import</span> <span class="nn">scala.language.implicitConversions</span>
 <span class="k">import</span> <span class="nn">scala.reflect.ClassTag</span>
 
@@ -251,11 +261,11 @@ The DSL will take a <tt class="docutils literal"><span class="pre">io.xtech.babe
 
 <span class="k">trait</span> <span class="nc">Mock</span> <span class="k">extends</span> <span class="nc">CamelParsing</span> <span class="o">{</span>
 
-  <span class="k">abstract</span> <span class="k">override</span> <span class="k">def</span> <span class="n">steps</span> <span class="k">=</span> <span class="k">super</span><span class="o">.</span><span class="n">steps</span> <span class="o">:+</span> <span class="n">parse</span>
+  <span class="k">abstract</span> <span class="k">override</span> <span class="k">def</span> <span class="n">steps</span><span class="k">:</span> <span class="kt">immutable.Seq</span><span class="o">[</span><span class="kt">Process</span><span class="o">]</span> <span class="k">=</span> <span class="k">super</span><span class="o">.</span><span class="n">steps</span> <span class="o">:+</span> <span class="n">parse</span>
 
   <span class="k">val</span> <span class="n">parse</span><span class="k">:</span> <span class="kt">Process</span> <span class="o">=</span> <span class="o">{</span>
     <span class="k">case</span> <span class="nc">StepInformation</span><span class="o">(</span><span class="nc">MockDefinition</span><span class="o">(</span><span class="n">uri</span><span class="o">),</span> <span class="n">camelProcessor</span><span class="k">:</span> <span class="kt">ProcessorDefinition</span><span class="o">[</span><span class="k">_</span><span class="o">])</span> <span class="k">=&gt;</span>
-      <span class="n">camelProcessor</span><span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="n">s</span><span class="s">&quot;mock:$uri&quot;</span><span class="o">)</span>
+      <span class="n">camelProcessor</span><span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">s&quot;mock:</span><span class="si">$uri</span><span class="s">&quot;</span><span class="o">)</span>
 
   <span class="o">}</span>
 
@@ -280,7 +290,7 @@ The DSL will take a <tt class="docutils literal"><span class="pre">io.xtech.babe
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

@@ -38,7 +38,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
   
   <a href="https://github.com/crossing-tech/babel.git"
      class="visible-desktop hidden-xs"><img
@@ -46,6 +46,7 @@
     style="position: absolute; top: 50px; right: 0; border: 0;"
     src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
     alt="Fork me on GitHub"></a>
+
   <script>
     // Adjust banner height.
     $(function () {
@@ -57,6 +58,16 @@
     //  var navHeight = $(".navbar .container").css("height");
     //  $("#re-banner").css("top", navHeight);
     //});
+
+  </script>
+  <script>
+$(function () {
+    //Adds a pdf link
+    var eleContainer = document.getElementsByClassName("form-group")[0];
+
+    eleContainer.innerHTML = eleContainer.innerHTML   +   '<div id="pdf-link"> <a href="_static/Babel.pdf" > <img src="http://www.adobe.com/images/pdficon_large.png" alt="Babel PDF documentation"> doc as pdf </a></div>'  ;
+
+    });
   </script>
 
 
@@ -191,9 +202,9 @@
 <h2>Babel overview<a class="headerlink" href="#babel-overview" title="Permalink to this headline">¶</a></h2>
 <p>Babel is a Domain Specific Language (DSL). This means Babel helps you to specify what you want to achieve and not to make it directly.</p>
 <p>You may see Babel as one more DSL for Apache Camel, among well-known ones such as the Java, Scala and XML DSL:</p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="_images/architecture-camel.png"><img alt="_images/architecture-camel.png" src="_images/architecture-camel.png" style="width: 218.25px; height: 251.25px;" /></a>
-<p class="caption">Babel Camel is another way to write Apache Camel routes.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="_images/architecture-camel.png"><img alt="_images/architecture-camel.png" src="_images/architecture-camel.png" /></a>
+<p class="caption"><span class="caption-text">Babel Camel is another way to write Apache Camel routes.</span></p>
 </div>
 </div>
 <div class="section" id="babel-modules">
@@ -204,9 +215,9 @@
 <li><strong>babel-camel</strong> is a connector for Apache Camel</li>
 <li><strong>babel-spring</strong> is an experimental connector for Spring Integration (coming soon)</li>
 </ul>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="_images/architecture.png"><img alt="_images/architecture.png" src="_images/architecture.png" style="width: 218.25px; height: 210.0px;" /></a>
-<p class="caption">Babel&#8217;s modules : <strong>babel-fish</strong>, <strong>babel-camel</strong> and the experimental <strong>babel-spring</strong></p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="_images/architecture.png"><img alt="_images/architecture.png" src="_images/architecture.png" /></a>
+<p class="caption"><span class="caption-text">Babel&#8217;s modules : <strong>babel-fish</strong>, <strong>babel-camel</strong> and the experimental <strong>babel-spring</strong></span></p>
 </div>
 </div>
 </div>
@@ -224,7 +235,7 @@
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

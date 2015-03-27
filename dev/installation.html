@@ -39,7 +39,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
   
   <a href="https://github.com/crossing-tech/babel.git"
      class="visible-desktop hidden-xs"><img
@@ -47,6 +47,7 @@
     style="position: absolute; top: 50px; right: 0; border: 0;"
     src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
     alt="Fork me on GitHub"></a>
+
   <script>
     // Adjust banner height.
     $(function () {
@@ -58,6 +59,16 @@
     //  var navHeight = $(".navbar .container").css("height");
     //  $("#re-banner").css("top", navHeight);
     //});
+
+  </script>
+  <script>
+$(function () {
+    //Adds a pdf link
+    var eleContainer = document.getElementsByClassName("form-group")[0];
+
+    eleContainer.innerHTML = eleContainer.innerHTML   +   '<div id="pdf-link"> <a href="_static/Babel.pdf" > <img src="http://www.adobe.com/images/pdficon_large.png" alt="Babel PDF documentation"> doc as pdf </a></div>'  ;
+
+    });
   </script>
 
 
@@ -224,7 +235,7 @@ mvn install
 </div>
 <div class="section" id="build-babel-maven-archetype">
 <span id="archetypeinstall"></span><h3>Build Babel Maven archetype<a class="headerlink" href="#build-babel-maven-archetype" title="Permalink to this headline">¶</a></h3>
-<p>If you want to also install the Babel Camel Archetype locally, you only need to add the <tt class="docutils literal"><span class="pre">archetype</span></tt> maven profile to the previous script:</p>
+<p>If you want to also install the Babel Camel Archetype locally, you only need to add the <code class="docutils literal"><span class="pre">archetype</span></code> maven profile to the previous script:</p>
 <div class="highlight-bash"><div class="highlight"><pre>git clone https://github.com/babel-dsl/babel.git
 <span class="nb">cd </span>babel
 <span class="nb">export </span><span class="nv">MAVEN_OPTS</span><span class="o">=</span><span class="s2">&quot;-XX:MaxPermSize=256m -Xmx1024m&quot;</span>
@@ -272,7 +283,7 @@ sbt <span class="nb">test </span>publish-local
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

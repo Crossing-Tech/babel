@@ -38,7 +38,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
   
   <a href="https://github.com/crossing-tech/babel.git"
      class="visible-desktop hidden-xs"><img
@@ -46,6 +46,7 @@
     style="position: absolute; top: 50px; right: 0; border: 0;"
     src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
     alt="Fork me on GitHub"></a>
+
   <script>
     // Adjust banner height.
     $(function () {
@@ -57,6 +58,16 @@
     //  var navHeight = $(".navbar .container").css("height");
     //  $("#re-banner").css("top", navHeight);
     //});
+
+  </script>
+  <script>
+$(function () {
+    //Adds a pdf link
+    var eleContainer = document.getElementsByClassName("form-group")[0];
+
+    eleContainer.innerHTML = eleContainer.innerHTML   +   '<div id="pdf-link"> <a href="_static/Babel.pdf" > <img src="http://www.adobe.com/images/pdficon_large.png" alt="Babel PDF documentation"> doc as pdf </a></div>'  ;
+
+    });
   </script>
 
 
@@ -189,18 +200,18 @@
       
   <div class="section" id="mock-extension">
 <h1>Mock Extension<a class="headerlink" href="#mock-extension" title="Permalink to this headline">¶</a></h1>
-<p>Mock is the first extension of the Babel Camel DSL. For more information on the extension, please have a look to <a class="reference internal" href="../dev/extension.html#babel-dev-extension"><em>Babel Extension creation</em></a> guide.</p>
+<p>Mock is the first extension of the Babel Camel DSL. For more information on the extension, please have a look to <a class="reference internal" href="../dev/extension.html#babel-dev-extension"><span>Babel Extension creation</span></a> guide.</p>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>An extension for Babel Camel declaring some helpers for testing.</p>
 <div class="section" id="requirement">
 <h3>Requirement<a class="headerlink" href="#requirement" title="Permalink to this headline">¶</a></h3>
-<p>The <tt class="docutils literal"><span class="pre">babel-camel-mock</span></tt> module needs to in the classpath.</p>
+<p>The <code class="docutils literal"><span class="pre">babel-camel-mock</span></code> module needs to in the classpath.</p>
 </div>
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>Import the <tt class="docutils literal"><span class="pre">io.xtech.babel.camel.mock._</span></tt> package and extends the <tt class="docutils literal"><span class="pre">RouteBuilder</span></tt> with the <tt class="docutils literal"><span class="pre">Mock</span></tt> trait.</p>
+<p>Import the <code class="docutils literal"><span class="pre">io.xtech.babel.camel.mock._</span></code> package and extends the <code class="docutils literal"><span class="pre">RouteBuilder</span></code> with the <code class="docutils literal"><span class="pre">Mock</span></code> trait.</p>
 <div class="section" id="mock-component">
 <h3>mock component<a class="headerlink" href="#mock-component" title="Permalink to this headline">¶</a></h3>
 <p>For testing a mock endpoint can be declared with the mock endpoint.</p>
@@ -232,7 +243,7 @@
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

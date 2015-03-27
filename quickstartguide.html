@@ -38,7 +38,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body>
+  <body role="document">
   
   <a href="https://github.com/crossing-tech/babel.git"
      class="visible-desktop hidden-xs"><img
@@ -46,6 +46,7 @@
     style="position: absolute; top: 50px; right: 0; border: 0;"
     src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
     alt="Fork me on GitHub"></a>
+
   <script>
     // Adjust banner height.
     $(function () {
@@ -57,6 +58,16 @@
     //  var navHeight = $(".navbar .container").css("height");
     //  $("#re-banner").css("top", navHeight);
     //});
+
+  </script>
+  <script>
+$(function () {
+    //Adds a pdf link
+    var eleContainer = document.getElementsByClassName("form-group")[0];
+
+    eleContainer.innerHTML = eleContainer.innerHTML   +   '<div id="pdf-link"> <a href="_static/Babel.pdf" > <img src="http://www.adobe.com/images/pdficon_large.png" alt="Babel PDF documentation"> doc as pdf </a></div>'  ;
+
+    });
   </script>
 
 
@@ -203,7 +214,7 @@
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 </div>
-<p>If you don&#8217;t want to build the Babel project on your machine (otherwise, see <a class="reference internal" href="dev/installation.html#maveninstall"><em>Build Babel with Maven</em></a>), use the Sonatype Snapshot repository to your Maven configuration:</p>
+<p>If you don&#8217;t want to build the Babel project on your machine (otherwise, see <a class="reference internal" href="dev/installation.html#maveninstall"><span>Build Babel with Maven</span></a>), use the Sonatype Snapshot repository to your Maven configuration:</p>
 <div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;repository&gt;</span>
      <span class="nt">&lt;id&gt;</span>oss-sonatype<span class="nt">&lt;/id&gt;</span>
      <span class="nt">&lt;name&gt;</span>oss-sonatype<span class="nt">&lt;/name&gt;</span>
@@ -239,7 +250,7 @@ libraryDependencies += &quot;io.xtech.babel&quot; %% &quot;babel-camel-mock&quot
 </div>
 <div class="section" id="babel-archetypes">
 <h2>Babel Archetypes<a class="headerlink" href="#babel-archetypes" title="Permalink to this headline">¶</a></h2>
-<p>The Babel Camel Archetype may help you to start a maven project using Babel. Currently, you need to first install the Babel project with Maven following the <a class="reference internal" href="dev/installation.html#archetypeinstall"><em>Build Babel Maven archetype</em></a> part.
+<p>The Babel Camel Archetype may help you to start a maven project using Babel. Currently, you need to first install the Babel project with Maven following the <a class="reference internal" href="dev/installation.html#archetypeinstall"><span>Build Babel Maven archetype</span></a> part.
 Once you have installed the babel project locally, use the following command to start a new maven project including Babel through the following command:</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="n">mvn</span> <span class="n">archetype</span><span class="k">:</span><span class="kt">generate</span>                       <span class="kt">\</span>
 <span class="o">-</span><span class="nc">DarchetypeGroupId</span><span class="k">=</span><span class="n">io</span><span class="o">.</span><span class="n">xtech</span><span class="o">.</span><span class="n">babel</span>            <span class="o">\</span>
@@ -262,7 +273,7 @@ Once you have installed the babel project locally, use the following command to 
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

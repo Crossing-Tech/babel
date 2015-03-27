@@ -38,3 +38,17 @@ visibility: hidden;
 .localtoc{
 visibility: hidden;
 }
+
+#pdf-link {
+  float:right;
+  vertical-align: middle;
+  padding-top:5px;
+  padding-bottom:5px;
+  padding-left:10px;
+}
+#pdf-link a:link {
+  color: #FFFFFF;
+}
+#pdf-link a:visited {
+  color: #FFFFFF;
+}

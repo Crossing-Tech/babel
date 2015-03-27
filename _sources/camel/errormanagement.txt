@@ -4,7 +4,7 @@ Babel Camel Error management
 
 Babel provides mainly two ways to deal with errors : depending on if the handling is Exception specific or not. In any case, the error handling is done using the **handle** keyword.
 
-.. figure:: ../grammar-diagrams/handler-2.svg
+.. figure:: ../grammar-diagrams/handler-2.png
    :align: center
    :scale: 100 %
    :alt: Handle keyword
@@ -20,7 +20,7 @@ General error handling
 
 This part concerns error handling which does not take into account the type of the raised exception. It just let you define strategies that are used for any raised exception:
 
-.. figure:: ../grammar-diagrams/handler-4.svg
+.. figure:: ../grammar-diagrams/handler-4.png
    :align: center
    :scale: 100 %
    :alt: general error-handling
@@ -64,7 +64,7 @@ You may define specific error management depending on the type of the thrown exc
 * **continued**
 * **handled**
 
-.. figure:: ../grammar-diagrams/handler-3.svg
+.. figure:: ../grammar-diagrams/handler-3.png
    :align: center
    :scale: 100 %
    :alt: OnException clauses
@@ -100,7 +100,7 @@ You may use the **sub** keyword to define a new route which should manage this e
 Configure several routes
 ++++++++++++++++++++++++
 
-.. figure:: ../grammar-diagrams/handler-1.svg
+.. figure:: ../grammar-diagrams/handler-1.png
    :align: center
    :scale: 100 %
    :alt: Error handling for Routes and RouteBuilder
