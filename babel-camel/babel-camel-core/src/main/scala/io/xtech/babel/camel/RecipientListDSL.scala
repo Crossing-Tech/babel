@@ -9,6 +9,7 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.model.RecipientListDefinition
+import io.xtech.babel.camel.parsing.RecipientlistDSL
 import io.xtech.babel.fish.model.{ Expression, Message }
 import io.xtech.babel.fish.{ BaseDSL, DSL2BaseDSL, MessageExpression }
 import scala.reflect.ClassTag
@@ -21,9 +22,11 @@ private[camel] class RecipientListDSL[I: ClassTag](protected val baseDsl: BaseDS
     * @tparam E
     * @return the possibility to add other steps to the current DSL
     */
-  def recipientList[E](function: Message[I] => E): BaseDSL[I] = {
+  def recipientList[E](function: Message[I] => E): RecipientlistDSL[I] = {
 
-    RecipientListDefinition(MessageExpression(function))
+    val definition = RecipientListDefinition(MessageExpression(function))
+    baseDsl.step.next = Some(definition)
+    new RecipientlistDSL[I](definition)
   }
 
   /**
@@ -32,9 +35,11 @@ private[camel] class RecipientListDSL[I: ClassTag](protected val baseDsl: BaseDS
     * @tparam E type the targets (endpoints)
     * @return the possibility to add other steps to the current DSL
     */
-  def recipientList[E](expression: Expression[I, E]): BaseDSL[I] = {
+  def recipientList[E](expression: Expression[I, E]): RecipientlistDSL[I] = {
 
-    RecipientListDefinition(expression)
+    val definition = RecipientListDefinition(expression)
+    baseDsl.step.next = Some(definition)
+    new RecipientlistDSL[I](definition)
   }
 
 }

@@ -155,9 +155,11 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     * @tparam S the native type of the endpoints.
     * @return the possibility to add other steps to the current DSL.
     */
-  def multicast[S](sinks: S*)(implicit convert: Seq[S] => immutable.Seq[Sink[I, _]]): BaseDSL[I] = {
+  def multicast[S](sinks: S*)(implicit convert: Seq[S] => immutable.Seq[Sink[I, _]]): MulticastDSL[I] = {
 
-    MulticastDefinition(sinks)
+    val definition = MulticastDefinition(sinks)
+    baseDsl.step.next = Some(definition)
+    new MulticastDSL[I](definition)
   }
 
   /**
@@ -303,9 +305,11 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     * @tparam O the type of the message pieces.
     * @return the possibility to add other steps to the current DSL.
     */
-  def splitBody[O: ClassTag](splitter: (I => Iterator[O])): BaseDSL[O] = {
+  def splitBody[O: ClassTag](splitter: (I => Iterator[O])): SplitDSL[O] = {
 
-    SplitterDefinition(BodyExpression(splitter))
+    val definition = SplitterDefinition(BodyExpression(splitter))
+    baseDsl.step.next = Some(definition)
+    new SplitDSL[O](definition)
   }
 
   /**
@@ -315,9 +319,11 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     * @tparam O the type of the message pieces.
     * @return the possibility to add other steps to the current DSL.
     */
-  def split[O: ClassTag](splitter: (Message[I] => Iterator[O])): BaseDSL[O] = {
+  def split[O: ClassTag](splitter: (Message[I] => Iterator[O])): SplitDSL[O] = {
 
-    SplitterDefinition(MessageExpression(splitter))
+    val definition = SplitterDefinition(MessageExpression(splitter))
+    baseDsl.step.next = Some(definition)
+    new SplitDSL[O](definition)
   }
 
   /**
@@ -327,9 +333,11 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     * @tparam O the type of the message pieces.
     * @return the possibility to add other steps to the current DSL.
     */
-  def split[O: ClassTag](expression: Expression[I, O]): BaseDSL[O] = {
+  def split[O: ClassTag](expression: Expression[I, O]): SplitDSL[O] = {
 
-    SplitterDefinition(expression)
+    val definition = SplitterDefinition(expression)
+    baseDsl.step.next = Some(definition)
+    new SplitDSL[O](definition)
   }
 
   /**
@@ -342,6 +350,9 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     AggregationDefinition(aggregation)
   }
 }
+
+class SplitDSL[I: ClassTag](step: StepDefinition) extends BaseDSL[I](step)
+class MulticastDSL[I: ClassTag](step: StepDefinition) extends BaseDSL[I](step)
 
 class RouteDefinitionException(val errors: immutable.Seq[ValidationError]) extends Exception("The route has validation errors") {
   override def toString(): String = {
