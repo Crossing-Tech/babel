@@ -7,10 +7,7 @@
 #source ./ENV/bin/activate
 
 pip install sphinx sphinx_bootstrap_theme
-#concerning the slides
-pip install sphinxjp.themecore sphinxjp.themes.impressjs
-#diagram generation
-pip install sphinxcontrib-blockdiag
+
 cd babel-doc
 make clean
 
@@ -20,13 +17,6 @@ make html
 #generate the main documentation in pdf
 make latexpdf
 cp build/latex/Babel.pdf build/html/_static/
-
-#generate the slides
-cd slides/overview
-make html
-cd ../..
-mkdir build/html/slides
-cp -R slides/overview/_build/html build/html/slides/overview
 
 #Clean the python virtual env
 cd ..
