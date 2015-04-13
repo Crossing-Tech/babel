@@ -26,6 +26,11 @@ In this example, the predicate is a function taking a message and returning a bo
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/splitfilter/SimpleSplitFilterSpec.scala#doc:babel-camel-filter
 
+.. note::
+
+   Contrary to Apache Camel, Babel does not provide the *end* keyword. After the *filter* (or *filterBody*) keyword, only accepted message are processed by next EIPs.
+   If you want to process also the other message, you may dispatch your message to another part of route, with a *multicast* or a *choice* for example.
+
 Choice
 ++++++
 

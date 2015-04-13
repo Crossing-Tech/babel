@@ -71,13 +71,14 @@ class SimpleSplitFilterSpec extends SpecificationWithJUnit {
           .splitBody(body => body.split(",").iterator)
           //the filter will only let continue the one whose body is "true"
           .filterBody(body => body == "true").
-          to("mock:output")
+          to("mock:output1").
+          to("mock:output2")
       }
       //#doc:babel-camel-filter
 
       val otherRoute = new CRouteBuilder() {
         def configure(): Unit = {
-          from("direct:camel").split(body.tokenize(",")).filter(body.contains("true")).to("mock:camel")
+          from("direct:camel").split(body.tokenize(",")).filter(body.contains("true")).to("mock:camel1").end().to("mock:camel2")
         }
       }
 
@@ -87,16 +88,23 @@ class SimpleSplitFilterSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      val mockCamel = camelContext.getEndpoint("mock:camel").asInstanceOf[MockEndpoint]
+      val mockEndpoint1 = camelContext.getEndpoint("mock:output1").asInstanceOf[MockEndpoint]
+      val mockEndpoint2 = camelContext.getEndpoint("mock:output2").asInstanceOf[MockEndpoint]
+      val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
+      val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
 
-      mockEndpoint.expectedBodiesReceived("true")
-      mockCamel.expectedBodiesReceived("true")
+      mockEndpoint1.expectedBodiesReceived("true")
+      mockEndpoint2.expectedBodiesReceived("true")
+      mockCamel1.expectedBodiesReceived("true")
+      mockCamel2.expectedMessageCount(8) //the second camel endpoint is out of the filter
 
       producer.sendBody("direct:input", "1,2,3,true,4,5,6,7")
       producer.sendBody("direct:camel", "1,2,3,true,4,5,6,7")
 
-      mockEndpoint.assertIsSatisfied()
+      mockEndpoint1.assertIsSatisfied()
+      mockEndpoint2.assertIsSatisfied()
+      mockCamel1.assertIsSatisfied()
+      mockCamel2.assertIsSatisfied()
     }
     "integrates together in a complex route" in new camel {
 
