@@ -9,8 +9,8 @@
 package io.xtech.babel.camel.builder
 
 import io.xtech.babel.camel._
-import io.xtech.babel.camel.model.EmptyDefinition
-import io.xtech.babel.fish.model.RouteDefinition
+import io.xtech.babel.camel.model.{ CamelMessage, EmptyDefinition }
+import io.xtech.babel.fish.model.{ Message, RouteDefinition }
 import io.xtech.babel.fish.{ DSL, NoDSL }
 import org.apache.camel.model.ModelCamelContext
 import org.apache.camel.{ CamelContext, RoutesBuilder, RuntimeCamelException }
