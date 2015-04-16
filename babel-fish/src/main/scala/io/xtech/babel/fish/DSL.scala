@@ -308,6 +308,28 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     SplitterDefinition(BodyExpression(splitter))
   }
 
+  def splitReduceBody[O: ClassTag, G: ClassTag](splitter: (I => Iterator[O]))(splitterRoute: (BaseDSL[O]) => BaseDSL[G])(reduce: (G, G) => G): BaseDSL[G] = {
+
+    val definition = SplitReduceDefinition(BodyExpression(splitter), reduce)
+
+    splitterRoute(new BaseDSL[O](definition.internalRouteDefinition))
+
+    baseDsl.step.next = Some(definition)
+    new BaseDSL[G](definition)
+    definition
+  }
+
+  def splitFoldBody[O: ClassTag, G, H: ClassTag](splitter: (I => Iterator[O]))(splitterRoute: (BaseDSL[O]) => BaseDSL[G])(seed: H)(fold: (H, G) => H): BaseDSL[H] = {
+
+    val definition = SplitFoldDefinition(BodyExpression(splitter), seed, fold)
+
+    splitterRoute(new BaseDSL[O](definition.internalRouteDefinition))
+
+    baseDsl.step.next = Some(definition)
+    new BaseDSL[H](definition)
+    definition
+  }
+
   /**
     * Declare a message splitter or a way to split a message body in pieces.
     * @param splitter the function used to split the message. It takes the message and returns an Iterator of the pieces.

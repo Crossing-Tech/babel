@@ -147,6 +147,25 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
       camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(expression))
 
     }
+
+    case s @ StepInformation(definition: SplitReduceDefinition[_, _, _], camelProcessorDefinition: ProcessorDefinition[_]) => {
+
+      val aggregationStrategy = new ReduceBodyAggregationStrategy(definition.reduce)
+      val split = camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(definition.expression), aggregationStrategy)
+      definition.internalRouteDefinition.next.foreach(splitterRoute => process(splitterRoute, split)(s.buildHelper))
+
+      split.end()
+    }
+
+    case s @ StepInformation(definition: SplitFoldDefinition[_, _, _, _], camelProcessorDefinition: ProcessorDefinition[_]) => {
+
+      val aggregationStrategy = new FoldBodyAggregationStrategy(definition.seed, definition.fold)
+      val split = camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(definition.expression), aggregationStrategy)
+      definition.internalRouteDefinition.next.foreach(splitterRoute => process(splitterRoute, split)(s.buildHelper))
+
+      split.end()
+    }
+
   }
 
   /**

@@ -6,21 +6,21 @@ The Routing is used to define where the messages should be routed, or not.
 Multicast
 +++++++++
 
-The *multicast* keywords defines a static list of outputs where the message is sent.
+The **multicast** keywords defines a static list of outputs where the message is sent.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/MulticastSpec.scala#doc:babel-camel-multicast
 
 Recipient list
 ++++++++++++++
 
-The *recipientList* is like the multicast keyword, but the list can be dynamic and calculated at runtime.
+The **recipientList** is like the multicast keyword, but the list can be dynamic and calculated at runtime.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RecipientListSpec.scala#doc:babel-camel-recipientList
 
 Filter
 ++++++
 
-The *filter* and *filterBody* keywords filter message with a predicate.
+The **filter** and **filterBody** keywords filter message with a predicate.
 
 In this example, the predicate is a function taking a message and returning a boolean.
 
@@ -29,9 +29,9 @@ In this example, the predicate is a function taking a message and returning a bo
 Choice
 ++++++
 
-The *choice* keyword gives you a way to choose where you are sending the message.
+The **choice** keyword gives you a way to choose where you are sending the message.
 
-You configures a choice with *when*, *whenBody* and *otherwise* keywords.
+You configures a choice with **when**, **whenBody** and **otherwise** keywords.
 Each when accepts a predicate. In this example the predicates are function taking message and returning a boolean.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/SimpleChoiceSpec.scala#doc:babel-camel-choice
@@ -39,11 +39,22 @@ Each when accepts a predicate. In this example the predicates are function takin
 Splitter
 ++++++++
 
-The *split* keyword is the way to split a message in pieces, the *splitBody* does the same directly on the message body.
+The **split** keyword is the way to split a message in pieces, the **splitBody** does the same directly on the message body.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/splitfilter/SimpleSplitFilterSpec.scala#doc:babel-camel-splitter
 
 In this example the splitting is done with a function which takes the message body and returns an Iterator.
+
+The **splitReduceBody** and the **splitFoldBody** define higher-level EIPs: The possibility to split a content, apply a modification on each part of the content and then merge those parts into a new content. The two keywords differs in their way to merge the final content. They are inspired by the ``AggregationStrategy`` that are defined in the ``Aggregation`` part.
+
+The **splitReduceBody** let you define a simple aggregation which does not change the type during the aggregation:
+
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/SplitAggregateSpec.scala#doc:babel-camel-split-reduce
+
+The **splitFoldBody** let you define a more complexe aggregation which does change the type during the aggregation:
+
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/SplitAggregateSpec.scala#doc:babel-camel-split-fold
+
 
 
 Aggregation
@@ -86,14 +97,14 @@ Camel Aggregation
 Wire-Tap
 ++++++++
 
-The *wiretap* keyword is the way to route messages to another location while they keep beeing process by the regular flow.
+The **wiretap** keyword is the way to route messages to another location while they keep beeing process by the regular flow.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/WireTapSpec.scala#doc:babel-camel-wiretap
 
 Validate
 ++++++++
 
-The *validate* keyword validates messages passing through a route using a function or a Camel predicate.
+The **validate** keyword validates messages passing through a route using a function or a Camel predicate.
 
 A message will be valid only if the expression or function is returning true. Otherwise, an exception is thrown.
 
