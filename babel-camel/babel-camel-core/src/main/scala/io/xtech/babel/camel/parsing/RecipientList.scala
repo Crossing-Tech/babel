@@ -11,6 +11,7 @@ package io.xtech.babel.camel.parsing
 import io.xtech.babel.camel.RecipientListDSL
 import io.xtech.babel.camel.model.{ Expressions, RecipientListDefinition }
 import io.xtech.babel.fish.BaseDSL
+import io.xtech.babel.fish.model.StepDefinition
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.ProcessorDefinition
 import scala.collection.immutable
@@ -36,3 +37,5 @@ private[babel] trait RecipientList extends CamelParsing {
     }
   }
 }
+
+protected[babel] class RecipientlistDSL[I: ClassTag](step: StepDefinition) extends BaseDSL[I](step)
