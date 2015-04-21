@@ -3,7 +3,7 @@ Babel
 
 ### Build Status ###
 
-Master: [![Build Status](https://travis-ci.org/Crossing-Tech/babel.svg?branch=master)](https://travis-ci.org/Crossing-Tech/babel) [![Coverage Status](https://img.shields.io/coveralls/crossing-tech/babel.svg)](https://coveralls.io/r/crossing-tech/babel?branch=master)
+Master: [![Build Status](https://travis-ci.org/Crossing-Tech/babel.svg?branch=master)](https://travis-ci.org/Crossing-Tech/babel) [![Coverage Status](https://coveralls.io/repos/Crossing-Tech/babel/badge.svg?branch=master)](https://coveralls.io/r/Crossing-Tech/babel?branch=master)
 
 ### Description ###
 
