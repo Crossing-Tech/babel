@@ -37,6 +37,7 @@ trait CamelDSL extends StepProcessor[RouteBuilder] with Basics
     with Aggregation
     with Transaction
     with Transformation
+    with Throttler
     with Marshaller
     with RouteId
     with Enricher

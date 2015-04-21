@@ -5,6 +5,7 @@
  *
  * ==================================================================================
  */
+
 package io.xtech.babel.camel.model
 
 import io.xtech.babel.fish.model.{ Predicate, StepDefinition }

@@ -5,6 +5,7 @@
  *
  * ==================================================================================
  */
+
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.model.ReduceBodyAggregationStrategy
