@@ -44,7 +44,7 @@ class ThrottlerSpec extends SpecificationWithJUnit {
 
     camelContext.start()
 
-    val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+    val mockEndpoint = camelContext.mockEndpoint({output})
 
     mockEndpoint.setExpectedMessageCount(msgs)
 

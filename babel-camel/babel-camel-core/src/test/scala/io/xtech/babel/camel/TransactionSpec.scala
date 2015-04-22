@@ -11,6 +11,7 @@ package io.xtech.babel.camel
 import javax.sql.DataSource
 
 import io.xtech.babel.camel.TransactionSpec.TransactionTestContext
+import io.xtech.babel.camel.mock.Mock
 import io.xtech.babel.camel.test.CachedBabelSpringSpecification
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.model.ModelCamelContext
@@ -148,15 +149,15 @@ class TransactionSpec extends CachedBabelSpringSpecification {
 
       jdbcTemplate.execute("delete from users")
 
-      val routeDef = new RouteBuilder {
+      val routeDef = new RouteBuilder with Mock {
         var tries = 3
 
         from("direct:input6")
           .handle(_.transactionErrorHandler.maximumRedeliveries(tries))
           .transacted
           .to("sql:insert into users (name) values (#)?dataSourceRef=dataSource")
-          .to("mock:in-the-middle-route")
-          .as[String].process(m => {
+          .mock("in-the-middle-route")
+          .process(m => {
             tries -= 1
             if (tries != 0) throw new Exception("Expected exception") else m
           })
@@ -190,7 +191,7 @@ class TransactionSpec extends CachedBabelSpringSpecification {
 
       jdbcTemplate.execute("delete from users")
 
-      val routeDef = new RouteBuilder {
+      val routeDef = new RouteBuilder with Mock{
         var tries = 3
 
         handle(_.transactionErrorHandler.maximumRedeliveries(tries))
@@ -198,8 +199,8 @@ class TransactionSpec extends CachedBabelSpringSpecification {
         from("direct:input7")
           .transacted
           .to("sql:insert into users (name) values (#)?dataSourceRef=dataSource")
-          .to("mock:in-the-middle-route-builder")
-          .as[String].process(m => {
+          .mock("in-the-middle-route-builder")
+          .process(m => {
             tries -= 1;
             if (tries != 0) throw new Exception("Expected exception") else m
           })

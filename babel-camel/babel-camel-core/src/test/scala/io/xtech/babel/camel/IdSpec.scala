@@ -170,7 +170,7 @@ class IdSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEnpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEnpoint = camelContext.mockEndoint("mock:output")
       mockEnpoint.expectedBodiesReceived("blablibli")
 
       producer.sendBody("direct:input", "blabli")

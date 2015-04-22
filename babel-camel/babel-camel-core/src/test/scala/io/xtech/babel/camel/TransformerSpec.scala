@@ -47,7 +47,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndoint("mock:output")
 
       mockEndpoint.expectedBodiesReceived("testbla")
 
@@ -81,7 +81,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndoint("mock:output")
 
       mockEndpoint.expectedBodiesReceived("testbla")
 
@@ -112,7 +112,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndoint("mock:output")
 
       mockEndpoint.expectedBodiesReceived("testbla")
 
@@ -136,7 +136,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndoint("mock:output")
 
       mockEndpoint.expectedBodiesReceived("testbla")
 
@@ -167,7 +167,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndoint("mock:output")
 
       mockEndpoint.expectedBodiesReceived("testbla")
 
@@ -191,7 +191,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndoint("mock:output")
 
       mockEndpoint.expectedBodiesReceived("testbla")
 

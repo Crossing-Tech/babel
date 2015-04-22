@@ -55,10 +55,10 @@ class SampleSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpointF = camelContext.getEndpoint("mock:france").asInstanceOf[MockEndpoint]
+      val mockEndpointF = camelContext.mockEndpoint({france})
       mockEndpointF.expectedBodiesReceived("F")
 
-      val mockEndpointCH = camelContext.getEndpoint("mock:switzerland").asInstanceOf[MockEndpoint]
+      val mockEndpointCH = camelContext.mockEndpoint({switzerland})
       mockEndpointCH.expectedBodiesReceived("CH")
 
       val producer = camelContext.createProducerTemplate()

@@ -49,7 +49,7 @@ class RequireAsSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndoint(mockProducer)
 
       //#doc:babel-camel-requireAs
       val producer = camelContext.createProducerTemplate()
@@ -74,7 +74,7 @@ class RequireAsSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndoint(mockProducer)
 
       //#doc:babel-camel-requireAs-exception
       val producer = camelContext.createProducerTemplate()
@@ -94,7 +94,7 @@ class RequireAsSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndoint(mockProducer)
 
       val b: B = B("bla")
       val a: A = B("bla")
@@ -117,7 +117,7 @@ class RequireAsSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndoint(mockProducer)
 
       mockEndpoint.expectedBodiesReceived(42: java.lang.Integer)
 

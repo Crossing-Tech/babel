@@ -8,6 +8,7 @@
 
 package io.xtech.babel.camel
 
+import io.xtech.babel.camel.mock.Mock
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.RouteDefinitionException
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
@@ -46,8 +47,8 @@ class SplitFilterSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      val mockCamel = camelContext.getEndpoint("mock:camel").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockCamel = camelContext.mockEndpoint({camel})
 
       mockEndpoint.expectedBodiesReceived("true")
       mockCamel.expectedBodiesReceived("true")
@@ -88,10 +89,8 @@ class SplitFilterSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint1 = camelContext.getEndpoint("mock:output1").asInstanceOf[MockEndpoint]
-      val mockEndpoint2 = camelContext.getEndpoint("mock:output2").asInstanceOf[MockEndpoint]
-      val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
-      val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndoint("mock:output")
+      val mockCamel = camelContext.mockEndoint("mock:camel")
 
       mockEndpoint1.expectedBodiesReceived("true")
       mockEndpoint2.expectedBodiesReceived("true")
@@ -112,14 +111,13 @@ class SplitFilterSpec extends SpecificationWithJUnit {
 
       import io.xtech.babel.camel.builder.RouteBuilder
 
-      val routeDef = new RouteBuilder {
+      val routeDef = new RouteBuilder with Mock {
         from("direct:input").as[String]
           //split the message base on its body using the comma
           .splitBody(_.split(",").iterator)
           //which creates several messages
           .filter(msg => msg.body.exists(body => body.contains("true")))
-          //required as keyword to recover the type
-          .to("mock:output").as[String]
+          .mock("output")
           //split the message base on its body using the spaces
           .splitBody(_.split(" ").iterator)
           .filter(msg => msg.body.exists(body => body == "false")).to("mock:false")
@@ -139,10 +137,10 @@ class SplitFilterSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      val mockEndEndpoint = camelContext.getEndpoint("mock:false").asInstanceOf[MockEndpoint]
-      val mockCamel = camelContext.getEndpoint("mock:camel").asInstanceOf[MockEndpoint]
-      val mockEndCamel = camelContext.getEndpoint("mock:camelfalse").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndEndpoint = camelContext.mockEndpoint({false})
+      val mockCamel = camelContext.mockEndpoint({camel})
+      val mockEndCamel = camelContext.mockEndpoint({camelfalse})
 
       mockEndpoint.expectedBodiesReceived("true false")
       mockEndEndpoint.expectedBodiesReceived("false")

@@ -40,7 +40,7 @@ class AsSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint({output})
 
       mockEndpoint.expectedBodiesReceived("1234")
 
@@ -67,7 +67,7 @@ class AsSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint({output})
 
       mockEndpoint.expectedBodiesReceived("1234")
 
@@ -90,7 +90,7 @@ class AsSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint({output})
 
       mockEndpoint.expectedBodiesReceived(List(1, 2, 3))
 

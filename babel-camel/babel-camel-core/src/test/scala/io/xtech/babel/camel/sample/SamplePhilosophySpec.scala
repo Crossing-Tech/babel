@@ -68,10 +68,10 @@ class SamplePhilosophySpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockLower = camelContext.getEndpoint("mock:lowercase").asInstanceOf[MockEndpoint]
+      val mockLower = camelContext.mockEndpoint({lowercase})
       mockLower.expectedBodiesReceived("h2g2")
 
-      val mockDouble = camelContext.getEndpoint("mock:double").asInstanceOf[MockEndpoint]
+      val mockDouble = camelContext.mockEndpoint({double})
       mockDouble.expectedBodiesReceived("42")
 
       val producer = camelContext.createProducerTemplate()
@@ -115,7 +115,7 @@ class SamplePhilosophySpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockTwitts = camelContext.getEndpoint("mock:twitts").asInstanceOf[MockEndpoint]
+      val mockTwitts = camelContext.mockEndpoint({twitts})
       mockTwitts.expectedBodiesReceived("h2g2")
 
       val producer = camelContext.createProducerTemplate()

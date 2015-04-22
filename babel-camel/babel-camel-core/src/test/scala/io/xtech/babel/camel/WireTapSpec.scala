@@ -52,10 +52,10 @@ class WireTapSpec extends SpecificationWithJUnit {
 
     camelContext.start()
 
-    val mockEndpointB = camelContext.getEndpoint("mock:output-babel").asInstanceOf[MockEndpoint]
-    val mockEndpointBT = camelContext.getEndpoint("mock:babel-tap").asInstanceOf[MockEndpoint]
-    val mockEndpointC = camelContext.getEndpoint("mock:output-camel").asInstanceOf[MockEndpoint]
-    val mockEndpointCT = camelContext.getEndpoint("mock:camel-tap").asInstanceOf[MockEndpoint]
+    val mockEndpointB = camelContext.mockEndoint("mock:output-babel")
+    val mockEndpointBT = camelContext.mockEndoint("mock:babel-tap")
+    val mockEndpointC = camelContext.mockEndoint("mock:output-camel")
+    val mockEndpointCT = camelContext.mockEndoint("mock:camel-tap")
 
     mockEndpointB.expectedBodiesReceived(testMessage, wireTapMessage)
     mockEndpointBT.expectedBodiesReceived(wireTapMessage)

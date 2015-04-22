@@ -90,7 +90,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint({output})
 
       mockEndpoint.expectedBodyReceived().body().isEqualTo(outputData)
 
@@ -122,7 +122,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint({output})
 
       mockEndpoint.expectedMessageCount(1)
 
@@ -151,7 +151,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint({output})
 
       mockEndpoint.expectedMessageCount(1)
 
@@ -175,7 +175,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint({output})
 
       mockEndpoint.expectedBodyReceived().body().isEqualTo(outputData)
 
@@ -203,7 +203,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint({output})
 
       mockEndpoint.expectedBodiesReceived("""{"a":"1","b":{"@c":"2"},"d":{"e":"3","f":"4"}}""")
 
@@ -238,7 +238,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint({output})
 
       val expectedXml = """<?xml version="1.0" encoding="UTF-8"?><o><root><a>1</a><b c="2"/><d><e>3</e><f>4</f></d></root></o>"""
 

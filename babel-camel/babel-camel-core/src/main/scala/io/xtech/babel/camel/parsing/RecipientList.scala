@@ -39,4 +39,4 @@ private[babel] trait RecipientList extends CamelParsing { self: CamelDSL =>
   }
 }
 
-protected[babel] class RecipientlistDSL[I: ClassTag](step: StepDefinition) extends BaseDSL[I](step)
+class RecipientlistDSL[I: ClassTag](step: StepDefinition) extends BaseDSL[I](step)

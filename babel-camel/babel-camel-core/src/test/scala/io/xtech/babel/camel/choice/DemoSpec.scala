@@ -60,8 +60,8 @@ class DemoSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint1 = camelContext.getEndpoint("mock:database").asInstanceOf[MockEndpoint]
-    val mockEndpoint2 = camelContext.getEndpoint("mock:error").asInstanceOf[MockEndpoint]
+    val mockEndpoint1 = camelContext.mockEndpoint({database})
+    val mockEndpoint2 = camelContext.mockEndpoint({error})
 
     mockEndpoint1.expectedBodiesReceived("6")
     mockEndpoint2.expectedBodiesReceived("-1 is negative")
@@ -118,8 +118,8 @@ class DemoSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint1 = camelContext.getEndpoint("mock:database-camel-scala").asInstanceOf[MockEndpoint]
-    val mockEndpoint2 = camelContext.getEndpoint("mock:error-camel-scala").asInstanceOf[MockEndpoint]
+    val mockEndpoint1 = camelContext.mockEndoint("mock:database-camel-scala")
+    val mockEndpoint2 = camelContext.mockEndoint("mock:error-camel-scala")
 
     mockEndpoint1.expectedBodiesReceived("6")
     mockEndpoint2.expectedBodiesReceived("-1 is negative")

@@ -41,10 +41,10 @@ class RecipientListSpec extends SpecificationWithJUnit {
 
     camelContext.start()
 
-    val mockEndpoint1 = camelContext.getEndpoint("mock:output1").asInstanceOf[MockEndpoint]
-    val mockEndpoint2 = camelContext.getEndpoint("mock:output2").asInstanceOf[MockEndpoint]
-    val mockEndpoint3 = camelContext.getEndpoint("mock:output3").asInstanceOf[MockEndpoint]
-    val mockEndpoint4 = camelContext.getEndpoint("mock:output4").asInstanceOf[MockEndpoint]
+    val mockEndpoint1 = camelContext.mockEndpoint({output1})
+    val mockEndpoint2 = camelContext.mockEndpoint({output2})
+    val mockEndpoint3 = camelContext.mockEndpoint({output3})
+    val mockEndpoint4 = camelContext.mockEndpoint({output4})
 
     mockEndpoint1.expectedBodiesReceived("test")
     mockEndpoint2.expectedBodiesReceived("test")
@@ -94,10 +94,10 @@ class RecipientListSpec extends SpecificationWithJUnit {
 
     camelContext.start()
 
-    val mockEndpoint1 = camelContext.getEndpoint("mock:output1").asInstanceOf[MockEndpoint]
-    val mockEndpoint2 = camelContext.getEndpoint("mock:output2").asInstanceOf[MockEndpoint]
-    val mockEndpoint3 = camelContext.getEndpoint("mock:output3").asInstanceOf[MockEndpoint]
-    val mockEndpoint4 = camelContext.getEndpoint("mock:output4").asInstanceOf[MockEndpoint]
+    val mockEndpoint1 = camelContext.mockEndpoint({output1})
+    val mockEndpoint2 = camelContext.mockEndpoint({output2})
+    val mockEndpoint3 = camelContext.mockEndpoint({output3})
+    val mockEndpoint4 = camelContext.mockEndpoint({output4})
 
     mockEndpoint1.expectedBodiesReceived("test")
     mockEndpoint2.expectedBodiesReceived("test")

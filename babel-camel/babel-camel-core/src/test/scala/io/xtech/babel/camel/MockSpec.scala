@@ -9,13 +9,16 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
-import io.xtech.babel.camel.test._
+import org.apache.camel.impl.DefaultCamelContext
 import org.specs2.mutable.SpecificationWithJUnit
 
 class MockSpec extends SpecificationWithJUnit {
   sequential
 
-  "extend the DSL with some sub DSL (mock)" in new camel {
+  "extend the DSL with some sub DSL (mock)" in {
+
+
+    val camelContext = new DefaultCamelContext()
 
     //#doc:babel-camel-mock
     import io.xtech.babel.camel.mock._
@@ -24,8 +27,14 @@ class MockSpec extends SpecificationWithJUnit {
     //  extending the RouteBuilder with
     val routeDef = new RouteBuilder with Mock {
       //the mock keyword is the same as typing
-      //  to("mock:output")
-      from("direct:input").mock("output")
+      //  to("mock:output1")
+      from("direct:input").
+        requireAs[String].
+        mock("output1").
+        //the mock keyword keeps the same body type (here: String)
+        processBody(x => x.toUpperCase).
+        mock("output2")
+
     }
 
     //#doc:babel-camel-mock
@@ -34,15 +43,20 @@ class MockSpec extends SpecificationWithJUnit {
 
     camelContext.start()
 
-    val mockEndpoint = camelContext.getMockEndpoint("output")
+    val mockEndpoint1 = camelContext.mockEndpoint("output1")
+    val mockEndpoint2 = camelContext.getMockEndpoint("output2")
 
-    mockEndpoint.expectedBodiesReceived("test")
+    mockEndpoint1.expectedBodiesReceived("test")
+    mockEndpoint2.expectedBodiesReceived("TEST")
 
     val producer = camelContext.createProducerTemplate()
 
     producer.sendBody("direct:input", "test")
 
-    mockEndpoint.assertIsSatisfied()
+    mockEndpoint1.assertIsSatisfied()
+    mockEndpoint2.assertIsSatisfied()
+
+    camelContext.shutdown()
 
   }
 }

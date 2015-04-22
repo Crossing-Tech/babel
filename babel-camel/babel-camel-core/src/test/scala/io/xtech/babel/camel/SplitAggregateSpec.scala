@@ -62,16 +62,16 @@ class SplitAggregateSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockBabel1 = camelContext.getEndpoint("mock:babel1").asInstanceOf[MockEndpoint]
-    val mockBabel2 = camelContext.getEndpoint("mock:babel2").asInstanceOf[MockEndpoint]
-    val mockBabel3 = camelContext.getEndpoint("mock:babel3").asInstanceOf[MockEndpoint]
+    val mockBabel1 = camelContext.mockEndoint("mock:babel1")
+    val mockBabel2 = camelContext.mockEndoint("mock:babel2")
+    val mockBabel3 = camelContext.mockEndoint("mock:babel3")
     mockBabel1.expectedBodiesReceived("1", "2", "3")
     mockBabel2.expectedBodiesReceived("2", "3", "4")
     mockBabel3.expectedBodiesReceived("2,3,4")
 
-    val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
-    val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
-    val mockCamel3 = camelContext.getEndpoint("mock:camel3").asInstanceOf[MockEndpoint]
+    val mockCamel1 = camelContext.mockEndoint("mock:camel1")
+    val mockCamel2 = camelContext.mockEndoint("mock:camel2")
+    val mockCamel3 = camelContext.mockEndoint("mock:camel3")
     mockCamel1.expectedBodiesReceived("1", "2", "3")
     mockCamel2.expectedBodiesReceived("2", "3", "4")
     mockCamel3.expectedBodiesReceived("2,3,4")
@@ -133,16 +133,16 @@ class SplitAggregateSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockBabel1 = camelContext.getEndpoint("mock:babel1").asInstanceOf[MockEndpoint]
-    val mockBabel2 = camelContext.getEndpoint("mock:babel2").asInstanceOf[MockEndpoint]
-    val mockBabel3 = camelContext.getEndpoint("mock:babel3").asInstanceOf[MockEndpoint]
+    val mockBabel1 = camelContext.mockEndoint("mock:babel1")
+    val mockBabel2 = camelContext.mockEndoint("mock:babel2")
+    val mockBabel3 = camelContext.mockEndoint("mock:babel3")
     mockBabel1.expectedBodiesReceived("1", "2", "3")
     mockBabel2.expectedBodiesReceived("2", "3", "4")
     mockBabel3.expectedBodiesReceived("1,2,3,4")
 
-    val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
-    val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
-    val mockCamel3 = camelContext.getEndpoint("mock:camel3").asInstanceOf[MockEndpoint]
+    val mockCamel1 = camelContext.mockEndoint("mock:camel1")
+    val mockCamel2 = camelContext.mockEndoint("mock:camel2")
+    val mockCamel3 = camelContext.mockEndoint("mock:camel3")
     mockCamel1.expectedBodiesReceived("1", "2", "3")
     mockCamel2.expectedBodiesReceived("2", "3", "4")
     mockCamel3.expectedBodiesReceived("1,2,3,4")

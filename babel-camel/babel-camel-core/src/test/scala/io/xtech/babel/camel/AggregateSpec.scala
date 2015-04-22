@@ -57,9 +57,9 @@ class AggregateSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+    val mockEndpoint = camelContext.mockEndpoint({output})
     mockEndpoint.expectedMessageCount(1)
-    val mockCamel = camelContext.getEndpoint("mock:camel").asInstanceOf[MockEndpoint]
+    val mockCamel = camelContext.mockEndpoint({camel})
     mockCamel.expectedMessageCount(1)
 
     producer.sendBody(directConsumer, "1")
@@ -124,9 +124,9 @@ class AggregateSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+    val mockEndpoint = camelContext.mockEndpoint({output})
     mockEndpoint.expectedMessageCount(1)
-    val mockCamel = camelContext.getEndpoint("mock:camel").asInstanceOf[MockEndpoint]
+    val mockCamel = camelContext.mockEndpoint({camel})
     mockCamel.expectedMessageCount(1)
 
     producer.sendBody(directConsumer, "1")
@@ -192,8 +192,8 @@ class AggregateSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-    val camelEndpoint = camelContext.getEndpoint("mock:camel").asInstanceOf[MockEndpoint]
+    val mockEndpoint = camelContext.mockEndpoint({output})
+    val camelEndpoint = camelContext.mockEndpoint({camel})
 
     mockEndpoint.expectedBodiesReceived(6: Integer, 15: Integer, 24: Integer)
     camelEndpoint.expectedBodiesReceived(6: Integer, 15: Integer, 24: Integer)
@@ -260,8 +260,8 @@ class AggregateSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-    val mockCamel = camelContext.getEndpoint("mock:camel").asInstanceOf[MockEndpoint]
+    val mockEndpoint = camelContext.mockEndpoint({output})
+    val mockCamel = camelContext.mockEndpoint({camel})
 
     mockEndpoint.expectedBodiesReceived("123", "456", "789")
     mockCamel.expectedBodiesReceived("123", "456", "789")
