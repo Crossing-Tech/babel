@@ -81,11 +81,15 @@ trait CamelDSL extends StepProcessor[RouteBuilder] with Basics
     routeBuilder
   }
 
-  implicit protected def camelMessage[I](msg: Message[I]): CamelMessage[I] = msg match {
+  implicit def camelMessage[I](msg: Message[I]): CamelMessage[I] = CamelHelper.camelMessage(msg)
+
+}
+
+object CamelHelper {
+  implicit def camelMessage[I](msg: Message[I]): CamelMessage[I] = msg match {
     case m: CamelMessage[I] => m
     case other              => throw new IllegalArgumentException(s"Messages in Babel Camel should always be CamelMessage, but was $other")
   }
-
 }
 
 object CamelException {

@@ -9,7 +9,7 @@
 package io.xtech.babel.camel.model
 
 import io.xtech.babel.fish.model.Message
-import org.apache.camel.{ ExchangePattern, Message => NativeMessage }
+import org.apache.camel.{ Message => NativeMessage, Exchange, ExchangePattern }
 import scala.collection.JavaConverters._
 import scala.reflect._
 
@@ -130,6 +130,8 @@ class CamelMessage[I](message: NativeMessage) extends Message[I] {
     new CamelMessage[I](message)
   }
 
-  //the link to the wrapped exchange is cut as main functionnalities are provided directly in the current class.
-  //def nativeMessage = message
+  /**
+    * @return the Camel Exchange which is represented by this CamelMessage.
+    */
+  def exchange: Exchange = message.getExchange
 }
