@@ -8,16 +8,16 @@
 
 package io.xtech.babel.camel.model
 
-import io.xtech.babel.fish.model.{Expression, StepDefinition}
+import io.xtech.babel.fish.model.{ Expression, StepDefinition }
 
 /**
- * Declaration of a throttler definition
- * @param perSecond maximal number of message allowed per second
- */
+  * Declaration of a throttler definition
+  * @param perSecond maximal number of message allowed per second
+  */
 case class ThrottlerDefinitionLong(perSecond: Long) extends StepDefinition
 
 /**
- * Declaration of a throttler definition
- * @param perSecond expression defining maximal number of message allowed per second
- */
+  * Declaration of a throttler definition
+  * @param perSecond expression defining maximal number of message allowed per second
+  */
 case class ThrottlerDefinitionExpression[I](perSecond: Expression[I, Long]) extends StepDefinition
