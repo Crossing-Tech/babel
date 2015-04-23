@@ -218,7 +218,7 @@ $(function () {
 <p>The Routing is used to define where the messages should be routed, or not.</p>
 <div class="section" id="multicast">
 <h2>Multicast<a class="headerlink" href="#multicast" title="Permalink to this headline">¶</a></h2>
-<p>The <em>multicast</em> keywords defines a static list of outputs where the message is sent.</p>
+<p>The <strong>multicast</strong> keywords defines a static list of outputs where the message is sent.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
     <span class="c1">//received messages are sent to those three mock endpoints</span>
@@ -230,7 +230,7 @@ $(function () {
 </div>
 <div class="section" id="recipient-list">
 <h2>Recipient list<a class="headerlink" href="#recipient-list" title="Permalink to this headline">¶</a></h2>
-<p>The <em>recipientList</em> is like the multicast keyword, but the list can be dynamic and calculated at runtime.</p>
+<p>The <strong>recipientList</strong> is like the multicast keyword, but the list can be dynamic and calculated at runtime.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
     <span class="c1">//received messages targets are dynamically defined by the headers of each message</span>
@@ -242,7 +242,7 @@ $(function () {
 </div>
 <div class="section" id="filter">
 <h2>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h2>
-<p>The <em>filter</em> and <em>filterBody</em> keywords filter message with a predicate.</p>
+<p>The <strong>filter</strong> and <strong>filterBody</strong> keywords filter message with a predicate.</p>
 <p>In this example, the predicate is a function taking a message and returning a boolean.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
 
@@ -276,8 +276,8 @@ $(function () {
 </div>
 <div class="section" id="choice">
 <h2>Choice<a class="headerlink" href="#choice" title="Permalink to this headline">¶</a></h2>
-<p>The <em>choice</em> keyword gives you a way to choose where you are sending the message.</p>
-<p>You configures a choice with <em>when</em>, <em>whenBody</em> and <em>otherwise</em> keywords.
+<p>The <strong>choice</strong> keyword gives you a way to choose where you are sending the message.</p>
+<p>You configures a choice with <strong>when</strong>, <strong>whenBody</strong> and <strong>otherwise</strong> keywords.
 Each when accepts a predicate. In this example the predicates are function taking message and returning a boolean.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:babel&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">choice</span> <span class="o">{</span>
@@ -298,7 +298,7 @@ Each when accepts a predicate. In this example the predicates are function takin
 </div>
 <div class="section" id="splitter">
 <h2>Splitter<a class="headerlink" href="#splitter" title="Permalink to this headline">¶</a></h2>
-<p>The <em>split</em> keyword is the way to split a message in pieces, the <em>splitBody</em> does the same directly on the message body.</p>
+<p>The <strong>split</strong> keyword is the way to split a message in pieces, the <strong>splitBody</strong> does the same directly on the message body.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
 
 <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
@@ -316,6 +316,29 @@ Each when accepts a predicate. In this example the predicates are function takin
 </pre></div>
 </div>
 <p>In this example the splitting is done with a function which takes the message body and returns an Iterator.</p>
+<p>The <strong>splitReduceBody</strong> and the <strong>splitFoldBody</strong> define higher-level EIPs: The possibility to split a content, apply a modification on each part of the content and then merge those parts into a new content. The two keywords differs in their way to merge the final content. They are inspired by the <code class="docutils literal"><span class="pre">AggregationStrategy</span></code> that are defined in the <code class="docutils literal"><span class="pre">Aggregation</span></code> part.</p>
+<p>The <strong>splitReduceBody</strong> let you define a simple aggregation which does not change the type during the aggregation:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="c1">//message bodies are converted to String if required</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:babel&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">splitReduceBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">).</span><span class="n">iterator</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">_</span><span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel1&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">processBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">toInt</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="s">&quot;&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel2&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
+  <span class="o">}((</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="s">s&quot;</span><span class="si">$x</span><span class="s">,</span><span class="si">$y</span><span class="s">&quot;</span><span class="o">).</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">x</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel3&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The <strong>splitFoldBody</strong> let you define a more complexe aggregation which does change the type during the aggregation:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="c1">//message bodies are converted to String if required</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:babel&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">splitFoldBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">).</span><span class="n">iterator</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">_</span><span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel1&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">processBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">toInt</span> <span class="o">+</span> <span class="mi">1</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel2&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>
+  <span class="o">}(</span><span class="s">&quot;1&quot;</span><span class="o">)((</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="s">s&quot;</span><span class="si">$x</span><span class="s">,</span><span class="si">$y</span><span class="s">&quot;</span><span class="o">).</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">x</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel3&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="aggregation">
 <h2>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this headline">¶</a></h2>
@@ -420,7 +443,7 @@ Each when accepts a predicate. In this example the predicates are function takin
 </div>
 <div class="section" id="wire-tap">
 <h2>Wire-Tap<a class="headerlink" href="#wire-tap" title="Permalink to this headline">¶</a></h2>
-<p>The <em>wiretap</em> keyword is the way to route messages to another location while they keep beeing process by the regular flow.</p>
+<p>The <strong>wiretap</strong> keyword is the way to route messages to another location while they keep beeing process by the regular flow.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input-babel&quot;</span><span class="o">).</span>
   <span class="c1">//Incoming messages are sent to the direct endpoint</span>
   <span class="c1">//   and to the next mock endpoint</span>
@@ -431,7 +454,7 @@ Each when accepts a predicate. In this example the predicates are function takin
 </div>
 <div class="section" id="validate">
 <h2>Validate<a class="headerlink" href="#validate" title="Permalink to this headline">¶</a></h2>
-<p>The <em>validate</em> keyword validates messages passing through a route using a function or a Camel predicate.</p>
+<p>The <strong>validate</strong> keyword validates messages passing through a route using a function or a Camel predicate.</p>
 <p>A message will be valid only if the expression or function is returning true. Otherwise, an exception is thrown.</p>
 <div class="section" id="camel-predicate">
 <h3>Camel Predicate<a class="headerlink" href="#camel-predicate" title="Permalink to this headline">¶</a></h3>
