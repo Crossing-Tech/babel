@@ -66,7 +66,7 @@ $(function () {
     //Adds a pdf link
     var eleContainer = document.getElementsByClassName("form-group")[0];
 
-    eleContainer.innerHTML = eleContainer.innerHTML   +   '<div id="pdf-link"> <a href="_static/Babel.pdf" > <img src="http://www.adobe.com/images/pdficon_large.png" alt="Babel PDF documentation"> doc as pdf </a></div>'  ;
+    eleContainer.innerHTML = eleContainer.innerHTML   +   '<div id="pdf-link"> <a href="_static/Babel.pdf" > <img src="http://www.adobe.com/images/pdficon_large.png" alt="Babel PDF documentation"></a></div>'  ;
 
     });
   </script>
@@ -269,9 +269,15 @@ $(function () {
     <span class="o">.</span><span class="n">splitBody</span><span class="o">(</span><span class="n">body</span> <span class="k">=&gt;</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">).</span><span class="n">iterator</span><span class="o">)</span>
     <span class="c1">//the filter will only let continue the one whose body is &quot;true&quot;</span>
     <span class="o">.</span><span class="n">filterBody</span><span class="o">(</span><span class="n">body</span> <span class="k">=&gt;</span> <span class="n">body</span> <span class="o">==</span> <span class="s">&quot;true&quot;</span><span class="o">).</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output1&quot;</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output2&quot;</span><span class="o">)</span>
 <span class="o">}</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Contrary to Apache Camel, Babel does not provide the <em>end</em> keyword. After the <em>filter</em> (or <em>filterBody</em>) keyword, only accepted message are processed by next EIPs.
+If you want to process also the other message, you may dispatch your message to another part of route, with a <em>multicast</em> or a <em>choice</em> for example.</p>
 </div>
 </div>
 <div class="section" id="choice">
