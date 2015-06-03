@@ -107,10 +107,6 @@ object CamelException {
 
 }
 
-trait NoDefaultIds { self: CamelDSL =>
-  override protected implicit val namingStrategy = DefaultIds.noDefaultIds
-}
-
 object DefaultIds {
   val noDefaultIds = new NamingStrategy {
     override def name(stepDefinition: StepDefinition): Option[String] = None
