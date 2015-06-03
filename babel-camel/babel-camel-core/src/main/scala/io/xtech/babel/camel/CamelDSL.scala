@@ -54,8 +54,6 @@ trait CamelDSL extends StepProcessor[RouteBuilder] with Basics
 
   protected implicit def namingStrategy: NamingStrategy = DefaultIds.noDefaultIds
 
-  protected implicit def toNamedCamelProcessor(processor: ProcessorDefinition[_]) = new Named(processor)
-
   implicit def stringSource(uri: String): CamelSource = CamelSource(uri)
 
   implicit def stringSink(uri: String): CamelSink[Any] = CamelSink(uri)
@@ -88,15 +86,6 @@ trait CamelDSL extends StepProcessor[RouteBuilder] with Basics
   }
 
   implicit def camelMessage[I](msg: Message[I]): CamelMessage[I] = CamelHelper.camelMessage(msg)
-
-}
-
-class Named(processor: ProcessorDefinition[_]) {
-
-  def withId(step: StepDefinition)(implicit namingStrategy: NamingStrategy): ProcessorDefinition[_] = {
-    namingStrategy.name(step).foreach(processor.id)
-    processor
-  }
 
 }
 
