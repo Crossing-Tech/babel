@@ -14,4 +14,4 @@ package io.xtech.babel.fish.model
   * @tparam I the type of the body.
   * @tparam O the type of the body after transformation.
   */
-case class TransformerDefinition[I, O](expression: Expression[I, O], processorId: Option[String] = None) extends StepDefinition
+case class TransformerDefinition[I, O](expression: Expression[I, O]) extends StepDefinition

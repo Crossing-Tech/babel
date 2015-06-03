@@ -10,6 +10,7 @@ package io.xtech.babel.camel.model
 
 import io.xtech.babel.fish.model.{ AggregationConfiguration, Expression, Message }
 import org.apache.camel.processor.aggregate.AggregationStrategy
+
 import scala.collection.immutable
 
 /**

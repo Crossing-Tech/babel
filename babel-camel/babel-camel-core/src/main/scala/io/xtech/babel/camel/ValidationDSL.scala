@@ -11,6 +11,7 @@ package io.xtech.babel.camel
 import io.xtech.babel.camel.model.ValidationDefinition
 import io.xtech.babel.fish._
 import io.xtech.babel.fish.model.{ Message, Predicate }
+
 import scala.reflect.ClassTag
 
 private[camel] class ValidationDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) extends DSL2BaseDSL[I] {

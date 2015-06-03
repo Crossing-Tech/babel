@@ -8,12 +8,13 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.HandlerDSL
+import io.xtech.babel.camel.{ CamelDSL, HandlerDSL }
 import io.xtech.babel.camel.model.{ ChannelDefinition, ErrorHandling, OnExceptionDefinition }
 import io.xtech.babel.fish.parsing.StepInformation
 import io.xtech.babel.fish.{ BodyPredicate, FromDSL }
 import org.apache.camel.builder.RouteBuilder
 import org.apache.camel.model.ProcessorDefinition
+
 import scala.collection.JavaConverters._
 import scala.collection.immutable
 import scala.language.implicitConversions
@@ -22,7 +23,7 @@ import scala.reflect.ClassTag
 /**
   * The Exception Handler parser.
   */
-private[babel] trait Handler extends CamelParsing {
+private[babel] trait Handler extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
@@ -41,7 +42,9 @@ private[babel] trait Handler extends CamelParsing {
     //parse the subroute if any
     exception.next match {
       case Some(channel: ChannelDefinition) =>
-        processor.to(channel.channelUri)
+        val to = processor.to(channel.channelUri)
+        namingStrategy.name(channel).foreach(to.id)
+        to
       case other => //no need to add a subroute
     }
     processor.end()

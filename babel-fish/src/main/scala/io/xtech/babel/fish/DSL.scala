@@ -174,17 +174,6 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
   }
 
   /**
-    * Declares a transformation of the message body in the route with a function.
-    * @param func the function
-    * @tparam O the output type of the function
-    * @return the possibility to add other steps to the current DSL
-    */
-  def processBody[O: ClassTag](func: (I => O), processorId: String): BaseDSL[O] = {
-
-    TransformerDefinition(BodyExpression(func), Some(processorId))
-  }
-
-  /**
     * Declares a transformation of the message in the route with a function.
     * @param func the function
     * @tparam O the type of the message if the body changed
@@ -193,17 +182,6 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
   def process[O: ClassTag](func: (Message[I] => Message[O])): BaseDSL[O] = {
 
     TransformerDefinition(MessageTransformationExpression(func))
-  }
-
-  /**
-    * Declares a transformation of the message in the route with a function.
-    * @param func the function
-    * @tparam O the type of the message if the body changed
-    * @return the possibility to add other steps to the current DSL
-    */
-  def process[O: ClassTag](func: (Message[I] => Message[O]), processorId: String): BaseDSL[O] = {
-
-    TransformerDefinition(MessageTransformationExpression(func), Some(processorId))
   }
 
   /**
@@ -374,6 +352,7 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
 }
 
 class SplitDSL[I: ClassTag](step: StepDefinition) extends BaseDSL[I](step)
+
 class MulticastDSL[I: ClassTag](step: StepDefinition) extends BaseDSL[I](step)
 
 class RouteDefinitionException(val errors: immutable.Seq[ValidationError]) extends Exception("The route has validation errors") {
@@ -395,7 +374,6 @@ class DSL() {
     * @return the possibility to add other steps to the current DSL
     */
   def from[O: ClassTag, S](source: S)(implicit convert: S => Source[O]): FromDSL[O] = {
-
     val outputClass = classTag[O].runtimeClass.asInstanceOf[Class[O]]
     val fromDef = FromDefinition(outputClass, source)
     fromDefinition ++= immutable.Set(fromDef)

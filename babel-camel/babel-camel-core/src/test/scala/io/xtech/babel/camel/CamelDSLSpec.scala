@@ -8,12 +8,16 @@
 
 package io.xtech.babel.camel
 
+import javax.management.ObjectName
+
 import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.RouteDefinitionException
+import org.apache.camel._
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.impl.DefaultExchange
-import org.apache.camel.{ Exchange, ExchangePattern, Processor }
+import org.apache.camel.management.DefaultManagementNamingStrategy
+import org.apache.camel.model.ModelCamelContext
 import org.specs2.mutable.SpecificationWithJUnit
 
 class CamelDSLSpec extends SpecificationWithJUnit {
@@ -167,14 +171,34 @@ class CamelDSLSpec extends SpecificationWithJUnit {
     }
 
     "create a processor with processorId" in new camel {
+      //#doc:babel-camel-id-strategy
 
+      import io.xtech.babel.fish.model.StepDefinition
+      import io.xtech.babel.fish.NamingStrategy
+      import io.xtech.babel.camel.model.{ LogMessage, LogDefinition }
       val routeDef = new RouteBuilder {
+
+        override protected implicit val namingStrategy = new NamingStrategy {
+          override def name(stepDefinition: StepDefinition): Option[String] = stepDefinition match {
+            //set the id of endpoints to their uri
+            case LogDefinition(LogMessage(message)) => Some(s"log:$message")
+            //do not modify other EIP ids
+            case other                              => None
+          }
+
+          override def newRoute(): Unit = {}
+        }
+
         from("direct:input").routeId("babel")
-          .process(msg => msg.withBody(_ + "bli"), "toto-babel")
+          .process(msg => msg.withBody(_ + "bli"))
+          //the id of log EIP will be "log:body ${body}"
+          .log("body ${body}")
           .to("mock:output")
       }
+      //#doc:babel-camel-id-strategy
 
       val route = new org.apache.camel.builder.RouteBuilder() {
+
         override def configure(): Unit = {
           from("direct:camel").routeId("camel")
             .process(new Processor {
@@ -189,6 +213,8 @@ class CamelDSLSpec extends SpecificationWithJUnit {
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.addRoutes(route)
 
+      camelContext.asInstanceOf[ModelCamelContext].getManagementStrategy.setManagementNamingStrategy(new MyNames())
+
       camelContext.start()
 
       val producer = camelContext.createProducerTemplate()
@@ -199,7 +225,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
       producer.sendBody("direct:input", "blabli")
 
       camelContext.getRouteDefinition("camel").getOutputs.get(0).getId === "toto-camel"
-      camelContext.getRouteDefinition("babel").getOutputs.get(0).getId === "toto-babel"
+      camelContext.getRouteDefinition("babel").getOutputs.get(1).getId === "log:body ${body}"
 
       mockEnpoint.assertIsSatisfied()
     }
@@ -311,5 +337,12 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       mockEndpoint.getReceivedExchanges.get(0).getPattern === ExchangePattern.InOptionalOut
     }
+  }
+}
+
+class MyNames extends DefaultManagementNamingStrategy {
+  override def getObjectNameForProcessor(context: CamelContext, processor: Processor, name: NamedNode): ObjectName = {
+    new ObjectName(name.getId + "_" + name.getShortName + "_" + name.getLabel + "//" + processor.getClass.toString)
+
   }
 }

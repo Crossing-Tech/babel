@@ -12,8 +12,10 @@ import io.xtech.babel.camel.model._
 import io.xtech.babel.camel.parsing.{ Aggregation, _ }
 import io.xtech.babel.fish.model._
 import io.xtech.babel.fish.parsing.{ StepInformation, StepProcessor }
+import io.xtech.babel.fish.{ DSL, NamingStrategy }
 import org.apache.camel.builder.RouteBuilder
-import org.apache.camel.model.ModelCamelContext
+import org.apache.camel.model.{ ProcessorDefinition, ModelCamelContext }
+
 import scala.collection.immutable
 
 // TODO will be fixed in 2.12 https://issues.scala-lang.org/browse/SI-6541
@@ -48,7 +50,11 @@ trait CamelDSL extends StepProcessor[RouteBuilder] with Basics
     with RecipientList
     with RouteConfiguration
     with WireTap
-    with Validation {
+    with Validation { self: DSL =>
+
+  protected implicit def namingStrategy: NamingStrategy = DefaultIds.noDefaultIds
+
+  protected implicit def toNamedCamelProcessor(processor: ProcessorDefinition[_]) = new Named(processor)
 
   implicit def stringSource(uri: String): CamelSource = CamelSource(uri)
 
@@ -85,6 +91,15 @@ trait CamelDSL extends StepProcessor[RouteBuilder] with Basics
 
 }
 
+class Named(processor: ProcessorDefinition[_]) {
+
+  def withId(step: StepDefinition)(implicit namingStrategy: NamingStrategy): ProcessorDefinition[_] = {
+    namingStrategy.name(step).foreach(processor.id)
+    processor
+  }
+
+}
+
 object CamelHelper {
   implicit def camelMessage[I](msg: Message[I]): CamelMessage[I] = msg match {
     case m: CamelMessage[I] => m
@@ -101,4 +116,16 @@ object CamelException {
 
   class ErorrHandlingDefinedTwice extends Exception("The handle may be used only once in the RouteBuilder")
 
+}
+
+trait NoDefaultIds { self: CamelDSL =>
+  override protected implicit val namingStrategy = DefaultIds.noDefaultIds
+}
+
+object DefaultIds {
+  val noDefaultIds = new NamingStrategy {
+    override def name(stepDefinition: StepDefinition): Option[String] = None
+
+    override def newRoute(): Unit = {}
+  }
 }

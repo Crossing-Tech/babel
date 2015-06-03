@@ -18,6 +18,7 @@ import org.apache.log4j.spi.LoggingEvent
 import org.apache.log4j.{ AppenderSkeleton, Level }
 import org.slf4j.LoggerFactory
 import org.specs2.mutable.SpecificationWithJUnit
+
 import scala.collection.immutable
 
 class HandlerSpec extends SpecificationWithJUnit {
@@ -41,7 +42,7 @@ class HandlerSpec extends SpecificationWithJUnit {
             .handle {
               route =>
                 route.on[IllegalArgumentException].continuedBody(true).sub("catch").to("mock:catch")
-            }.as[String]
+            }.id("toto").as[String]
             .processBody(x => throw if (x == null) new Exception() else new IllegalArgumentException(x))
             .to("mock:output")
         }

@@ -15,6 +15,7 @@ import org.specs2.mutable.SpecificationWithJUnit
 import org.specs2.specification.{ AfterExample, BeforeExample, Fragments, Step }
 import org.springframework.context.ApplicationContext
 import org.springframework.context.support.AbstractApplicationContext
+
 import scala.reflect._
 
 trait SpringSpecification {

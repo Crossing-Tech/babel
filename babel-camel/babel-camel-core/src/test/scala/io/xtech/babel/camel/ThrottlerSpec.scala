@@ -61,11 +61,9 @@ class ThrottlerSpec extends SpecificationWithJUnit {
     mockEndpoint.setExpectedMessageCount(msgs)
 
     val camelInitTime = System.currentTimeMillis()
-    println(camelInitTime)
     (1 to msgs).foreach(_ => producer.sendBody("direct:input", "test"))
 
     mockEndpoint.assertIsSatisfied()
-    println(System.currentTimeMillis())
     (System.currentTimeMillis() - camelInitTime) must be_>=(1000l)
   }
 }

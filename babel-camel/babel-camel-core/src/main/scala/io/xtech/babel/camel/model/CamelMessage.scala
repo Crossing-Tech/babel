@@ -9,7 +9,8 @@
 package io.xtech.babel.camel.model
 
 import io.xtech.babel.fish.model.Message
-import org.apache.camel.{ Message => NativeMessage, Exchange, ExchangePattern }
+import org.apache.camel.{ Exchange, ExchangePattern, Message => NativeMessage }
+
 import scala.collection.JavaConverters._
 import scala.reflect._
 

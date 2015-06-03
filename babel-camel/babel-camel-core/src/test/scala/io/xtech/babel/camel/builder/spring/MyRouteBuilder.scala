@@ -12,7 +12,7 @@ package io.xtech.babel.camel.builder.spring
 import io.xtech.babel.camel.builder.RouteBuilder
 
 class MyRouteBuilder extends RouteBuilder {
-  from("direct:babel-rb-1").to("mock:babel-rb")
-  from("direct:babel-rb-2").to("mock:babel-rb")
+  from("direct:babel-rb-1").routeId("route1").to("mock:babel-rb")
+  from("direct:babel-rb-2").routeId("route2").to("mock:babel-rb")
 }
 //#doc:babel-camel-spring

@@ -14,6 +14,7 @@ import io.xtech.babel.fish.{ BodyPredicate, _ }
 import org.apache.camel.LoggingLevel
 import org.apache.camel.processor.RedeliveryPolicy
 import org.slf4j.{ Logger, LoggerFactory }
+
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 

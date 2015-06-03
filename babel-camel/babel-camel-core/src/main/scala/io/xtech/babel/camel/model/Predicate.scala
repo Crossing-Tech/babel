@@ -12,6 +12,7 @@ import io.xtech.babel.fish.model.{ Message, Predicate }
 import io.xtech.babel.fish.{ BodyPredicate, MessagePredicate }
 import org.apache.camel.builder.xml.XPathBuilder
 import org.apache.camel.{ Exchange, Predicate => CamelPredicate }
+
 import scala.util.{ Failure, Success, Try }
 
 /**

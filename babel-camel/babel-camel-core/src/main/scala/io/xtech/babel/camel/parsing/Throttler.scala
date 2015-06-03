@@ -8,8 +8,8 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.ThrottlerDSL
-import io.xtech.babel.camel.model.{ ThrottlerDefinitionLong, ThrottlerDefinitionExpression, Expressions }
+import io.xtech.babel.camel.{ CamelDSL, ThrottlerDSL }
+import io.xtech.babel.camel.model.{ Expressions, ThrottlerDefinitionExpression, ThrottlerDefinitionLong }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.ProcessorDefinition
@@ -19,16 +19,16 @@ import scala.reflect.ClassTag
 /**
   * Defines the parsing of the throttle keyword.
   */
-trait Throttler extends CamelParsing {
+trait Throttler extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps = super.steps :+ parse
 
   private val parse: Process = {
-    case StepInformation(ThrottlerDefinitionLong(perSecond), camelProcessor: ProcessorDefinition[_]) =>
-      camelProcessor.throttle(perSecond)
+    case StepInformation(step @ ThrottlerDefinitionLong(perSecond), camelProcessor: ProcessorDefinition[_]) =>
+      camelProcessor.throttle(perSecond).withId(step)
 
-    case StepInformation(ThrottlerDefinitionExpression(perSecond), camelProcessor: ProcessorDefinition[_]) =>
-      camelProcessor.throttle(Expressions.toCamelExpression(perSecond))
+    case StepInformation(step @ ThrottlerDefinitionExpression(perSecond), camelProcessor: ProcessorDefinition[_]) =>
+      camelProcessor.throttle(Expressions.toCamelExpression(perSecond)).withId(step)
 
   }
 

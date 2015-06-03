@@ -8,16 +8,17 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.ValidationDSL
+import io.xtech.babel.camel.{ CamelDSL, ValidationDSL }
 import io.xtech.babel.camel.model.{ Predicates, ValidationDefinition }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.ProcessorDefinition
+
 import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
-private[babel] trait Validation extends CamelParsing {
+private[babel] trait Validation extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
@@ -26,8 +27,8 @@ private[babel] trait Validation extends CamelParsing {
   // parsing of an validation definition
   private[this] def parse: Process = {
 
-    case StepInformation(ValidationDefinition(expression), camelProcessorDefinition: ProcessorDefinition[_]) => {
-      camelProcessorDefinition.validate(Predicates.toCamelPredicate(expression))
+    case StepInformation(step @ ValidationDefinition(expression), camelProcessorDefinition: ProcessorDefinition[_]) => {
+      camelProcessorDefinition.validate(Predicates.toCamelPredicate(expression)).withId(step)
     }
   }
 }

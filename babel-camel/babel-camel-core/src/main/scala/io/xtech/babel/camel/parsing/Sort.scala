@@ -8,11 +8,12 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.SortDSL
+import io.xtech.babel.camel.{ CamelDSL, SortDSL }
 import io.xtech.babel.camel.model.{ Expressions, SortDefinition }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.ProcessorDefinition
+
 import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
@@ -20,7 +21,7 @@ import scala.reflect.ClassTag
 /**
   * The sort parser.
   */
-private[babel] trait Sort extends CamelParsing {
+private[babel] trait Sort extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
@@ -28,15 +29,15 @@ private[babel] trait Sort extends CamelParsing {
 
   private[this] def parse: Process = {
 
-    case StepInformation(SortDefinition(expression, Some(comparator)), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ SortDefinition(expression, Some(comparator)), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      camelProcessorDefinition.sort(Expressions.toJavaListCamelExpression(expression), comparator)
+      camelProcessorDefinition.sort(Expressions.toJavaListCamelExpression(expression), comparator).withId(step)
 
     }
 
-    case StepInformation(SortDefinition(expression, None), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ SortDefinition(expression, None), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      camelProcessorDefinition.sort(Expressions.toJavaListCamelExpression(expression))
+      camelProcessorDefinition.sort(Expressions.toJavaListCamelExpression(expression)).withId(step)
 
     }
   }
