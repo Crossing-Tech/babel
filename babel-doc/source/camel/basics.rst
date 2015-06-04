@@ -134,9 +134,3 @@ Babel provides a way to define eip ids by default (without using **id**).
 To modify this default behavior, you may create your own naming strategy in your ``RouteBuilder`` such as:
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelDSLSpec.scala#doc:babel-camel-id-strategy
-
-You may shortcut the Babel naming strategy by tagging your RouteBuilder with the ``NoDefaultIds`` trait:
-
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/IdSpec.scala#doc:babel-camel-no-id
-
-
