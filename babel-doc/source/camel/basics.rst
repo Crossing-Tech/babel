@@ -120,22 +120,16 @@ Moreover, you may prevent a route from being started automatically using the **n
 Id
 ++++
 
-The **id** will set an id to the previous EIP. This may be useful while vizaulizing your route or for statisticts.
+The **id** will set an id to the previous EIP. This may be useful for visualizing your route or for statisticts.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/IdSpec.scala#doc:babel-camel-id-eip
 
-The **id** may also set the consumer id, being called before or after the **routId**.
+The **id** may also set the consumer id, using the **routId** keyword.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/IdSpec.scala#doc:babel-camel-id-from
 
 
-Babel provides a way to define eip ids by default (without using **id**). The default naming strategy provided by Babel stands as
-``routeId_sequenceNumber_patternType_details`` where
-
-- ``routeId`` is th routeId that labels your route, if any.
-- ``sequenceNumber`` is the index of the pattern in the route.
-- ``patternType`` is the type of pattern (on 3 chars), as end, pro, spl, ...
-- ``details`` is the information specific to your pattern as the endpoint URI or the Class and function of your processor.
+Babel provides a way to define eip ids by default (without using **id**).
 
 To modify this default behavior, you may create your own naming strategy in your ``RouteBuilder`` such as:
 
