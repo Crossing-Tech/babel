@@ -8,9 +8,13 @@
 
 package io.xtech.babel.camel
 
+import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.NamingStrategy
 import io.xtech.babel.fish.model.StepDefinition
+import org.apache.camel.component.mock.MockEndpoint
+import org.apache.camel.model.ModelCamelContext
+import org.apache.camel.{Exchange, Processor}
 import org.specs2.mutable._
 
 import scala.collection.JavaConverters._
@@ -113,6 +117,67 @@ class IdSpec extends SpecificationWithJUnit {
       Option(camelContext.getRouteDefinition("id-1")).map(_.getOutputs.get(0).getId).get must be_==("id-2")
       Option(camelContext.getRouteDefinition("subroute")).map(_.getOutputs.get(0).getId).get must be_==("id-3")
       Option(camelContext.getRouteDefinition("subroute")).map(_.getOutputs.get(1).getId).get must be_==("id-4")
+    }
+
+    "allows default ids depending on patterns" in new camel {
+      //#doc:babel-camel-id-strategy
+
+      import io.xtech.babel.fish.model.StepDefinition
+      import io.xtech.babel.fish.NamingStrategy
+      import io.xtech.babel.camel.model.{ LogMessage, LogDefinition }
+      val routeDef = new RouteBuilder {
+
+        override protected implicit val namingStrategy = new NamingStrategy {
+          override def name(stepDefinition: StepDefinition): Option[String] = stepDefinition match {
+            //set the id of endpoints to their uri
+            case LogDefinition(LogMessage(message)) => Some(s"log:$message")
+            //do not modify other EIP ids
+            case other                              => None
+          }
+
+          override def newRoute(): Unit = {}
+        }
+
+        from("direct:input").routeId("babel")
+          .process(msg => msg.withBody(_ + "bli"))
+          //the id of log EIP will be "log:body ${body}"
+          .log("body ${body}")
+          //the other pattern id will not be changed by babel
+          .to("mock:output")
+      }
+      //#doc:babel-camel-id-strategy
+
+      val route = new org.apache.camel.builder.RouteBuilder() {
+
+        override def configure(): Unit = {
+          from("direct:camel").routeId("camel")
+            .process(new Processor {
+            override def process(p1: Exchange): Unit = {
+              println("toto")
+            }
+          }).id("toto-camel")
+            .to("mock:camel")
+        }
+      }
+
+      routeDef.addRoutesToCamelContext(camelContext)
+      camelContext.addRoutes(route)
+
+      camelContext.asInstanceOf[ModelCamelContext].getManagementStrategy.setManagementNamingStrategy(new MyNames())
+
+      camelContext.start()
+
+      val producer = camelContext.createProducerTemplate()
+
+      val mockEnpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      mockEnpoint.expectedBodiesReceived("blablibli")
+
+      producer.sendBody("direct:input", "blabli")
+
+      camelContext.getRouteDefinition("camel").getOutputs.get(0).getId === "toto-camel"
+      camelContext.getRouteDefinition("babel").getOutputs.get(1).getId === "log:body ${body}"
+
+      mockEnpoint.assertIsSatisfied()
     }
 
   }

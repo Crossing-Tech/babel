@@ -59,7 +59,10 @@ class CamelMessageSpec extends SpecificationWithJUnit {
       camelMessage.setBody("bla")
 
       val message = new CamelMessage[String](camelMessage)
+      //#doc:camel-with-body
+      //append a string to the message's body
       val newMsg = message.withBody(_ + "bli")
+      //#doc:camel-with-body
       newMsg.body must beSome("blabli")
     }
 
@@ -99,7 +102,9 @@ class CamelMessageSpec extends SpecificationWithJUnit {
       camelMessage.setHeader(headerB, "2")
 
       val message = new CamelMessage[String](camelMessage)
+      //#doc:camel-with-header
       val newMsg = message.withHeader("c", 42)
+      //#doc:camel-with-header
       message.headers must havePairs(headerA -> 1, headerB -> "2", "c" -> 42)
     }
 
@@ -110,7 +115,10 @@ class CamelMessageSpec extends SpecificationWithJUnit {
       camelMessage.setHeader(headerB, "2")
 
       val message = new CamelMessage[String](camelMessage)
+      //#doc:camel-with-headers
+      //add headers to the message
       val newMsg = message.withHeaders(headers => headers ++ Map("c" -> 42, "d" -> "dd"))
+      //#doc:camel-with-headers
       message.headers must havePairs(headerA -> 1, headerB -> "2", "c" -> 42, "d" -> "dd")
 
     }
@@ -121,7 +129,10 @@ class CamelMessageSpec extends SpecificationWithJUnit {
       camelMessage.setHeader(headerA, "to be removed")
 
       val message = new CamelMessage[String](camelMessage)
+      //#doc:camel-with-headers
+      //replace headers by only one
       val newMsg = message.withHeaders(headers => Map("c" -> 42))
+      //#doc:camel-with-headers
       message.headers.size === 1
       message.headers must havePairs("c" -> 42)
 
@@ -197,6 +208,14 @@ class CamelMessageSpec extends SpecificationWithJUnit {
 
       val message = new CamelMessage[String](camelMessage)
       message.withExchangePattern(ExchangePattern.InOptionalOut).exchangePattern must be_==(ExchangePattern.InOptionalOut)
+    }
+
+    "provides an access ot the wrapped Camel Exchange" in new camel {
+      val camelExchange = createExchange()
+      val camelMessage = camelExchange.getIn()
+
+      val message = new CamelMessage[String](camelMessage)
+      message.exchange must be_==(camelExchange)
     }
   }
 }

@@ -170,65 +170,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
       mockEnpoint.assertIsSatisfied()
     }
 
-    "create a processor with processorId" in new camel {
-      //#doc:babel-camel-id-strategy
 
-      import io.xtech.babel.fish.model.StepDefinition
-      import io.xtech.babel.fish.NamingStrategy
-      import io.xtech.babel.camel.model.{ LogMessage, LogDefinition }
-      val routeDef = new RouteBuilder {
-
-        override protected implicit val namingStrategy = new NamingStrategy {
-          override def name(stepDefinition: StepDefinition): Option[String] = stepDefinition match {
-            //set the id of endpoints to their uri
-            case LogDefinition(LogMessage(message)) => Some(s"log:$message")
-            //do not modify other EIP ids
-            case other                              => None
-          }
-
-          override def newRoute(): Unit = {}
-        }
-
-        from("direct:input").routeId("babel")
-          .process(msg => msg.withBody(_ + "bli"))
-          //the id of log EIP will be "log:body ${body}"
-          .log("body ${body}")
-          .to("mock:output")
-      }
-      //#doc:babel-camel-id-strategy
-
-      val route = new org.apache.camel.builder.RouteBuilder() {
-
-        override def configure(): Unit = {
-          from("direct:camel").routeId("camel")
-            .process(new Processor {
-              override def process(p1: Exchange): Unit = {
-                println("toto")
-              }
-            }).id("toto-camel")
-            .to("mock:camel")
-        }
-      }
-
-      routeDef.addRoutesToCamelContext(camelContext)
-      camelContext.addRoutes(route)
-
-      camelContext.asInstanceOf[ModelCamelContext].getManagementStrategy.setManagementNamingStrategy(new MyNames())
-
-      camelContext.start()
-
-      val producer = camelContext.createProducerTemplate()
-
-      val mockEnpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      mockEnpoint.expectedBodiesReceived("blablibli")
-
-      producer.sendBody("direct:input", "blabli")
-
-      camelContext.getRouteDefinition("camel").getOutputs.get(0).getId === "toto-camel"
-      camelContext.getRouteDefinition("babel").getOutputs.get(1).getId === "log:body ${body}"
-
-      mockEnpoint.assertIsSatisfied()
-    }
   }
 
   "Camel Message" should {

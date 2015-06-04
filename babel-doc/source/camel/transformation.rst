@@ -96,6 +96,27 @@ The *process* keyword works on messages.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelDSLSpec.scala#doc:babel-camel-process-1
 
+
+.. note::
+
+   Babel provides a minimal API to modify ``Message`` or Body you are dealing with in your transformation
+
+   * withBody creates a copy of the current ``Message`` and let you define how its Body is transformed (using a function)
+
+   .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelMessageSpec.scala#doc:camel-with-body
+
+   * withHeader creates a copy of the current ``Message`` and let you add a new Header (using a two arguments: key and value)
+
+   .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelMessageSpec.scala#doc:camel-with-header
+
+   * withHeaders creates a copy of the current ``Message`` and let you define how its Headers is transformed (using a function)
+
+   .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelMessageSpec.scala#doc:camel-with-headers
+
+   * exchange to access directly to the wrapped Camel Exchange.
+
+   It also provides methods concerning the Exchange properties, exceptions and MessageExchangePattern.
+
 With a Bean
 ~~~~~~~~~~~
 

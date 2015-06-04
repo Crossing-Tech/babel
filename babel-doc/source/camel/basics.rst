@@ -10,7 +10,7 @@ Messages
 In Babel Camel, the base interface which models a message which passes through the route is called Message. A Message contains a payload called body.
 From Camel point of view, a Babel Message may be understood as the in Message of an Exchange with required methods to read and write the Exchange properties.
 
-For more details, please have a look at the `Camel Message Specification <http://babel-dsl.github.io/current/test-reports/BabelCamelSpec.html#A+CamelMessage+should>`_
+For more details, please have a look at the Transformations part.
 
 Basics
 ++++++
@@ -128,9 +128,15 @@ The **id** may also set the consumer id, using the **routId** keyword.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/IdSpec.scala#doc:babel-camel-id-from
 
+Default ids
++++++++++++
 
 Babel provides a way to define eip ids by default (without using **id**).
 
 To modify this default behavior, you may create your own naming strategy in your ``RouteBuilder`` such as:
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/CamelDSLSpec.scala#doc:babel-camel-id-strategy
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/IdSpec.scala#doc:babel-camel-id-default
+
+You may also define your naming strategy depending on the pattern type:
+
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/IdSpec.scala#doc:babel-camel-id-strategy
