@@ -12,6 +12,7 @@ import io.xtech.babel.camel.model.{ EnrichDefinition, EnrichRefDefinition, PollE
 import io.xtech.babel.fish.model.Sink
 import io.xtech.babel.fish.{ BaseDSL, DSL2BaseDSL }
 import org.apache.camel.processor.aggregate.AggregationStrategy
+
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 

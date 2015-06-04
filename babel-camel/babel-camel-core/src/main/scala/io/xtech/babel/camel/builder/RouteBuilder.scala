@@ -9,9 +9,9 @@
 package io.xtech.babel.camel.builder
 
 import io.xtech.babel.camel._
-import io.xtech.babel.camel.model.{ CamelMessage, EmptyDefinition }
-import io.xtech.babel.fish.model.{ Message, RouteDefinition }
-import io.xtech.babel.fish.{ DSL, NoDSL }
+import io.xtech.babel.camel.model.EmptyDefinition
+import io.xtech.babel.fish.model.{ StepDefinition, RouteDefinition }
+import io.xtech.babel.fish.{ NamingStrategy, DSL, NoDSL }
 import org.apache.camel.model.ModelCamelContext
 import org.apache.camel.{ CamelContext, RoutesBuilder, RuntimeCamelException }
 
@@ -20,6 +20,8 @@ import org.apache.camel.{ CamelContext, RoutesBuilder, RuntimeCamelException }
   * This allows Babel Camel routes to be discovered by the Camel route scanner.
   */
 abstract class RouteBuilder extends DSL with CamelDSL with RoutesBuilder {
+
+  //protected val namingStrategy: NamingStrategy = DefaultNamingStrategy
 
   /**
     * stores the RouteBuilder scope configuration
@@ -58,3 +60,4 @@ abstract class RouteBuilder extends DSL with CamelDSL with RoutesBuilder {
   }
 
 }
+

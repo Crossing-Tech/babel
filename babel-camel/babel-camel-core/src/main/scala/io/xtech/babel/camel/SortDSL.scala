@@ -8,10 +8,12 @@
 
 package io.xtech.babel.camel
 
+import java.util.{ Comparator, List => JList }
+
 import io.xtech.babel.camel.model.SortDefinition
 import io.xtech.babel.fish.model.{ Expression, Message }
 import io.xtech.babel.fish.{ BaseDSL, DSL2BaseDSL, MessageExpression }
-import java.util.{ Comparator, List => JList }
+
 import scala.collection.mutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag

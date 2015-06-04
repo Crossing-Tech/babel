@@ -8,11 +8,12 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.EnricherDSL
+import io.xtech.babel.camel.{ CamelDSL, EnricherDSL }
 import io.xtech.babel.camel.model._
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.{ EnrichDefinition => CamelEnrichDefinition, PollEnrichDefinition => CamelPollEnrichDefinition, ProcessorDefinition }
+
 import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
@@ -20,7 +21,7 @@ import scala.reflect.ClassTag
 /**
   * Defines the enrich and pollEnrich keyword in the DSL.
   */
-private[babel] trait Enricher extends CamelParsing {
+private[babel] trait Enricher extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
@@ -32,19 +33,19 @@ private[babel] trait Enricher extends CamelParsing {
   private[this] def parse: Process = {
 
     // parsing of the enrichRef keyword
-    case StepInformation(EnrichRefDefinition(CamelSink(resourceUri), aggregationRef), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ EnrichRefDefinition(CamelSink(resourceUri), aggregationRef), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
       val camelEnrichDefinition = new CamelEnrichDefinition
       camelEnrichDefinition.setResourceUri(resourceUri)
       camelEnrichDefinition.setAggregationStrategyRef(aggregationRef)
 
       camelProcessorDefinition.addOutput(camelEnrichDefinition)
+      camelProcessorDefinition.withId(step)
 
-      camelProcessorDefinition
     }
 
     // parsing of the enrich keyword
-    case StepInformation(EnrichDefinition(CamelSink(resourceUri), aggregationStrategy), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ EnrichDefinition(CamelSink(resourceUri), aggregationStrategy), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
       val camelEnrichDefinition = new CamelEnrichDefinition
       camelEnrichDefinition.setResourceUri(resourceUri)
@@ -52,11 +53,11 @@ private[babel] trait Enricher extends CamelParsing {
 
       camelProcessorDefinition.addOutput(camelEnrichDefinition)
 
-      camelProcessorDefinition
+      camelProcessorDefinition.withId(step)
     }
 
     // parsing of the pollEnrich keyword
-    case StepInformation(PollEnrichRefDefinition(CamelSink(resourceUri), aggregationRef, timeout), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ PollEnrichRefDefinition(CamelSink(resourceUri), aggregationRef, timeout), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
       val camelPollEnrichDefinition = new CamelPollEnrichDefinition
       camelPollEnrichDefinition.setResourceUri(resourceUri)
@@ -65,11 +66,11 @@ private[babel] trait Enricher extends CamelParsing {
 
       camelProcessorDefinition.addOutput(camelPollEnrichDefinition)
 
-      camelProcessorDefinition
+      camelProcessorDefinition.withId(step)
     }
 
     // parsing of the pollEnrichRef keyword
-    case StepInformation(PollEnrichDefinition(CamelSink(resourceUri), aggregationStrategy, timeout), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ PollEnrichDefinition(CamelSink(resourceUri), aggregationStrategy, timeout), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
       val camelPollEnrichDefinition = new CamelPollEnrichDefinition
       camelPollEnrichDefinition.setResourceUri(resourceUri)
@@ -78,7 +79,7 @@ private[babel] trait Enricher extends CamelParsing {
 
       camelProcessorDefinition.addOutput(camelPollEnrichDefinition)
 
-      camelProcessorDefinition
+      camelProcessorDefinition.withId(step)
     }
   }
 

@@ -36,7 +36,7 @@ class SimpleSplitFilterSpec extends SpecificationWithJUnit {
 
       val otherRoute = new CRouteBuilder() {
         def configure(): Unit = {
-          from("direct:camel").split(body.tokenize(",")).filter(body.contains("true")).to("mock:camel")
+          from("direct:camel").id("toto").split(body.tokenize(",")).filter(body.contains("true")).to("mock:camel")
         }
       }
 

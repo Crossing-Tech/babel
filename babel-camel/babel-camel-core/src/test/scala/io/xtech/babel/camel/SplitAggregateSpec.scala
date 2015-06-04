@@ -8,10 +8,7 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.model.Aggregation.{ ReduceBody, CamelAggregation, CompletionSize }
 import io.xtech.babel.camel.test.camel
-import io.xtech.babel.fish.{ BaseDSL, MessageExpression }
-import io.xtech.babel.fish.model.Message
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.processor.aggregate.AggregationStrategy

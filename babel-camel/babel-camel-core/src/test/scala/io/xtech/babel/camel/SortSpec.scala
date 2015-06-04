@@ -8,11 +8,13 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.test.camel
 import java.util.{ List => JList }
+
+import io.xtech.babel.camel.test.camel
 import org.apache.camel.builder.Builder
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
+
 import scala.collection.JavaConverters._
 import scala.collection.mutable
 
@@ -98,8 +100,9 @@ class SortSpec extends SpecificationWithJUnit {
 
       //#doc:babel-camel-sort-2-1
 
-      import io.xtech.babel.camel.builder.RouteBuilder
       import java.util.{ List => JList }
+
+      import io.xtech.babel.camel.builder.RouteBuilder
       import org.apache.camel.builder.Builder
 
       val routeBuilder = new RouteBuilder {

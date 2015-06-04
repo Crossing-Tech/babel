@@ -8,12 +8,13 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.ResequencerDSL
+import io.xtech.babel.camel.{ CamelDSL, ResequencerDSL }
 import io.xtech.babel.camel.model.{ Expressions, ResequencerDefinition }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.ProcessorDefinition
 import org.apache.camel.model.config.{ BatchResequencerConfig, StreamResequencerConfig }
+
 import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
@@ -21,7 +22,7 @@ import scala.reflect.ClassTag
 /**
   * The parser of resequencer definition.
   */
-private[babel] trait Resequencer extends CamelParsing {
+private[babel] trait Resequencer extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
@@ -29,14 +30,14 @@ private[babel] trait Resequencer extends CamelParsing {
 
   private[this] def parse: Process = {
 
-    case StepInformation(ResequencerDefinition(expression, batch: BatchResequencerConfig), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ ResequencerDefinition(expression, batch: BatchResequencerConfig), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      camelProcessorDefinition.resequence(Expressions.toCamelExpression(expression)).batch(batch)
+      camelProcessorDefinition.resequence(Expressions.toCamelExpression(expression)).batch(batch).withId(step)
 
     }
-    case StepInformation(ResequencerDefinition(expression, stream: StreamResequencerConfig), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ ResequencerDefinition(expression, stream: StreamResequencerConfig), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      camelProcessorDefinition.resequence(Expressions.toCamelExpression(expression)).stream(stream)
+      camelProcessorDefinition.resequence(Expressions.toCamelExpression(expression)).stream(stream).withId(step)
 
     }
   }

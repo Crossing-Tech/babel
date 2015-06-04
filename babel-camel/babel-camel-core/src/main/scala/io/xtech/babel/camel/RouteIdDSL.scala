@@ -8,8 +8,9 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.model.RouteIdDefinition
-import io.xtech.babel.fish.{ BaseDSL2FromDSL, FromDSL }
+import io.xtech.babel.camel.model.{ IdDefinition, RouteIdDefinition }
+import io.xtech.babel.fish.{ BaseDSL, BaseDSL2FromDSL, FromDSL }
+
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
@@ -27,6 +28,19 @@ private[camel] class RouteIdDSL[I: ClassTag](protected val baseDsl: FromDSL[I]) 
     require(Option(id).exists(_.trim.length > 0), "routeId can neither be null nor empty")
 
     RouteIdDefinition(id)
+  }
+}
+
+private[camel] class IdDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) extends BaseDSL2FromDSL[I] {
+  /**
+    * the id keyword.
+    * @param id a given id for the previous eip.
+    * @return the possibility to add other steps to the current DSL
+    */
+  def id(id: String): BaseDSL[I] = {
+    require(Option(id).exists(_.trim.length > 0), "id can neither be null nor empty")
+
+    IdDefinition(id)
 
   }
 }

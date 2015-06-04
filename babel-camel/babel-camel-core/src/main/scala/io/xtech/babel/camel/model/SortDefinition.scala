@@ -8,8 +8,9 @@
 
 package io.xtech.babel.camel.model
 
-import io.xtech.babel.fish.model.{ Expression, StepDefinition }
 import java.util.Comparator
+
+import io.xtech.babel.fish.model.{ Expression, StepDefinition }
 
 /**
   * The definition of the sort keyword in the DSL

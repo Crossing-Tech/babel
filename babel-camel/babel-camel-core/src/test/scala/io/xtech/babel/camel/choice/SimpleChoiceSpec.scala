@@ -14,6 +14,7 @@ import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.{ Exchange, Predicate, Processor }
 import org.specs2.mutable.SpecificationWithJUnit
+
 import scala.collection.JavaConverters._
 
 class SimpleChoiceSpec extends SpecificationWithJUnit {

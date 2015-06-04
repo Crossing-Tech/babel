@@ -8,11 +8,12 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.MarshallerDSL
+import io.xtech.babel.camel.{ CamelDSL, MarshallerDSL }
 import io.xtech.babel.camel.model._
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.ProcessorDefinition
+
 import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
@@ -20,7 +21,7 @@ import scala.reflect.ClassTag
 /**
   * The `marshall` / `unmarshall` parser
   */
-private[babel] trait Marshaller extends CamelParsing {
+private[babel] trait Marshaller extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
@@ -30,20 +31,20 @@ private[babel] trait Marshaller extends CamelParsing {
     * Parsing of the marshalling feature
     */
   private[this] def parse: Process = {
-    case StepInformation(MarshallerDefinition(MarshallerInstance(dataFormat)), camelProcessorDefinition: ProcessorDefinition[_]) => {
-      camelProcessorDefinition.marshal(dataFormat)
+    case StepInformation(step @ MarshallerDefinition(MarshallerInstance(dataFormat)), camelProcessorDefinition: ProcessorDefinition[_]) => {
+      camelProcessorDefinition.marshal(dataFormat).withId(step)
 
     }
-    case StepInformation(MarshallerDefinition(MarshallerReference(ref)), camelProcessorDefinition: ProcessorDefinition[_]) => {
-      camelProcessorDefinition.marshal(ref)
+    case StepInformation(step @ MarshallerDefinition(MarshallerReference(ref)), camelProcessorDefinition: ProcessorDefinition[_]) => {
+      camelProcessorDefinition.marshal(ref).withId(step)
 
     }
-    case StepInformation(MarshallerDefinition(UnmarshallerInstance(dataFormat)), camelProcessorDefinition: ProcessorDefinition[_]) => {
-      camelProcessorDefinition.unmarshal(dataFormat)
+    case StepInformation(step @ MarshallerDefinition(UnmarshallerInstance(dataFormat)), camelProcessorDefinition: ProcessorDefinition[_]) => {
+      camelProcessorDefinition.unmarshal(dataFormat).withId(step)
 
     }
-    case StepInformation(MarshallerDefinition(UnmarshallerReference(ref)), camelProcessorDefinition: ProcessorDefinition[_]) => {
-      camelProcessorDefinition.unmarshal(ref)
+    case StepInformation(step @ MarshallerDefinition(UnmarshallerReference(ref)), camelProcessorDefinition: ProcessorDefinition[_]) => {
+      camelProcessorDefinition.unmarshal(ref).withId(step)
 
     }
   }

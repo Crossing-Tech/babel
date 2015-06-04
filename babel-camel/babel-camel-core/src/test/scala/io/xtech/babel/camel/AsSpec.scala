@@ -13,6 +13,7 @@ import org.apache.camel.Exchange
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.support.TypeConverterSupport
 import org.specs2.mutable.SpecificationWithJUnit
+
 import scala.collection.JavaConverters._
 
 class AsSpec extends SpecificationWithJUnit {

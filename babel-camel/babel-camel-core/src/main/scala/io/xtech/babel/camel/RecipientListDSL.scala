@@ -12,6 +12,7 @@ import io.xtech.babel.camel.model.RecipientListDefinition
 import io.xtech.babel.camel.parsing.RecipientlistDSL
 import io.xtech.babel.fish.model.{ Expression, Message }
 import io.xtech.babel.fish.{ BaseDSL, DSL2BaseDSL, MessageExpression }
+
 import scala.reflect.ClassTag
 
 private[camel] class RecipientListDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) extends DSL2BaseDSL[I] {

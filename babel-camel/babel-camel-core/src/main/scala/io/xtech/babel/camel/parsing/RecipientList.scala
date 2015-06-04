@@ -8,12 +8,13 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.RecipientListDSL
+import io.xtech.babel.camel.{ CamelDSL, RecipientListDSL }
 import io.xtech.babel.camel.model.{ Expressions, RecipientListDefinition }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.model.StepDefinition
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.ProcessorDefinition
+
 import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
@@ -21,7 +22,7 @@ import scala.reflect.ClassTag
 /**
   * The recipientList parser.
   */
-private[babel] trait RecipientList extends CamelParsing {
+private[babel] trait RecipientList extends CamelParsing { self: CamelDSL =>
 
   // insert the extension in the base fish
   implicit def recipientListDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new RecipientListDSL(baseDsl)
@@ -32,7 +33,7 @@ private[babel] trait RecipientList extends CamelParsing {
   private[this] def parse: Process = {
     case StepInformation(definition @ RecipientListDefinition(expression), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      camelProcessorDefinition.recipientList(Expressions.toCamelExpression(expression))
+      camelProcessorDefinition.recipientList(Expressions.toCamelExpression(expression)).withId(definition)
 
     }
   }

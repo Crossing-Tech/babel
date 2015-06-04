@@ -15,6 +15,7 @@ import io.xtech.babel.fish.model._
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.ExchangePattern
 import org.apache.camel.model.ProcessorDefinition
+
 import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
@@ -40,9 +41,11 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
     bodyTypeValidation)
 
   private[this] def from: Process = {
-    case s @ StepInformation(FromDefinition(_, CamelSource(uri)), _) => {
-
-      s.buildHelper.from(uri)
+    case s @ StepInformation(step @ FromDefinition(_, source @ CamelSource(uri)), _) => {
+      val from = s.buildHelper.from(uri)
+      namingStrategy.newRoute()
+      namingStrategy.name(step).foreach(from.id) //might be renamed when given a routeId
+      from
     }
   }
 
@@ -59,46 +62,49 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
       //end route
       camelProcessor match {
         case processor: ProcessorDefinition[_] =>
-          processor.to(d.channelUri)
+          val to = processor.to(d.channelUri)
+          namingStrategy.name(d).foreach(to.id)
+          to
 
         //in case of on[Exception] at RouteBuilder level, the processor.to is managed by the Handler.parseOnException
         case _ =>
       }
 
       //beginning of subroute
+      namingStrategy.routeId = Some(d.routeId)
       step.buildHelper.from(d.channelUri).routeId(d.routeId)
     }
 
   }
 
   private[this] def endpointImplementation: Process = {
-    case StepInformation(endpoint @ EndpointDefinition(CamelSink(uri), requestReply), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ EndpointDefinition(CamelSink(uri), requestReply), camelProcessorDefinition: ProcessorDefinition[_]) => {
       requestReply.foreach(x => camelProcessorDefinition.setExchangePattern(if (x) ExchangePattern.InOut else ExchangePattern.InOnly))
-      camelProcessorDefinition.to(uri)
+      camelProcessorDefinition.to(uri).withId(step)
     }
   }
 
   private[this] def multicast: Process = {
-    case StepInformation(MulticastDefinition(SeqCamelSink(sinks @ _*)), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ MulticastDefinition(SeqCamelSink(sinks @ _*)), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
       val uris = sinks.map(_.uri)
       val javaUris = uris.toArray
-      camelProcessorDefinition.multicast().to(javaUris: _*)
+      camelProcessorDefinition.multicast().to(javaUris: _*).withId(step)
 
     }
   }
 
   private[this] def bodyConvertor: Process = {
-    case StepInformation(BodyConvertorDefinition(inClass, outClass), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ BodyConvertorDefinition(inClass, outClass), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      camelProcessorDefinition.convertBodyTo(outClass)
+      camelProcessorDefinition.convertBodyTo(outClass).withId(step)
     }
   }
 
   private[this] def bodyTypeValidation: Process = {
-    case StepInformation(BodyTypeValidationDefinition(inClass, outClass), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ BodyTypeValidationDefinition(inClass, outClass), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      camelProcessorDefinition.process(new CamelBodyTypeValidation(outClass))
+      camelProcessorDefinition.process(new CamelBodyTypeValidation(outClass)).withId(step)
     }
   }
 
@@ -107,7 +113,7 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
     * @see CamelDSL.StepImplementation
     */
   private[this] def choice: Process = {
-    case s @ StepInformation(d: ChoiceDefinition[_], camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case s @ StepInformation(step: ChoiceDefinition[_], camelProcessorDefinition: ProcessorDefinition[_]) => {
 
       implicit val implicitRouteBuilder = s.buildHelper
 
@@ -115,7 +121,7 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
       val camelChoice = camelProcessorDefinition.choice()
 
       // for each possible branch of the choice create a camel predicate and declare a when in camel
-      for (when <- d.scopedSteps) {
+      for (when <- step.scopedSteps) {
         val camelWhen = camelChoice.when(Predicates.toCamelPredicate(when.predicate))
         for (step <- when.next) {
           process(step, camelWhen)(s.buildHelper)
@@ -123,7 +129,7 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
       }
 
       // if an otherwise branch exists, declare an otherwise subroute in camel
-      for { otherwise <- d.otherwise; step <- otherwise.next } {
+      for { otherwise <- step.otherwise; step <- otherwise.next } {
         val camelOtherwise = camelChoice.otherwise()
         process(step, camelOtherwise)
       }
@@ -132,7 +138,7 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
       // Don't use endchoice() ! It is only used when ending a sub route (loadBalance, split, etc...) in the choice block
 
       // end() is also a difficulty to make the creation of the camel route tailrec because end() needs to be called after the subroutes are created.
-      camelChoice.end()
+      camelChoice.end().withId(step)
 
     }
   }
@@ -142,28 +148,28 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
     */
   private[this] def splitter: Process = {
 
-    case StepInformation(SplitterDefinition(expression), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ SplitterDefinition(expression), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(expression))
+      camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(expression)).withId(step)
 
     }
 
-    case s @ StepInformation(definition: SplitReduceDefinition[_, _, _], camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case s @ StepInformation(step: SplitReduceDefinition[_, _, _], camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      val aggregationStrategy = new ReduceBodyAggregationStrategy(definition.reduce)
-      val split = camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(definition.expression), aggregationStrategy)
-      definition.internalRouteDefinition.next.foreach(splitterRoute => process(splitterRoute, split)(s.buildHelper))
+      val aggregationStrategy = new ReduceBodyAggregationStrategy(step.reduce)
+      val split = camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(step.expression), aggregationStrategy)
+      step.internalRouteDefinition.next.foreach(splitterRoute => process(splitterRoute, split)(s.buildHelper))
 
-      split.end()
+      split.end().withId(step)
     }
 
-    case s @ StepInformation(definition: SplitFoldDefinition[_, _, _, _], camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case s @ StepInformation(step: SplitFoldDefinition[_, _, _, _], camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      val aggregationStrategy = new FoldBodyAggregationStrategy(definition.seed, definition.fold)
-      val split = camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(definition.expression), aggregationStrategy)
-      definition.internalRouteDefinition.next.foreach(splitterRoute => process(splitterRoute, split)(s.buildHelper))
+      val aggregationStrategy = new FoldBodyAggregationStrategy(step.seed, step.fold)
+      val split = camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(step.expression), aggregationStrategy)
+      step.internalRouteDefinition.next.foreach(splitterRoute => process(splitterRoute, split)(s.buildHelper))
 
-      split.end()
+      split.end().withId(step)
     }
 
   }
@@ -173,11 +179,9 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
     */
   private[this] def filter: Process = {
 
-    case StepInformation(FilterDefinition(predicate), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ FilterDefinition(predicate), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      val nextProcDef = camelProcessorDefinition.filter(Predicates.toCamelPredicate(predicate))
-
-      nextProcDef
+      camelProcessorDefinition.filter(Predicates.toCamelPredicate(predicate)).withId(step)
     }
   }
 
