@@ -11,9 +11,7 @@ package io.xtech.babel.camel.model
 import io.xtech.babel.fish.model.StepDefinition
 
 /**
-  * Declaration of a subroute configuration.
-  * @param routeId the route id.
+  * Declaration of a link to an Error handling Route configuration.
+  * @param endpoint which connects to the error handling route.
   */
-case class ChannelDefinition(routeId: String) extends StepDefinition {
-  val channelUri = s"direct:$routeId"
-}
+case class ErrorHandlingRouteDefinition(endpoint: String) extends StepDefinition

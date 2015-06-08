@@ -9,7 +9,7 @@
 package io.xtech.babel.camel.parsing
 
 import io.xtech.babel.camel.{ CamelDSL, HandlerDSL }
-import io.xtech.babel.camel.model.{ ChannelDefinition, ErrorHandling, OnExceptionDefinition }
+import io.xtech.babel.camel.model.{ ErrorHandlingRouteDefinition, ErrorHandling, OnExceptionDefinition }
 import io.xtech.babel.fish.parsing.StepInformation
 import io.xtech.babel.fish.{ BodyPredicate, FromDSL }
 import org.apache.camel.builder.RouteBuilder
@@ -41,8 +41,8 @@ private[babel] trait Handler extends CamelParsing { self: CamelDSL =>
 
     //parse the subroute if any
     exception.next match {
-      case Some(channel: ChannelDefinition) =>
-        val to = processor.to(channel.channelUri)
+      case Some(channel: ErrorHandlingRouteDefinition) =>
+        val to = processor.to(channel.endpoint)
         namingStrategy.name(channel).foreach(to.id)
         to
       case other => //no need to add a subroute

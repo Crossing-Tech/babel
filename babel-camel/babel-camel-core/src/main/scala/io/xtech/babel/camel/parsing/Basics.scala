@@ -26,8 +26,6 @@ import scala.reflect.ClassTag
   */
 private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
 
-  implicit def subRouteDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): SubRouteDSL[I] = new SubRouteDSL(baseDsl)
-
   def steps: immutable.Seq[Process] = immutable.Seq(from,
     handle,
     subs,
@@ -58,11 +56,11 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
 
   //warning need to copy the code of from and routeId parsing
   private[this] def subs: Process = {
-    case step @ StepInformation(d: ChannelDefinition, camelProcessor) => {
+    case step @ StepInformation(d: ErrorHandlingRouteDefinition, camelProcessor) => {
       //end route
       camelProcessor match {
         case processor: ProcessorDefinition[_] =>
-          val to = processor.to(d.channelUri)
+          val to = processor.to(d.endpoint)
           namingStrategy.name(d).foreach(to.id)
           to
 
@@ -70,9 +68,6 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
         case _ =>
       }
 
-      //beginning of subroute
-      namingStrategy.routeId = Some(d.routeId)
-      step.buildHelper.from(d.channelUri).routeId(d.routeId)
     }
 
   }

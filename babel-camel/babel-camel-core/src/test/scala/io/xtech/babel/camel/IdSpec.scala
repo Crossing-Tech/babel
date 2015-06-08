@@ -102,7 +102,7 @@ class IdSpec extends SpecificationWithJUnit {
         //the id of the from (and thus the routeId) will be "id-1"
         from("direct:input").
           //the id of the endpoint which allows the subroute will be "id-2"
-          sub("subroute").
+          to("direct:subroute").
           //the id of the processor will be "id-3"
           processBody(x => x).
           //the id of the mock endpoint will be "id-4"
@@ -115,8 +115,8 @@ class IdSpec extends SpecificationWithJUnit {
       camelContext.start()
 
       Option(camelContext.getRouteDefinition("id-1")).map(_.getOutputs.get(0).getId) must be_==(Some("id-2"))
-      Option(camelContext.getRouteDefinition("subroute")).map(_.getOutputs.get(0).getId) must be_==(Some("id-3"))
-      Option(camelContext.getRouteDefinition("subroute")).map(_.getOutputs.get(1).getId) must be_==(Some("id-4"))
+      Option(camelContext.getRouteDefinition("id-1")).map(_.getOutputs.get(0).getId) must be_==(Some("id-3"))
+      Option(camelContext.getRouteDefinition("id-1")).map(_.getOutputs.get(1).getId) must be_==(Some("id-4"))
     }
 
     "allows default ids depending on patterns" in new camel {
