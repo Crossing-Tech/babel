@@ -9,7 +9,7 @@
 package io.xtech.babel.camel.parsing
 
 import io.xtech.babel.camel.model._
-import io.xtech.babel.camel.{ CamelDSL, SubRouteDSL }
+import io.xtech.babel.camel.{ CamelDSL, ErrorHandlingDSL }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.model._
 import io.xtech.babel.fish.parsing.StepInformation

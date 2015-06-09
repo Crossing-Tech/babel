@@ -17,7 +17,7 @@ import scala.reflect.ClassTag
 /**
   * Adds the routeId keyword to the FromDSL (start of the route).
   */
-private[camel] class SubRouteDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) {
+private[camel] class ErrorHandlingDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) {
 
   /**
     * the sub keyword.
