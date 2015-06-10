@@ -76,20 +76,6 @@ With a **log**, you can log a defined string (which may use Camel Simple Express
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/LogSpec.scala#doc:babel-camel-logging
 
-Sub routes
-++++++++++
-
-With a **sub**, you can define the following steps as part of a new route.
-
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/SubRouteSpec.scala#doc:babel-camel-sub
-
-This example would just create two routes:
-
-* the "master-route" from the "input" to the "before" to the "subroute"
-* the "subroute" from the "subroute" to the "after"
-
-Thus, **sub** may be seen as an inline channel. The first goal of the sub route is to separate, at runtime, the two routes in a proper manner without requiring more than required code. The sub routes may also be interesting for example in `Error Handling <errormanagement.html>`_.
-
 Route configuration
 +++++++++++++++++++
 
