@@ -25,7 +25,7 @@ private[babel] trait Log extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
-  implicit def logDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): LogDSL[I] = new LogDSL(baseDsl)
+  protected implicit def logDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): LogDSL[I] = new LogDSL(baseDsl)
 
   private[this] def parse: Process = {
 

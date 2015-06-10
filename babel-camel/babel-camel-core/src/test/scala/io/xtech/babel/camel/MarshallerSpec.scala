@@ -49,7 +49,6 @@ object MarshallerSpec {
       row.put("d", "4")
       row.put("e", "5")
       expectedValue.add(row)
-      expectedValue
       row
     }
 
@@ -62,7 +61,6 @@ object MarshallerSpec {
       row.add("4")
       row.add("5")
       expectedValue.add(row)
-      expectedValue
       row
     }
 

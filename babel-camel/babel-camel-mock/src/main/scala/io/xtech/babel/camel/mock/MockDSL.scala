@@ -42,7 +42,7 @@ trait Mock extends CamelParsing {
 
   }
 
-  implicit def mockDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new MockDSL(baseDsl)
+  implicit protected def mockDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): MockDSL[I] = new MockDSL(baseDsl)
 }
 
 //#doc:babel-mock

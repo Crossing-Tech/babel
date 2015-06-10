@@ -26,6 +26,9 @@ object RequireAsSpec {
 
 class RequireAsSpec extends SpecificationWithJUnit {
 
+  private val directConsumer = "direct:input"
+  private val mockProducer = "mock:output"
+
   sequential
 
   "A RequireAs" should {
@@ -38,19 +41,19 @@ class RequireAsSpec extends SpecificationWithJUnit {
       val routeDef = new RouteBuilder {
         //Input Message bodies should be of type String
         //  or would throw an Exception
-        from("direct:input").requireAs[String].
-          processBody(_ + "4").to("mock:output")
+        from(directConsumer).requireAs[String].
+          processBody(_ + "4").to(mockProducer)
       }
       //#doc:babel-camel-requireAs
       routeDef.addRoutesToCamelContext(camelContext)
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
 
       //#doc:babel-camel-requireAs
       val producer = camelContext.createProducerTemplate()
-      producer.sendBody("direct:input", 123) must throwA[CamelExecutionException]
+      producer.sendBody(directConsumer, 123) must throwA[CamelExecutionException]
       //#doc:babel-camel-requireAs
 
     }
@@ -63,19 +66,19 @@ class RequireAsSpec extends SpecificationWithJUnit {
       val routeDef = new RouteBuilder {
         //no input Message may satisfies both type constraints,
         //   thus any message sent would throw an Exception.
-        from("direct:input").requireAs[String].requireAs[Int].
-          to("mock:output")
+        from(directConsumer).requireAs[String].requireAs[Int].
+          to(mockProducer)
       }
       //#doc:babel-camel-requireAs-exception
       routeDef.addRoutesToCamelContext(camelContext)
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
 
       //#doc:babel-camel-requireAs-exception
       val producer = camelContext.createProducerTemplate()
-      producer.sendBody("direct:input", "123") must throwA[CamelExecutionException]
+      producer.sendBody(directConsumer, "123") must throwA[CamelExecutionException]
       //#doc:babel-camel-requireAs-exception
 
     }
@@ -85,13 +88,13 @@ class RequireAsSpec extends SpecificationWithJUnit {
       import io.xtech.babel.camel.builder.RouteBuilder
 
       val routeDef = new RouteBuilder {
-        from("direct:input").requireAs[A].to("mock:output")
+        from(directConsumer).requireAs[A].to(mockProducer)
       }
       routeDef.addRoutesToCamelContext(camelContext)
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
 
       val b: B = B("bla")
       val a: A = B("bla")
@@ -99,7 +102,7 @@ class RequireAsSpec extends SpecificationWithJUnit {
       mockEndpoint.expectedBodiesReceived(a)
 
       val producer = camelContext.createProducerTemplate()
-      producer.sendBody("direct:input", b)
+      producer.sendBody(directConsumer, b)
 
       mockEndpoint.assertIsSatisfied()
     }
@@ -108,18 +111,18 @@ class RequireAsSpec extends SpecificationWithJUnit {
       import io.xtech.babel.camel.builder.RouteBuilder
 
       val routeDef = new RouteBuilder {
-        from("direct:input").requireAs[Int].processBody((i: Int) => i).to("mock:output")
+        from(directConsumer).requireAs[Int].processBody((i: Int) => i).to(mockProducer)
       }
       routeDef.addRoutesToCamelContext(camelContext)
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
 
       mockEndpoint.expectedBodiesReceived(42: java.lang.Integer)
 
       val producer = camelContext.createProducerTemplate()
-      producer.sendBody("direct:input", 42)
+      producer.sendBody(directConsumer, 42)
 
       mockEndpoint.assertIsSatisfied()
     }

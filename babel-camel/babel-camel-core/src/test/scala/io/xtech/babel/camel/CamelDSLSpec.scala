@@ -23,6 +23,8 @@ import org.specs2.mutable.SpecificationWithJUnit
 class CamelDSLSpec extends SpecificationWithJUnit {
   sequential
 
+  val message = "bla"
+
   "CamelDSL" should {
 
     "create a route with an empty DSL" in new camel {
@@ -54,9 +56,9 @@ class CamelDSLSpec extends SpecificationWithJUnit {
       val producer = camelContext.createProducerTemplate()
 
       val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      mockEndpoint.expectedBodiesReceived("bla")
+      mockEndpoint.expectedBodiesReceived(message)
 
-      producer.sendBody("direct:input", "bla")
+      producer.sendBody("direct:input", message)
 
       mockEndpoint.assertIsSatisfied()
     }
@@ -79,10 +81,10 @@ class CamelDSLSpec extends SpecificationWithJUnit {
       val producer = camelContext.createProducerTemplate()
 
       val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      mockEndpoint.expectedBodiesReceived("bla")
+      mockEndpoint.expectedBodiesReceived(message)
       mockEndpoint.expectedExchangePattern(ExchangePattern.InOnly)
 
-      producer.sendBody("direct:input", "bla")
+      producer.sendBody("direct:input", message)
 
       mockEndpoint.assertIsSatisfied()
     }
@@ -105,10 +107,10 @@ class CamelDSLSpec extends SpecificationWithJUnit {
       val producer = camelContext.createProducerTemplate()
 
       val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      mockEndpoint.expectedBodiesReceived("bla")
+      mockEndpoint.expectedBodiesReceived(message)
       mockEndpoint.expectedExchangePattern(ExchangePattern.InOut)
 
-      producer.requestBody("direct:input", "bla")
+      producer.requestBody("direct:input", message)
 
       mockEndpoint.assertIsSatisfied()
     }
@@ -192,7 +194,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
 
-      producer.sendBody("direct:input", "bla")
+      producer.sendBody("direct:input", message)
 
       mockEndpoint.getReceivedExchanges.get(0).getProperties.get("babel").toString === "toto"
     }
@@ -248,7 +250,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
 
-      producer.sendBody("direct:input", "bla") must throwA[Exception]
+      producer.sendBody("direct:input", message) must throwA[Exception]
 
     }
 
@@ -274,7 +276,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
 
-      producer.sendBody("direct:input", "bla")
+      producer.sendBody("direct:input", message)
 
       mockEndpoint.getReceivedExchanges.get(0).getPattern === ExchangePattern.InOptionalOut
     }

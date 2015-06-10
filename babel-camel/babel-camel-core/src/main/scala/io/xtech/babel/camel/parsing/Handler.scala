@@ -27,10 +27,10 @@ private[babel] trait Handler extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
-  implicit def handlerDSLExtension[I: ClassTag](baseDsl: FromDSL[I]): HandlerDSL[I] = new HandlerDSL(baseDsl)
+  protected implicit def handlerDSLExtension[I: ClassTag](baseDsl: FromDSL[I]): HandlerDSL[I] = new HandlerDSL(baseDsl)
 
   //used to allow user to define a predicate on exceptions from a boolean
-  implicit def booleanAsPredicate[Any](bool: Boolean): BodyPredicate[Any] = {
+  protected implicit def booleanAsPredicate[Any](bool: Boolean): BodyPredicate[Any] = {
     BodyPredicate[Any](_ => bool)
   }
 
