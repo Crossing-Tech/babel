@@ -22,7 +22,7 @@ private[babel] trait Validation extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
-  implicit def validationDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new ValidationDSL(baseDsl)
+  protected implicit def validationDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new ValidationDSL(baseDsl)
 
   // parsing of an validation definition
   private[this] def parse: Process = {

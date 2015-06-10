@@ -56,17 +56,17 @@ trait CamelDSL extends StepProcessor[RouteBuilder] with Basics
 
   protected implicit def toNamedCamelProcessor(processor: ProcessorDefinition[_]) = new Named(processor)
 
-  implicit def stringSource(uri: String): CamelSource = CamelSource(uri)
+  protected implicit def stringSource(uri: String): CamelSource = CamelSource(uri)
 
-  implicit def stringSink(uri: String): CamelSink[Any] = CamelSink(uri)
+  protected implicit def stringSink(uri: String): CamelSink[Any] = CamelSink(uri)
 
-  implicit def stringSinks(uris: Seq[String]): immutable.Seq[CamelSink[Any]] = immutable.Seq(uris.map(new CamelSink(_)): _*)
+  protected implicit def stringSinks(uris: Seq[String]): immutable.Seq[CamelSink[Any]] = immutable.Seq(uris.map(new CamelSink(_)): _*)
 
   //transforms a Camel Expression to a Babel Expression, but does not apply on instances which inherit of the Camel Expression
   //otherwise, scala implicits would not be able to differ camelPredicateExpression and camelPredicate
   // on a Camel Predicate which extends Camel Expression
-  implicit def camelPredicateExpression(exp: org.apache.camel.Expression with org.apache.camel.Predicate) = new CamelExpressionWrapper(exp)
-  implicit def camelPredicate(pred: org.apache.camel.Predicate) = new CamelPredicateWrapper(pred)
+  protected implicit def camelPredicateExpression(exp: org.apache.camel.Expression with org.apache.camel.Predicate) = new CamelExpressionWrapper(exp)
+  protected implicit def camelPredicate(pred: org.apache.camel.Predicate) = new CamelPredicateWrapper(pred)
 
   protected[camel] def process[T](step: StepDefinition, previous: T)(implicit routeBuilder: RouteBuilder) = {
     processSteps(StepInformation(step, previous)(routeBuilder))
@@ -87,7 +87,7 @@ trait CamelDSL extends StepProcessor[RouteBuilder] with Basics
     routeBuilder
   }
 
-  implicit def camelMessage[I](msg: Message[I]): CamelMessage[I] = CamelHelper.camelMessage(msg)
+  protected implicit def camelMessage[I](msg: Message[I]): CamelMessage[I] = CamelHelper.camelMessage(msg)
 
 }
 

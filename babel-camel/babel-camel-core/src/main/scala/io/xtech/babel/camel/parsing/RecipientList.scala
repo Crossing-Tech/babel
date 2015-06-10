@@ -25,7 +25,7 @@ import scala.reflect.ClassTag
 private[babel] trait RecipientList extends CamelParsing { self: CamelDSL =>
 
   // insert the extension in the base fish
-  implicit def recipientListDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new RecipientListDSL(baseDsl)
+  protected implicit def recipientListDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new RecipientListDSL(baseDsl)
 
   // add the recipientList parser to the other parsers
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse

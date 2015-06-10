@@ -25,7 +25,7 @@ private[babel] trait Marshaller extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
-  implicit def marshallerDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new MarshallerDSL(baseDsl)
+  protected implicit def marshallerDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new MarshallerDSL(baseDsl)
 
   /**
     * Parsing of the marshalling feature

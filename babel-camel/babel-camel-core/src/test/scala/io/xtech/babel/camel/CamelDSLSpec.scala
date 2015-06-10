@@ -170,7 +170,6 @@ class CamelDSLSpec extends SpecificationWithJUnit {
       mockEnpoint.assertIsSatisfied()
     }
 
-
   }
 
   "Camel Message" should {

@@ -25,7 +25,7 @@ private[babel] trait Enricher extends CamelParsing { self: CamelDSL =>
 
   abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
 
-  implicit def enrichDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new EnricherDSL(baseDsl)
+  protected implicit def enrichDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new EnricherDSL(baseDsl)
 
   /**
     * Parsing of the enricher feature

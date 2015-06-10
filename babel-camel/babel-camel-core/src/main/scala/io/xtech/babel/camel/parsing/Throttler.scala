@@ -32,5 +32,5 @@ trait Throttler extends CamelParsing { self: CamelDSL =>
 
   }
 
-  implicit def throttlerDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new ThrottlerDSL(baseDsl)
+  protected implicit def throttlerDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new ThrottlerDSL(baseDsl)
 }
