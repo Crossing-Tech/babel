@@ -31,9 +31,9 @@ private[babel] trait RouteConfiguration extends CamelParsing {
 
   private[this] def parse: Process = {
 
-    case StepInformation(NoAutoStartDefinition(), camelProcessorDefinition: RouteDefinition) =>
+    case StepInformation(NoAutoStartDefinition(noAutoStart), camelProcessorDefinition: RouteDefinition) =>
 
-      camelProcessorDefinition.noAutoStartup()
+      camelProcessorDefinition.autoStartup(!noAutoStart)
       camelProcessorDefinition
 
     case StepInformation(d: OnExchangeBeginDefinition[_], camelProcessorDefinition: RouteDefinition) =>
