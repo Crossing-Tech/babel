@@ -20,6 +20,7 @@ import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 import scala.collection.JavaConverters._
+import scala.util.Try
 
 /**
   * The routeId parser.
@@ -32,10 +33,19 @@ private[babel] trait RouteId extends CamelParsing { self: CamelDSL =>
 
   private[this] def parse: Process = {
 
-    case StepInformation(RouteIdDefinition(routeId), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case s @ StepInformation(RouteIdDefinition(routeId), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      namingStrategy.routeId = Some(routeId)
       //renames the from id
+      s.previousStepHelper match {
+        case from: RouteDefinition =>
+          Try {
+            namingStrategy.newRoute()
+            namingStrategy.routeId = Some(routeId)
+            namingStrategy.name(FromDefinition(classOf[Any], from.getInputs.get(0).getUri())).foreach(from.id(_))
+          }
+        case other =>
+          namingStrategy.routeId = Some(routeId)
+      }
       camelProcessorDefinition.routeId(routeId)
 
     }
