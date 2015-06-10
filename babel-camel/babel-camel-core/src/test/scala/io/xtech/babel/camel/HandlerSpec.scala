@@ -1607,8 +1607,55 @@ class HandlerSpec extends SpecificationWithJUnit {
 
     }
 
+    "allow inheritance of error handling" in new camel {
+
+      val routeBuilder1 = new MyRouteBuilder(1)
+      val routeBuilder2 = new MyRouteBuilder(2)
+      val errorRouteBuilder = new RouteBuilder {
+        from("direct:handlingRoute").log("error:${body}").to("mock:error")
+      }
+
+      val mock = camelContext.getEndpoint("mock:error").asInstanceOf[MockEndpoint]
+      val mock1 = camelContext.getEndpoint("mock:babel1").asInstanceOf[MockEndpoint]
+      val mock2 = camelContext.getEndpoint("mock:babel2").asInstanceOf[MockEndpoint]
+
+      mock.setExpectedMessageCount(2)
+      mock1.setExpectedMessageCount(0)
+      mock2.setExpectedMessageCount(0)
+
+      camelContext.addRoutes(routeBuilder1)
+      camelContext.addRoutes(routeBuilder2)
+      camelContext.addRoutes(errorRouteBuilder)
+
+      camelContext.start()
+
+      val proc = camelContext.createProducerTemplate()
+      proc.sendBody("direct:input1", "Expected exception")
+      proc.sendBody("direct:input2", "Expected exception")
+
+      mock.assertIsSatisfied()
+    }
+
   }
 
+}
+
+class AbstractRouteBuilder extends RouteBuilder {
+  handle(_.on[Exception].handledBody(_ => true).handlingRoute("direct:handlingRoute"))
+}
+
+class MyRouteBuilder(id: Int) extends AbstractRouteBuilder {
+  from("direct:input" + id).
+    routeId("route" + id).
+    processBody(Processors.exceptionThrower).
+    to("mock:babel" + id)
+}
+
+object Processors {
+
+  def exceptionThrower = (body: Any) => {
+    throw new Exception(s"Expected Exception that is handled in error handling on ($body)")
+  }
 }
 
 object ErrorSharedLogs {
