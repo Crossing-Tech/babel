@@ -25,6 +25,8 @@ import scala.collection.JavaConverters._
 class AggregateSpec extends SpecificationWithJUnit {
   sequential
 
+  private val directConsumer = "direct:input"
+
   "create a route with an aggregate eip the camel way" in new camel {
     //#doc:babel-camel-aggregate-camel-1
     import io.xtech.babel.camel.builder.RouteBuilder
@@ -35,7 +37,7 @@ class AggregateSpec extends SpecificationWithJUnit {
 
     val routeDef = new RouteBuilder {
       //message bodies are converted to String if required
-      from("direct:input").as[String].
+      from(directConsumer).as[String].
         //aggregates strings based on the camelAggr defined higher
         aggregate(camelAggr).
         //sends the aggregated string to the mock endpoint
@@ -60,9 +62,9 @@ class AggregateSpec extends SpecificationWithJUnit {
     val mockCamel = camelContext.getEndpoint("mock:camel").asInstanceOf[MockEndpoint]
     mockCamel.expectedMessageCount(1)
 
-    producer.sendBody("direct:input", "1")
-    producer.sendBody("direct:input", "2")
-    producer.sendBody("direct:input", "3")
+    producer.sendBody(directConsumer, "1")
+    producer.sendBody(directConsumer, "2")
+    producer.sendBody(directConsumer, "3")
 
     producer.sendBody("direct:camel", "1")
     producer.sendBody("direct:camel", "2")
@@ -97,7 +99,7 @@ class AggregateSpec extends SpecificationWithJUnit {
 
     val routeDef = new RouteBuilder {
       //message bodies are converted to String if required
-      from("direct:input").as[String].
+      from(directConsumer).as[String].
         //aggregates strings based on the camelAggr defined higher
         aggregate(camelAggr).
         //sends the aggregated string to the mock endpoint
@@ -127,9 +129,9 @@ class AggregateSpec extends SpecificationWithJUnit {
     val mockCamel = camelContext.getEndpoint("mock:camel").asInstanceOf[MockEndpoint]
     mockCamel.expectedMessageCount(1)
 
-    producer.sendBody("direct:input", "1")
-    producer.sendBody("direct:input", "2")
-    producer.sendBody("direct:input", "3")
+    producer.sendBody(directConsumer, "1")
+    producer.sendBody(directConsumer, "2")
+    producer.sendBody(directConsumer, "3")
 
     producer.sendBody("direct:camel", "1")
     producer.sendBody("direct:camel", "2")
@@ -179,7 +181,7 @@ class AggregateSpec extends SpecificationWithJUnit {
       }
 
       def configure(): Unit = {
-        from("direct:input").multicast().to("direct:babel").to("direct:camel").end
+        from(directConsumer).multicast().to("direct:babel").to("direct:camel").end
         from("direct:camel").aggregate(constant("a"), strategy).completionSize(3).to("mock:camel")
       }
     }
@@ -196,17 +198,17 @@ class AggregateSpec extends SpecificationWithJUnit {
     mockEndpoint.expectedBodiesReceived(6: Integer, 15: Integer, 24: Integer)
     camelEndpoint.expectedBodiesReceived(6: Integer, 15: Integer, 24: Integer)
 
-    producer.sendBody("direct:input", 1)
-    producer.sendBody("direct:input", 2)
-    producer.sendBody("direct:input", 3)
+    producer.sendBody(directConsumer, 1)
+    producer.sendBody(directConsumer, 2)
+    producer.sendBody(directConsumer, 3)
 
-    producer.sendBody("direct:input", 4)
-    producer.sendBody("direct:input", 5)
-    producer.sendBody("direct:input", 6)
+    producer.sendBody(directConsumer, 4)
+    producer.sendBody(directConsumer, 5)
+    producer.sendBody(directConsumer, 6)
 
-    producer.sendBody("direct:input", 7)
-    producer.sendBody("direct:input", 8)
-    producer.sendBody("direct:input", 9)
+    producer.sendBody(directConsumer, 7)
+    producer.sendBody(directConsumer, 8)
+    producer.sendBody(directConsumer, 9)
 
     mockEndpoint.assertIsSatisfied()
     camelEndpoint.assertIsSatisfied()
@@ -247,7 +249,7 @@ class AggregateSpec extends SpecificationWithJUnit {
       }
 
       def configure(): Unit = {
-        from("direct:input").multicast().to("direct:babel").to("direct:camel").end
+        from(directConsumer).multicast().to("direct:babel").to("direct:camel").end
         from("direct:camel").aggregate(constant("a"), strategy).completionSize(3).to("mock:camel")
       }
     }
@@ -264,17 +266,17 @@ class AggregateSpec extends SpecificationWithJUnit {
     mockEndpoint.expectedBodiesReceived("123", "456", "789")
     mockCamel.expectedBodiesReceived("123", "456", "789")
 
-    producer.sendBody("direct:input", 1)
-    producer.sendBody("direct:input", 2)
-    producer.sendBody("direct:input", 3)
+    producer.sendBody(directConsumer, 1)
+    producer.sendBody(directConsumer, 2)
+    producer.sendBody(directConsumer, 3)
 
-    producer.sendBody("direct:input", 4)
-    producer.sendBody("direct:input", 5)
-    producer.sendBody("direct:input", 6)
+    producer.sendBody(directConsumer, 4)
+    producer.sendBody(directConsumer, 5)
+    producer.sendBody(directConsumer, 6)
 
-    producer.sendBody("direct:input", 7)
-    producer.sendBody("direct:input", 8)
-    producer.sendBody("direct:input", 9)
+    producer.sendBody(directConsumer, 7)
+    producer.sendBody(directConsumer, 8)
+    producer.sendBody(directConsumer, 9)
 
     mockEndpoint.assertIsSatisfied()
     mockCamel.assertIsSatisfied()

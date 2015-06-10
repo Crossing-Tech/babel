@@ -104,7 +104,7 @@ class HandlerSpec extends SpecificationWithJUnit {
           from("direct:input")
             .handle {
               route =>
-                route.on[IllegalArgumentException].continued(MessagePredicate((x: Message[Any]) => x.body.get.toString == "toto"))
+                route.on[IllegalArgumentException].continued(MessagePredicate((x: Message[Any]) => x.body.map(_.toString) == Some("toto")))
             }
             .as[String]
             .processBody(x => throw new IllegalArgumentException(x))
@@ -170,7 +170,7 @@ class HandlerSpec extends SpecificationWithJUnit {
             .handle {
               route =>
                 route.on[IllegalArgumentException].
-                  continued((x: Message[Any]) => x.body.get.toString == "toto")
+                  continued((x: Message[Any]) => x.body.map(_.toString) == Some("toto"))
             }
             .as[String]
             .processBody(x => throw new IllegalArgumentException(x))
@@ -263,7 +263,7 @@ class HandlerSpec extends SpecificationWithJUnit {
           from("direct:input")
             .handle {
               route =>
-                route.on[IllegalArgumentException].handled(MessagePredicate((x: Message[Any]) => x.body.get.toString.contains("toto")))
+                route.on[IllegalArgumentException].handled(MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto"))))
             }
             .as[String]
             .processBody(x => throw new IllegalArgumentException(x))
@@ -326,7 +326,7 @@ class HandlerSpec extends SpecificationWithJUnit {
           from("direct:input")
             .handle {
               route =>
-                route.on[IllegalArgumentException].handled((x: Message[Any]) => x.body.get.toString.contains("toto"))
+                route.on[IllegalArgumentException].handled((x: Message[Any]) => x.body.map(_.toString).getOrElse("").contains("toto"))
 
             }
             .as[String]
@@ -396,8 +396,8 @@ class HandlerSpec extends SpecificationWithJUnit {
           from("direct:input")
             .handle {
               route =>
-                route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.get.toString.contains("toto"))).continuedBody(true)
-                route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.get.toString.contains("tata"))).handledBody(true)
+                route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto")))).continuedBody(true)
+                route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("tata")))).handledBody(true)
                   .sub("exception").to("mock:exception")
             }
             .as[String]
@@ -479,8 +479,8 @@ class HandlerSpec extends SpecificationWithJUnit {
           from("direct:input")
             .handle {
               route =>
-                route.on[Exception]((x: Message[Any]) => x.body.get.toString.contains("toto")).continuedBody(true)
-                route.on[Exception]((x: Message[Any]) => x.body.get.toString.contains("tata")).handledBody(true)
+                route.on[Exception]((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto"))).continuedBody(true)
+                route.on[Exception]((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("tata"))).handledBody(true)
                   .sub("exception").to("mock:exception")
             }
             .as[String]
@@ -872,7 +872,7 @@ class HandlerSpec extends SpecificationWithJUnit {
           handle {
             route =>
               route.on[IllegalArgumentException].continued(MessagePredicate((x: Message[Any]) => {
-                x.body.get.toString == "toto"
+                x.body.map(_.toString) == Some("toto")
               }))
           }
 
@@ -934,7 +934,7 @@ class HandlerSpec extends SpecificationWithJUnit {
           handle {
             route =>
               route.on[IllegalArgumentException].continued((x: Message[Any]) => {
-                x.body.get.toString == "toto"
+                x.body == Some("toto")
               })
           }
 
@@ -1034,7 +1034,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
           handle {
             route =>
-              route.on[IllegalArgumentException].handled(MessagePredicate((x: Message[Any]) => x.body.get.toString.contains("toto"))).sub("exception").to("mock:exception")
+              route.on[IllegalArgumentException].handled(MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto")))).sub("exception").to("mock:exception")
           }
 
           from("direct:input")
@@ -1104,7 +1104,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
           handle {
             route =>
-              route.on[IllegalArgumentException].handled((x: Message[Any]) => x.body.get.toString.contains("toto")).sub("exception").to("mock:exception")
+              route.on[IllegalArgumentException].handled((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto"))).sub("exception").to("mock:exception")
           }
 
           from("direct:input")
@@ -1177,8 +1177,8 @@ class HandlerSpec extends SpecificationWithJUnit {
 
           handle {
             route =>
-              route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.get.toString.contains("toto"))).continuedBody(true)
-              route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.get.toString.contains("Expected exception"))).continuedBody(false)
+              route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto")))).continuedBody(true)
+              route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("Expected exception")))).continuedBody(false)
           }
 
           from("direct:input")
@@ -1246,8 +1246,8 @@ class HandlerSpec extends SpecificationWithJUnit {
 
           handle {
             route =>
-              route.on[Exception]((x: Message[Any]) => x.body.get.toString.contains("toto")).continuedBody(true)
-              route.on[Exception]((x: Message[Any]) => x.body.get.toString.contains("Expected exception")).continuedBody(false)
+              route.on[Exception]((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto"))).continuedBody(true)
+              route.on[Exception]((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("Expected exception"))).continuedBody(false)
           }
 
           from("direct:input")

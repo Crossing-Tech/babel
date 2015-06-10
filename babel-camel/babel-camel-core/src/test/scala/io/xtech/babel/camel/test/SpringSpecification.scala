@@ -81,12 +81,13 @@ trait BabelSpringSpecification extends SpecificationWithJUnit with SpringSpecifi
   val applicationContextFactory: () => ContextType
 
   def before {
-    appContext = Some(applicationContextFactory())
-    appContext.get.start()
+    val context = applicationContextFactory()
+    appContext = Some(context)
+    context.start()
   }
 
   def after {
-    appContext.get.stop()
+    appContext.foreach(_.stop())
     appContext = None
   }
 }

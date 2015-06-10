@@ -12,6 +12,12 @@ import sbt._
 
 object Dependencies {
 
+
+  private val testScope = "test"
+  private val optionalScope = "optional"
+  private val camelModulePrefix = s"camel"
+  private val camelGroupId = "org.apache.camel"
+
   lazy val babelFish = Seq(libraryDependencies ++= test, OsgiKeys.exportPackage := Seq("io.xtech.babel.fish.*"))
 
   lazy val babelCamelMock = camelDependencies ++ Seq(
@@ -48,28 +54,28 @@ object Dependencies {
     }
   )
 
-  private[this] val camelCore = (camelVersion: String) => "org.apache.camel" % "camel-core" % camelVersion
-  private[this] val camelXmlJson = (camelVersion: String) => "org.apache.camel" % "camel-xmljson" % camelVersion % "test"
-  private[this] val camelCsv = (camelVersion: String) => "org.apache.camel" % "camel-csv" % camelVersion % "test"
-  private[this] val camelSql = (camelVersion: String) => "org.apache.camel" % "camel-sql" % camelVersion % "test"
-  private[this] val camelSpring = (camelVersion: String) => "org.apache.camel" % "camel-spring" % camelVersion % "optional"
-  private[this] val camelScala = (camelVersion: String) => "org.apache.camel" % "camel-scala" % camelVersion % "optional"
-  private[this] val camelTest = (camelVersion: String) => "org.apache.camel" % "camel-test" % camelVersion % "test"
-  private[this] val csvForTest = "org.apache.commons" % "commons-csv" % "1.1" % "test"
-  private[this] val xomForTest = "xom" % "xom" % "1.2.5" % "test"
+  private[this] val camelCore = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-core" % camelVersion
+  private[this] val camelXmlJson = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-xmljson" % camelVersion % testScope
+  private[this] val camelCsv = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-csv" % camelVersion % testScope
+  private[this] val camelSql = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-sql" % camelVersion % testScope
+  private[this] val camelSpring = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-spring" % camelVersion % optionalScope
+  private[this] val camelScala = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-scala" % camelVersion % optionalScope
+  private[this] val camelTest = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-test" % camelVersion % testScope
+  private[this] val csvForTest = "org.apache.commons" % "commons-csv" % "1.1" % testScope
+  private[this] val xomForTest = "xom" % "xom" % "1.2.5" % testScope
 
   private[this] def camel(camelVersion: String) = Seq(camelCore, camelXmlJson, camelCsv, camelSql, camelSpring, camelScala, camelTest).map(x => (x(camelVersion)))
 
-  private[this] val commoncsv = "org.apache.servicemix.bundles" % "org.apache.servicemix.bundles.commons-csv" % "1.0-r706900_3" % "test"
+  private[this] val commoncsv = "org.apache.servicemix.bundles" % "org.apache.servicemix.bundles.commons-csv" % "1.0-r706900_3" % testScope
 
 
 
-  private[this] val cglib = "cglib" % "cglib-nodep" % "2.2" % "test"
-  private[this] val h2 = "com.h2database" % "h2" % "1.3.174" % "test"
+  private[this] val cglib = "cglib" % "cglib-nodep" % "2.2" % testScope
+  private[this] val h2 = "com.h2database" % "h2" % "1.3.174" % testScope
 
 
-  private[this] val specs2 = "org.specs2" %% "specs2" % "2.4.1" % "test"
-  private[this] val junit = "junit" % "junit" % "4.11" % "test"
+  private[this] val specs2 = "org.specs2" %% "specs2" % "2.4.1" % testScope
+  private[this] val junit = "junit" % "junit" % "4.11" % testScope
 
   private[this] val test = Seq(junit, specs2)
 

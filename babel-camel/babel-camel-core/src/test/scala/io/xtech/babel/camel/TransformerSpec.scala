@@ -21,6 +21,8 @@ class TestBean {
 class TransformerSpec extends SpecificationWithJUnit {
   sequential
 
+  private val mockProducer = "mock:output"
+
   "A transformation" should {
 
     "be possible with a bean ref" in new camel {
@@ -32,7 +34,7 @@ class TransformerSpec extends SpecificationWithJUnit {
       val routeDef = new RouteBuilder {
         from("direct:input").
           //bean keyword is deprecated!
-          bean("myBean").to("mock:output")
+          bean("myBean").to(mockProducer)
       }
       //#doc:babel-camel-bean-1
 
@@ -45,7 +47,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
 
       mockEndpoint.expectedBodiesReceived("testbla")
 
@@ -67,7 +69,7 @@ class TransformerSpec extends SpecificationWithJUnit {
           //bean keyword is deprecated!
           bean("myBean", "doIt").
           //the bean keyword destroys the type of the next keyword
-          to("mock:output")
+          to(mockProducer)
       }
       //#doc:babel-camel-bean-2
       routeDef.addRoutesToCamelContext(camelContext)
@@ -79,7 +81,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
 
       mockEndpoint.expectedBodiesReceived("testbla")
 
@@ -100,7 +102,7 @@ class TransformerSpec extends SpecificationWithJUnit {
           //   the TestBean class method which corresponds
           //bean keyword is deprecated!
           bean(new TestBean).
-          to("mock:output")
+          to(mockProducer)
       }
       //#doc:babel-camel-bean-3
       routeDef.addRoutesToCamelContext(camelContext)
@@ -110,7 +112,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
 
       mockEndpoint.expectedBodiesReceived("testbla")
 
@@ -125,7 +127,7 @@ class TransformerSpec extends SpecificationWithJUnit {
       import io.xtech.babel.camel.builder.RouteBuilder
 
       val routeDef = new RouteBuilder {
-        from("direct:input").bean(new TestBean, "doIt").to("mock:output")
+        from("direct:input").bean(new TestBean, "doIt").to(mockProducer)
       }
       routeDef.addRoutesToCamelContext(camelContext)
 
@@ -134,7 +136,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
 
       mockEndpoint.expectedBodiesReceived("testbla")
 
@@ -155,7 +157,7 @@ class TransformerSpec extends SpecificationWithJUnit {
           //   the TestBean class method which corresponds
           //bean keyword is deprecated!
           bean(classOf[TestBean]).
-          to("mock:output")
+          to(mockProducer)
       }
       //#doc:babel-camel-bean-4
       routeDef.addRoutesToCamelContext(camelContext)
@@ -165,7 +167,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
 
       mockEndpoint.expectedBodiesReceived("testbla")
 
@@ -180,7 +182,7 @@ class TransformerSpec extends SpecificationWithJUnit {
       import io.xtech.babel.camel.builder.RouteBuilder
 
       val routeDef = new RouteBuilder {
-        from("direct:input").bean(classOf[TestBean], "doIt").to("mock:output")
+        from("direct:input").bean(classOf[TestBean], "doIt").to(mockProducer)
       }
       routeDef.addRoutesToCamelContext(camelContext)
 
@@ -189,7 +191,7 @@ class TransformerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
 
       mockEndpoint.expectedBodiesReceived("testbla")
 
