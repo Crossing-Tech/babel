@@ -52,3 +52,7 @@ visibility: hidden;
 #pdf-link a:visited {
   color: #FFFFFF;
 }
+.alert-info{
+background-color:#F5F5F5
+color: #333
+}

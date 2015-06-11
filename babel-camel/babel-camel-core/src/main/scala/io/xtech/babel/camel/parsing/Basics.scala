@@ -9,7 +9,7 @@
 package io.xtech.babel.camel.parsing
 
 import io.xtech.babel.camel.model._
-import io.xtech.babel.camel.{ CamelDSL, SubRouteDSL }
+import io.xtech.babel.camel.{ CamelDSL, ErrorHandlingDSL }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.model._
 import io.xtech.babel.fish.parsing.StepInformation
@@ -26,11 +26,8 @@ import scala.reflect.ClassTag
   */
 private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
 
-  implicit def subRouteDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): SubRouteDSL[I] = new SubRouteDSL(baseDsl)
-
-  def steps: immutable.Seq[Process] = immutable.Seq(from,
+  protected def steps: immutable.Seq[Process] = immutable.Seq(from,
     handle,
-    subs,
     handler,
     endpointImplementation,
     bodyConvertor,
@@ -54,27 +51,6 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
 
       s.buildHelper
     }
-  }
-
-  //warning need to copy the code of from and routeId parsing
-  private[this] def subs: Process = {
-    case step @ StepInformation(d: ChannelDefinition, camelProcessor) => {
-      //end route
-      camelProcessor match {
-        case processor: ProcessorDefinition[_] =>
-          val to = processor.to(d.channelUri)
-          namingStrategy.name(d).foreach(to.id)
-          to
-
-        //in case of on[Exception] at RouteBuilder level, the processor.to is managed by the Handler.parseOnException
-        case _ =>
-      }
-
-      //beginning of subroute
-      namingStrategy.routeId = Some(d.routeId)
-      step.buildHelper.from(d.channelUri).routeId(d.routeId)
-    }
-
   }
 
   private[this] def endpointImplementation: Process = {

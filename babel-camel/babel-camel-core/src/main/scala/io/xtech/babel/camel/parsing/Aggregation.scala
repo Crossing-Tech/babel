@@ -21,7 +21,7 @@ import scala.collection.immutable
   */
 private[babel] trait Aggregation extends CamelParsing {
 
-  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
   private[this] def competion(aggregateDefinition: AggregateDefinition, completionStrategies: immutable.Seq[CompletionStrategy]) {
     for (completion <- completionStrategies) {

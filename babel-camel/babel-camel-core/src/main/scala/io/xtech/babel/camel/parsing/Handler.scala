@@ -9,7 +9,7 @@
 package io.xtech.babel.camel.parsing
 
 import io.xtech.babel.camel.{ CamelDSL, HandlerDSL }
-import io.xtech.babel.camel.model.{ ChannelDefinition, ErrorHandling, OnExceptionDefinition }
+import io.xtech.babel.camel.model.{ ErrorHandlingRouteDefinition, ErrorHandling, OnExceptionDefinition }
 import io.xtech.babel.fish.parsing.StepInformation
 import io.xtech.babel.fish.{ BodyPredicate, FromDSL }
 import org.apache.camel.builder.RouteBuilder
@@ -25,7 +25,7 @@ import scala.reflect.ClassTag
   */
 private[babel] trait Handler extends CamelParsing { self: CamelDSL =>
 
-  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
   protected implicit def handlerDSLExtension[I: ClassTag](baseDsl: FromDSL[I]): HandlerDSL[I] = new HandlerDSL(baseDsl)
 
@@ -39,13 +39,12 @@ private[babel] trait Handler extends CamelParsing { self: CamelDSL =>
 
     exception.applyToCamel(processor)
 
-    //parse the subroute if any
-    exception.next match {
-      case Some(channel: ChannelDefinition) =>
-        val to = processor.to(channel.channelUri)
+    //parse the handlingRoute if any
+    exception.next.foreach {
+      case channel: ErrorHandlingRouteDefinition =>
+        val to = processor.to(channel.endpoint)
         namingStrategy.name(channel).foreach(to.id)
         to
-      case other => //no need to add a subroute
     }
     processor.end()
   }
@@ -73,6 +72,10 @@ private[babel] trait Handler extends CamelParsing { self: CamelDSL =>
     case s @ StepInformation(handler: ErrorHandling, _: RouteBuilder) =>
       s.buildHelper.errorHandler(handler.camelErrorHandlerBuilder)
       s.buildHelper
+
+    case step @ StepInformation(d: ErrorHandlingRouteDefinition, camelProcessor) => {
+      //is parsed by the previous step, @see parseOnException
+    }
 
   }
 }

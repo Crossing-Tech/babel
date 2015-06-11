@@ -41,10 +41,13 @@ class HandlerSpec extends SpecificationWithJUnit {
           from("direct:input")
             .handle {
               route =>
-                route.on[IllegalArgumentException].continuedBody(true).sub("catch").to("mock:catch")
+                route.on[IllegalArgumentException].continuedBody(true).handlingRoute("direct:catch")
             }.id("toto").as[String]
             .processBody(x => throw if (x == null) new Exception() else new IllegalArgumentException(x))
             .to("mock:output")
+
+          //error handling route
+          from("direct:catch").to("mock:catch")
         }
 
         camelContext.addRoutes(routeBuilder)
@@ -200,10 +203,13 @@ class HandlerSpec extends SpecificationWithJUnit {
           from("direct:input")
             .handle {
               route =>
-                route.on[IllegalArgumentException].handledBody(true).sub("exception").to("mock:exception")
+                route.on[IllegalArgumentException].handledBody(true).handlingRoute("direct:exception")
             }.as[String]
             .processBody(x => throw new IllegalArgumentException(x))
             .to("mock:output")
+
+          //exception route
+          from("direct:exception").to("mock:exception")
         }
 
         val ex1 = new IllegalArgumentException()
@@ -359,11 +365,14 @@ class HandlerSpec extends SpecificationWithJUnit {
               route =>
                 route.onBody[Exception](BodyPredicate((x: Any) => x.toString.contains("toto"))).continuedBody(true)
                 route.onBody[Exception](BodyPredicate((x: Any) => x.toString.contains("tata"))).handledBody(true)
-                  .sub("exception").to("mock:exception")
+                  .handlingRoute("direct:exception")
             }
             .as[String]
             .processBody(x => throw new IllegalArgumentException(x))
             .to("mock:output")
+
+          //exception route
+          from("direct:exception").to("mock:exception")
         }
 
         camelContext.addRoutes(routeBuilder)
@@ -398,11 +407,13 @@ class HandlerSpec extends SpecificationWithJUnit {
               route =>
                 route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto")))).continuedBody(true)
                 route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("tata")))).handledBody(true)
-                  .sub("exception").to("mock:exception")
+                  .handlingRoute("direct:exception")
             }
             .as[String]
             .processBody(x => throw new IllegalArgumentException(x))
             .to("mock:output")
+
+          from("direct:exception").to("mock:exception")
         }
 
         camelContext.addRoutes(routeBuilder)
@@ -441,12 +452,15 @@ class HandlerSpec extends SpecificationWithJUnit {
                 //Message containing "tata" and causing an Exception should stop and the Exception
                 //    should be tagged as handled
                 route.onBody[Exception]((x: Any) => x.toString.contains("tata")).handledBody(true)
-                  .sub("exception").to("mock:exception")
+                  .handlingRoute("direct:exception")
             }
             //#doc:babel-camel-exceptionClause-when
             .as[String]
             .processBody(x => throw new IllegalArgumentException(x))
             .to("mock:output")
+
+          //exception route
+          from("direct:exception").to("mock:exception")
         }
 
         camelContext.addRoutes(routeBuilder)
@@ -481,11 +495,14 @@ class HandlerSpec extends SpecificationWithJUnit {
               route =>
                 route.on[Exception]((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto"))).continuedBody(true)
                 route.on[Exception]((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("tata"))).handledBody(true)
-                  .sub("exception").to("mock:exception")
+                  .handlingRoute("direct:exception")
             }
             .as[String]
             .processBody(x => throw new IllegalArgumentException(x))
             .to("mock:output")
+
+          //exception route
+          from("direct:exception").to("mock:exception")
         }
 
         camelContext.addRoutes(routeBuilder)
@@ -520,22 +537,23 @@ class HandlerSpec extends SpecificationWithJUnit {
             .handle {
               //Any message which cases an IllegalArgumentException
               _.on[IllegalArgumentException].
-                //should be transfered, via a sub route called "illegal-argument"
-                sub("illegal-argument").
-                //to the "mock:sub" endpoint (the sub route may also consists into more steps)s
-                to("mock:sub")
+                //should be transfered, via another route called consuming from "direct:exception"
+                handlingRoute("direct:exception")
             }
             //#doc:babel-camel-exceptionClause-2
             .as[String]
             .processBody(x => throw new IllegalArgumentException(x))
             .to("mock:output")
+
+          //exception route
+          from("direct:exception").to("mock:exception")
         }
 
         camelContext.addRoutes(routeBuilder)
 
         val mock = camelContext.getEndpoint("mock:output", classOf[MockEndpoint])
 
-        val mockException = camelContext.getEndpoint("mock:sub", classOf[MockEndpoint])
+        val mockException = camelContext.getEndpoint("mock:exception", classOf[MockEndpoint])
 
         camelContext.start()
 
@@ -801,13 +819,16 @@ class HandlerSpec extends SpecificationWithJUnit {
 
           handle {
             route =>
-              route.on[IllegalArgumentException].continuedBody(true).sub("catch").to("mock:catch")
+              route.on[IllegalArgumentException].continuedBody(true).handlingRoute("direct:catch")
           }
 
           from("direct:input")
             .as[String]
             .processBody(x => throw if (x == null) new Exception() else new IllegalArgumentException(x))
             .to("mock:output")
+
+          //error handling route
+          from("direct:catch").to("mock:catch")
         }
 
         camelContext.addRoutes(routeBuilder)
@@ -965,13 +986,16 @@ class HandlerSpec extends SpecificationWithJUnit {
 
           handle {
             route =>
-              route.on[IllegalArgumentException].handledBody(true).sub("exception").to("mock:exception")
+              route.on[IllegalArgumentException].handledBody(true).handlingRoute("direct:exception")
           }
 
           from("direct:input")
             .as[Exception]
             .processBody(x => throw x)
             .to("mock:output")
+
+          //error handling route
+          from("direct:exception").to("mock:exception")
         }
 
         val ex1 = new IllegalArgumentException()
@@ -1000,13 +1024,16 @@ class HandlerSpec extends SpecificationWithJUnit {
 
           handle {
             route =>
-              route.on[IllegalArgumentException].handledBody(BodyPredicate((x: Any) => x.toString.contains("toto"))).sub("exception").to("mock:exception")
+              route.on[IllegalArgumentException].handledBody(BodyPredicate((x: Any) => x.toString.contains("toto"))).handlingRoute("direct:exception")
           }
 
           from("direct:input")
             .as[Exception]
             .processBody(x => throw x)
             .to("mock:output")
+
+          //error handling route
+          from("direct:exception").to("mock:exception")
         }
 
         val ex1 = new IllegalArgumentException("toto")
@@ -1034,13 +1061,16 @@ class HandlerSpec extends SpecificationWithJUnit {
 
           handle {
             route =>
-              route.on[IllegalArgumentException].handled(MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto")))).sub("exception").to("mock:exception")
+              route.on[IllegalArgumentException].handled(MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto")))).handlingRoute("direct:exception")
           }
 
           from("direct:input")
             .as[Exception]
             .processBody(x => throw x)
             .to("mock:output")
+
+          //error handling route
+          from("direct:exception").to("mock:exception")
         }
 
         val ex1 = new IllegalArgumentException("toto")
@@ -1070,13 +1100,16 @@ class HandlerSpec extends SpecificationWithJUnit {
 
           handle {
             route =>
-              route.on[IllegalArgumentException].handledBody((x: Any) => x.toString.contains("toto")).sub("exception").to("mock:exception")
+              route.on[IllegalArgumentException].handledBody((x: Any) => x.toString.contains("toto")).handlingRoute("direct:exception")
           }
 
           from("direct:input")
             .as[Exception]
             .processBody(x => throw x)
             .to("mock:output")
+
+          //error handling route
+          from("direct:exception").to("mock:exception")
         }
 
         val ex1 = new IllegalArgumentException("toto")
@@ -1104,13 +1137,16 @@ class HandlerSpec extends SpecificationWithJUnit {
 
           handle {
             route =>
-              route.on[IllegalArgumentException].handled((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto"))).sub("exception").to("mock:exception")
+              route.on[IllegalArgumentException].handled((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto"))).handlingRoute("direct:exception")
           }
 
           from("direct:input")
             .as[Exception]
             .processBody(x => throw x)
             .to("mock:output")
+
+          //error handling route
+          from("direct:exception").to("mock:exception")
         }
 
         val ex1 = new IllegalArgumentException("toto")
@@ -1282,12 +1318,15 @@ class HandlerSpec extends SpecificationWithJUnit {
         val routeBuilder = new RouteBuilder {
 
           handle {
-            _.on[IllegalArgumentException].sub("illegal-argument").to("mock:sub")
+            _.on[IllegalArgumentException].handlingRoute("direct:exception")
           }
 
           from("direct:input")
             .as[Exception].processBody(x => throw x)
             .to("mock:output")
+
+          //error handling route
+          from("direct:exception").to("mock:exception")
         }
 
         val ex1 = new IllegalArgumentException()
@@ -1296,7 +1335,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
         val mock = camelContext.getEndpoint("mock:output", classOf[MockEndpoint])
 
-        val mockException = camelContext.getEndpoint("mock:sub", classOf[MockEndpoint])
+        val mockException = camelContext.getEndpoint("mock:exception", classOf[MockEndpoint])
 
         camelContext.start()
 
@@ -1568,8 +1607,55 @@ class HandlerSpec extends SpecificationWithJUnit {
 
     }
 
+    "allow inheritance of error handling" in new camel {
+
+      val routeBuilder1 = new MyRouteBuilder(1)
+      val routeBuilder2 = new MyRouteBuilder(2)
+      val errorRouteBuilder = new RouteBuilder {
+        from("direct:handlingRoute").log("error:${body}").to("mock:error")
+      }
+
+      val mock = camelContext.getEndpoint("mock:error").asInstanceOf[MockEndpoint]
+      val mock1 = camelContext.getEndpoint("mock:babel1").asInstanceOf[MockEndpoint]
+      val mock2 = camelContext.getEndpoint("mock:babel2").asInstanceOf[MockEndpoint]
+
+      mock.setExpectedMessageCount(2)
+      mock1.setExpectedMessageCount(0)
+      mock2.setExpectedMessageCount(0)
+
+      camelContext.addRoutes(routeBuilder1)
+      camelContext.addRoutes(routeBuilder2)
+      camelContext.addRoutes(errorRouteBuilder)
+
+      camelContext.start()
+
+      val proc = camelContext.createProducerTemplate()
+      proc.sendBody("direct:input1", "Expected exception")
+      proc.sendBody("direct:input2", "Expected exception")
+
+      mock.assertIsSatisfied()
+    }
+
   }
 
+}
+
+class AbstractRouteBuilder extends RouteBuilder {
+  handle(_.on[Exception].handledBody(_ => true).handlingRoute("direct:handlingRoute"))
+}
+
+class MyRouteBuilder(id: Int) extends AbstractRouteBuilder {
+  from("direct:input" + id).
+    routeId("route" + id).
+    processBody(Processors.exceptionThrower).
+    to("mock:babel" + id)
+}
+
+object Processors {
+
+  def exceptionThrower = (body: Any) => {
+    throw new Exception(s"Expected Exception that is handled in error handling on ($body)")
+  }
 }
 
 object ErrorSharedLogs {

@@ -227,15 +227,15 @@ private[camel] class RedeliveryDSL(handling: RedeliveryErrorHandling) {
   * @param baseDsl containing the current OnExceptionDefinition
   * @param onException the current OnExceptionDefinition which may be enriched using this sub DSL.
   */
-private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExceptionDefinition[_]) extends SubRouteDSL[Any](baseDsl) {
+private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExceptionDefinition[_]) extends ErrorHandlingDSL[Any](baseDsl) {
   /**
     * Defines that the exchange should continue the normal flow if corresponding to some Predicate on its Body.
     * @param predicate which allows the exchange to keep going on depending on the original message body (before the exception)
     * @return the ability to define a sub route that also receives the exchange
     */
-  def continuedBody(predicate: BodyPredicate[Any]): SubRouteDSL[Any] = {
+  def continuedBody(predicate: BodyPredicate[Any]): ErrorHandlingDSL[Any] = {
     onException.continue(predicate)
-    new SubRouteDSL[Any](baseDsl)
+    new ErrorHandlingDSL[Any](baseDsl)
   }
 
   /**
@@ -243,9 +243,9 @@ private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExcept
     * @param predicate which allows the exchange to keep going on depending on the original message (before the exception)
     * @return the ability to define a sub route that also receives the exchange
     */
-  def continued(predicate: Predicate[Any]): SubRouteDSL[Any] = {
+  def continued(predicate: Predicate[Any]): ErrorHandlingDSL[Any] = {
     onException.continue(predicate)
-    new SubRouteDSL[Any](baseDsl)
+    new ErrorHandlingDSL[Any](baseDsl)
   }
 
   /**
@@ -253,7 +253,7 @@ private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExcept
     * @param function which allows the exchange to keep going on depending on the original message body (before the exception)
     * @return the ability to define a sub route that also receives the exchange
     */
-  def continuedBody(function: Function[Any, Boolean]): SubRouteDSL[Any] = {
+  def continuedBody(function: Function[Any, Boolean]): ErrorHandlingDSL[Any] = {
     continuedBody(BodyPredicate(function))
   }
 
@@ -262,7 +262,7 @@ private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExcept
     * @param function which allows the exchange to keep going on depending on the original message (before the exception)
     * @return the ability to define a sub route that also receives the exchange
     */
-  def continued(function: Function[Message[Any], Boolean]): SubRouteDSL[Any] = {
+  def continued(function: Function[Message[Any], Boolean]): ErrorHandlingDSL[Any] = {
     continued(MessagePredicate(function))
   }
 
@@ -271,9 +271,9 @@ private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExcept
     * @param predicate which allows the exchange exception to be tagged as handled depending on the original message body (before the exception)
     * @return the ability to define a sub route that receives the exchange
     */
-  def handledBody(predicate: BodyPredicate[Any]): SubRouteDSL[Any] = {
+  def handledBody(predicate: BodyPredicate[Any]): ErrorHandlingDSL[Any] = {
     onException.handle(predicate)
-    new SubRouteDSL[Any](baseDsl)
+    new ErrorHandlingDSL[Any](baseDsl)
   }
 
   /**
@@ -281,9 +281,9 @@ private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExcept
     * @param predicate which allows the exchange exception to be tagged as handled depending on the original message (before the exception)
     * @return the ability to define a sub route that receives the exchange
     */
-  def handled(predicate: MessagePredicate[Any]): SubRouteDSL[Any] = {
+  def handled(predicate: MessagePredicate[Any]): ErrorHandlingDSL[Any] = {
     onException.handle(predicate)
-    new SubRouteDSL[Any](baseDsl)
+    new ErrorHandlingDSL[Any](baseDsl)
   }
 
   /**
@@ -291,7 +291,7 @@ private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExcept
     * @param function which allows the exchange exception to be tagged as handled depending on the original message body (before the exception)
     * @return the ability to define a sub route that receives the exchange
     */
-  def handledBody(function: Function[Any, Boolean]): SubRouteDSL[Any] = {
+  def handledBody(function: Function[Any, Boolean]): ErrorHandlingDSL[Any] = {
     handledBody(BodyPredicate(function))
   }
 
@@ -300,7 +300,7 @@ private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExcept
     * @param function which allows the exchange exception to be tagged as handled depending on the original message (before the exception)
     * @return the ability to define a sub route that receives the exchange
     */
-  def handled(function: Function[Message[Any], Boolean]): SubRouteDSL[Any] = {
+  def handled(function: Function[Message[Any], Boolean]): ErrorHandlingDSL[Any] = {
     handled(MessagePredicate(function))
   }
 
