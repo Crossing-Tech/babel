@@ -24,9 +24,15 @@ class SamplePhilosophySpec extends SpecificationWithJUnit {
 
       val routeDef = new BabelRouteBuilder {
 
+        handle {
+          _.on[IllegalStateException].handledBody(true).handlingRoute("mock:illegal-state-error")
+        }
+
         //the *requireAs* keyword ensure the from would issue exchange
         //   containing Integer bodies only.
-        from("direct:simple").requireAs[java.lang.Integer].
+        from("direct:simple").
+          handle(_.on[Exception].handledBody(true).handlingRoute("mock:error")).
+          requireAs[java.lang.Integer].
           //the *processBody* knows its input type may only be Integer
           processBody(int => int * 2).
           //the result is transformed to a String and provided to the mock endpoint

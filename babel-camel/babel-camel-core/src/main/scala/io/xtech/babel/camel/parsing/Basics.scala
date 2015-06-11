@@ -28,7 +28,6 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
 
   protected def steps: immutable.Seq[Process] = immutable.Seq(from,
     handle,
-    subs,
     handler,
     endpointImplementation,
     bodyConvertor,
@@ -52,24 +51,6 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
 
       s.buildHelper
     }
-  }
-
-  //warning need to copy the code of from and routeId parsing
-  private[this] def subs: Process = {
-    case step @ StepInformation(d: ErrorHandlingRouteDefinition, camelProcessor) => {
-      //end route
-      camelProcessor match {
-        case processor: ProcessorDefinition[_] =>
-          val to = processor.to(d.endpoint)
-          namingStrategy.name(d).foreach(to.id)
-          to
-
-        //in case of on[Exception] at RouteBuilder level, the processor.to is managed by the Handler.parseOnException
-        case _ =>
-      }
-
-    }
-
   }
 
   private[this] def endpointImplementation: Process = {

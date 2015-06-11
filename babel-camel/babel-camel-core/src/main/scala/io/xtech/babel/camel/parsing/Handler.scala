@@ -39,13 +39,12 @@ private[babel] trait Handler extends CamelParsing { self: CamelDSL =>
 
     exception.applyToCamel(processor)
 
-    //parse the subroute if any
-    exception.next match {
-      case Some(channel: ErrorHandlingRouteDefinition) =>
+    //parse the handlingRoute if any
+    exception.next.foreach {
+      case channel: ErrorHandlingRouteDefinition =>
         val to = processor.to(channel.endpoint)
         namingStrategy.name(channel).foreach(to.id)
         to
-      case other => //no need to add a subroute
     }
     processor.end()
   }
@@ -73,6 +72,10 @@ private[babel] trait Handler extends CamelParsing { self: CamelDSL =>
     case s @ StepInformation(handler: ErrorHandling, _: RouteBuilder) =>
       s.buildHelper.errorHandler(handler.camelErrorHandlerBuilder)
       s.buildHelper
+
+    case step @ StepInformation(d: ErrorHandlingRouteDefinition, camelProcessor) => {
+      //is parsed by the previous step, @see parseOnException
+    }
 
   }
 }
