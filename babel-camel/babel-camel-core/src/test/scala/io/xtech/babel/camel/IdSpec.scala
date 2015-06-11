@@ -113,7 +113,7 @@ class IdSpec extends SpecificationWithJUnit {
       camelContext.start()
 
       Option(camelContext.getRouteDefinition("id-1")).map(_.getOutputs.get(0).getId) must be_==(Some("id-2"))
-      Option(camelContext.getRouteDefinition("id-1")).map(_.getOutputs.get(0).getId) must be_==(Some("id-3"))
+      Option(camelContext.getRouteDefinition("id-1")).map(_.getOutputs.get(1).getId) must be_==(Some("id-3"))
     }
 
     "allows default ids depending on patterns" in new camel {
