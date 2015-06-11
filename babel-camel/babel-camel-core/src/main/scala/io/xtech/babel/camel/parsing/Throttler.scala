@@ -21,7 +21,7 @@ import scala.reflect.ClassTag
   */
 trait Throttler extends CamelParsing { self: CamelDSL =>
 
-  abstract override def steps = super.steps :+ parse
+  abstract override protected def steps = super.steps :+ parse
 
   private val parse: Process = {
     case StepInformation(step @ ThrottlerDefinitionLong(perSecond), camelProcessor: ProcessorDefinition[_]) =>

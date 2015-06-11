@@ -23,7 +23,7 @@ trait Parsing[T] {
   type Process = PartialFunction[StepInformation[T], Any]
 
   //any for last reduced
-  def steps: immutable.Seq[Process]
+  protected def steps: immutable.Seq[Process]
 }
 
 /**

@@ -25,7 +25,7 @@ import scala.reflect.ClassTag
   */
 private[babel] trait RouteConfiguration extends CamelParsing {
 
-  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
   protected implicit def routeConfigurationDSLExtension[I: ClassTag](baseDsl: FromDSL[I]) = new RouteConfigurationDSL[I](baseDsl)
 

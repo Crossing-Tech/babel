@@ -24,7 +24,7 @@ import scala.reflect.ClassTag
   */
 private[babel] trait Resequencer extends CamelParsing { self: CamelDSL =>
 
-  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
   protected implicit def resequencerDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): ResequencerDSL[I] = new ResequencerDSL(baseDsl)
 

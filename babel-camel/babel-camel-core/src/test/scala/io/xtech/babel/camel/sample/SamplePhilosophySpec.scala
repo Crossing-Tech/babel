@@ -10,6 +10,8 @@ package io.xtech.babel.camel.sample
 
 import io.xtech.babel.camel.builder.{ RouteBuilder => BabelRouteBuilder }
 import io.xtech.babel.camel.test.camel
+import io.xtech.babel.fish.NamingStrategy
+import io.xtech.babel.fish.model.StepDefinition
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
 
@@ -36,6 +38,21 @@ class SamplePhilosophySpec extends SpecificationWithJUnit {
           //the *processBody* knows its input type may only be String
           processBody(string => string.toLowerCase).
           to("mock:lowercase")
+
+        override protected implicit val namingStrategy: NamingStrategy = new NamingStrategy {
+
+          var (rId, sId) = (0, 0)
+
+          override def name(stepDefinition: StepDefinition): Option[String] = {
+            sId += 1
+            Some(s"babel-$rId:$sId")
+          }
+
+          override protected[babel] def newRoute(): Unit = {
+            sId = 0
+            rId += 1
+          }
+        }
 
       }
 

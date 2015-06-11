@@ -23,7 +23,7 @@ import scala.reflect.ClassTag
   */
 private[babel] trait Marshaller extends CamelParsing { self: CamelDSL =>
 
-  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
   protected implicit def marshallerDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new MarshallerDSL(baseDsl)
 

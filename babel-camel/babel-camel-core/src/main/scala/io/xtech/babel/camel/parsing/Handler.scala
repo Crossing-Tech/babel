@@ -25,7 +25,7 @@ import scala.reflect.ClassTag
   */
 private[babel] trait Handler extends CamelParsing { self: CamelDSL =>
 
-  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
   protected implicit def handlerDSLExtension[I: ClassTag](baseDsl: FromDSL[I]): HandlerDSL[I] = new HandlerDSL(baseDsl)
 

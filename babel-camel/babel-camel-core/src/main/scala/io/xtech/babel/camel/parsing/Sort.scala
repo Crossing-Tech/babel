@@ -23,7 +23,7 @@ import scala.reflect.ClassTag
   */
 private[babel] trait Sort extends CamelParsing { self: CamelDSL =>
 
-  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
   implicit protected def sortDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): SortDSL[I] = new SortDSL(baseDsl)
 

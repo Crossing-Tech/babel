@@ -23,7 +23,7 @@ import scala.reflect.ClassTag
   */
 private[babel] trait Transaction extends CamelParsing { self: CamelDSL =>
 
-  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
   protected implicit def transactedDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): TransactionDSL[I] = new TransactionDSL(baseDsl)
 

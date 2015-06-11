@@ -28,7 +28,7 @@ private[babel] trait RecipientList extends CamelParsing { self: CamelDSL =>
   protected implicit def recipientListDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new RecipientListDSL(baseDsl)
 
   // add the recipientList parser to the other parsers
-  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
   private[this] def parse: Process = {
     case StepInformation(definition @ RecipientListDefinition(expression), camelProcessorDefinition: ProcessorDefinition[_]) => {

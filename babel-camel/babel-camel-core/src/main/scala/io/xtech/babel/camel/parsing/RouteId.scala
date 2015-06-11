@@ -26,7 +26,7 @@ import scala.util.Try
   * The routeId parser.
   */
 private[babel] trait RouteId extends CamelParsing { self: CamelDSL =>
-  abstract override def steps: immutable.Seq[Process] = super.steps :+ parse
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
   implicit protected def routeIdDSLExtension[I: ClassTag](baseDsl: FromDSL[I]): RouteIdDSL[I] = new RouteIdDSL(baseDsl)
   implicit protected def idDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): IdDSL[I] = new IdDSL(baseDsl)

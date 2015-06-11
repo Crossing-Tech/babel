@@ -26,7 +26,7 @@ import scala.reflect.ClassTag
   */
 private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
 
-  def steps: immutable.Seq[Process] = immutable.Seq(from,
+  protected def steps: immutable.Seq[Process] = immutable.Seq(from,
     handle,
     subs,
     handler,
