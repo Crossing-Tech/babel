@@ -290,26 +290,24 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     new SplitDSL[O](definition)
   }
 
-  def splitReduceBody[O: ClassTag, G: ClassTag](splitter: (I => Iterator[O]))(splitterRoute: (BaseDSL[O]) => BaseDSL[G])(reduce: (G, G) => G): BaseDSL[G] = {
+  def splitReduceBody[O: ClassTag, G: ClassTag](splitter: (I => Iterator[O]))(splitterRoute: (BaseDSL[O]) => BaseDSL[G])(reduce: (G, G) => G): SplitDSL[G] = {
 
     val definition = SplitReduceDefinition(BodyExpression(splitter), reduce)
 
     splitterRoute(new BaseDSL[O](definition.internalRouteDefinition))
 
     baseDsl.step.next = Some(definition)
-    new BaseDSL[G](definition)
-    definition
+    new SplitDSL[G](definition)
   }
 
-  def splitFoldBody[O: ClassTag, G, H: ClassTag](splitter: (I => Iterator[O]))(splitterRoute: (BaseDSL[O]) => BaseDSL[G])(seed: H)(fold: (H, G) => H): BaseDSL[H] = {
+  def splitFoldBody[O: ClassTag, G, H: ClassTag](splitter: (I => Iterator[O]))(splitterRoute: (BaseDSL[O]) => BaseDSL[G])(seed: H)(fold: (H, G) => H): SplitDSL[H] = {
 
     val definition = SplitFoldDefinition(BodyExpression(splitter), seed, fold)
 
     splitterRoute(new BaseDSL[O](definition.internalRouteDefinition))
 
     baseDsl.step.next = Some(definition)
-    new BaseDSL[H](definition)
-    definition
+    new SplitDSL[H](definition)
   }
 
   /**
@@ -351,8 +349,18 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
   }
 }
 
+/**
+  * DSL that contains a split
+  * @param step the definition.
+  * @tparam I the input type of this keyword.
+  */
 class SplitDSL[I: ClassTag](step: StepDefinition) extends BaseDSL[I](step)
 
+/**
+  * DSL that contains a multicast
+  * @param step the definition.
+  * @tparam I the input type of this keyword.
+  */
 class MulticastDSL[I: ClassTag](step: StepDefinition) extends BaseDSL[I](step)
 
 class RouteDefinitionException(val errors: immutable.Seq[ValidationError]) extends Exception("The route has validation errors") {
