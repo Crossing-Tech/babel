@@ -15,7 +15,7 @@ import org.apache.camel.Route
  * Route configuration model
  */
 
-case class NoAutoStartDefinition(noAutoStart: Boolean) extends StepDefinition
+case class AutoStartDefinition(noAutoStart: Boolean) extends StepDefinition
 
 case class OnExchangeBeginDefinition[I](callback: (Route, CamelMessage[I]) => Unit) extends StepDefinition
 

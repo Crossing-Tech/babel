@@ -22,22 +22,12 @@ private[camel] class RouteConfigurationDSL[I: ClassTag](protected val baseDsl: F
 
   /**
     * The noAutoStartup avoid the current route to be started at the same time as the Camel Context
+    * @param autoStart is false if the route should not be started on context startup
     * @return the possibility to add other steps to the current DSL
     */
-  def noAutoStartup: FromDSL[I] = {
+  def autoStartup(autoStart: Boolean): FromDSL[I] = {
 
-    noAutoStartup(true)
-
-  }
-
-  /**
-    * The noAutoStartup avoid the current route to be started at the same time as the Camel Context
-    * @param noAutoStart is false if the route should be started on context startup
-    * @return the possibility to add other steps to the current DSL
-    */
-  def noAutoStartup(noAutoStart: Boolean): FromDSL[I] = {
-
-    NoAutoStartDefinition(noAutoStart)
+    AutoStartDefinition(autoStart)
 
   }
 

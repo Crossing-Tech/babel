@@ -20,7 +20,7 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
 
   "A route configuration" should {
 
-    "manage noAutoStartup" in new camel {
+    "manage autoStartup configuration" in new camel {
 
       import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -28,40 +28,9 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
         from("direct:input").routeId("babel").
           //The route is told not starting with the Camel Context
           //   but wait until beeing started especially.
-          noAutoStartup.
+          autoStartup(false).
           to("mock:output")
       }
-
-      val camelRoute = new org.apache.camel.builder.RouteBuilder() {
-        def configure(): Unit = {
-          from("direct:inputCamel").routeId("camel").noAutoStartup().
-            to("mock:output")
-        }
-      }
-      camelContext.addRoutes(camelRoute)
-      camelContext.addRoutes(routeBuilder)
-
-      camelContext.start()
-
-      camelContext.getRoute("camel").asInstanceOf[ServiceSupport].isStarted === false
-      camelContext.getRoute("babel").asInstanceOf[ServiceSupport].isStarted === false
-    }
-
-    "manage noAutoStartup(constant)" in new camel {
-
-      import io.xtech.babel.camel.builder.RouteBuilder
-
-      //#doc:babel-camel-route-conf-1
-
-      val routeBuilder = new RouteBuilder {
-        from("direct:input").routeId("babel").
-          //The route is told not starting with the Camel Context
-          //   but wait until beeing started especially.
-          noAutoStartup(true).
-          to("mock:output")
-      }
-
-      //#doc:babel-camel-route-conf-1
 
       val camelRoute = new org.apache.camel.builder.RouteBuilder() {
         def configure(): Unit = {
