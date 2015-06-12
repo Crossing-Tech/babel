@@ -20,17 +20,17 @@ Implementation of Babel have been done for [Apache Camel](http://camel.apache.or
 ### Project Requirements ###
  * Operating System: GNU/Linux, Mac OS X, Windows
  * Java VM: Oracle JDK 6
- * Maven 3.0.5
+ * Sbt 0.13
  
 ### Project main dependencies ###
- * Scala library (2.10.4)
- * Apache camel (2.13.2)
+ * Scala library (2.14.4)
+ * Apache camel (2.15.0)
  
 #### Backward compatibity ####
   
 Babel provides also artifacts for earlier versions of Apache Camel:
 
-To use Apache Camel version 2.12.x, use Babel with version 0.6.0-camel-2.12.4
+To use Apache Camel version 2.12.x, use Babel with version 0.7.0-camel-2.12.4
  
 ### Quick Sbt Start Guide ###
 
@@ -58,30 +58,6 @@ To include Babel Camel in an existing Maven project, just add the following depe
 </dependency>
 ```
 
-If you are not installing the Babel project locally, you would also need to specify the Sonatype Snapshot repository in your Maven configuration:
-
-```xml
-<repository>
-  <id>oss-sonatype</id>
-  <name>oss-sonatype</name>
-  <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-  <snapshots>
-    <enabled>true</enabled>
-  </snapshots>
-</repository>
-```
-
-#### Create a new Maven project with Babel Camel ####
-
-You may use the babel-camel-archetype in order to create a new Maven project. This project includes Babel dependencies and provide a default Babel Camel route. 
-Currently, you need to first install Babel (following the next part of this document) as Babel is not yet deployed in any public repository (but coming soon).
-Then, in a regular shell, just enter:
- 
-```
- mvn archetype:generate                       \
- -DarchetypeGroupId=io.xtech.babel            \
- -DarchetypeArtifactId=babel-camel-archetype
-```
 
 ### Quick Installation Guide ###
 

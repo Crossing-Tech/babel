@@ -15,41 +15,18 @@
     <artifactId>babel</artifactId>
     <version>0.7.0</version>
 
+    <!-- Maven build configuration comes with no guaranty at all. 
+	 It is just here to let you build and test babel project.
+	 -->
+
     <packaging>pom</packaging>
 
     <name>Babel :: Main</name>
 
     <modules>
-        <module>babel-parent</module>
         <module>babel-fish</module>
         <module>babel-camel</module>
     </modules>
 
-    <scm>
-        <developerConnection>scm:git:ssh://git@github.com:Crossing-Tech/babel.git</developerConnection>
-        <url>https://github.com/Crossing-Tech/babel.git</url>
-        <tag>HEAD</tag>
-    </scm>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>sonatype-nexus-snapshots</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
-    <profiles>
-
-        <profile>
-            <id>archetype</id>
-            <modules>
-                <module>babel-camel/babel-camel-archetype</module>
-            </modules>
-        </profile>
-
-    </profiles>
 </project>
