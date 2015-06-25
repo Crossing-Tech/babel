@@ -1,0 +1,32 @@
+Second open source version
+==========================
+
+Babel has now been used to address several use cases and got improved. Those projects should be put in production with the present released version of Babel.
+
+Additions
+---------
+
+- the throttler keyword is added
+- Naming strategies may be set to define default ids
+
+Improvements
+------------
+
+- the splitReduceBody and the splitFoldBody keywords let you define how to split, transform and aggregate with a leading API.
+- the enrich keyword may take an aggregation configuration argument.
+- noAutoStartup becomes autoStartup and takes a parameter.
+- Camel exchange may be reached through the CamelMessage (in process method argument).
+
+
+Bug fix
+-------
+
+- Error handling may be inherited, taking advantage of the elimination of the sub keyword. 
+
+
+Deletion
+--------
+
+- the sub keyword is removed. Concerning error handling, it is replaced by the handlingRoute which enforces you to 
+
+See the project [readme](https://github.com/crossing-tech/babel) for more information.
