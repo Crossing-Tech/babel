@@ -47,7 +47,7 @@ Currently, Babel provides an API on top of Apache Camel which may be used in Sca
       <br/>
       </div>
 
-This documentation concerns the version 0.7.0-SNAPSHOT. You may also access the `latest released version <http://crossing-tech.github.io/babel/0.6.0/index.html>`_ documentation.
+This documentation concerns the version 0.7.0. You may also access the `previous released version <http://crossing-tech.github.io/babel/0.6.0/index.html>`_ documentation.
 
 
 To use Babel on top of Camel, you may use the Babel Camel module. Please have a look to the :ref:`babel-quick-start` and to the :ref:`babel-camel-guide` for more details and examples.
