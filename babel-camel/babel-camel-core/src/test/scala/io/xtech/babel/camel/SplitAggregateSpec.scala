@@ -26,7 +26,9 @@ class SplitAggregateSpec extends SpecificationWithJUnit {
     val routeDef = new RouteBuilder {
       //message bodies are converted to String if required
       from("direct:babel").as[String].splitReduceBody(_.split(",").iterator) {
-        _.to("mock:babel1").requireAs[String].processBody(_.toInt + 1 + "").to("mock:babel2").requireAs[String]
+        _.to("mock:babel1").requireAs[String]
+          .processBody(_.toInt + 1 + "")
+          .to("mock:babel2").requireAs[String]
       }((x, y) => s"$x,$y").
         processBody(x => x).
         to("mock:babel3")
@@ -94,7 +96,9 @@ class SplitAggregateSpec extends SpecificationWithJUnit {
     val routeDef = new RouteBuilder {
       //message bodies are converted to String if required
       from("direct:babel").as[String].splitFoldBody(_.split(",").iterator) {
-        _.to("mock:babel1").requireAs[String].processBody(_.toInt + 1).to("mock:babel2").requireAs[Int]
+        _.to("mock:babel1").requireAs[String]
+          .processBody(_.toInt + 1)
+          .to("mock:babel2").requireAs[Int]
       }("1")((x, y) => s"$x,$y").
         processBody(x => x).
         to("mock:babel3")

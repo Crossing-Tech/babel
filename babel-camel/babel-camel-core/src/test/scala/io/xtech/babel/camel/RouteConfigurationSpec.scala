@@ -24,6 +24,7 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
 
       import io.xtech.babel.camel.builder.RouteBuilder
 
+      //#doc:babel-camel-route-conf-1
       val routeBuilder = new RouteBuilder {
         from("direct:input").routeId("babel").
           //The route is told not starting with the Camel Context
@@ -31,6 +32,7 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
           autoStartup(false).
           to("mock:output")
       }
+      //#doc:babel-camel-route-conf-1
 
       val camelRoute = new org.apache.camel.builder.RouteBuilder() {
         def configure(): Unit = {

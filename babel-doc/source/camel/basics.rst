@@ -97,7 +97,7 @@ Concerning the exchange lifecycle :
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteConfigurationSpec.scala#doc:babel-camel-route-conf-3
 
-Moreover, you may prevent a route from being started automatically using the **noAutoStartup** keyword.
+Moreover, you may prevent a route from being started automatically using the **autoStartup** keyword.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteConfigurationSpec.scala#doc:babel-camel-route-conf-1
 

@@ -21,7 +21,7 @@ import scala.reflect.ClassTag
 private[camel] class RouteConfigurationDSL[I: ClassTag](protected val baseDsl: FromDSL[I]) extends BaseDSL2FromDSL[I] {
 
   /**
-    * The noAutoStartup avoid the current route to be started at the same time as the Camel Context
+    * The autoStartup avoid the current route to be started at the same time as the Camel Context
     * @param autoStart is false if the route should not be started on context startup
     * @return the possibility to add other steps to the current DSL
     */

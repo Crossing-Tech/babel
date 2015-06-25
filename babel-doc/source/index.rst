@@ -56,19 +56,20 @@ To have a better intuition of what is Babel, you would find it in the :ref:`babe
 
 In the following code snippet, we compare Babel and Camel Scala DSL. Those two routes are summing the a list of number, provided as a String and routing this sum depending on its positivity.
 
+.. only:: html
 
-==========================================================================================================================================   ==========================================================================================================================================
-**Babel sample**                                                                                                                             **Camel scala sample**
-.. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-1         .. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-scala-1
-Concerning the route structure, the main aspect is the fact we need to repeat the type everywhere. Moreover, you may also use pure functions in the Babel Code where you need mutability in the Camel Scala process method call. Let's have a look at how aggregation is configured:
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   ==========================================================================================================================================   ==========================================================================================================================================
+   **Babel sample**                                                                                                                             **Camel scala sample**
+   .. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-1         .. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-scala-1
+   Concerning the route structure, the main aspect is the fact we need to repeat the type everywhere. Moreover, you may also use pure functions in the Babel Code where you need mutability in the Camel Scala process method call. Let's have a look at how aggregation is configured:
+   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-.. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-2         .. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-scala-2
-Babel Camel has add simple interfaces in order to simplify and concentrate your code: The trivial behavior for first and last input is more clear using a Reduce or a Fold pattern. Moreover, the correlation and the completion is define in a single place which makes the aggregation more uniform.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   .. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-2         .. includecode:: ../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/choice/DemoSpec.scala#doc:babel-camel-demo-scala-2
+   Babel Camel has add simple interfaces in order to simplify and concentrate your code: The trivial behavior for first and last input is more clear using a Reduce or a Fold pattern. Moreover, the correlation and the completion is define in a single place which makes the aggregation more uniform.
+   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-==========================================================================================================================================   ==========================================================================================================================================
+   ==========================================================================================================================================   ==========================================================================================================================================
 
 In the following sections,
 

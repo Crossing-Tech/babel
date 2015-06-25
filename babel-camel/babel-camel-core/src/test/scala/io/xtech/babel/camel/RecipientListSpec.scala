@@ -22,7 +22,7 @@ class RecipientListSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-recipientList
     val routeDef = new RouteBuilder {
       from("direct:input").as[String].
-        //received messages targets are dynamically defined by the headers of each message
+        //received messages target is defined by the headers of each message
         recipientList(m => m.headers("recipients")).
         to("mock:output4")
     }

@@ -300,7 +300,8 @@ class HandlerSpec extends SpecificationWithJUnit {
           from("direct:input")
             .handle {
               route =>
-                route.on[IllegalArgumentException].handledBody((x: Any) => x.toString.contains("toto"))
+                route.on[IllegalArgumentException]
+                        .handledBody((x: Any) => x.toString.contains("toto"))
 
             }
             //#doc:babel-camel-exceptionClause-handled
@@ -448,11 +449,12 @@ class HandlerSpec extends SpecificationWithJUnit {
             .handle {
               route =>
                 //Message containing "toto" and causing an Exception should continue the route
-                route.onBody[Exception]((x: Any) => x.toString.contains("toto")).continuedBody(true)
-                //Message containing "tata" and causing an Exception should stop and the Exception
-                //    should be tagged as handled
-                route.onBody[Exception]((x: Any) => x.toString.contains("tata")).handledBody(true)
-                  .handlingRoute("direct:exception")
+                route.onBody[Exception]((x: Any) => x.toString.contains("toto"))
+                  .continuedBody(true)
+                //Message containing "tata" and causing an Exception should stop and
+                //    the Exceptionshould be tagged as handled
+                route.onBody[Exception]((x: Any) => x.toString.contains("tata"))
+                  .handledBody(true).handlingRoute("direct:exception")
             }
             //#doc:babel-camel-exceptionClause-when
             .as[String]
