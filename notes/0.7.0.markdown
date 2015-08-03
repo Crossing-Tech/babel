@@ -27,6 +27,6 @@ Bug fix
 Deletion
 --------
 
-- the sub keyword is removed. Concerning error handling, it is replaced by the handlingRoute which enforces you to 
+- the sub keyword is removed. Concerning error handling, it is replaced by the handlingRoute. 
 
 See the project [readme](https://github.com/crossing-tech/babel) for more information.
