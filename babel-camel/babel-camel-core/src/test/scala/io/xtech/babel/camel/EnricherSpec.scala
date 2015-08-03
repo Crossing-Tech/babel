@@ -8,8 +8,9 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.model.ReduceBodyAggregationStrategy
+import io.xtech.babel.camel.model.{FoldBodyAggregationStrategy, ReduceBodyAggregationStrategy}
 import io.xtech.babel.camel.test.camel
+import org.apache.camel.CamelExecutionException
 import org.apache.camel.builder.SimpleBuilder
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.impl.SimpleRegistry
@@ -90,6 +91,36 @@ class EnricherSpec extends SpecificationWithJUnit {
       producer.sendBody("direct:input", "bla")
 
       mockEndpoint.assertIsSatisfied()
+    }
+
+    "do not work with a FoldBodyAggregationStrategy" in new camel {
+
+      import io.xtech.babel.camel.builder.RouteBuilder
+
+      case class Result(string: String){
+        def fold(next: String) = Result(string + next)
+      }
+
+      val aggregationStrategy = new FoldBodyAggregationStrategy[String, Result](Result(""), (a, b) => a.fold(b))
+
+      val routeDef = new RouteBuilder {
+        from("direct:enricherRoute").to("mock:enricher")
+
+        from("direct:input").
+          enrich("direct:enricherRoute", aggregationStrategy).
+          to("mock:output")
+      }
+
+
+      routeDef.addRoutesToCamelContext(camelContext)
+      camelContext.start()
+
+      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
+
+      val producer = camelContext.createProducerTemplate()
+      producer.sendBody("direct:input", "bla") should throwA[CamelExecutionException]
+
     }
 
     "enrich a message with the pollEnrich keyword and a reference to an aggregationStrategy" in new camel {
