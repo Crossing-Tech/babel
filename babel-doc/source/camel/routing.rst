@@ -60,7 +60,11 @@ The **splitFoldBody** let you define a more complexe aggregation which does chan
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/SplitAggregateSpec.scala#doc:babel-camel-split-fold
 
+Additionnal configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
+- propagateException when an exception is raised in a sub message, the exception is exposed to the initial message.
+- stopOnException when an exception is raised in a sub message, the processing of the initial message is stopped.
 
 Aggregation
 +++++++++++
