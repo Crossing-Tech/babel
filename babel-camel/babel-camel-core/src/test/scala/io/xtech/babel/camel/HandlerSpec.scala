@@ -301,7 +301,7 @@ class HandlerSpec extends SpecificationWithJUnit {
             .handle {
               route =>
                 route.on[IllegalArgumentException]
-                        .handledBody((x: Any) => x.toString.contains("toto"))
+                  .handledBody((x: Any) => x.toString.contains("toto"))
 
             }
             //#doc:babel-camel-exceptionClause-handled

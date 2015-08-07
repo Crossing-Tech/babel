@@ -14,14 +14,14 @@ package io.xtech.babel.fish.model
   * @tparam I the message body type.
   * @tparam O the result type after the splitting.
   */
-case class SplitterDefinition[I, O](expression: Expression[I, O]) extends StepDefinition
+case class SplitterDefinition[I, O](expression: Expression[I, O], stopOnException: Boolean, propagateException: Boolean) extends StepDefinition
 
-case class SplitReduceDefinition[I, O, G](expression: Expression[I, O], reduce: (G, G) => G) extends StepDefinition {
+case class SplitReduceDefinition[I, O, G](expression: Expression[I, O], reduce: (G, G) => G, stopOnException: Boolean, propagateException: Boolean) extends StepDefinition {
   val internalRouteDefinition = new StepDefinition() {}
 
 }
 
-case class SplitFoldDefinition[I, O, G, H](expression: Expression[I, O], seed: H, fold: (H, G) => H) extends StepDefinition {
+case class SplitFoldDefinition[I, O, G, H](expression: Expression[I, O], seed: H, fold: (H, G) => H, stopOnException: Boolean, propagateException: Boolean) extends StepDefinition {
   val internalRouteDefinition = new StepDefinition() {}
 }
 

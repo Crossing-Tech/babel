@@ -8,7 +8,7 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.model.{FoldBodyAggregationStrategy, ReduceBodyAggregationStrategy}
+import io.xtech.babel.camel.model.{ FoldBodyAggregationStrategy, ReduceBodyAggregationStrategy }
 import io.xtech.babel.camel.test.camel
 import org.apache.camel.CamelExecutionException
 import org.apache.camel.builder.SimpleBuilder
@@ -97,7 +97,7 @@ class EnricherSpec extends SpecificationWithJUnit {
 
       import io.xtech.babel.camel.builder.RouteBuilder
 
-      case class Result(string: String){
+      case class Result(string: String) {
         def fold(next: String) = Result(string + next)
       }
 
@@ -110,7 +110,6 @@ class EnricherSpec extends SpecificationWithJUnit {
           enrich("direct:enricherRoute", aggregationStrategy).
           to("mock:output")
       }
-
 
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.start()

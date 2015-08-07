@@ -8,9 +8,8 @@
 
 package io.xtech.babel.camel.parsing
 
+import io.xtech.babel.camel.CamelDSL
 import io.xtech.babel.camel.model._
-import io.xtech.babel.camel.{ CamelDSL, ErrorHandlingDSL }
-import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.model._
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.ExchangePattern
@@ -18,13 +17,13 @@ import org.apache.camel.model.ProcessorDefinition
 
 import scala.collection.immutable
 import scala.language.implicitConversions
-import scala.reflect.ClassTag
 
 /**
   * Basics is the main parsing trait. It contains the main (or most basic) keywords parsing.
   * It is enriched by the other CamelParsing traits to provides to the CamelDSL all the possible `steps`.
   */
-private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
+private[babel] trait Basics extends CamelParsing {
+  self: CamelDSL =>
 
   protected def steps: immutable.Seq[Process] = immutable.Seq(from,
     handle,
@@ -124,9 +123,16 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
     */
   private[this] def splitter: Process = {
 
-    case StepInformation(step @ SplitterDefinition(expression), camelProcessorDefinition: ProcessorDefinition[_]) => {
+    case StepInformation(step @ SplitterDefinition(expression, stop, propagate), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
-      camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(expression)).withId(step)
+      val definition = camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(expression))
+      if (stop) {
+        definition.stopOnException()
+      }
+      if (propagate) {
+        definition.shareUnitOfWork()
+      }
+      definition.withId(step)
 
     }
 
