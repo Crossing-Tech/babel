@@ -33,7 +33,7 @@ class SplitSpec extends SpecificationWithJUnit {
     val camelRoute = new CRouteBuilder {
       def configure(): Unit = {
         from("direct:camel").split(body().tokenize(",")).
-         to("mock:camel1").end().to("mock:camel2")
+          to("mock:camel1").end().to("mock:camel2")
       }
     }
 
@@ -44,11 +44,11 @@ class SplitSpec extends SpecificationWithJUnit {
     val producer = camelContext.createProducerTemplate()
 
     val mockBabel1 = camelContext.getEndpoint("mock:babel").asInstanceOf[MockEndpoint]
-    mockBabel1.expectedBodiesReceived("1", "2","3")
+    mockBabel1.expectedBodiesReceived("1", "2", "3")
 
     val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
     val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
-    mockCamel1.expectedBodiesReceived("1", "2","3")
+    mockCamel1.expectedBodiesReceived("1", "2", "3")
     mockCamel2.expectedBodiesReceived("1,2,3")
 
     producer.sendBody("direct:babel", "1,2,3")
@@ -77,12 +77,12 @@ class SplitSpec extends SpecificationWithJUnit {
       def configure(): Unit = {
         from("direct:camel").split(body().tokenize(",")).
           process(new Processor {
-          override def process(exchange: Exchange): Unit = {
-            if (exchange.getIn.getBody == "2") {
-              throw new Exception("expected camel exception")
+            override def process(exchange: Exchange): Unit = {
+              if (exchange.getIn.getBody == "2") {
+                throw new Exception("expected camel exception")
+              }
             }
-          }
-        }).to("mock:camel1").end().to("mock:camel2")
+          }).to("mock:camel1").end().to("mock:camel2")
       }
     }
 
@@ -126,12 +126,12 @@ class SplitSpec extends SpecificationWithJUnit {
       def configure(): Unit = {
         from("direct:camel").split(body().tokenize(",")).stopOnException().
           process(new Processor {
-          override def process(exchange: Exchange): Unit = {
-            if (exchange.getIn.getBody == "2") {
-              throw new Exception("expected camel exception")
+            override def process(exchange: Exchange): Unit = {
+              if (exchange.getIn.getBody == "2") {
+                throw new Exception("expected camel exception")
+              }
             }
-          }
-        }).to("mock:camel1").end().to("mock:camel2")
+          }).to("mock:camel1").end().to("mock:camel2")
       }
     }
 
@@ -175,12 +175,12 @@ class SplitSpec extends SpecificationWithJUnit {
       def configure(): Unit = {
         from("direct:camel").split(body().tokenize(",")).shareUnitOfWork().
           process(new Processor {
-          override def process(exchange: Exchange): Unit = {
-            if (exchange.getIn.getBody == "2") {
-              throw new Exception("expected camel exception")
+            override def process(exchange: Exchange): Unit = {
+              if (exchange.getIn.getBody == "2") {
+                throw new Exception("expected camel exception")
+              }
             }
-          }
-        }).to("mock:camel1").end().to("mock:camel2")
+          }).to("mock:camel1").end().to("mock:camel2")
       }
     }
 
@@ -197,7 +197,6 @@ class SplitSpec extends SpecificationWithJUnit {
     val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
     mockCamel1.expectedBodiesReceived("1", "3")
     mockCamel2.expectedBodiesReceived()
-
 
     producer.sendBody("direct:babel", "1,2,3") should throwA[Exception]
     producer.sendBody("direct:camel", "1,2,3") should throwA[Exception]
