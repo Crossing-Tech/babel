@@ -290,7 +290,7 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     new SplitDSL[O](definition)
   }
 
-  def splitReduceBody[O: ClassTag, G: ClassTag](splitter: (I => Iterator[O]))(splitterRoute: (BaseDSL[O]) => BaseDSL[G], stopOnException: Boolean = false, propagateException: Boolean = false)(reduce: (G, G) => G): SplitDSL[G] = {
+  def splitReduceBody[O: ClassTag, G: ClassTag](splitter: (I => Iterator[O]), stopOnException: Boolean = false, propagateException: Boolean = false)(splitterRoute: (BaseDSL[O]) => BaseDSL[G])(reduce: (G, G) => G): SplitDSL[G] = {
 
     val definition = SplitReduceDefinition(BodyExpression(splitter), reduce, stopOnException, propagateException)
 
