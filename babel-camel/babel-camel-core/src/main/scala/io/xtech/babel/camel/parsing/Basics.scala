@@ -13,7 +13,7 @@ import io.xtech.babel.camel.model._
 import io.xtech.babel.fish.model._
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.ExchangePattern
-import org.apache.camel.model.ProcessorDefinition
+import org.apache.camel.model.{ ProcessorDefinition, SplitDefinition }
 
 import scala.collection.immutable
 import scala.language.implicitConversions
@@ -22,8 +22,7 @@ import scala.language.implicitConversions
   * Basics is the main parsing trait. It contains the main (or most basic) keywords parsing.
   * It is enriched by the other CamelParsing traits to provides to the CamelDSL all the possible `steps`.
   */
-private[babel] trait Basics extends CamelParsing {
-  self: CamelDSL =>
+private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
 
   protected def steps: immutable.Seq[Process] = immutable.Seq(from,
     handle,
@@ -126,13 +125,7 @@ private[babel] trait Basics extends CamelParsing {
     case StepInformation(step @ SplitterDefinition(expression, stop, propagate), camelProcessorDefinition: ProcessorDefinition[_]) => {
 
       val definition = camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(expression))
-      if (stop) {
-        definition.stopOnException()
-      }
-      if (propagate) {
-        definition.shareUnitOfWork()
-      }
-      definition.withId(step)
+      splitParameters(definition, step).withId(step)
 
     }
 
@@ -140,6 +133,7 @@ private[babel] trait Basics extends CamelParsing {
 
       val aggregationStrategy = new ReduceBodyAggregationStrategy(step.reduce)
       val split = camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(step.expression), aggregationStrategy)
+      splitParameters(split, step)
       step.internalRouteDefinition.next.foreach(splitterRoute => process(splitterRoute, split)(s.buildHelper))
 
       split.end().withId(step)
@@ -149,11 +143,22 @@ private[babel] trait Basics extends CamelParsing {
 
       val aggregationStrategy = new FoldBodyAggregationStrategy(step.seed, step.fold)
       val split = camelProcessorDefinition.split(Expressions.toJavaIteratorCamelExpression(step.expression), aggregationStrategy)
+      splitParameters(split, step)
       step.internalRouteDefinition.next.foreach(splitterRoute => process(splitterRoute, split)(s.buildHelper))
 
       split.end().withId(step)
     }
 
+  }
+
+  private def splitParameters(splitCamel: SplitDefinition, splitBabel: SplitConfiguration): SplitDefinition = {
+    if (splitBabel.stopOnException) {
+      splitCamel.stopOnException()
+    }
+    if (splitBabel.propagateException) {
+      splitCamel.shareUnitOfWork()
+    }
+    splitCamel
   }
 
   /**
