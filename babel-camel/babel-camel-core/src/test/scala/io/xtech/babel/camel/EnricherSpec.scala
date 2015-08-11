@@ -93,6 +93,41 @@ class EnricherSpec extends SpecificationWithJUnit {
       mockEndpoint.assertIsSatisfied()
     }
 
+    "enrich a message with the enrich keyword and a aggregation function" in new camel {
+
+      import io.xtech.babel.camel.builder.RouteBuilder
+
+      //#doc:babel-camel-enricher-funct
+
+      val routeDef = new RouteBuilder {
+        from("direct:enricherRoute").to("mock:enricher")
+
+        from("direct:input").
+          requireAs[String].
+          //enriches the input with the enricherRoute messages
+          //  using the aggregationStrategy
+          enrich("direct:enricherRoute", (a: String, b: Any) => s"${a}${b.toString.toInt}").
+          to("mock:output")
+      }
+
+      //#doc:babel-camel-enricher-func
+
+      routeDef.addRoutesToCamelContext(camelContext)
+      camelContext.start()
+
+      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
+
+      mockEndpoint.expectedBodiesReceived("bla123","bli123")
+
+      val producer = camelContext.createProducerTemplate()
+      producer.sendBody("direct:input", "bla")
+      producer.sendBody("direct:input", "bli")
+
+      mockEndpoint.assertIsSatisfied()
+    }
+
     "do not work with a FoldBodyAggregationStrategy" in new camel {
 
       import io.xtech.babel.camel.builder.RouteBuilder
@@ -170,10 +205,43 @@ class EnricherSpec extends SpecificationWithJUnit {
 
       val routeDef = new RouteBuilder {
         from("direct:input").
-          pollEnrich("seda:enrichRoute", aggregationStrategy, 1000).
+          pollEnrichAggregation("seda:enrichRoute", aggregationStrategy, 1000).
           to("mock:output")
       }
       //#doc:babel-camel-enricher-4
+
+      routeDef.addRoutesToCamelContext(camelContext)
+      camelContext.start()
+
+      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
+
+      mockEndpoint.expectedBodiesReceived("bla123")
+
+      val producer = camelContext.createProducerTemplate()
+      producer.sendBody("seda:enrichRoute", "123")
+      producer.sendBody("direct:input", "bla")
+
+      mockEndpoint.assertIsSatisfied()
+    }
+
+    "enrich a message with the pollEnrich keyword and a aggregationFunction" in new camel {
+
+      import io.xtech.babel.camel.builder.RouteBuilder
+
+      //pending
+
+      //#doc:babel-camel-enricher-5
+
+      val aggregationStrategy = new ReduceBodyAggregationStrategy[String]((a, b) => a + b)
+
+      val routeDef = new RouteBuilder {
+        from("direct:input").
+          pollEnrich("seda:enrichRoute", (a,b: Any) => s"$a${b.toString}", 1000).
+          to("mock:output")
+      }
+      //#doc:babel-camel-enricher-5
 
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.start()
