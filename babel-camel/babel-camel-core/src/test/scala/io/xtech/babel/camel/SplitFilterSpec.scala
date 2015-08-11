@@ -6,7 +6,7 @@
  * ==================================================================================
  */
 
-package io.xtech.babel.camel.splitfilter
+package io.xtech.babel.camel
 
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.RouteDefinitionException
@@ -14,7 +14,7 @@ import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
 
-class SimpleSplitFilterSpec extends SpecificationWithJUnit {
+class SplitFilterSpec extends SpecificationWithJUnit {
   "split and filter" should {
     "integrates together in a route" in new camel {
       //#doc:babel-camel-filter

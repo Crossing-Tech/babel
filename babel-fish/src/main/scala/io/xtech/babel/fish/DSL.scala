@@ -283,16 +283,16 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     * @tparam O the type of the message pieces.
     * @return the possibility to add other steps to the current DSL.
     */
-  def splitBody[O: ClassTag](splitter: (I => Iterator[O])): SplitDSL[O] = {
+  def splitBody[O: ClassTag](splitter: (I => Iterator[O]), stopOnException: Boolean = false, propagateException: Boolean = false): SplitDSL[O] = {
 
-    val definition = SplitterDefinition(BodyExpression(splitter))
+    val definition = SplitterDefinition(BodyExpression(splitter), stopOnException, propagateException)
     baseDsl.step.next = Some(definition)
     new SplitDSL[O](definition)
   }
 
-  def splitReduceBody[O: ClassTag, G: ClassTag](splitter: (I => Iterator[O]))(splitterRoute: (BaseDSL[O]) => BaseDSL[G])(reduce: (G, G) => G): SplitDSL[G] = {
+  def splitReduceBody[O: ClassTag, G: ClassTag](splitter: (I => Iterator[O]))(splitterRoute: (BaseDSL[O]) => BaseDSL[G], stopOnException: Boolean = false, propagateException: Boolean = false)(reduce: (G, G) => G): SplitDSL[G] = {
 
-    val definition = SplitReduceDefinition(BodyExpression(splitter), reduce)
+    val definition = SplitReduceDefinition(BodyExpression(splitter), reduce, stopOnException, propagateException)
 
     splitterRoute(new BaseDSL[O](definition.internalRouteDefinition))
 
@@ -300,9 +300,9 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     new SplitDSL[G](definition)
   }
 
-  def splitFoldBody[O: ClassTag, G, H: ClassTag](splitter: (I => Iterator[O]))(splitterRoute: (BaseDSL[O]) => BaseDSL[G])(seed: H)(fold: (H, G) => H): SplitDSL[H] = {
+  def splitFoldBody[O: ClassTag, G, H: ClassTag](splitter: (I => Iterator[O]), stopOnException: Boolean = false, propagateException: Boolean = false)(splitterRoute: (BaseDSL[O]) => BaseDSL[G])(seed: H)(fold: (H, G) => H): SplitDSL[H] = {
 
-    val definition = SplitFoldDefinition(BodyExpression(splitter), seed, fold)
+    val definition = SplitFoldDefinition(BodyExpression(splitter), seed, fold, stopOnException, propagateException)
 
     splitterRoute(new BaseDSL[O](definition.internalRouteDefinition))
 
@@ -319,7 +319,7 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     */
   def split[O: ClassTag](splitter: (Message[I] => Iterator[O])): SplitDSL[O] = {
 
-    val definition = SplitterDefinition(MessageExpression(splitter))
+    val definition = SplitterDefinition(MessageExpression(splitter), false, false)
     baseDsl.step.next = Some(definition)
     new SplitDSL[O](definition)
   }
@@ -331,9 +331,9 @@ class BaseDSL[I: ClassTag](protected[babel] val step: StepDefinition) extends No
     * @tparam O the type of the message pieces.
     * @return the possibility to add other steps to the current DSL.
     */
-  def split[O: ClassTag](expression: Expression[I, O]): SplitDSL[O] = {
+  def split[O: ClassTag](expression: Expression[I, O], stopOnException: Boolean = false, propagateException: Boolean = false): SplitDSL[O] = {
 
-    val definition = SplitterDefinition(expression)
+    val definition = SplitterDefinition(expression, stopOnException, propagateException)
     baseDsl.step.next = Some(definition)
     new SplitDSL[O](definition)
   }

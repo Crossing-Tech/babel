@@ -34,16 +34,15 @@ class MockDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) extends DSL2BaseDS
 
 trait Mock extends CamelParsing {
 
- abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
- val parse: Process = {
-  case StepInformation(MockDefinition(uri), camelProcessor: ProcessorDefinition[_]) =>
-   camelProcessor.to(s"mock:$uri")
+  val parse: Process = {
+    case StepInformation(MockDefinition(uri), camelProcessor: ProcessorDefinition[_]) =>
+      camelProcessor.to(s"mock:$uri")
 
- }
+  }
 
- implicit protected def mockDSLExtension[I: ClassTag]
-                               (baseDsl: BaseDSL[I]): MockDSL[I] = new MockDSL(baseDsl)
+  implicit protected def mockDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): MockDSL[I] = new MockDSL(baseDsl)
 }
 
 //#doc:babel-mock

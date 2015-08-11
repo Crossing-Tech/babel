@@ -14,7 +14,7 @@ import io.xtech.babel.fish.NamingStrategy
 import io.xtech.babel.fish.model.StepDefinition
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.model.ModelCamelContext
-import org.apache.camel.{Exchange, Processor}
+import org.apache.camel.{ Exchange, Processor }
 import org.specs2.mutable._
 
 import scala.collection.JavaConverters._
@@ -121,7 +121,7 @@ class IdSpec extends SpecificationWithJUnit {
     "allows default ids depending on patterns" in new camel {
       //#doc:babel-camel-id-strategy
 
-      import io.xtech.babel.camel.model.{LogDefinition, LogMessage}
+      import io.xtech.babel.camel.model.{ LogDefinition, LogMessage }
       import io.xtech.babel.fish.NamingStrategy
       import io.xtech.babel.fish.model.StepDefinition
 
@@ -133,7 +133,7 @@ class IdSpec extends SpecificationWithJUnit {
               //set the id of endpoints to their uri
               case LogDefinition(LogMessage(message)) => Some(s"log:$message")
               //do not modify other EIP ids
-              case other => None
+              case other                              => None
             }
 
           override def newRoute(): Unit = {}
@@ -153,10 +153,10 @@ class IdSpec extends SpecificationWithJUnit {
         override def configure(): Unit = {
           from("direct:camel").routeId("camel")
             .process(new Processor {
-            override def process(p1: Exchange): Unit = {
-              println("toto")
-            }
-          }).id("toto-camel")
+              override def process(p1: Exchange): Unit = {
+                println("toto")
+              }
+            }).id("toto-camel")
             .to("mock:camel")
         }
       }
