@@ -232,16 +232,13 @@ class EnricherSpec extends SpecificationWithJUnit {
 
       //pending
 
-      //#doc:babel-camel-enricher-5
-
-      val aggregationStrategy = new ReduceBodyAggregationStrategy[String]((a, b) => a + b)
-
+      //#doc:babel-camel-pollenricher-funct
       val routeDef = new RouteBuilder {
         from("direct:input").
           pollEnrich("seda:enrichRoute", (a,b: Any) => s"$a${b.toString}", 1000).
           to("mock:output")
       }
-      //#doc:babel-camel-enricher-5
+      //#doc:babel-camel-pollenricher-funct
 
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.start()
