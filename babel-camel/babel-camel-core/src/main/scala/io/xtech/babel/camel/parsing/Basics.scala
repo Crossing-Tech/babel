@@ -93,10 +93,11 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
 
       // declare a choice in camel
       val camelChoice = camelProcessorDefinition.choice()
+      camelChoice.withId(step) //if directly done on camelChoice definition, would require casting.
 
       // for each possible branch of the choice create a camel predicate and declare a when in camel
       for (when <- step.scopedSteps) {
-        val camelWhen = camelChoice.when(Predicates.toCamelPredicate(when.predicate))
+        val camelWhen = camelChoice.when(Predicates.toCamelPredicate(when.predicate)).withId(when)
         for (step <- when.next) {
           process(step, camelWhen)(s.buildHelper)
         }
@@ -105,6 +106,8 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
       // if an otherwise branch exists, declare an otherwise subroute in camel
       for { otherwise <- step.otherwise; step <- otherwise.next } {
         val camelOtherwise = camelChoice.otherwise()
+        //unfortunately, camel overrides otherwise id with choice id.
+        //thus, no id is generated for otherwise
         process(step, camelOtherwise)
       }
 
@@ -112,7 +115,7 @@ private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
       // Don't use endchoice() ! It is only used when ending a sub route (loadBalance, split, etc...) in the choice block
 
       // end() is also a difficulty to make the creation of the camel route tailrec because end() needs to be called after the subroutes are created.
-      camelChoice.end().withId(step)
+      camelChoice.end()
 
     }
   }
