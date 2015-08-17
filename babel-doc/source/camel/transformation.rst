@@ -64,15 +64,22 @@ an aggregator.
 
 The *enrich* is using a request-reply pattern with a endpoint (ex: Web Service) to obtain more data.
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-enricher-1
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-pollenricher-funct
 
-.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-enricher-2
 
 The *pollEnrich* is using a Polling Consumer from an endpoint (ex: JMS, SEDA, File) to obtain more data.
+
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-enricher-funct
+
+You may also use Camel or Babel AggregationStrategy to define how the incomming message and the enriched one are merged:
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-enricher-3
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-enricher-4
+
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-enricher-1
+
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/EnricherSpec.scala#doc:babel-camel-enricher-2
 
 .. warning:: It's not recommended to us the enrich and pollEnrich keywords with the io.xtech.babel.camel.model.FoldBodyAggregationStrategy. The only supported Aggregation strategy are io.xtech.babel.camel.model.ReduceBodyAggregationStrategy and custom implementations of the org.apache.camel.processor.aggregate.AggregationStrategy Interface.
 

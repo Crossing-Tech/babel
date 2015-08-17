@@ -68,3 +68,21 @@ class ReduceBodyAggregationStrategy[I](reduce: (I, I) => I) extends AggregationS
     })
   }
 }
+
+class EnrichBodyAggregationStrategy[I, O, T](reduce: (I, O) => T) extends AggregationStrategy {
+  override def aggregate(oldExchangeParam: Exchange, newExchange: Exchange): Exchange = {
+    val oldExchange = Option(oldExchangeParam)
+
+    oldExchange.fold(newExchange)(oldEx => {
+
+      val oldBody: I = oldEx.getIn.getBody.asInstanceOf[I]
+      val newBody: O = newExchange.getIn.getBody.asInstanceOf[O]
+
+      val newValue = reduce(oldBody, newBody)
+
+      oldEx.getIn.setBody(newValue)
+
+      oldEx
+    })
+  }
+}
