@@ -29,7 +29,7 @@ private[camel] class GlobalDSL(override val step: EmptyDefinition = new EmptyDef
 private[camel] class HandlerDSL[I: ClassTag](from: FromDSL[I]) {
   protected[camel] val definition = new HandlerDefinition()
 
-  def handle(block: HandlingDSL[I] => Unit): BaseDSL[I] = {
+  def handle(block: HandlingDSL[I] => Unit): FromDSL[I] = {
     from.step.next = Some(definition)
 
     val dsl = new HandlingDSL[I](this)

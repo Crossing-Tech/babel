@@ -8,9 +8,13 @@
 
 package io.xtech.babel.camel
 
+import java.util.Date
+
 import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.parsing.RoutePolicyInterface
 import io.xtech.babel.camel.test.camel
+import org.apache.camel.impl.ThrottlingInflightRoutePolicy
+import org.apache.camel.routepolicy.quartz.SimpleScheduledRoutePolicy
 import org.apache.camel.support.ServiceSupport
 import org.apache.camel.{ Exchange, Route }
 import org.specs2.mutable.SpecificationWithJUnit
@@ -49,7 +53,7 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
       camelContext.getRoute("babel").asInstanceOf[ServiceSupport].isStarted === false
     }
 
-    "manage routePolicy " in {
+    "manage routePolicy callbacks" in {
       "onStop" in new camel {
         var success: Boolean = false
         var csuccess: Boolean = false
@@ -286,6 +290,35 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
         csuccess must beTrue
         success must beTrue
       }
+
+    }
+    "manage routePolicy" in new camel {
+
+      //#doc:babel-camel-route-config
+      val throttlingInflightRoutePolicy = new ThrottlingInflightRoutePolicy()
+      val simpleScheduledRoutePolicy = new SimpleScheduledRoutePolicy()
+      simpleScheduledRoutePolicy.setRouteStartDate(new Date())
+      val routeBuilder = new RouteBuilder {
+        from("direct:input").
+          routeId("babel").
+          routePolicy(throttlingInflightRoutePolicy, simpleScheduledRoutePolicy).
+          to("mock:output")
+      }
+      //#doc:babel-camel-route-config
+      val camelRoute = new org.apache.camel.builder.RouteBuilder() {
+        def configure(): Unit = {
+          from("direct:inputCamel").routeId("camel").routePolicy(throttlingInflightRoutePolicy, simpleScheduledRoutePolicy).
+            to("mock:output")
+        }
+      }
+      camelContext.addRoutes(camelRoute)
+      camelContext.addRoutes(routeBuilder)
+
+      camelContext.start()
+      val croute = camelContext.getRouteDefinition("camel")
+      val broute = camelContext.getRouteDefinition("babel")
+      croute.getRoutePolicies.size() must be_==(2)
+      broute.getRoutePolicies.size() must be_==(2)
 
     }
 

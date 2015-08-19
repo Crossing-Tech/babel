@@ -60,11 +60,12 @@ object Dependencies {
   private[this] val camelSql = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-sql" % camelVersion % testScope
   private[this] val camelSpring = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-spring" % camelVersion % optionalScope
   private[this] val camelScala = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-scala" % camelVersion % optionalScope
+  private[this] val camelQuartz = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-quartz" % camelVersion % optionalScope
   private[this] val camelTest = (camelVersion: String) => camelGroupId% s"$camelModulePrefix-test" % camelVersion % testScope
   private[this] val csvForTest = "org.apache.commons" % "commons-csv" % "1.1" % testScope
   private[this] val xomForTest = "xom" % "xom" % "1.2.5" % testScope
 
-  private[this] def camel(camelVersion: String) = Seq(camelCore, camelXmlJson, camelCsv, camelSql, camelSpring, camelScala, camelTest).map(x => (x(camelVersion)))
+  private[this] def camel(camelVersion: String) = Seq(camelCore, camelXmlJson, camelCsv, camelSql, camelSpring, camelScala, camelQuartz, camelTest).map(x => (x(camelVersion)))
 
   private[this] val commoncsv = "org.apache.servicemix.bundles" % "org.apache.servicemix.bundles.commons-csv" % "1.0-r706900_3" % testScope
 

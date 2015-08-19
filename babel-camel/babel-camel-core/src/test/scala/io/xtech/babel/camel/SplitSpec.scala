@@ -117,19 +117,19 @@ class SplitSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-split-reduce
     val routeDef = new RouteBuilder {
       //message bodies are converted to String if required
-      from("direct:babel").as[String].splitFoldBody(_.split(",").iterator, stopOnException = true){
+      from("direct:babel").as[String].splitFoldBody(_.split(",").iterator, stopOnException = true) {
         _.to("mock:babelInner").requireAs[String].
           processBody(x => if (x == "2") { throw new Exception("exceptected exception") } else { x }).
           processBody(x => x.toInt).
           to("mock:after").requireAs[Int]
-      }(1)((a,b) => {
+      }(1)((a, b) => {
         a / b
       }).
         to("mock:babel")
     }
     //#doc:babel-camel-split-reduce
 
-    val aggregation = new ReduceBodyAggregationStrategy[String]((a,b) => s"$a, $b")
+    val aggregation = new ReduceBodyAggregationStrategy[String]((a, b) => s"$a, $b")
 
     val camelRoute = new CRouteBuilder {
       def configure(): Unit = {
@@ -182,31 +182,31 @@ class SplitSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-split-reduce
     val routeDef = new RouteBuilder {
       //message bodies are converted to String if required
-      from("direct:babel").as[String].splitReduceBody(_.split(",").iterator, stopOnException = true){
+      from("direct:babel").as[String].splitReduceBody(_.split(",").iterator, stopOnException = true) {
         _.to("mock:babelInner").requireAs[String].
           processBody(x => if (x == "2") { throw new Exception("exceptected exception") } else { x }).
           processBody(x => x.toInt).
           to("mock:after").requireAs[Int]
-      }((a,b) => {
+      }((a, b) => {
         a / b
       }).
         to("mock:babel")
     }
     //#doc:babel-camel-split-reduce
 
-    val aggregation = new ReduceBodyAggregationStrategy[String]((a,b) => s"$a, $b")
+    val aggregation = new ReduceBodyAggregationStrategy[String]((a, b) => s"$a, $b")
 
     val camelRoute = new CRouteBuilder {
       def configure(): Unit = {
         from("direct:camel").split(body().tokenize(","), aggregation).stopOnException().
           to("mock:camelInner").
           process(new Processor {
-          override def process(exchange: Exchange): Unit = {
-            if (exchange.getIn.getBody == "2") {
-              throw new Exception("expected camel exception")
+            override def process(exchange: Exchange): Unit = {
+              if (exchange.getIn.getBody == "2") {
+                throw new Exception("expected camel exception")
+              }
             }
-          }
-        }).to("mock:camel1").end().to("mock:camel2")
+          }).to("mock:camel1").end().to("mock:camel2")
       }
     }
 
@@ -257,12 +257,12 @@ class SplitSpec extends SpecificationWithJUnit {
       def configure(): Unit = {
         from("direct:camel").split(body().tokenize(",")).stopOnException().
           process(new Processor {
-          override def process(exchange: Exchange): Unit = {
-            if (exchange.getIn.getBody == "2") {
-              throw new Exception("expected camel exception")
+            override def process(exchange: Exchange): Unit = {
+              if (exchange.getIn.getBody == "2") {
+                throw new Exception("expected camel exception")
+              }
             }
-          }
-        }).to("mock:camel1").end().to("mock:camel2")
+          }).to("mock:camel1").end().to("mock:camel2")
       }
     }
 

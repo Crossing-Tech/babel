@@ -10,6 +10,7 @@ package io.xtech.babel.camel.model
 
 import io.xtech.babel.fish.model.StepDefinition
 import org.apache.camel.Route
+import org.apache.camel.spi.RoutePolicy
 
 /*
  * Route configuration model
@@ -33,3 +34,4 @@ case class OnStartDefinition(callback: (Route) => Unit) extends StepDefinition
 
 case class OnSuspendDefinition(callback: (Route) => Unit) extends StepDefinition
 
+case class RoutePolicyDefinition(policy: Seq[RoutePolicy]) extends StepDefinition

@@ -22,8 +22,8 @@ case class EnrichRefDefinition[I, O](sink: Sink[I, O], aggregationStrategyRef: S
 case class EnrichDefinition[I, O](sink: Sink[I, O], aggregationStrategy: AggregationStrategy) extends StepDefinition
 
 /**
- * The definition of the enrich keyword in the DSL
- */
+  * The definition of the enrich keyword in the DSL
+  */
 case class EnrichFunctionalDefinition[I, O, T](sink: Sink[I, O], aggregationFunction: (I, O) => T) extends StepDefinition
 
 /**
@@ -37,6 +37,6 @@ case class PollEnrichRefDefinition[I, O](sink: Sink[I, O], aggregationStrategyRe
 case class PollEnrichDefinition[I, O](sink: Sink[I, O], aggregationStrategy: AggregationStrategy, timeout: Long = -1) extends StepDefinition
 
 /**
- * The definition of the pollEnrich keyword in the DSL
- */
+  * The definition of the pollEnrich keyword in the DSL
+  */
 case class PollEnrichFunctionalDefinition[I, O, T](sink: Sink[I, O], aggregationFunction: (I, O) => T, timeout: Long = -1) extends StepDefinition
