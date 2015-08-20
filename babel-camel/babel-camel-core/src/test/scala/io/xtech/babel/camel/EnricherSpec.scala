@@ -119,7 +119,7 @@ class EnricherSpec extends SpecificationWithJUnit {
       val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
       enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
 
-      mockEndpoint.expectedBodiesReceived("bla123","bli123")
+      mockEndpoint.expectedBodiesReceived("bla123", "bli123")
 
       val producer = camelContext.createProducerTemplate()
       producer.sendBody("direct:input", "bla")
@@ -235,7 +235,7 @@ class EnricherSpec extends SpecificationWithJUnit {
       //#doc:babel-camel-pollenricher-funct
       val routeDef = new RouteBuilder {
         from("direct:input").
-          pollEnrich("seda:enrichRoute", (a,b: Any) => s"$a${b.toString}", 1000).
+          pollEnrich("seda:enrichRoute", (a, b: Any) => s"$a${b.toString}", 1000).
           to("mock:output")
       }
       //#doc:babel-camel-pollenricher-funct

@@ -101,7 +101,9 @@ Moreover, you may prevent a route from being started automatically using the **a
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteConfigurationSpec.scala#doc:babel-camel-route-conf-1
 
+Finally, you may define your own RoutePolicy using the **routePolicy** keyword such as:
 
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/RouteConfigurationSpec.scala#doc:babel-camel-route-config
 
 Id
 ++++

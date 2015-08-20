@@ -56,15 +56,15 @@ private[camel] class EnricherDSL[I: ClassTag](protected val baseDsl: BaseDSL[I])
   }
 
   /**
-   * Enrich a message with the data coming from an endpoint using request-reply pattern.
-   * @param sink the endpoint.
-   * @param aggregationFunction a function that know
-   *                               how the original message and the message coming from the endpoint are aggregated.
-   * @param convert converts the endpoint to a Sink.
-   * @tparam O the output type of the enrichment.
-   * @tparam S the native type of the Sink.
-   * @return the possibility to add other steps to the current DSL.
-   */
+    * Enrich a message with the data coming from an endpoint using request-reply pattern.
+    * @param sink the endpoint.
+    * @param aggregationFunction a function that know
+    *                               how the original message and the message coming from the endpoint are aggregated.
+    * @param convert converts the endpoint to a Sink.
+    * @tparam O the output type of the enrichment.
+    * @tparam S the native type of the Sink.
+    * @return the possibility to add other steps to the current DSL.
+    */
   def enrich[O: ClassTag, S, T: ClassTag](sink: S, aggregationFunction: (I, O) => T)(implicit convert: S => Sink[I, O]): BaseDSL[T] = {
 
     EnrichFunctionalDefinition[I, O, T](sink, aggregationFunction)
@@ -108,18 +108,18 @@ private[camel] class EnricherDSL[I: ClassTag](protected val baseDsl: BaseDSL[I])
 
   }
   /**
-   * Enrich a message with data coming from an enpoint. The pollEnrich keyword is polling the endpoint.
-   * @param sink the endpoint.
-   * @param aggregationFunction a Function that know
-   *                               how the original message and the message coming from the endpoint are aggregated.
-   * @param timeout the timeout when polling the endpoint in milliseconds.
-   *                Possible values : -1 (block until there is a message, 0 don't wait and return immediately, otherwise wait a specific period of time.
-   * @param convert converts the endpoint to a Sink.
-   * @tparam O the output type of the enrichment.
-   * @tparam S the native type of the Sink.
-   * @return the possibility to add other steps to the current DSL.
-   */
-  def pollEnrich[O: ClassTag, S, T:ClassTag](sink: S, aggregationFunction: Function2[I,O,T], timeout: Int = -1)(implicit convert: S => Sink[I, O]): BaseDSL[T] = {
+    * Enrich a message with data coming from an enpoint. The pollEnrich keyword is polling the endpoint.
+    * @param sink the endpoint.
+    * @param aggregationFunction a Function that know
+    *                               how the original message and the message coming from the endpoint are aggregated.
+    * @param timeout the timeout when polling the endpoint in milliseconds.
+    *                Possible values : -1 (block until there is a message, 0 don't wait and return immediately, otherwise wait a specific period of time.
+    * @param convert converts the endpoint to a Sink.
+    * @tparam O the output type of the enrichment.
+    * @tparam S the native type of the Sink.
+    * @return the possibility to add other steps to the current DSL.
+    */
+  def pollEnrich[O: ClassTag, S, T: ClassTag](sink: S, aggregationFunction: Function2[I, O, T], timeout: Int = -1)(implicit convert: S => Sink[I, O]): BaseDSL[T] = {
 
     PollEnrichFunctionalDefinition[I, O, T](sink, aggregationFunction, timeout)
 

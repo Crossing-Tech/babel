@@ -11,6 +11,7 @@ package io.xtech.babel.camel
 import io.xtech.babel.camel.model._
 import io.xtech.babel.fish.{ BaseDSL2FromDSL, FromDSL }
 import org.apache.camel.Route
+import org.apache.camel.spi.RoutePolicy
 
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
@@ -116,6 +117,17 @@ private[camel] class RouteConfigurationDSL[I: ClassTag](protected val baseDsl: F
   def onSuspend(callback: (Route) => Unit): FromDSL[I] = {
 
     OnSuspendDefinition(callback)
+
+  }
+
+  /**
+    * The routePolicy lets you add RoutePolicies to your route
+    * @param policy Camel Route Policies
+    * @return the possibility to add other steps to the current DSL
+    */
+  def routePolicy(policy: RoutePolicy*): FromDSL[I] = {
+
+    RoutePolicyDefinition(policy)
 
   }
 }

@@ -12,11 +12,12 @@ import io.xtech.babel.camel.RouteConfigurationDSL
 import io.xtech.babel.camel.model._
 import io.xtech.babel.fish.FromDSL
 import io.xtech.babel.fish.parsing.StepInformation
-import org.apache.camel.model.RouteDefinition
+import org.apache.camel.model.{ ProcessorDefinition, RouteDefinition }
 import org.apache.camel.spi.RoutePolicy
 import org.apache.camel.{ Exchange, Route }
 
 import scala.collection.immutable
+import scala.collection.JavaConverters._
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
@@ -104,6 +105,10 @@ private[babel] trait RouteConfiguration extends CamelParsing {
         }
       })
 
+      camelProcessorDefinition
+
+    case s @ StepInformation(policies: RoutePolicyDefinition, camelProcessorDefinition: ProcessorDefinition[_]) =>
+      s.buildHelper.getRouteCollection.getRoutes.asScala.lastOption.map(_.routePolicy(policies.policy: _*))
       camelProcessorDefinition
 
   }
