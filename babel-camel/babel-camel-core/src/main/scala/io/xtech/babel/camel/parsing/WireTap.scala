@@ -41,10 +41,10 @@ private[babel] trait WireTap extends CamelParsing {
 }
 
 object Wiring {
-  val headerKey: String = "babel-wiring-body"
+  val key: String = "babel-wiring-body"
 
-  def getHeaderCount(msg: Message[_]): Int = {
-    msg.headers.keys.count(_.startsWith(Wiring.headerKey))
+  def getCount(msg: Message[_]): Int = {
+    msg.headers.keys.count(_.startsWith(Wiring.key))
   }
 
 
