@@ -25,7 +25,7 @@ private[camel] class LogDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) exte
   private val bodyExpression : String = "${body}"
   private def applyPreparation(prepare: (Message[I]) => String) : (Message[I] => Message[String]) = msg => msg.withBody(_ => prepare(msg))
   private def preprocess(prepare: (Message[I]) => String, log: (LogDSL[Any]) => BaseDSL[_]): BaseDSL[I] = {
-    new WireTapDSL[I](baseDsl.step).wiretap(dsl => log(new LogDSL(dsl.process(applyPreparation(prepare)))))
+    new WireTapDSL[I](baseDsl.step).sideEffect(dsl => log(new LogDSL(dsl.process(applyPreparation(prepare)))))
   }
 
   /**

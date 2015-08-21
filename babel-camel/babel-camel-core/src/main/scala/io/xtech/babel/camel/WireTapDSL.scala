@@ -8,7 +8,7 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.model.{CamelSink, WireTapDefinition}
+import io.xtech.babel.camel.model.{CamelMessage, CamelSink, WireTapDefinition}
 import io.xtech.babel.camel.parsing.Wiring
 import io.xtech.babel.fish.model.{Message, StepDefinition, TransformerDefinition}
 import io.xtech.babel.fish.{BaseDSL, DSL2BaseDSL, MessageTransformationExpression}
@@ -28,7 +28,7 @@ private[camel] class WireTapDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) 
    */
   def wiretap(uri: String): BaseDSL[I] = WireTapDefinition[I](CamelSink[I](uri))
 
-  def wiretap(w: (BaseDSL[I]) => BaseDSL[_]): BaseDSL[I] = {
+  def sideEffect(w: (BaseDSL[I]) => BaseDSL[_]): BaseDSL[I] = {
     val wireDefinition = new TransformerDefinition(wire)
     val dewireDefinition = new TransformerDefinition(dewire)
 
@@ -40,19 +40,18 @@ private[camel] class WireTapDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) 
   }
 
   private val wire: MessageTransformationExpression[I, I] = MessageTransformationExpression((msg: Message[I]) => {
-    val headers = Wiring.getHeaderCount(msg)
-    msg.withHeader(s"${Wiring.headerKey}-${headers + 1}", msg.body.get) //TODO getOrElse
+    val headers = Wiring.getCount(msg)
+    msg.asInstanceOf[CamelMessage[I]].withExchangeProperty(s"${Wiring.key}-${headers + 1}", msg.body.get) //TODO getOrElse
   })
 
 
   private val dewire: MessageTransformationExpression[I, I] = MessageTransformationExpression((msg: Message[I]) => {
-    val headers = Wiring.getHeaderCount(msg)
-    val headerKey = s"${Wiring.headerKey}-${headers}"
-    val body = msg.headers.get(headerKey) match {
+    val key = s"${Wiring.key}-${Wiring.getCount(msg) + 1}"
+    val body = msg.asInstanceOf[CamelMessage[_]].exchangeProperties.get(key) match {
       case i: Some[I] => i.get
       case other => throw new Exception(s"unepected dewired $other")
     }
-    msg.withBody(_ => body).withHeaders(_ - headerKey)
+    msg.withBody(_ => body).withHeaders(_ - key)
   })
 
 }

@@ -86,7 +86,7 @@ class WireTapSpec extends SpecificationWithJUnit {
       from("direct:input-babel").
         //Incoming messages are sent to the direct endpoint
         //   and to the next mock endpoint
-        wiretap(_.to("mock:in-wire").processBody(_ => wireTapMessage).to("mock:out-wire"))
+        sideEffect(_.to("mock:in-wire").processBody(_ => wireTapMessage).to("mock:out-wire"))
         .to("mock:output")
       //#doc:babel-camel-wiretap-functional
 
