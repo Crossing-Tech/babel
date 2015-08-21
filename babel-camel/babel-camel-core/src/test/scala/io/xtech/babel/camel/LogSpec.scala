@@ -60,6 +60,43 @@ class LogSpec extends SpecificationWithJUnit {
 
     }
 
+    "be used with a function" in new camel {
+
+      SharedLogs.events = List.empty[LoggingEvent]
+
+      import io.xtech.babel.camel.builder.RouteBuilder
+      import org.apache.camel.LoggingLevel
+
+      //#doc:babel-camel-logging-functionnal
+      val routeBuilder = new RouteBuilder {
+        from("direct:input")
+          .log(LoggingLevel.TRACE, "my.cool.toto", "foo", msg => "FOO")
+          .log(msg => s"BAR : ${msg.headers}")
+          .to("mock:output")
+      }
+      //#doc:babel-camel-logging-functionnal
+
+      val mock = camelContext.getEndpoint("mock:output", classOf[MockEndpoint])
+
+      mock.expectedBodiesReceived("babel message")
+
+      camelContext.addRoutes(routeBuilder)
+
+      camelContext.start()
+
+      val template = camelContext.createProducerTemplate()
+      template.sendBody("direct:input", "babel message")
+      mock.assertIsSatisfied() must not(throwA[Exception])
+
+      SharedLogs.events.size must be_==(1).eventually
+
+      val event = SharedLogs.events.head
+      event.getLevel === Level.TRACE
+      event.getLoggerName === "my.cool.toto"
+      event.getMessage.toString must be_==("FOO")
+
+    }
+
   }
 
 }
