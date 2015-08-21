@@ -27,7 +27,7 @@ private[camel] class GlobalDSL(override val step: EmptyDefinition = new EmptyDef
   * @tparam I
   */
 private[camel] class HandlerDSL[I: ClassTag](from: FromDSL[I]) {
-  protected[camel] val definition = new HandlerDefinition()
+  private[camel] val definition = new HandlerDefinition()
 
   def handle(block: HandlingDSL[I] => Unit): FromDSL[I] = {
     from.step.next = Some(definition)

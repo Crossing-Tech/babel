@@ -8,9 +8,11 @@
 
 package io.xtech.babel.camel.model
 
+import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.model.StepDefinition
 
 /**
   * Defines a sink where each message is just copied.
   */
 case class WireTapDefinition[T](sink: CamelSink[T]) extends StepDefinition
+
