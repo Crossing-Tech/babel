@@ -11,6 +11,7 @@ package io.xtech.babel.camel
 import javax.management.ObjectName
 
 import io.xtech.babel.camel.builder.RouteBuilder
+import io.xtech.babel.camel.javaprocessors.JavaProcessors
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.RouteDefinitionException
 import io.xtech.babel.camel.mock._
@@ -114,6 +115,34 @@ class CamelDSLSpec extends SpecificationWithJUnit {
       producer.requestBody("direct:input", message)
 
       mockEndpoint.assertIsSatisfied()
+    }
+
+    "create a from,process(Java),endpoint route" in new camel {
+      //#doc:babel-camel-processBody-1
+
+      import io.xtech.babel.camel.builder.RouteBuilder
+
+      val routeDef = new RouteBuilder {
+        //message bodies are converted to String if required
+        from("direct:input").as[String].
+          //processBody concatenates received string with "bli"
+          processBody(JavaProcessors.append(_)).
+          //sends the concatenated string to the mock endpoint
+          to("mock:output")
+      }
+      //#doc:babel-camel-processBody-1
+      routeDef.addRoutesToCamelContext(camelContext)
+
+      camelContext.start()
+
+      val producer = camelContext.createProducerTemplate()
+
+      val mockEnpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      mockEnpoint.expectedBodiesReceived("blabli-")
+
+      producer.sendBody("direct:input", "blabli")
+
+      mockEnpoint.assertIsSatisfied()
     }
 
     "create a from,process,endpoint route" in new camel {

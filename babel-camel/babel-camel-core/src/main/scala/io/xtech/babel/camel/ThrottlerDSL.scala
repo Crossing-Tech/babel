@@ -28,13 +28,6 @@ class ThrottlerDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) extends DSL2B
 
   /**
     * The throttle keyword. Defines the maximal rate that may be use in order to avoid overloading of the rest of the route
-    * @param perSecond number of allowed messages in 1 second using an expression
-    * @return the possibility to add other steps to the current DSL
-    */
-  def throttle(perSecond: Expression[I, Long]): BaseDSL[I] = ThrottlerDefinitionExpression(perSecond)
-
-  /**
-    * The throttle keyword. Defines the maximal rate that may be use in order to avoid overloading of the rest of the route
     * @param perSecond number of allowed messages in 1 second using a function
     * @return the possibility to add other steps to the current DSL
     */
