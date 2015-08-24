@@ -8,37 +8,30 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.builder.RouteBuilder
-import io.xtech.babel.camel.mock._
+import org.apache.camel.{ Exchange, Processor }
+import org.apache.camel.builder.RouteBuilder
 import org.apache.camel.impl.DefaultCamelContext
 import org.specs2.mutable.SpecificationWithJUnit
 
 class MockSpec extends SpecificationWithJUnit {
   sequential
 
-  "extend the DSL with some sub DSL (mock)" in {
-
+  "camel mock tools" in {
 
     val camelContext = new DefaultCamelContext()
 
-    //#doc:babel-camel-mock
     import io.xtech.babel.camel.mock._
 
-    //The Mock extension is added simply by
-    //  extending the RouteBuilder with
-    val routeDef = new RouteBuilder with Mock {
-      //the mock keyword is the same as typing
-      //  to("mock:output1")
+    val routeDef = new RouteBuilder {
       from("direct:input").
-        requireAs[String].
-        mock("output1").
-        //the mock keyword keeps the same body type (here: String)
-        processBody(x => x.toUpperCase).
-        mock("output2")
+        to("mock:output1").
+        process(new Processor {
+          override def process(exchange: Exchange): Unit = exchange.getIn.setBody(exchange.getIn.getBody(classOf[String]).toUpperCase)
+        }).
+        to("mock:output2")
 
+      override def configure(): Unit = {}
     }
-
-    //#doc:babel-camel-mock
 
     routeDef.addRoutesToCamelContext(camelContext)
 
@@ -57,7 +50,7 @@ class MockSpec extends SpecificationWithJUnit {
     mockEndpoint1.assertIsSatisfied()
     mockEndpoint2.assertIsSatisfied()
 
-    camelContext.shutdown()
+    camelContext.shutdown() must not(throwA[Exception])
 
   }
 }
