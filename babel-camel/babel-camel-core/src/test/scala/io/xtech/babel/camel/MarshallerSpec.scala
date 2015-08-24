@@ -13,6 +13,7 @@ import java.util.{ ArrayList => JArrayList, HashMap => JHashMap }
 import io.xtech.babel.camel.MarshallerSpec.{ camelCsv, camelJsonXml }
 import io.xtech.babel.camel.model.CamelMessagePredicate
 import io.xtech.babel.camel.test.camel
+import io.xtech.babel.camel.mock._
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.dataformat.csv.CsvDataFormat
 import org.apache.camel.dataformat.xmljson.XmlJsonDataFormat
@@ -90,7 +91,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       mockEndpoint.expectedBodyReceived().body().isEqualTo(outputData)
 
@@ -122,7 +123,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       mockEndpoint.expectedMessageCount(1)
 
@@ -151,7 +152,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       mockEndpoint.expectedMessageCount(1)
 
@@ -175,7 +176,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       mockEndpoint.expectedBodyReceived().body().isEqualTo(outputData)
 
@@ -203,7 +204,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       mockEndpoint.expectedBodiesReceived("""{"a":"1","b":{"@c":"2"},"d":{"e":"3","f":"4"}}""")
 
@@ -238,7 +239,7 @@ class MarshallerSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       val expectedXml = """<?xml version="1.0" encoding="UTF-8"?><o><root><a>1</a><b c="2"/><d><e>3</e><f>4</f></d></root></o>"""
 

@@ -10,6 +10,7 @@ package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.test.camel
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.fish.model.Message
 import io.xtech.babel.fish.{ BodyPredicate, MessagePredicate }
 import org.apache.camel.component.mock.MockEndpoint
@@ -591,7 +592,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       camelContext.addRoutes(new CamelRoute())
 
-      val mockCamelSuccess = camelContext.mockEndoint("mock:camel-success")
+      val mockCamelSuccess = camelContext.mockEndpoint("camel-success")
       mockCamelSuccess.setExpectedMessageCount(1)
 
       val routes = new RouteBuilder {
@@ -617,7 +618,7 @@ class HandlerSpec extends SpecificationWithJUnit {
       camelContext.addRoutes(routes)
       camelContext.start()
 
-      val mockSuccess = camelContext.mockEndpoint({success})
+      val mockSuccess = camelContext.mockEndpoint("success")
       mockSuccess.setExpectedMessageCount(1)
 
       val proc = camelContext.createProducerTemplate()
@@ -649,9 +650,9 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       camelContext.addRoutes(new CamelRoute())
 
-      val mockCamelError = camelContext.mockEndoint("mock:camel-error")
+      val mockCamelError = camelContext.mockEndpoint("camel-error")
       mockCamelError.setExpectedMessageCount(0)
-      val mockCamelSuccess = camelContext.mockEndoint("mock:camel-success")
+      val mockCamelSuccess = camelContext.mockEndpoint("camel-success")
       mockCamelSuccess.setExpectedMessageCount(1)
 
       val routes = new RouteBuilder {
@@ -678,9 +679,9 @@ class HandlerSpec extends SpecificationWithJUnit {
       camelContext.addRoutes(routes)
       camelContext.start()
 
-      val mockError = camelContext.mockEndpoint({error})
+      val mockError = camelContext.mockEndpoint("error")
       mockError.setExpectedMessageCount(0)
-      val mockSuccess = camelContext.mockEndpoint({success})
+      val mockSuccess = camelContext.mockEndpoint("success")
       mockSuccess.setExpectedMessageCount(1)
 
       val proc = camelContext.createProducerTemplate()
@@ -768,7 +769,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       camelContext.addRoutes(new CamelRoute())
 
-      val mockCamelSuccess = camelContext.mockEndoint("mock:camel-success")
+      val mockCamelSuccess = camelContext.mockEndpoint("camel-success")
       mockCamelSuccess.setExpectedMessageCount(0)
 
       val routes = new RouteBuilder {
@@ -790,7 +791,7 @@ class HandlerSpec extends SpecificationWithJUnit {
       camelContext.addRoutes(routes)
       camelContext.start()
 
-      val mockSuccess = camelContext.mockEndpoint({success})
+      val mockSuccess = camelContext.mockEndpoint("success")
       mockSuccess.setExpectedMessageCount(0)
 
       val proc = camelContext.createProducerTemplate()
@@ -1374,7 +1375,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       camelContext.addRoutes(new CamelRoute())
 
-      val mockCamelSuccess = camelContext.mockEndoint("mock:camel-success")
+      val mockCamelSuccess = camelContext.mockEndpoint("camel-success")
       mockCamelSuccess.setExpectedMessageCount(1)
 
       val routes = new RouteBuilder {
@@ -1400,7 +1401,7 @@ class HandlerSpec extends SpecificationWithJUnit {
       camelContext.addRoutes(routes)
       camelContext.start()
 
-      val mockSuccess = camelContext.mockEndpoint({success})
+      val mockSuccess = camelContext.mockEndpoint("success")
       mockSuccess.setExpectedMessageCount(1)
 
       val proc = camelContext.createProducerTemplate()
@@ -1432,9 +1433,9 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       camelContext.addRoutes(new CamelRoute())
 
-      val mockCamelError = camelContext.mockEndoint("mock:camel-error")
+      val mockCamelError = camelContext.mockEndpoint("camel-error")
       mockCamelError.setExpectedMessageCount(0)
-      val mockCamelSuccess = camelContext.mockEndoint("mock:camel-success")
+      val mockCamelSuccess = camelContext.mockEndpoint("camel-success")
       mockCamelSuccess.setExpectedMessageCount(1)
 
       val routes = new RouteBuilder {
@@ -1464,9 +1465,9 @@ class HandlerSpec extends SpecificationWithJUnit {
       camelContext.addRoutes(routes)
       camelContext.start()
 
-      val mockError = camelContext.mockEndpoint({error})
+      val mockError = camelContext.mockEndpoint("error")
       mockError.setExpectedMessageCount(0)
-      val mockSuccess = camelContext.mockEndpoint({success})
+      val mockSuccess = camelContext.mockEndpoint("success")
       mockSuccess.setExpectedMessageCount(1)
 
       val proc = camelContext.createProducerTemplate()
@@ -1559,7 +1560,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       camelContext.addRoutes(new CamelRoute())
 
-      val mockCamelSuccess = camelContext.mockEndoint("mock:camel-success")
+      val mockCamelSuccess = camelContext.mockEndpoint("camel-success")
       mockCamelSuccess.setExpectedMessageCount(0)
 
       val routes = new RouteBuilder {
@@ -1573,7 +1574,7 @@ class HandlerSpec extends SpecificationWithJUnit {
       camelContext.addRoutes(routes)
       camelContext.start()
 
-      val mockSuccess = camelContext.mockEndpoint({success})
+      val mockSuccess = camelContext.mockEndpoint("success")
       mockSuccess.setExpectedMessageCount(0)
 
       val proc = camelContext.createProducerTemplate()
@@ -1617,9 +1618,9 @@ class HandlerSpec extends SpecificationWithJUnit {
         from("direct:handlingRoute").log("error:${body}").to("mock:error")
       }
 
-      val mock = camelContext.mockEndoint("mock:error")
-      val mock1 = camelContext.mockEndoint("mock:babel1")
-      val mock2 = camelContext.mockEndoint("mock:babel2")
+      val mock = camelContext.mockEndpoint("error")
+      val mock1 = camelContext.mockEndpoint("babel1")
+      val mock2 = camelContext.mockEndpoint("babel2")
 
       mock.setExpectedMessageCount(2)
       mock1.setExpectedMessageCount(0)

@@ -12,6 +12,7 @@ import io.xtech.babel.camel.test.camel
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
+import io.xtech.babel.camel.mock._
 
 class WireTapSpec extends SpecificationWithJUnit {
   sequential
@@ -52,10 +53,10 @@ class WireTapSpec extends SpecificationWithJUnit {
 
     camelContext.start()
 
-    val mockEndpointB = camelContext.mockEndoint("mock:output-babel")
-    val mockEndpointBT = camelContext.mockEndoint("mock:babel-tap")
-    val mockEndpointC = camelContext.mockEndoint("mock:output-camel")
-    val mockEndpointCT = camelContext.mockEndoint("mock:camel-tap")
+    val mockEndpointB = camelContext.mockEndpoint("output-babel")
+    val mockEndpointBT = camelContext.mockEndpoint("babel-tap")
+    val mockEndpointC = camelContext.mockEndpoint("output-camel")
+    val mockEndpointCT = camelContext.mockEndpoint("camel-tap")
 
     mockEndpointB.expectedBodiesReceived(testMessage, wireTapMessage)
     mockEndpointBT.expectedBodiesReceived(wireTapMessage)

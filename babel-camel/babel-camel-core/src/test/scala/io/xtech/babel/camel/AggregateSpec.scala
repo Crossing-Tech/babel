@@ -13,6 +13,7 @@ import io.xtech.babel.camel.model.Aggregation.{ CamelAggregation, CompletionSize
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.MessageExpression
 import io.xtech.babel.fish.model.Message
+import io.xtech.babel.camel.mock._
 import org.apache.camel.Exchange
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
@@ -57,9 +58,9 @@ class AggregateSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint = camelContext.mockEndpoint({output})
+    val mockEndpoint = camelContext.mockEndpoint("output")
     mockEndpoint.expectedMessageCount(1)
-    val mockCamel = camelContext.mockEndpoint({camel})
+    val mockCamel = camelContext.mockEndpoint("camel")
     mockCamel.expectedMessageCount(1)
 
     producer.sendBody(directConsumer, "1")
@@ -124,9 +125,9 @@ class AggregateSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint = camelContext.mockEndpoint({output})
+    val mockEndpoint = camelContext.mockEndpoint("output")
     mockEndpoint.expectedMessageCount(1)
-    val mockCamel = camelContext.mockEndpoint({camel})
+    val mockCamel = camelContext.mockEndpoint("camel")
     mockCamel.expectedMessageCount(1)
 
     producer.sendBody(directConsumer, "1")
@@ -192,8 +193,8 @@ class AggregateSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint = camelContext.mockEndpoint({output})
-    val camelEndpoint = camelContext.mockEndpoint({camel})
+    val mockEndpoint = camelContext.mockEndpoint("output")
+    val camelEndpoint = camelContext.mockEndpoint("camel")
 
     mockEndpoint.expectedBodiesReceived(6: Integer, 15: Integer, 24: Integer)
     camelEndpoint.expectedBodiesReceived(6: Integer, 15: Integer, 24: Integer)
@@ -260,8 +261,8 @@ class AggregateSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint = camelContext.mockEndpoint({output})
-    val mockCamel = camelContext.mockEndpoint({camel})
+    val mockEndpoint = camelContext.mockEndpoint("output")
+    val mockCamel = camelContext.mockEndpoint("camel")
 
     mockEndpoint.expectedBodiesReceived("123", "456", "789")
     mockCamel.expectedBodiesReceived("123", "456", "789")

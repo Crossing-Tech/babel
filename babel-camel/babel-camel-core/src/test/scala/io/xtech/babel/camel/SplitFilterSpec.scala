@@ -14,6 +14,7 @@ import io.xtech.babel.fish.RouteDefinitionException
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
+import io.xtech.babel.camel.mock._
 
 class SplitFilterSpec extends SpecificationWithJUnit {
   "split and filter" should {
@@ -47,8 +48,8 @@ class SplitFilterSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
-      val mockCamel = camelContext.mockEndpoint({camel})
+      val mockEndpoint = camelContext.mockEndpoint("output")
+      val mockCamel = camelContext.mockEndpoint("camel")
 
       mockEndpoint.expectedBodiesReceived("true")
       mockCamel.expectedBodiesReceived("true")
@@ -89,8 +90,10 @@ class SplitFilterSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.mockEndoint("mock:output")
-      val mockCamel = camelContext.mockEndoint("mock:camel")
+      val mockEndpoint1 = camelContext.mockEndpoint("output1")
+      val mockEndpoint2 = camelContext.mockEndpoint("output2")
+      val mockCamel1 = camelContext.mockEndpoint("camel1")
+      val mockCamel2 = camelContext.mockEndpoint("camel2")
 
       mockEndpoint1.expectedBodiesReceived("true")
       mockEndpoint2.expectedBodiesReceived("true")
@@ -137,10 +140,10 @@ class SplitFilterSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
-      val mockEndEndpoint = camelContext.mockEndpoint({false})
-      val mockCamel = camelContext.mockEndpoint({camel})
-      val mockEndCamel = camelContext.mockEndpoint({camelfalse})
+      val mockEndpoint = camelContext.mockEndpoint("output")
+      val mockEndEndpoint = camelContext.mockEndpoint("false")
+      val mockCamel = camelContext.mockEndpoint("camel")
+      val mockEndCamel = camelContext.mockEndpoint("camelfalse")
 
       mockEndpoint.expectedBodiesReceived("true false")
       mockEndEndpoint.expectedBodiesReceived("false")

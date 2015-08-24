@@ -9,6 +9,7 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.test.camel
+import io.xtech.babel.camel.mock._
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
@@ -43,10 +44,10 @@ class MulticastSpec extends SpecificationWithJUnit {
 
     camelContext.start()
 
-    val mockEndpoint1 = camelContext.mockEndpoint({output1})
-    val mockEndpoint2 = camelContext.mockEndpoint({output2})
-    val mockEndpoint3 = camelContext.mockEndpoint({output3})
-    val mockEndpoint4 = camelContext.mockEndpoint({output4})
+    val mockEndpoint1 = camelContext.mockEndpoint("output1")
+    val mockEndpoint2 = camelContext.mockEndpoint("output2")
+    val mockEndpoint3 = camelContext.mockEndpoint("output3")
+    val mockEndpoint4 = camelContext.mockEndpoint("output4")
 
     mockEndpoint1.expectedBodiesReceived("test")
     mockEndpoint2.expectedBodiesReceived("test")

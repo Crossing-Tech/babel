@@ -10,7 +10,7 @@ package io.xtech.babel.camel
 
 import io.xtech.babel.camel.test.camel
 import org.apache.camel.Exchange
-import org.apache.camel.component.mock.MockEndpoint
+import io.xtech.babel.camel.mock._
 import org.apache.camel.support.TypeConverterSupport
 import org.specs2.mutable.SpecificationWithJUnit
 
@@ -40,7 +40,7 @@ class AsSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       mockEndpoint.expectedBodiesReceived("1234")
 
@@ -67,7 +67,7 @@ class AsSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       mockEndpoint.expectedBodiesReceived("1234")
 
@@ -90,7 +90,7 @@ class AsSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       mockEndpoint.expectedBodiesReceived(List(1, 2, 3))
 

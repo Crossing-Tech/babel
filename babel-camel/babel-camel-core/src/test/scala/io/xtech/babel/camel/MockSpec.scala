@@ -9,6 +9,7 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
+import io.xtech.babel.camel.mock._
 import org.apache.camel.impl.DefaultCamelContext
 import org.specs2.mutable.SpecificationWithJUnit
 
@@ -16,7 +17,6 @@ class MockSpec extends SpecificationWithJUnit {
   sequential
 
   "extend the DSL with some sub DSL (mock)" in {
-
 
     val camelContext = new DefaultCamelContext()
 
@@ -56,7 +56,7 @@ class MockSpec extends SpecificationWithJUnit {
     mockEndpoint1.assertIsSatisfied()
     mockEndpoint2.assertIsSatisfied()
 
-    camelContext.shutdown()
+    camelContext.shutdown() must not(throwA[Exception])
 
   }
 }

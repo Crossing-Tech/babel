@@ -13,6 +13,7 @@ import io.xtech.babel.camel.test.camel
 import org.apache.camel.builder.xml.XPathBuilder
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
+import io.xtech.babel.camel.mock._
 
 class XMLSpec extends SpecificationWithJUnit {
   sequential
@@ -34,7 +35,7 @@ class XMLSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndpoint = camelContext.mockEndpoint("output")
       mockEndpoint.expectedMessageCount(7)
 
       producer.sendBody("direct:input",
@@ -65,7 +66,7 @@ class XMLSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.mockEndpoint({output})
+      val mockEndpoint = camelContext.mockEndpoint("output")
       mockEndpoint.expectedMessageCount(1)
 
       producer.sendBody("direct:input",
@@ -105,13 +106,13 @@ class XMLSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpoint1 = camelContext.mockEndpoint({output1})
+      val mockEndpoint1 = camelContext.mockEndpoint("output1")
       mockEndpoint1.expectedMessageCount(1)
 
-      val mockEndpoint2 = camelContext.mockEndpoint({output2})
+      val mockEndpoint2 = camelContext.mockEndpoint("output2")
       mockEndpoint2.expectedMessageCount(1)
 
-      val mockEndpoint3 = camelContext.mockEndpoint({output3})
+      val mockEndpoint3 = camelContext.mockEndpoint("output3")
       mockEndpoint3.expectedMessageCount(1)
 
       val producer = camelContext.createProducerTemplate()

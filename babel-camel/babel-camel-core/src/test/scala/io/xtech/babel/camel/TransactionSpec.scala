@@ -191,7 +191,7 @@ class TransactionSpec extends CachedBabelSpringSpecification {
 
       jdbcTemplate.execute("delete from users")
 
-      val routeDef = new RouteBuilder with Mock{
+      val routeDef = new RouteBuilder with Mock {
         var tries = 3
 
         handle(_.transactionErrorHandler.maximumRedeliveries(tries))
