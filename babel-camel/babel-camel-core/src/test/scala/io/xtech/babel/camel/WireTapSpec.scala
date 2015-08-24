@@ -90,16 +90,15 @@ class WireTapSpec extends SpecificationWithJUnit {
         .to("mock:output")
       //#doc:babel-camel-wiretap-functional
 
-
     }
 
     routeDef.addRoutesToCamelContext(camelContext)
 
     camelContext.start()
 
-    val mockEndpointBI = camelContext.getEndpoint("mock:in-wire").asInstanceOf[MockEndpoint]
-    val mockEndpointBO = camelContext.getEndpoint("mock:out-wire").asInstanceOf[MockEndpoint]
-    val mockEndpointBT = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+    val mockEndpointBI = camelContext.mockEndpoint("in-wire")
+    val mockEndpointBO = camelContext.mockEndpoint("out-wire")
+    val mockEndpointBT = camelContext.mockEndpoint("output")
 
     mockEndpointBI.expectedBodiesReceived(testMessage)
     mockEndpointBO.expectedBodiesReceived(wireTapMessage)
