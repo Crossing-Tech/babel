@@ -13,6 +13,7 @@ import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.model.Message
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
+import io.xtech.babel.camel.mock._
 
 class SampleSpec extends SpecificationWithJUnit {
   sequential
@@ -55,10 +56,10 @@ class SampleSpec extends SpecificationWithJUnit {
 
       camelContext.start()
 
-      val mockEndpointF = camelContext.getEndpoint("mock:france").asInstanceOf[MockEndpoint]
+      val mockEndpointF = camelContext.mockEndpoint("france")
       mockEndpointF.expectedBodiesReceived("F")
 
-      val mockEndpointCH = camelContext.getEndpoint("mock:switzerland").asInstanceOf[MockEndpoint]
+      val mockEndpointCH = camelContext.mockEndpoint("switzerland")
       mockEndpointCH.expectedBodiesReceived("CH")
 
       val producer = camelContext.createProducerTemplate()

@@ -13,6 +13,7 @@ import javax.management.ObjectName
 import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.RouteDefinitionException
+import io.xtech.babel.camel.mock._
 import org.apache.camel._
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.impl.DefaultExchange
@@ -55,7 +56,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
       mockEndpoint.expectedBodiesReceived(message)
 
       producer.sendBody("direct:input", message)
@@ -80,7 +81,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
       mockEndpoint.expectedBodiesReceived(message)
       mockEndpoint.expectedExchangePattern(ExchangePattern.InOnly)
 
@@ -106,7 +107,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
       mockEndpoint.expectedBodiesReceived(message)
       mockEndpoint.expectedExchangePattern(ExchangePattern.InOut)
 
@@ -135,7 +136,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEnpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEnpoint = camelContext.mockEndpoint("output")
       mockEnpoint.expectedBodiesReceived("blablibli")
 
       producer.sendBody("direct:input", "blabli")
@@ -164,7 +165,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEnpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEnpoint = camelContext.mockEndpoint("output")
       mockEnpoint.expectedBodiesReceived("blablibli")
 
       producer.sendBody("direct:input", "blabli")
@@ -192,7 +193,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       producer.sendBody("direct:input", message)
 
@@ -219,7 +220,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       val exchange = new DefaultExchange(camelContext)
       exchange.setProperty("babel", "bli")
@@ -248,7 +249,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       producer.sendBody("direct:input", message) must throwA[Exception]
 
@@ -274,7 +275,7 @@ class CamelDSLSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
 
       producer.sendBody("direct:input", message)
 

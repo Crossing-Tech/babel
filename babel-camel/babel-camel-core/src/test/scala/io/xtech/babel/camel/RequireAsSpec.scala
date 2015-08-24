@@ -12,6 +12,7 @@ import io.xtech.babel.camel.RequireAsSpec.{ A, B }
 import io.xtech.babel.camel.test.camel
 import org.apache.camel.CamelExecutionException
 import org.apache.camel.component.mock.MockEndpoint
+import io.xtech.babel.camel.mock._
 import org.specs2.mutable.SpecificationWithJUnit
 
 object RequireAsSpec {
@@ -27,7 +28,7 @@ object RequireAsSpec {
 class RequireAsSpec extends SpecificationWithJUnit {
 
   private val directConsumer = "direct:input"
-  private val mockProducer = "mock:output"
+  private val mockProducer = "output"
 
   sequential
 
@@ -42,14 +43,14 @@ class RequireAsSpec extends SpecificationWithJUnit {
         //Input Message bodies should be of type String
         //  or would throw an Exception
         from(directConsumer).requireAs[String].
-          processBody(_ + "4").to(mockProducer)
+          processBody(_ + "4").to(s"mock:$mockProducer")
       }
       //#doc:babel-camel-requireAs
       routeDef.addRoutesToCamelContext(camelContext)
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint(mockProducer)
 
       //#doc:babel-camel-requireAs
       val producer = camelContext.createProducerTemplate()
@@ -67,14 +68,14 @@ class RequireAsSpec extends SpecificationWithJUnit {
         //no input Message may satisfies both type constraints,
         //   thus any message sent would throw an Exception.
         from(directConsumer).requireAs[String].requireAs[Int].
-          to(mockProducer)
+          to(s"mock:$mockProducer")
       }
       //#doc:babel-camel-requireAs-exception
       routeDef.addRoutesToCamelContext(camelContext)
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint(mockProducer)
 
       //#doc:babel-camel-requireAs-exception
       val producer = camelContext.createProducerTemplate()
@@ -88,13 +89,13 @@ class RequireAsSpec extends SpecificationWithJUnit {
       import io.xtech.babel.camel.builder.RouteBuilder
 
       val routeDef = new RouteBuilder {
-        from(directConsumer).requireAs[A].to(mockProducer)
+        from(directConsumer).requireAs[A].to(s"mock:$mockProducer")
       }
       routeDef.addRoutesToCamelContext(camelContext)
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint(mockProducer)
 
       val b: B = B("bla")
       val a: A = B("bla")
@@ -111,13 +112,13 @@ class RequireAsSpec extends SpecificationWithJUnit {
       import io.xtech.babel.camel.builder.RouteBuilder
 
       val routeDef = new RouteBuilder {
-        from(directConsumer).requireAs[Int].processBody((i: Int) => i).to(mockProducer)
+        from(directConsumer).requireAs[Int].processBody((i: Int) => i).to(s"mock:$mockProducer")
       }
       routeDef.addRoutesToCamelContext(camelContext)
 
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint(mockProducer).asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint(mockProducer)
 
       mockEndpoint.expectedBodiesReceived(42: java.lang.Integer)
 

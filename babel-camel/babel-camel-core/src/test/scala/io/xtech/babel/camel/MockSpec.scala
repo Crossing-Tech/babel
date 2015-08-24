@@ -8,37 +8,43 @@
 
 package io.xtech.babel.camel
 
-import org.apache.camel.{ Exchange, Processor }
-import org.apache.camel.builder.RouteBuilder
+import io.xtech.babel.camel.builder.RouteBuilder
+import io.xtech.babel.camel.mock._
 import org.apache.camel.impl.DefaultCamelContext
 import org.specs2.mutable.SpecificationWithJUnit
 
 class MockSpec extends SpecificationWithJUnit {
   sequential
 
-  "camel mock tools" in {
+  "extend the DSL with some sub DSL (mock)" in {
 
     val camelContext = new DefaultCamelContext()
 
+    //#doc:babel-camel-mock
     import io.xtech.babel.camel.mock._
 
-    val routeDef = new RouteBuilder {
+    //The Mock extension is added simply by
+    //  extending the RouteBuilder with
+    val routeDef = new RouteBuilder with Mock {
+      //the mock keyword is the same as typing
+      //  to("mock:output1")
       from("direct:input").
-        to("mock:output1").
-        process(new Processor {
-          override def process(exchange: Exchange): Unit = exchange.getIn.setBody(exchange.getIn.getBody(classOf[String]).toUpperCase)
-        }).
-        to("mock:output2")
+        requireAs[String].
+        mock("output1").
+        //the mock keyword keeps the same body type (here: String)
+        processBody(x => x.toUpperCase).
+        mock("output2")
 
-      override def configure(): Unit = {}
     }
+
+    //#doc:babel-camel-mock
 
     routeDef.addRoutesToCamelContext(camelContext)
 
     camelContext.start()
 
-    val mockEndpoint1 = camelContext.getMockEndpoint("output1")
-    val mockEndpoint2 = camelContext.mockEndpoint("output2")
+    val mockEndpoint1 = camelContext.mockEndpoint("output1")
+    val mockEndpoint2 = camelContext.getMockEndpoint("output2")
 
     mockEndpoint1.expectedBodiesReceived("test")
     mockEndpoint2.expectedBodiesReceived("TEST")

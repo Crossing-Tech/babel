@@ -12,7 +12,7 @@ import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.NamingStrategy
 import io.xtech.babel.fish.model.StepDefinition
-import org.apache.camel.component.mock.MockEndpoint
+import io.xtech.babel.camel.mock._
 import org.apache.camel.model.ModelCamelContext
 import org.apache.camel.{ Exchange, Processor }
 import org.specs2.mutable._
@@ -170,7 +170,7 @@ class IdSpec extends SpecificationWithJUnit {
 
       val producer = camelContext.createProducerTemplate()
 
-      val mockEnpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+      val mockEnpoint = camelContext.mockEndpoint("output")
       mockEnpoint.expectedBodiesReceived("blablibli")
 
       producer.sendBody("direct:input", "blabli")

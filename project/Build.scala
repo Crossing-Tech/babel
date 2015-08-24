@@ -53,14 +53,14 @@ object Build extends Build {
     base = file("babel-camel/babel-camel-core"),
     settings = defaultSettings ++ Dependencies.babelCamelCore++ Seq(
       publishArtifact in(Test, packageBin) := true
-    )
+    ),
+    dependencies = Seq(babelcamelmock % "test->test")
   ).dependsOn(babelfish)
 
 
   lazy val babelcamelmock = Project(id = "babel-camel-mock",
     base = file("babel-camel/babel-camel-mock"),
-    settings = defaultSettings ++ Dependencies.babelCamelMock,
-    dependencies = Seq(babelcamelcore % "compile->compile;test->test")
+    settings = defaultSettings ++ Dependencies.babelCamelMock
   ).dependsOn(babelfish)
 
 

@@ -26,3 +26,5 @@ For testing a mock endpoint can be declared with the mock endpoint.
 
 .. includecode:: ../../../babel-camel/babel-camel-mock/src/test/scala/io/xtech/babel/camel/MockSpec.scala#doc:babel-camel-mock
 
+The mock keyword keeps the type of the payload as the mock component do not modify the received messages in most of the cases. For more complexe cases, such as when using ``returnReplyBody``, you may fallback to the legacy way to define mock endpoints.
+

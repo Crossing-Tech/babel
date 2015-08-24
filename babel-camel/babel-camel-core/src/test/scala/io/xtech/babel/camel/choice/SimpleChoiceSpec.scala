@@ -11,11 +11,12 @@ package io.xtech.babel.camel.choice
 import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.test.camel
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
-import org.apache.camel.component.mock.MockEndpoint
+import io.xtech.babel.camel.mock._
 import org.apache.camel.{ Exchange, Predicate, Processor }
 import org.specs2.mutable.SpecificationWithJUnit
 
 import scala.collection.JavaConverters._
+import io.xtech.babel.camel.mock._
 
 class SimpleChoiceSpec extends SpecificationWithJUnit {
 
@@ -78,17 +79,17 @@ class SimpleChoiceSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint1 = camelContext.getEndpoint("mock:output1").asInstanceOf[MockEndpoint]
-    val mockEndpoint2 = camelContext.getEndpoint("mock:output2").asInstanceOf[MockEndpoint]
-    val mockEndpoint3 = camelContext.getEndpoint("mock:output3").asInstanceOf[MockEndpoint]
-    val mockEndpoint4 = camelContext.getEndpoint("mock:output4").asInstanceOf[MockEndpoint]
-    val mockEndpoint5 = camelContext.getEndpoint("mock:output5").asInstanceOf[MockEndpoint]
+    val mockEndpoint1 = camelContext.mockEndpoint("output1")
+    val mockEndpoint2 = camelContext.mockEndpoint("output2")
+    val mockEndpoint3 = camelContext.mockEndpoint("output3")
+    val mockEndpoint4 = camelContext.mockEndpoint("output4")
+    val mockEndpoint5 = camelContext.mockEndpoint("output5")
 
-    val mockCamelEndpoint1 = camelContext.getEndpoint("mock:camelout1").asInstanceOf[MockEndpoint]
-    val mockCamelEndpoint2 = camelContext.getEndpoint("mock:camelout2").asInstanceOf[MockEndpoint]
-    val mockCamelEndpoint3 = camelContext.getEndpoint("mock:camelout3").asInstanceOf[MockEndpoint]
-    val mockCamelEndpoint4 = camelContext.getEndpoint("mock:camelout4").asInstanceOf[MockEndpoint]
-    val mockCamelEndpoint5 = camelContext.getEndpoint("mock:camelout5").asInstanceOf[MockEndpoint]
+    val mockCamelEndpoint1 = camelContext.mockEndpoint("camelout1")
+    val mockCamelEndpoint2 = camelContext.mockEndpoint("camelout2")
+    val mockCamelEndpoint3 = camelContext.mockEndpoint("camelout3")
+    val mockCamelEndpoint4 = camelContext.mockEndpoint("camelout4")
+    val mockCamelEndpoint5 = camelContext.mockEndpoint("camelout5")
 
     mockEndpoint1.expectedBodiesReceived("1done")
     mockCamelEndpoint1.expectedBodiesReceived("1done")
@@ -180,17 +181,17 @@ class SimpleChoiceSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockEndpoint1 = camelContext.getEndpoint("mock:output1").asInstanceOf[MockEndpoint]
-    val mockEndpoint2 = camelContext.getEndpoint("mock:output2").asInstanceOf[MockEndpoint]
-    val mockEndpoint3 = camelContext.getEndpoint("mock:output3").asInstanceOf[MockEndpoint]
-    val mockEndpoint4 = camelContext.getEndpoint("mock:output4").asInstanceOf[MockEndpoint]
-    val mockEndpoint5 = camelContext.getEndpoint("mock:output5").asInstanceOf[MockEndpoint]
+    val mockEndpoint1 = camelContext.mockEndpoint("output1")
+    val mockEndpoint2 = camelContext.mockEndpoint("output2")
+    val mockEndpoint3 = camelContext.mockEndpoint("output3")
+    val mockEndpoint4 = camelContext.mockEndpoint("output4")
+    val mockEndpoint5 = camelContext.mockEndpoint("output5")
 
-    val mockCamelEndpoint1 = camelContext.getEndpoint("mock:camelout1").asInstanceOf[MockEndpoint]
-    val mockCamelEndpoint2 = camelContext.getEndpoint("mock:camelout2").asInstanceOf[MockEndpoint]
-    val mockCamelEndpoint3 = camelContext.getEndpoint("mock:camelout3").asInstanceOf[MockEndpoint]
-    val mockCamelEndpoint4 = camelContext.getEndpoint("mock:camelout4").asInstanceOf[MockEndpoint]
-    val mockCamelEndpoint5 = camelContext.getEndpoint("mock:camelout5").asInstanceOf[MockEndpoint]
+    val mockCamelEndpoint1 = camelContext.mockEndpoint("camelout1")
+    val mockCamelEndpoint2 = camelContext.mockEndpoint("camelout2")
+    val mockCamelEndpoint3 = camelContext.mockEndpoint("camelout3")
+    val mockCamelEndpoint4 = camelContext.mockEndpoint("camelout4")
+    val mockCamelEndpoint5 = camelContext.mockEndpoint("camelout5")
 
     mockEndpoint1.expectedBodiesReceived("1done")
     mockCamelEndpoint1.expectedBodiesReceived("1done")

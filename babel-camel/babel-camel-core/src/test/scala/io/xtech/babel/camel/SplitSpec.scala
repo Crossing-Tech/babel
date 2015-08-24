@@ -15,6 +15,7 @@ import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.processor.aggregate.AggregationStrategy
 import org.apache.camel.{ Exchange, Processor }
 import org.specs2.mutable.SpecificationWithJUnit
+import io.xtech.babel.camel.mock._
 
 class SplitSpec extends SpecificationWithJUnit {
   sequential
@@ -44,11 +45,11 @@ class SplitSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockBabel1 = camelContext.getEndpoint("mock:babel").asInstanceOf[MockEndpoint]
+    val mockBabel1 = camelContext.mockEndpoint("babel")
     mockBabel1.expectedBodiesReceived("1", "2", "3")
 
-    val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
-    val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
+    val mockCamel1 = camelContext.mockEndpoint("camel1")
+    val mockCamel2 = camelContext.mockEndpoint("camel2")
     mockCamel1.expectedBodiesReceived("1", "2", "3")
     mockCamel2.expectedBodiesReceived("1,2,3")
 
@@ -93,11 +94,11 @@ class SplitSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockBabel1 = camelContext.getEndpoint("mock:babel").asInstanceOf[MockEndpoint]
+    val mockBabel1 = camelContext.mockEndpoint("babel")
     mockBabel1.expectedBodiesReceived("1", "3")
 
-    val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
-    val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
+    val mockCamel1 = camelContext.mockEndpoint("camel1")
+    val mockCamel2 = camelContext.mockEndpoint("camel2")
     mockCamel1.expectedBodiesReceived("1", "3")
     mockCamel2.expectedBodiesReceived()
 
@@ -151,15 +152,15 @@ class SplitSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockBabel1 = camelContext.getEndpoint("mock:babel").asInstanceOf[MockEndpoint]
-    val mockBabelafter = camelContext.getEndpoint("mock:after").asInstanceOf[MockEndpoint]
-    val mockBabelInner = camelContext.getEndpoint("mock:babelInner").asInstanceOf[MockEndpoint]
+    val mockBabel1 = camelContext.mockEndpoint("babel")
+    val mockBabelafter = camelContext.mockEndpoint("after")
+    val mockBabelInner = camelContext.mockEndpoint("babelInner")
     mockBabel1.expectedBodiesReceived()
     mockBabelInner.expectedBodiesReceived("1", "2")
 
-    val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
-    val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
-    val mockCamelInner = camelContext.getEndpoint("mock:camelInner").asInstanceOf[MockEndpoint]
+    val mockCamel1 = camelContext.mockEndpoint("camel1")
+    val mockCamel2 = camelContext.mockEndpoint("camel2")
+    val mockCamelInner = camelContext.mockEndpoint("camelInner")
     mockCamel1.expectedBodiesReceived("1")
     mockCamel2.expectedBodiesReceived()
     mockCamelInner.expectedBodiesReceived("1", "2")
@@ -216,15 +217,15 @@ class SplitSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockBabel1 = camelContext.getEndpoint("mock:babel").asInstanceOf[MockEndpoint]
-    val mockBabelafter = camelContext.getEndpoint("mock:after").asInstanceOf[MockEndpoint]
-    val mockBabelInner = camelContext.getEndpoint("mock:babelInner").asInstanceOf[MockEndpoint]
+    val mockBabel1 = camelContext.mockEndpoint("babel")
+    val mockBabelafter = camelContext.mockEndpoint("after")
+    val mockBabelInner = camelContext.mockEndpoint("babelInner")
     mockBabel1.expectedBodiesReceived()
     mockBabelInner.expectedBodiesReceived("1", "2")
 
-    val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
-    val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
-    val mockCamelInner = camelContext.getEndpoint("mock:camelInner").asInstanceOf[MockEndpoint]
+    val mockCamel1 = camelContext.mockEndpoint("camel1")
+    val mockCamel2 = camelContext.mockEndpoint("camel2")
+    val mockCamelInner = camelContext.mockEndpoint("camelInner")
     mockCamel1.expectedBodiesReceived("1")
     mockCamel2.expectedBodiesReceived()
     mockCamelInner.expectedBodiesReceived("1", "2")
@@ -272,11 +273,11 @@ class SplitSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockBabel1 = camelContext.getEndpoint("mock:babel").asInstanceOf[MockEndpoint]
+    val mockBabel1 = camelContext.mockEndpoint("babel")
     mockBabel1.expectedBodiesReceived("1")
 
-    val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
-    val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
+    val mockCamel1 = camelContext.mockEndpoint("camel1")
+    val mockCamel2 = camelContext.mockEndpoint("camel2")
     mockCamel1.expectedBodiesReceived("1")
     mockCamel2.expectedBodiesReceived()
 
@@ -321,11 +322,11 @@ class SplitSpec extends SpecificationWithJUnit {
 
     val producer = camelContext.createProducerTemplate()
 
-    val mockBabel1 = camelContext.getEndpoint("mock:babel").asInstanceOf[MockEndpoint]
+    val mockBabel1 = camelContext.mockEndpoint("babel")
     mockBabel1.expectedBodiesReceived("1", "3")
 
-    val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
-    val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
+    val mockCamel1 = camelContext.mockEndpoint("camel1")
+    val mockCamel2 = camelContext.mockEndpoint("camel2")
     mockCamel1.expectedBodiesReceived("1", "3")
     mockCamel2.expectedBodiesReceived()
 

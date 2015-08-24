@@ -13,6 +13,7 @@ import io.xtech.babel.camel.test.camel
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
+import io.xtech.babel.camel.mock._
 
 class ThrottlerSpec extends SpecificationWithJUnit {
   sequential
@@ -44,7 +45,7 @@ class ThrottlerSpec extends SpecificationWithJUnit {
 
     camelContext.start()
 
-    val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
+    val mockEndpoint = camelContext.mockEndpoint("output")
 
     mockEndpoint.setExpectedMessageCount(msgs)
 

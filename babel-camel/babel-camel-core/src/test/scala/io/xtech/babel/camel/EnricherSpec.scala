@@ -10,6 +10,7 @@ package io.xtech.babel.camel
 
 import io.xtech.babel.camel.model.{ FoldBodyAggregationStrategy, ReduceBodyAggregationStrategy }
 import io.xtech.babel.camel.test.camel
+import io.xtech.babel.camel.mock._
 import org.apache.camel.CamelExecutionException
 import org.apache.camel.builder.SimpleBuilder
 import org.apache.camel.component.mock.MockEndpoint
@@ -47,8 +48,8 @@ class EnricherSpec extends SpecificationWithJUnit {
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
+      val enricherMockEndpoint = camelContext.mockEndpoint("enricher")
       enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
 
       mockEndpoint.expectedBodiesReceived("bla123")
@@ -81,8 +82,8 @@ class EnricherSpec extends SpecificationWithJUnit {
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
+      val enricherMockEndpoint = camelContext.mockEndpoint("enricher")
       enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
 
       mockEndpoint.expectedBodiesReceived("bla123")
@@ -99,15 +100,15 @@ class EnricherSpec extends SpecificationWithJUnit {
 
       //#doc:babel-camel-enricher-funct
 
-      val routeDef = new RouteBuilder {
-        from("direct:enricherRoute").to("mock:enricher")
+      val routeDef = new RouteBuilder with Mock {
+        from("direct:enricherRoute").mock("enricher")
 
         from("direct:input").
           requireAs[String].
           //enriches the input with the enricherRoute messages
           //  using the aggregationStrategy
           enrich("direct:enricherRoute", (a: String, b: Any) => s"${a}${b.toString.toInt}").
-          to("mock:output")
+          mock("output")
       }
 
       //#doc:babel-camel-enricher-func
@@ -115,8 +116,8 @@ class EnricherSpec extends SpecificationWithJUnit {
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
+      val enricherMockEndpoint = camelContext.mockEndpoint("enricher")
       enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
 
       mockEndpoint.expectedBodiesReceived("bla123", "bli123")
@@ -149,7 +150,7 @@ class EnricherSpec extends SpecificationWithJUnit {
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.start()
 
-      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      val enricherMockEndpoint = camelContext.mockEndpoint("enricher")
       enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
 
       val producer = camelContext.createProducerTemplate()
@@ -180,8 +181,8 @@ class EnricherSpec extends SpecificationWithJUnit {
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
+      val enricherMockEndpoint = camelContext.mockEndpoint("enricher")
       enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
 
       mockEndpoint.expectedBodiesReceived("bla123")
@@ -213,8 +214,8 @@ class EnricherSpec extends SpecificationWithJUnit {
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
+      val enricherMockEndpoint = camelContext.mockEndpoint("enricher")
       enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
 
       mockEndpoint.expectedBodiesReceived("bla123")
@@ -243,8 +244,8 @@ class EnricherSpec extends SpecificationWithJUnit {
       routeDef.addRoutesToCamelContext(camelContext)
       camelContext.start()
 
-      val mockEndpoint = camelContext.getEndpoint("mock:output").asInstanceOf[MockEndpoint]
-      val enricherMockEndpoint = camelContext.getEndpoint("mock:enricher").asInstanceOf[MockEndpoint]
+      val mockEndpoint = camelContext.mockEndpoint("output")
+      val enricherMockEndpoint = camelContext.mockEndpoint("enricher")
       enricherMockEndpoint.returnReplyBody(new SimpleBuilder("123"))
 
       mockEndpoint.expectedBodiesReceived("bla123")
