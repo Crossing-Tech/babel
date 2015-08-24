@@ -36,7 +36,7 @@ private[babel] trait WireTap extends CamelParsing {
     }
 
   }
-  
+
   protected implicit def wiretapDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new WireTapDSL(baseDsl)
 }
 
@@ -46,6 +46,5 @@ object Wiring {
   def getCount(msg: Message[_]): Int = {
     msg.headers.keys.count(_.startsWith(Wiring.key))
   }
-
 
 }
