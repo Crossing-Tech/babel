@@ -38,7 +38,7 @@ class MockSpec extends SpecificationWithJUnit {
     camelContext.start()
 
     val mockEndpoint1 = camelContext.getMockEndpoint("output1")
-    val mockEndpoint2 = camelContext.getMockEndpoint("output2")
+    val mockEndpoint2 = camelContext.mockEndpoint("output2")
 
     mockEndpoint1.expectedBodiesReceived("test")
     mockEndpoint2.expectedBodiesReceived("TEST")
