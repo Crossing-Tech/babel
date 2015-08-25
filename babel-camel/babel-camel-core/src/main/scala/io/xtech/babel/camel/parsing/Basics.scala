@@ -22,7 +22,8 @@ import scala.language.implicitConversions
   * Basics is the main parsing trait. It contains the main (or most basic) keywords parsing.
   * It is enriched by the other CamelParsing traits to provides to the CamelDSL all the possible `steps`.
   */
-private[babel] trait Basics extends CamelParsing { self: CamelDSL =>
+private[babel] trait Basics extends CamelParsing {
+  self: CamelDSL =>
 
   protected def steps: immutable.Seq[Process] = immutable.Seq(from,
     handle,

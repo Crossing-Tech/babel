@@ -14,7 +14,6 @@ import io.xtech.babel.camel.TransactionSpec.TransactionTestContext
 import io.xtech.babel.camel.mock.Mock
 import io.xtech.babel.camel.test.CachedBabelSpringSpecification
 import org.apache.camel.component.mock.MockEndpoint
-import org.apache.camel.impl.SimpleRegistry
 import org.apache.camel.model.ModelCamelContext
 import org.apache.camel.spring.SpringCamelContext
 import org.apache.camel.spring.spi.SpringTransactionPolicy
@@ -44,11 +43,6 @@ object TransactionSpec {
     }
 
     @Bean
-    def txManager(dataSource: DataSource): DataSourceTransactionManager = {
-      new DataSourceTransactionManager(dataSource)
-    }
-
-    @Bean
     def camelContext: ModelCamelContext = new SpringCamelContext
 
     @Bean
@@ -57,6 +51,11 @@ object TransactionSpec {
     @Bean(name = Array("transactionPolicyRef"))
     def specificSpringTransactionPolicy(dataSource: DataSource): SpringTransactionPolicy = {
       new SpringTransactionPolicy(txManager(dataSource))
+    }
+
+    @Bean
+    def txManager(dataSource: DataSource): DataSourceTransactionManager = {
+      new DataSourceTransactionManager(dataSource)
     }
 
   }

@@ -8,12 +8,11 @@
 
 package io.xtech.babel.camel
 
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.model.{ FoldBodyAggregationStrategy, ReduceBodyAggregationStrategy }
 import io.xtech.babel.camel.test.camel
-import io.xtech.babel.camel.mock._
 import org.apache.camel.CamelExecutionException
 import org.apache.camel.builder.SimpleBuilder
-import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.impl.SimpleRegistry
 import org.specs2.mutable.SpecificationWithJUnit
 
@@ -134,7 +133,7 @@ class EnricherSpec extends SpecificationWithJUnit {
       import io.xtech.babel.camel.builder.RouteBuilder
 
       case class Result(string: String) {
-        def fold(next: String) = Result(string + next)
+        def fold(next: String): Result = Result(string + next)
       }
 
       val aggregationStrategy = new FoldBodyAggregationStrategy[String, Result](Result(""), (a, b) => a.fold(b))

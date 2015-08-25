@@ -8,9 +8,9 @@
 
 package io.xtech.babel.camel
 
-import org.apache.camel.{ Exchange, Processor }
 import org.apache.camel.builder.RouteBuilder
 import org.apache.camel.impl.DefaultCamelContext
+import org.apache.camel.{ Exchange, Processor }
 import org.specs2.mutable.SpecificationWithJUnit
 
 class MockSpec extends SpecificationWithJUnit {

@@ -9,13 +9,12 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.javaprocessors.JavaProcessors
-import io.xtech.babel.camel.mock.Mock
+import io.xtech.babel.camel.mock.{ Mock, _ }
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.RouteDefinitionException
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
-import io.xtech.babel.camel.mock._
 
 class SplitFilterSpec extends SpecificationWithJUnit {
   "split and filter" should {

@@ -27,5 +27,6 @@ case class SplitFoldDefinition[I, O, G, H](expression: Expression[I, O], seed: H
 
 trait SplitConfiguration {
   def stopOnException: Boolean
+
   def propagateException: Boolean
 }

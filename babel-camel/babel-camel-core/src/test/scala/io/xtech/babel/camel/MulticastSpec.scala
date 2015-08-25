@@ -8,10 +8,9 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.test.camel
 import io.xtech.babel.camel.mock._
+import io.xtech.babel.camel.test.camel
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
-import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
 
 class MulticastSpec extends SpecificationWithJUnit {

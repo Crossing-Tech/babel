@@ -8,8 +8,8 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.{ CamelDSL, TransformationDSL }
 import io.xtech.babel.camel.model.{ BeanClassExpression, BeanNameExpression, BeanObjectExpression }
+import io.xtech.babel.camel.{ CamelDSL, TransformationDSL }
 import io.xtech.babel.fish.model.{ Message, TransformerDefinition }
 import io.xtech.babel.fish.parsing.StepInformation
 import io.xtech.babel.fish.{ BaseDSL, BodyExpression, MessageTransformationExpression }
@@ -22,15 +22,10 @@ import scala.reflect.ClassTag
 /**
   * Parser for the transformation definitions
   */
-private[babel] trait Transformation extends CamelParsing { self: CamelDSL =>
+private[babel] trait Transformation extends CamelParsing {
+  self: CamelDSL =>
 
   abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
-
-  protected implicit def transformationDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): TransformationDSL[I] = new TransformationDSL(baseDsl)
-
-  private[this] def bodyFunctionToProcess[I, O](function: (I => O)): org.apache.camel.Processor = new CamelBodyProcessor(function)
-
-  private[this] def messageFunctionToProcess[I, O](function: (Message[I] => Message[O])): org.apache.camel.Processor = new CamelMessageProcessor(function)
 
   /**
     * Parses the "processBody" statement.
@@ -68,4 +63,10 @@ private[babel] trait Transformation extends CamelParsing { self: CamelDSL =>
       method.fold(camelProcessorDefinition.bean(clazz))(m => camelProcessorDefinition.bean(clazz, m)).withId(step)
     }
   }
+
+  private[this] def bodyFunctionToProcess[I, O](function: (I => O)): org.apache.camel.Processor = new CamelBodyProcessor(function)
+
+  private[this] def messageFunctionToProcess[I, O](function: (Message[I] => Message[O])): org.apache.camel.Processor = new CamelMessageProcessor(function)
+
+  protected implicit def transformationDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): TransformationDSL[I] = new TransformationDSL(baseDsl)
 }

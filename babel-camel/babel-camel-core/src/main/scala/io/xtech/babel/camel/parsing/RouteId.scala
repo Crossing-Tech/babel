@@ -8,28 +8,24 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.builder.RouteBuilder
-import io.xtech.babel.camel.{ IdDSL, CamelDSL, RouteIdDSL }
 import io.xtech.babel.camel.model._
+import io.xtech.babel.camel.{ CamelDSL, IdDSL, RouteIdDSL }
 import io.xtech.babel.fish.model.FromDefinition
-import io.xtech.babel.fish.{ BaseDSL, FromDSL }
 import io.xtech.babel.fish.parsing.StepInformation
-import org.apache.camel.model.{ RouteDefinition, ProcessorDefinition }
+import io.xtech.babel.fish.{ BaseDSL, FromDSL }
+import org.apache.camel.model.{ ProcessorDefinition, RouteDefinition }
 
 import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
-import scala.collection.JavaConverters._
 import scala.util.Try
 
 /**
   * The routeId parser.
   */
-private[babel] trait RouteId extends CamelParsing { self: CamelDSL =>
+private[babel] trait RouteId extends CamelParsing {
+  self: CamelDSL =>
   abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
-
-  implicit protected def routeIdDSLExtension[I: ClassTag](baseDsl: FromDSL[I]): RouteIdDSL[I] = new RouteIdDSL(baseDsl)
-  implicit protected def idDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): IdDSL[I] = new IdDSL(baseDsl)
 
   private[this] def parse: Process = {
 
@@ -43,7 +39,7 @@ private[babel] trait RouteId extends CamelParsing { self: CamelDSL =>
             namingStrategy.routeId = Some(routeId)
             namingStrategy.name(FromDefinition(classOf[Any], from.getInputs.get(0).getUri())).foreach(from.id(_))
           }
-        case other =>
+        case other: Any =>
           namingStrategy.routeId = Some(routeId)
       }
       camelProcessorDefinition.routeId(routeId)
@@ -57,4 +53,8 @@ private[babel] trait RouteId extends CamelParsing { self: CamelDSL =>
     }
 
   }
+
+  implicit protected def routeIdDSLExtension[I: ClassTag](baseDsl: FromDSL[I]): RouteIdDSL[I] = new RouteIdDSL(baseDsl)
+
+  implicit protected def idDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): IdDSL[I] = new IdDSL(baseDsl)
 }

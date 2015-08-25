@@ -20,6 +20,12 @@ import scala.collection.immutable
 case class ChoiceDefinition[I]() extends ScopeDefinition[WhenDefinition[I]] {
 
   /**
+    * @see WhenDefinition
+    * @return a list of subroutes
+    */
+  var otherwise: Option[OtherwiseDefinition] = None
+
+  /**
     * A helper method for non-scala language.
     * It adds a when definition to this choice definition.
     * @param when a When defintion.
@@ -27,12 +33,6 @@ case class ChoiceDefinition[I]() extends ScopeDefinition[WhenDefinition[I]] {
   def addWhen(when: WhenDefinition[I]): Unit = {
     this.scopedSteps = scopedSteps :+ when
   }
-
-  /**
-    * @see WhenDefinition
-    * @return a list of subroutes
-    */
-  var otherwise: Option[OtherwiseDefinition] = None
 
   override def validate(): immutable.Seq[ValidationError] = {
 

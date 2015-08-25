@@ -12,14 +12,13 @@ import javax.management.ObjectName
 
 import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.javaprocessors.JavaProcessors
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.RouteDefinitionException
-import io.xtech.babel.camel.mock._
 import org.apache.camel._
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.impl.DefaultExchange
 import org.apache.camel.management.DefaultManagementNamingStrategy
-import org.apache.camel.model.ModelCamelContext
 import org.specs2.mutable.SpecificationWithJUnit
 
 class CamelDSLSpec extends SpecificationWithJUnit {

@@ -32,6 +32,7 @@ case class CamelMessageExpression[I, O](function: (Message[I] => O)) extends Cam
     function(message).asInstanceOf[T]
   }
 }
+
 /**
   * translates a functional expression on the message body into a Camel expression
   */
@@ -103,6 +104,20 @@ object Expressions {
 
   /**
     * Converts a Babel expression to a Camel expression.
+    * The evaluation of the expression will try to be a java.util.Iterator or java.util.Iterable
+    * @param expression a babel expression.
+    * @tparam I the input type for the expression.
+    * @tparam O the output type for the expression.
+    * @return a Camel expression.
+    */
+  def toJavaIteratorCamelExpression[I, O](expression: Expression[I, O]): CamelExpression = {
+    val camelExpression = toCamelExpression(expression)
+
+    new CamelIteratorExpression(camelExpression)
+  }
+
+  /**
+    * Converts a Babel expression to a Camel expression.
     * @param expression a babel expression.
     * @tparam I the input type for the expression.
     * @tparam O the output type for the expression.
@@ -116,20 +131,6 @@ object Expressions {
       case XPath(xpath)                            => XPathBuilder.xpath(xpath)
       case _                                       => throw new Exception(s"unknown type of expression : $expression")
     }
-  }
-
-  /**
-    * Converts a Babel expression to a Camel expression.
-    * The evaluation of the expression will try to be a java.util.Iterator or java.util.Iterable
-    * @param expression a babel expression.
-    * @tparam I the input type for the expression.
-    * @tparam O the output type for the expression.
-    * @return a Camel expression.
-    */
-  def toJavaIteratorCamelExpression[I, O](expression: Expression[I, O]): CamelExpression = {
-    val camelExpression = toCamelExpression(expression)
-
-    new CamelIteratorExpression(camelExpression)
   }
 
   /**

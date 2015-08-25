@@ -9,14 +9,13 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.model.Aggregation.{ CamelAggregation, CompletionSize, ReduceBody, _ }
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.MessageExpression
 import io.xtech.babel.fish.model.Message
-import io.xtech.babel.camel.mock._
 import org.apache.camel.Exchange
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
-import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.impl.SimpleRegistry
 import org.apache.camel.processor.aggregate.{ AggregationStrategy, GroupedExchangeAggregationStrategy }
 import org.specs2.mutable.SpecificationWithJUnit
@@ -30,8 +29,10 @@ class AggregateSpec extends SpecificationWithJUnit {
 
   "create a route with an aggregate eip the camel way" in new camel {
     //#doc:babel-camel-aggregate-camel-1
+
     import io.xtech.babel.camel.builder.RouteBuilder
     import org.apache.camel.processor.aggregate.GroupedExchangeAggregationStrategy
+
     val camelAggr = CamelAggregation(MessageExpression((msg: Message[String]) => "1"),
       aggregationStrategy = new GroupedExchangeAggregationStrategy,
       completionStrategies = List(CompletionSize(3)))
@@ -92,6 +93,7 @@ class AggregateSpec extends SpecificationWithJUnit {
     val camelExp = new MessageExpression((a: Message[String]) => "1")
 
     import io.xtech.babel.camel.model.Aggregation.CamelReferenceAggregation
+
     val camelAggr = CamelReferenceAggregation[String, String](
       correlationExpression = camelExp,
       //defines the string id of the aggregation strategy in the bean registry

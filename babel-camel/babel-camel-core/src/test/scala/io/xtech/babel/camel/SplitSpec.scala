@@ -8,11 +8,10 @@
 
 package io.xtech.babel.camel
 
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.model.ReduceBodyAggregationStrategy
 import io.xtech.babel.camel.test.camel
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
-import org.apache.camel.component.mock.MockEndpoint
-import org.apache.camel.processor.aggregate.AggregationStrategy
 import org.apache.camel.{ Exchange, Processor }
 import org.specs2.mutable.SpecificationWithJUnit
 import io.xtech.babel.camel.mock._

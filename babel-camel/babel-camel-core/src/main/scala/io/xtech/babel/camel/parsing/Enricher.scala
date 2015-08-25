@@ -8,8 +8,8 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.{ CamelDSL, EnricherDSL }
 import io.xtech.babel.camel.model._
+import io.xtech.babel.camel.{ CamelDSL, EnricherDSL }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.{ EnrichDefinition => CamelEnrichDefinition, PollEnrichDefinition => CamelPollEnrichDefinition, ProcessorDefinition }
@@ -21,11 +21,10 @@ import scala.reflect.ClassTag
 /**
   * Defines the enrich and pollEnrich keyword in the DSL.
   */
-private[babel] trait Enricher extends CamelParsing { self: CamelDSL =>
+private[babel] trait Enricher extends CamelParsing {
+  self: CamelDSL =>
 
   abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
-
-  protected implicit def enrichDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new EnricherDSL(baseDsl)
 
   /**
     * Parsing of the enricher feature
@@ -108,5 +107,7 @@ private[babel] trait Enricher extends CamelParsing { self: CamelDSL =>
       camelProcessorDefinition.withId(step)
     }
   }
+
+  protected implicit def enrichDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new EnricherDSL(baseDsl)
 
 }

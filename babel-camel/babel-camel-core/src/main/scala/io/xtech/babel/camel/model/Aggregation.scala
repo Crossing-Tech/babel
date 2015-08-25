@@ -43,16 +43,6 @@ object Aggregation {
   case class CompletionTimeout(time: Long) extends CompletionStrategy
 
   /**
-    * Completes an aggregation when the context is stopped.
-    */
-  case object ForceCompletionOnStop extends CompletionStrategy
-
-  /**
-    * Completes an aggregation when all messages from a batch are received.
-    */
-  case object CompletionFromBatchConsumer extends CompletionStrategy
-
-  /**
     * Uses the camel way to define an aggregation
     * @param correlationExpression how the message are grouped.
     * @param aggregationStrategy how the aggregation is done with an AggregationStrategy.
@@ -97,5 +87,15 @@ object Aggregation {
     * @tparam G The type of the key use for grouping.
     */
   case class FoldBody[I, O, G](seed: O, fold: (O, I) => O, groupBy: (Message[I] => G), completionStrategies: immutable.Seq[CompletionStrategy]) extends AggregationConfiguration[I, O]
+
+  /**
+    * Completes an aggregation when the context is stopped.
+    */
+  case object ForceCompletionOnStop extends CompletionStrategy
+
+  /**
+    * Completes an aggregation when all messages from a batch are received.
+    */
+  case object CompletionFromBatchConsumer extends CompletionStrategy
 
 }

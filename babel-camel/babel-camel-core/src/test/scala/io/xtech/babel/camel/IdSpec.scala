@@ -9,10 +9,10 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.NamingStrategy
 import io.xtech.babel.fish.model.StepDefinition
-import io.xtech.babel.camel.mock._
 import org.apache.camel.model.ModelCamelContext
 import org.apache.camel.{ Exchange, Processor }
 import org.specs2.mutable._

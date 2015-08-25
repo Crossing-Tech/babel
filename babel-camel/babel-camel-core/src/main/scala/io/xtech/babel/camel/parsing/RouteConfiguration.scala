@@ -16,8 +16,8 @@ import org.apache.camel.model.{ ProcessorDefinition, RouteDefinition }
 import org.apache.camel.spi.RoutePolicy
 import org.apache.camel.{ Exchange, Route }
 
-import scala.collection.immutable
 import scala.collection.JavaConverters._
+import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
 
@@ -27,8 +27,6 @@ import scala.reflect.ClassTag
 private[babel] trait RouteConfiguration extends CamelParsing {
 
   abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
-
-  protected implicit def routeConfigurationDSLExtension[I: ClassTag](baseDsl: FromDSL[I]) = new RouteConfigurationDSL[I](baseDsl)
 
   private[this] def parse: Process = {
 
@@ -112,6 +110,8 @@ private[babel] trait RouteConfiguration extends CamelParsing {
       camelProcessorDefinition
 
   }
+
+  protected implicit def routeConfigurationDSLExtension[I: ClassTag](baseDsl: FromDSL[I]) = new RouteConfigurationDSL[I](baseDsl)
 
 }
 

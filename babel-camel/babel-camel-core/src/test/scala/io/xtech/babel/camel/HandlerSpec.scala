@@ -9,8 +9,8 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
-import io.xtech.babel.camel.test.camel
 import io.xtech.babel.camel.mock._
+import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.model.Message
 import io.xtech.babel.fish.{ BodyPredicate, MessagePredicate }
 import org.apache.camel.component.mock.MockEndpoint
@@ -24,17 +24,22 @@ import scala.collection.immutable
 
 class HandlerSpec extends SpecificationWithJUnit {
 
-  def validateLog(event: LoggingEvent, loggerName: String) = {
+  private def validateLog(event: LoggingEvent, loggerName: String) = {
     event.getLevel === Level.TRACE
     event.getLoggerName === loggerName
-    event.getMessage.toString.split("\n").headOption.getOrElse(throw new Exception("no logs received")) must beMatching("Failed delivery for (.*). Exhausted after delivery attempt: 1 caught: java.lang.Exception")
+    val msg = event.getMessage.toString.split("\n").headOption.getOrElse(throw new Exception("no logs received"))
+    msg must beMatching("Failed delivery for (.*). Exhausted after delivery attempt: 1 caught: java.lang.Exception")
   }
+
+  private val exceptionMsg = "Expected exception"
+
+  private val handleSpec = "handle exception with onException"
 
   "Error handling at Route level" should {
 
-    "handle exception with onException" in {
+    s"$handleSpec" in {
 
-      "handle exception with onException (continued : Boolean)" in new camel {
+      s"$handleSpec (continued : Boolean)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -44,7 +49,7 @@ class HandlerSpec extends SpecificationWithJUnit {
               route =>
                 route.on[IllegalArgumentException].continuedBody(true).handlingRoute("direct:catch")
             }.id("toto").as[String]
-            .processBody(x => throw if (x == null) new Exception() else new IllegalArgumentException(x))
+            .processBody(x => throw if (Option(x).isEmpty) new Exception() else new IllegalArgumentException(x))
             .to("mock:output")
 
           //error handling route
@@ -70,7 +75,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       }
 
-      "handle exception with onException (continued : BodyPredicate)" in new camel {
+      s"$handleSpec (continued : BodyPredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -94,13 +99,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mock.expectedBodiesReceived("toto")
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (continued : MessagePredicate)" in new camel {
+      s"$handleSpec (continued : MessagePredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -124,13 +129,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mock.expectedBodiesReceived("toto")
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (continued : Function on the Body)" in new camel {
+      s"$handleSpec (continued : Function on the Body)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -159,13 +164,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mock.expectedBodiesReceived("toto")
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (continued : Function on the Message)" in new camel {
+      s"$handleSpec (continued : Function on the Message)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -190,13 +195,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mock.expectedBodiesReceived("toto")
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (handled : Boolean)" in new camel {
+      s"$handleSpec (handled : Boolean)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -231,7 +236,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       }
 
-      "handle exception with onException (handled : BodyPredicate)" in new camel {
+      s"$handleSpec (handled : BodyPredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -256,13 +261,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mock.expectedBodiesReceived()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (handled : MessagePredicate)" in new camel {
+      s"$handleSpec (handled : MessagePredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -286,13 +291,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mock.expectedBodiesReceived()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (handled : Function on the Body)" in new camel {
+      s"$handleSpec (handled : Function on the Body)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -320,13 +325,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mock.expectedBodiesReceived()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (handled : Function on the Message)" in new camel {
+      s"$handleSpec (handled : Function on the Message)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -351,13 +356,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mock.expectedBodiesReceived()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (when: BodyPredicate)" in new camel {
+      s"$handleSpec (when: BodyPredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -399,7 +404,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       }
 
-      "handle exception with onException (when: MessagePredicate)" in new camel {
+      s"$handleSpec (when: MessagePredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -440,7 +445,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       }
 
-      "handle exception with onException (when: Function on the Body)" in new camel {
+      s"$handleSpec (when: Function on the Body)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -488,7 +493,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       }
 
-      "handle exception with onException (when: Function on the Message)" in new camel {
+      s"$handleSpec (when: Function on the Message)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -530,7 +535,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       }
 
-      "handle exception with onException with subroute" in new camel {
+      s"$handleSpec with subroute" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -795,8 +800,8 @@ class HandlerSpec extends SpecificationWithJUnit {
       mockSuccess.setExpectedMessageCount(0)
 
       val proc = camelContext.createProducerTemplate()
-      proc.sendBody("direct:camel", "Expected exception") must throwA[Exception]
-      proc.sendBody("direct:babel", "Expected exception") must throwA[Exception]
+      proc.sendBody("direct:camel", exceptionMsg) must throwA[Exception]
+      proc.sendBody("direct:babel", exceptionMsg) must throwA[Exception]
 
       mockSuccess.assertIsSatisfied()
       mockCamelSuccess.assertIsSatisfied()
@@ -812,9 +817,9 @@ class HandlerSpec extends SpecificationWithJUnit {
 
   "Error handling at RouteBuilder level" should {
 
-    "handle exception with onException" in {
+    s"$handleSpec" in {
 
-      "handle exception with onException (continued : Boolean)" in new camel {
+      s"$handleSpec (continued : Boolean)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -827,7 +832,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
           from("direct:input")
             .as[String]
-            .processBody(x => throw if (x == null) new Exception() else new IllegalArgumentException(x))
+            .processBody(x => throw if (Option(x).isEmpty) new Exception() else new IllegalArgumentException(x))
             .to("mock:output")
 
           //error handling route
@@ -855,7 +860,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       }
 
-      "handle exception with onException (continued : BodyPredicate)" in new camel {
+      s"$handleSpec (continued : BodyPredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -881,13 +886,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         camelContext.start()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.getReceivedExchanges().get(0).getIn.getBody(classOf[String]) === "toto"
 
       }
 
-      "handle exception with onException (continued : MessagePredicate)" in new camel {
+      s"$handleSpec (continued : MessagePredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -913,13 +918,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         camelContext.start()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.getReceivedExchanges().get(0).getIn.getBody(classOf[String]) === "toto"
 
       }
 
-      "handle exception with onException (continued : Function on the Body)" in new camel {
+      s"$handleSpec (continued : Function on the Body)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -943,13 +948,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         camelContext.start()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.getReceivedExchanges().get(0).getIn.getBody(classOf[String]) === "toto"
 
       }
 
-      "handle exception with onException (continued : Function on the Message)" in new camel {
+      s"$handleSpec (continued : Function on the Message)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -975,13 +980,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         camelContext.start()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must (throwA[Exception])
 
         mock.getReceivedExchanges().get(0).getIn.getBody(classOf[String]) === "toto"
 
       }
 
-      "handle exception with onException (handled : Boolean)" in new camel {
+      s"$handleSpec (handled : Boolean)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -1019,7 +1024,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       }
 
-      "handle exception with onException (handled : BodyPredicate)" in new camel {
+      s"$handleSpec (handled : BodyPredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -1050,13 +1055,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mock.expectedBodiesReceived()
 
         camelContext.createProducerTemplate().sendBody("direct:input", ex1) must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", new IllegalArgumentException("Expected exception")) must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", new IllegalArgumentException(exceptionMsg)) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (handled : MessagePredicate)" in new camel {
+      s"$handleSpec (handled : MessagePredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -1089,13 +1094,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mockException.expectedBodiesReceived(ex1)
 
         camelContext.createProducerTemplate().sendBody("direct:input", ex1) must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", new IllegalArgumentException("Expected exception")) must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", new IllegalArgumentException(exceptionMsg)) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (handled : Function on the Body)" in new camel {
+      s"$handleSpec (handled : Function on the Body)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -1126,13 +1131,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mock.expectedBodiesReceived()
 
         camelContext.createProducerTemplate().sendBody("direct:input", ex1) must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", new IllegalArgumentException("Expected exception")) must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", new IllegalArgumentException(exceptionMsg)) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (handled : Function on the Message)" in new camel {
+      s"$handleSpec (handled : Function on the Message)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -1165,13 +1170,13 @@ class HandlerSpec extends SpecificationWithJUnit {
         mockException.expectedBodiesReceived(ex1)
 
         camelContext.createProducerTemplate().sendBody("direct:input", ex1) must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", new IllegalArgumentException("Expected exception")) must (throwA[Exception])
+        camelContext.createProducerTemplate().sendBody("direct:input", new IllegalArgumentException(exceptionMsg)) must (throwA[Exception])
 
         mock.assertIsSatisfied()
 
       }
 
-      "handle exception with onException (when: BodyPredicate)" in new camel {
+      s"$handleSpec (when: BodyPredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -1180,7 +1185,7 @@ class HandlerSpec extends SpecificationWithJUnit {
           handle {
             route =>
               route.onBody[Exception](BodyPredicate((x: Any) => x.toString.contains("toto"))).continuedBody(true)
-              route.onBody[Exception](BodyPredicate((x: Any) => x.toString.contains("Expected exception"))).continuedBody(false)
+              route.onBody[Exception](BodyPredicate((x: Any) => x.toString.contains(exceptionMsg))).continuedBody(false)
           }
 
           from("direct:input")
@@ -1196,7 +1201,7 @@ class HandlerSpec extends SpecificationWithJUnit {
         camelContext.start()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must throwA[Exception]
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must throwA[Exception]
         /*WARNING
       following code cause camel to keep an inflight exchange as it causes an exception while processing the predicate (npe)
       val toto = new IllegalArgumentException()
@@ -1208,7 +1213,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       }
 
-      "handle exception with onException (when: MessagePredicate)" in new camel {
+      s"$handleSpec (when: MessagePredicate)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -1217,7 +1222,7 @@ class HandlerSpec extends SpecificationWithJUnit {
           handle {
             route =>
               route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto")))).continuedBody(true)
-              route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("Expected exception")))).continuedBody(false)
+              route.on[Exception](MessagePredicate((x: Message[Any]) => x.body.map(_.toString).exists(_.contains(exceptionMsg)))).continuedBody(false)
           }
 
           from("direct:input")
@@ -1233,14 +1238,14 @@ class HandlerSpec extends SpecificationWithJUnit {
         camelContext.start()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must throwA[Exception]
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must throwA[Exception]
 
         mock.getReceivedExchanges.get(0).getIn.getBody(classOf[String]) === "toto"
         mock.getReceivedExchanges.size === 1
 
       }
 
-      "handle exception with onException (when: Function on Body)" in new camel {
+      s"$handleSpec (when: Function on Body)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -1249,7 +1254,7 @@ class HandlerSpec extends SpecificationWithJUnit {
           handle {
             route =>
               route.onBody[Exception]((x: Any) => x.toString.contains("toto")).continuedBody(true)
-              route.onBody[Exception]((x: Any) => x.toString.contains("Expected exception")).continuedBody(false)
+              route.onBody[Exception]((x: Any) => x.toString.contains(exceptionMsg)).continuedBody(false)
           }
 
           from("direct:input")
@@ -1265,7 +1270,7 @@ class HandlerSpec extends SpecificationWithJUnit {
         camelContext.start()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must throwA[Exception]
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must throwA[Exception]
         /*WARNING
       following code cause camel to keep an inflight exchange as it causes an exception while processing the predicate (npe)
       val toto = new IllegalArgumentException()
@@ -1277,7 +1282,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       }
 
-      "handle exception with onException (when: Function on Message)" in new camel {
+      s"$handleSpec (when: Function on Message)" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -1286,7 +1291,7 @@ class HandlerSpec extends SpecificationWithJUnit {
           handle {
             route =>
               route.on[Exception]((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("toto"))).continuedBody(true)
-              route.on[Exception]((x: Message[Any]) => x.body.map(_.toString).exists(_.contains("Expected exception"))).continuedBody(false)
+              route.on[Exception]((x: Message[Any]) => x.body.map(_.toString).exists(_.contains(exceptionMsg))).continuedBody(false)
           }
 
           from("direct:input")
@@ -1302,7 +1307,7 @@ class HandlerSpec extends SpecificationWithJUnit {
         camelContext.start()
 
         camelContext.createProducerTemplate().sendBody("direct:input", "toto") must not(throwA[Exception])
-        camelContext.createProducerTemplate().sendBody("direct:input", "Expected exception") must throwA[Exception]
+        camelContext.createProducerTemplate().sendBody("direct:input", exceptionMsg) must throwA[Exception]
         /*WARNING
       following code cause camel to keep an inflight exchange as it causes an exception while processing the predicate (npe)
       val toto = new IllegalArgumentException()
@@ -1314,7 +1319,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       }
 
-      "handle exception with onException with subroute" in new camel {
+      s"$handleSpec with subroute" in new camel {
 
         import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -1405,8 +1410,8 @@ class HandlerSpec extends SpecificationWithJUnit {
       mockSuccess.setExpectedMessageCount(1)
 
       val proc = camelContext.createProducerTemplate()
-      proc.sendBody("direct:camel", "Expected exception")
-      proc.sendBody("direct:babel", "Expected exception")
+      proc.sendBody("direct:camel", exceptionMsg)
+      proc.sendBody("direct:babel", exceptionMsg)
 
       mockSuccess.assertIsSatisfied()
       mockCamelSuccess.assertIsSatisfied()
@@ -1471,8 +1476,8 @@ class HandlerSpec extends SpecificationWithJUnit {
       mockSuccess.setExpectedMessageCount(1)
 
       val proc = camelContext.createProducerTemplate()
-      proc.sendBody("direct:camel", "Expected exception")
-      proc.sendBody("direct:babel", "Expected exception")
+      proc.sendBody("direct:camel", exceptionMsg)
+      proc.sendBody("direct:babel", exceptionMsg)
 
       mockError.assertIsSatisfied()
       mockSuccess.assertIsSatisfied()
@@ -1540,8 +1545,8 @@ class HandlerSpec extends SpecificationWithJUnit {
       val mockException = camelContext.getEndpoint("mock:exception", classOf[MockEndpoint])
       mockBabel.setExpectedMessageCount(1)
       mockException.setExpectedMessageCount(0)
-      // proc.sendBody("direct:babel", "Expected exception") throwA[NullPointerException]
-      proc.sendBody("direct:babel", "Expected exception")
+      // proc.sendBody("direct:babel", exceptionMsg) throwA[NullPointerException]
+      proc.sendBody("direct:babel", exceptionMsg)
       mockBabel.assertIsSatisfied()
       mockException.assertIsSatisfied()
 
@@ -1549,9 +1554,12 @@ class HandlerSpec extends SpecificationWithJUnit {
 
     "provide loggingErrorHandler" in new camel {
 
+      val loggerTitiName = "my.cool.titi"
+      val loggerTiti = LoggerFactory.getLogger(loggerTitiName)
+
       class CamelRoute extends org.apache.camel.builder.RouteBuilder {
         def configure(): Unit = {
-          errorHandler(loggingErrorHandler(LoggerFactory.getLogger("my.cool.titi"), LoggingLevel.TRACE))
+          errorHandler(loggingErrorHandler(loggerTiti, LoggingLevel.TRACE))
 
           from("direct:camel")
             .throwException(new Exception()).to("mock:camel-success")
@@ -1565,7 +1573,7 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       val routes = new RouteBuilder {
 
-        handle(_.loggingErrorHandler(level = LoggingLevel.TRACE, logger = LoggerFactory.getLogger("my.cool.titi")))
+        handle(_.loggingErrorHandler(level = LoggingLevel.TRACE, logger = loggerTiti))
         from("direct:babel")
           .processBody(_ => throw new Exception())
           .to("mock:success")
@@ -1578,16 +1586,16 @@ class HandlerSpec extends SpecificationWithJUnit {
       mockSuccess.setExpectedMessageCount(0)
 
       val proc = camelContext.createProducerTemplate()
-      proc.sendBody("direct:camel", "Expected exception") must throwA[Exception]
-      proc.sendBody("direct:babel", "Expected exception") must throwA[Exception]
+      proc.sendBody("direct:camel", exceptionMsg) must throwA[Exception]
+      proc.sendBody("direct:babel", exceptionMsg) must throwA[Exception]
 
       mockSuccess.assertIsSatisfied()
       mockCamelSuccess.assertIsSatisfied()
 
       val eventCamel = RBErrorSharedLogs.events.headOption.getOrElse(throw new Exception("no log received"))
-      validateLog(eventCamel, "my.cool.titi")
+      validateLog(eventCamel, loggerTitiName)
       val eventBabel = RBErrorSharedLogs.events.tail.headOption.getOrElse(throw new Exception("no log received"))
-      validateLog(eventBabel, "my.cool.titi")
+      validateLog(eventBabel, loggerTitiName)
 
     }
 
@@ -1633,8 +1641,8 @@ class HandlerSpec extends SpecificationWithJUnit {
       camelContext.start()
 
       val proc = camelContext.createProducerTemplate()
-      proc.sendBody("direct:input1", "Expected exception")
-      proc.sendBody("direct:input2", "Expected exception")
+      proc.sendBody("direct:input1", exceptionMsg)
+      proc.sendBody("direct:input2", exceptionMsg)
 
       mock.assertIsSatisfied()
     }

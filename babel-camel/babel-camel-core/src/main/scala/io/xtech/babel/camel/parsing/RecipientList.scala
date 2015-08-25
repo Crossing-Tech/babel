@@ -8,8 +8,8 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.{ CamelDSL, RecipientListDSL }
 import io.xtech.babel.camel.model.{ Expressions, RecipientListDefinition }
+import io.xtech.babel.camel.{ CamelDSL, RecipientListDSL }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.model.StepDefinition
 import io.xtech.babel.fish.parsing.StepInformation
@@ -22,7 +22,8 @@ import scala.reflect.ClassTag
 /**
   * The recipientList parser.
   */
-private[babel] trait RecipientList extends CamelParsing { self: CamelDSL =>
+private[babel] trait RecipientList extends CamelParsing {
+  self: CamelDSL =>
 
   // insert the extension in the base fish
   protected implicit def recipientListDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new RecipientListDSL(baseDsl)

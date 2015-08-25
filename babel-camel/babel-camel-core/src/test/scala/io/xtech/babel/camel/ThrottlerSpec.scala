@@ -9,14 +9,11 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
-import io.xtech.babel.camel.model.CamelExpressionWrapper
-import io.xtech.babel.camel.test.camel
-import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder, ExpressionBuilder }
-import org.apache.camel.component.mock.MockEndpoint
-import org.apache.camel.language.simple.SimpleLanguage
-import org.apache.camel.model.language.SimpleExpression
-import org.specs2.mutable.SpecificationWithJUnit
 import io.xtech.babel.camel.mock._
+import io.xtech.babel.camel.test.camel
+import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
+import org.apache.camel.component.mock.MockEndpoint
+import org.specs2.mutable.SpecificationWithJUnit
 
 class ThrottlerSpec extends SpecificationWithJUnit {
   sequential
@@ -36,7 +33,7 @@ class ThrottlerSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-throttler
 
     val nativeRoute = new CRouteBuilder() {
-      def configure() {
+      def configure(): Unit = {
         from("direct:inputCamel").
           throttle(1).
           to("mock:output")
@@ -86,7 +83,7 @@ class ThrottlerSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-throttler
 
     val nativeRoute = new CRouteBuilder() {
-      def configure() {
+      def configure(): Unit = {
         from("direct:inputCamel").
           throttle(1).
           to("mock:output")

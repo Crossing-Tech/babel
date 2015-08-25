@@ -15,6 +15,7 @@ import io.xtech.babel.fish.parsing.{ Parsing, StepInformation }
 import io.xtech.babel.fish.{ BaseDSL, DSL2BaseDSL }
 import org.apache.camel.builder.RouteBuilder
 import org.apache.camel.model.ProcessorDefinition
+
 import scala.collection.immutable
 import scala.language.implicitConversions
 import scala.reflect.ClassTag
@@ -34,13 +35,13 @@ class MockDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) extends DSL2BaseDS
 
 trait Mock extends Parsing[RouteBuilder] {
 
-  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
-
   val parse: Process = {
     case StepInformation(MockDefinition(uri), camelProcessor: ProcessorDefinition[_]) =>
       camelProcessor.to(s"mock:$uri")
 
   }
+
+  abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
   implicit protected def mockDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): MockDSL[I] = new MockDSL(baseDsl)
 }

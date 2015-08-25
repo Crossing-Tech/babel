@@ -65,7 +65,7 @@ class RouteConfigurationSpec extends SpecificationWithJUnit {
         val camelRoute = new org.apache.camel.builder.RouteBuilder() {
           def configure(): Unit = {
             from("direct:inputCamel").routeId("camel").routePolicy(new RoutePolicyInterface {
-              override def onStop(route: Route) {
+              override def onStop(route: Route): Unit = {
                 csuccess = true
               }
             }).

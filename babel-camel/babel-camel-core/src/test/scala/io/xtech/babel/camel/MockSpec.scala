@@ -9,7 +9,6 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
-import io.xtech.babel.camel.mock._
 import org.apache.camel.impl.DefaultCamelContext
 import org.specs2.mutable.SpecificationWithJUnit
 

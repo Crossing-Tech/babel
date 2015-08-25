@@ -23,28 +23,6 @@ private[babel] trait Aggregation extends CamelParsing {
 
   abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
 
-  private[this] def competion(aggregateDefinition: AggregateDefinition, completionStrategies: immutable.Seq[CompletionStrategy]) {
-    for (completion <- completionStrategies) {
-      completion match {
-        case CompletionInterval(time) => {
-          aggregateDefinition.setCompletionInterval(time)
-        }
-        case CompletionSize(size) => {
-          aggregateDefinition.setCompletionSize(size)
-        }
-        case CompletionTimeout(time) => {
-          aggregateDefinition.setCompletionTimeout(time)
-        }
-        case ForceCompletionOnStop => {
-          aggregateDefinition.forceCompletionOnStop()
-        }
-        case CompletionFromBatchConsumer => {
-          aggregateDefinition.completionFromBatchConsumer()
-        }
-      }
-    }
-  }
-
   // parsing of an aggregation definition
   private[this] def parse: Process = {
 
@@ -87,6 +65,28 @@ private[babel] trait Aggregation extends CamelParsing {
       competion(nextProcDef, completionStrategies)
 
       nextProcDef
+    }
+  }
+
+  private[this] def competion(aggregateDefinition: AggregateDefinition, completionStrategies: immutable.Seq[CompletionStrategy]): Unit = {
+    for (completion <- completionStrategies) {
+      completion match {
+        case CompletionInterval(time) => {
+          aggregateDefinition.setCompletionInterval(time)
+        }
+        case CompletionSize(size) => {
+          aggregateDefinition.setCompletionSize(size)
+        }
+        case CompletionTimeout(time) => {
+          aggregateDefinition.setCompletionTimeout(time)
+        }
+        case ForceCompletionOnStop => {
+          aggregateDefinition.forceCompletionOnStop()
+        }
+        case CompletionFromBatchConsumer => {
+          aggregateDefinition.completionFromBatchConsumer()
+        }
+      }
     }
   }
 }

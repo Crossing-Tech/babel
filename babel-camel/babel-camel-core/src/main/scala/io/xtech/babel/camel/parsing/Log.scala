@@ -8,8 +8,8 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.{ CamelDSL, LogDSL }
 import io.xtech.babel.camel.model._
+import io.xtech.babel.camel.{ CamelDSL, LogDSL }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.ProcessorDefinition
@@ -21,11 +21,10 @@ import scala.reflect.ClassTag
 /**
   * The log parser.
   */
-private[babel] trait Log extends CamelParsing { self: CamelDSL =>
+private[babel] trait Log extends CamelParsing {
+  self: CamelDSL =>
 
   abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
-
-  protected implicit def logDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): LogDSL[I] = new LogDSL(baseDsl)
 
   private[this] def parse: Process = {
 
@@ -45,4 +44,6 @@ private[babel] trait Log extends CamelParsing { self: CamelDSL =>
       camelProcessorDefinition.log(level, name, marker, message).withId(step)
     }
   }
+
+  protected implicit def logDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]): LogDSL[I] = new LogDSL(baseDsl)
 }
