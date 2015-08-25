@@ -10,6 +10,7 @@ package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.mock._
+import io.xtech.babel.camel.model.CamelMessage
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.model.Message
 import io.xtech.babel.fish.{ BodyPredicate, MessagePredicate }
@@ -21,6 +22,7 @@ import org.slf4j.LoggerFactory
 import org.specs2.mutable.SpecificationWithJUnit
 
 import scala.collection.immutable
+import scala.util.Try
 
 class HandlerSpec extends SpecificationWithJUnit {
 
@@ -591,7 +593,9 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       class CamelRoute extends org.apache.camel.builder.RouteBuilder {
         def configure(): Unit = {
-          from("direct:camel").errorHandler(deadLetterChannel("mock:camel-error").maximumRedeliveries(2)).process(camelProcessor).to("mock:camel-success")
+          from("direct:camel").errorHandler(deadLetterChannel("mock:camel-error").maximumRedeliveries(2)).
+            process(camelProcessor).
+            to("mock:camel-success")
         }
       }
 
@@ -632,6 +636,60 @@ class HandlerSpec extends SpecificationWithJUnit {
 
       mockSuccess.assertIsSatisfied()
       mockCamelSuccess.assertIsSatisfied()
+
+    }
+
+    "provide the defaultErrorHandler with redeliveryDelay" in new camel {
+      val delay = 1000l
+      var messagesCount = 0
+      def proc(msg: Message[Any]): Message[Any] = {
+        messagesCount += 1
+        val body = msg.body.getOrElse("")
+        println("TODO: " + body)
+        if (messagesCount % 2 == 1) {
+          throw new Exception("Expected Exception: " + body)
+        }
+        msg
+      }
+      val camelProcessor = new Processor {
+
+        override def process(exchange: Exchange): Unit = proc(new CamelMessage[Any](exchange.getIn))
+      }
+
+      class CamelRoute extends org.apache.camel.builder.RouteBuilder {
+        def configure(): Unit = {
+          from("direct:camel").errorHandler(defaultErrorHandler.maximumRedeliveries(1).redeliveryDelay(delay).maximumRedeliveryDelay(delay)).
+            process(camelProcessor).
+            to("mock:camel-success")
+        }
+      }
+
+      val routes = new RouteBuilder {
+
+        from("direct:babel")
+          .handle(_.defaultErrorHandler.maximumRedeliveries(1).redeliveryDelay(delay).maximumRedeliveryDelay(delay))
+          .process(proc(_))
+          .to("mock:success")
+      }
+
+      camelContext.addRoutes(new CamelRoute())
+      camelContext.addRoutes(routes)
+      camelContext.start()
+
+      val mockCamelSuccess = camelContext.mockEndpoint("camel-success")
+      val mockSuccess = camelContext.mockEndpoint("success")
+
+      val proc = camelContext.createProducerTemplate()
+
+      val camelInitTime = System.currentTimeMillis()
+      proc.sendBody("direct:camel", "camel")
+      mockCamelSuccess.getReceivedCounter must be_==(1)
+      System.currentTimeMillis() - camelInitTime must be_>=(delay)
+
+      val babelInitTime = System.currentTimeMillis()
+      Try { proc.sendBody("direct:babel", "babel") }
+      mockSuccess.getReceivedCounter must be_==(1)
+      System.currentTimeMillis() - babelInitTime must be_>=(delay)
 
     }
 

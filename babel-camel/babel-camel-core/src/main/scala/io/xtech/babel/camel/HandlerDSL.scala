@@ -199,8 +199,9 @@ private[camel] class RedeliveryDSL(handling: RedeliveryErrorHandling) {
     * @param count of redeliveries at most
     * @see  org.apache.camel.processor.RedeliveryPolicy.maximumRedeliveries
     */
-  def maximumRedeliveries(count: Int): Unit = {
+  def maximumRedeliveries(count: Int): RedeliveryDSL = {
     handling.redeliveryPolicy((x: RedeliveryPolicy) => x.maximumRedeliveries(count))
+    this
   }
 
   /**
@@ -208,8 +209,9 @@ private[camel] class RedeliveryDSL(handling: RedeliveryErrorHandling) {
     * @param delay initial for redelivery
     * @see  org.apache.camel.processor.RedeliveryPolicy.redeliveryDelay
     */
-  def redeliveryDelay(delay: Long): Unit = {
+  def redeliveryDelay(delay: Long): RedeliveryDSL = {
     handling.redeliveryPolicy((x: RedeliveryPolicy) => x.redeliveryDelay(delay))
+    this
   }
 
   /**
@@ -217,8 +219,9 @@ private[camel] class RedeliveryDSL(handling: RedeliveryErrorHandling) {
     * @param delay max for redelivery
     * @see  org.apache.camel.processor.RedeliveryPolicy.maximumRedeliveryDelay
     */
-  def maximumRedeliveryDelay(delay: Long): Unit = {
+  def maximumRedeliveryDelay(delay: Long): RedeliveryDSL = {
     handling.redeliveryPolicy((x: RedeliveryPolicy) => x.maximumRedeliveryDelay(delay))
+    this
   }
 }
 

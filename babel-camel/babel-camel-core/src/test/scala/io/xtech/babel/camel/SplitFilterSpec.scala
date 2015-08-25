@@ -16,6 +16,8 @@ import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
 
+import scala.util.Try
+
 class SplitFilterSpec extends SpecificationWithJUnit {
   "split and filter" should {
     "integrates together in a route" in new camel {
@@ -108,6 +110,33 @@ class SplitFilterSpec extends SpecificationWithJUnit {
       mockEndpoint2.assertIsSatisfied()
       mockCamel1.assertIsSatisfied()
       mockCamel2.assertIsSatisfied()
+    }
+
+    " when defining a split with an errorneous predicate should throw an Exception" in new camel {
+
+      import io.xtech.babel.camel.builder.RouteBuilder
+
+      val routeDef = new RouteBuilder {
+        from("direct:input").as[String]
+          .filterBody(body => throw new Exception("Expected exception on predicate")).
+          to("mock:output1").
+          to("mock:output2")
+      }
+
+      val otherRoute = new CRouteBuilder() {
+        def configure(): Unit = {
+          from("direct:camel").filter(body.contains("true")).to("mock:camel1").end().to("mock:camel2")
+        }
+      }
+
+      routeDef.addRoutesToCamelContext(camelContext)
+      camelContext.addRoutes(otherRoute)
+      camelContext.start()
+
+      val producer = camelContext.createProducerTemplate()
+
+      producer.sendBody("direct:input", null) must throwA[Exception]
+
     }
 
     "integrates together in a route using predicates" in new camel {
