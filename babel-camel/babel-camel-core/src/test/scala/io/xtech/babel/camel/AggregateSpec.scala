@@ -35,7 +35,7 @@ class AggregateSpec extends SpecificationWithJUnit {
 
     val camelAggr = CamelAggregation(MessageExpression((msg: Message[String]) => "1"),
       aggregationStrategy = new GroupedExchangeAggregationStrategy,
-      completionStrategies = List(CompletionSize(3)))
+      completionStrategies = List(CompletionSize(3), CompletionInterval(1000)))
 
     val routeDef = new RouteBuilder {
       //message bodies are converted to String if required
@@ -76,7 +76,9 @@ class AggregateSpec extends SpecificationWithJUnit {
     mockCamel.assertIsSatisfied()
 
     val List(receivedExchanges, camelExchanges) = List(mockEndpoint, mockCamel).map(_.getReceivedExchanges.asScala)
-    val List(groupedExchanges, camelGroupedExchanges) = List(receivedExchanges, camelExchanges).map(x => x.map(ex => ex.getProperty(Exchange.GROUPED_EXCHANGE, classOf[java.util.List[Exchange]]).asScala).flatten)
+    val List(groupedExchanges, camelGroupedExchanges) = List(receivedExchanges, camelExchanges).
+      map(x => x.map(ex => ex.getProperty(Exchange.GROUPED_EXCHANGE, classOf[java.util.List[Exchange]]).asScala).flatten)
+
     val List(bodies, camelBodies) = List(groupedExchanges, camelGroupedExchanges).map(x => x.map(_.getIn.getBody))
 
     bodies must contain("1", "2", "3")
@@ -160,7 +162,7 @@ class AggregateSpec extends SpecificationWithJUnit {
       //defines when message may be aggregated
       groupBy = (msg: Message[Int]) => "a",
       //defines the size of the aggregation (3 messages)
-      completionStrategies = List(CompletionSize(3)))
+      completionStrategies = List(CompletionSize(3), CompletionTimeout(1000), ForceCompletionOnStop))
 
     import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -226,7 +228,7 @@ class AggregateSpec extends SpecificationWithJUnit {
       //defines when message may be aggregated
       (msg: Message[Int]) => "a",
       //defines the size of the aggregation (3 messages)
-      completionStrategies = List(CompletionSize(3)))
+      completionStrategies = List(CompletionSize(3), CompletionFromBatchConsumer))
 
     import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -242,7 +244,8 @@ class AggregateSpec extends SpecificationWithJUnit {
         def aggregate(oldExchange: Exchange, newExchange: Exchange): Exchange = {
           Option(oldExchange) match {
             case Some(exchange) =>
-              newExchange.getIn.setBody(exchange.getIn.getBody(classOf[String]) + newExchange.getIn.getBody(classOf[Int]))
+              newExchange.getIn.setBody(exchange.getIn.getBody(classOf[String]) +
+                newExchange.getIn.getBody(classOf[Int]))
               newExchange
             case None =>
               newExchange.getIn.setBody(newExchange.getIn.getBody(classOf[String]))
