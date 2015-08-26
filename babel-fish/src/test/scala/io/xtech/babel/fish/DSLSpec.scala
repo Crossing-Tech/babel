@@ -10,6 +10,7 @@ package io.xtech.babel.fish
 
 import io.xtech.babel.fish.Test._
 import io.xtech.babel.fish.model._
+import io.xtech.babel.fish.parsing.ParsingException.UnknownStepException
 import org.specs2.matcher.MatchResult
 import org.specs2.mutable.SpecificationWithJUnit
 
@@ -243,6 +244,16 @@ class DSLSpec extends SpecificationWithJUnit {
 
       routeDef.build should not(throwA[RouteDefinitionException])
 
+    }
+
+    "throw a UnknownStepException when an unknown Definition is injected in the route" in {
+      import io.xtech.babel.fish.Test._
+      case object UnknownDefinition extends StepDefinition
+      val routeDef = new DSL {
+        from("direct:input").step.next = Some(UnknownDefinition)
+      }
+
+      routeDef.build should not(throwA[UnknownStepException])
     }
   }
 }
