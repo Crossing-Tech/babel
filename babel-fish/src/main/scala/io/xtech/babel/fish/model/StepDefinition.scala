@@ -19,19 +19,19 @@ trait StepDefinition {
   /**
     * the next node in the fish.
     */
-  var next: Option[StepDefinition] = None
+  protected[babel] var next: Option[StepDefinition] = None
 
   /**
     * meta information such as uuid, description.
     * potentially provided by other systems.
     */
-  var metaInformation: immutable.Map[String, Any] = immutable.Map.empty[String, Any]
+  protected[babel] var metaInformation: immutable.Map[String, Any] = immutable.Map.empty[String, Any]
 
   /**
     * Validates the definition after the declaration in the fish.
     * @return a list of errors. Each error contains an error message and the invalid definition.
     */
-  def validate(): immutable.Seq[ValidationError] = {
+  protected[babel] def validate(): immutable.Seq[ValidationError] = {
 
     var errors = immutable.Seq.empty[ValidationError]
 

@@ -13,11 +13,11 @@ import scala.collection.immutable
 /**
   * defines an EIP which may have several outputs
   */
-class ScopeDefinition[D <: StepDefinition] extends StepDefinition {
+protected[babel] class ScopeDefinition[D <: StepDefinition] extends StepDefinition {
 
   /**
     * @return a list of subroutes
     */
-  var scopedSteps: immutable.IndexedSeq[D] = immutable.IndexedSeq.empty
+  protected[babel] var scopedSteps: immutable.IndexedSeq[D] = immutable.IndexedSeq.empty
 
 }
