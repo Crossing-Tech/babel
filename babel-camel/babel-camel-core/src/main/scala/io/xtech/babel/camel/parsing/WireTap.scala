@@ -8,8 +8,8 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.model.WireTapDefinition
 import io.xtech.babel.camel.{ CamelDSL, WireTapDSL }
+import io.xtech.babel.camel.model.WireTapDefinition
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.model.Message
 import io.xtech.babel.fish.parsing.StepInformation

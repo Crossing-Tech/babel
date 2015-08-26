@@ -8,8 +8,8 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.model.{ CamelMessage, CamelSink, WireTapDefinition }
 import io.xtech.babel.camel.parsing.Wiring
+import io.xtech.babel.camel.model.{ CamelMessage, CamelSink, WireTapDefinition }
 import io.xtech.babel.fish.model.{ Message, StepDefinition, TransformerDefinition }
 import io.xtech.babel.fish.{ BaseDSL, DSL2BaseDSL, MessageTransformationExpression }
 
@@ -39,16 +39,20 @@ private[camel] class WireTapDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) 
     new BaseDSL[I](dewireDefinition)
   }
 
+  private def propertyKey(count: Int): String = s"${Wiring.key}-${count + 1}"
+  private def typeName(implicit ev: ClassTag[I]): String = ev.toString()
+
   private val wire: MessageTransformationExpression[I, I] = MessageTransformationExpression((msg: Message[I]) => {
     val headers = Wiring.getCount(msg)
-    msg.asInstanceOf[CamelMessage[I]].withExchangeProperty(s"${Wiring.key}-${headers + 1}", msg.body.get) //TODO getOrElse
+    msg.asInstanceOf[CamelMessage[I]].withExchangeProperty(propertyKey(headers), msg.body.getOrElse(throw new WiredEmptyBodyException())) //TODO getOrElse
   })
 
   private val dewire: MessageTransformationExpression[I, I] = MessageTransformationExpression((msg: Message[I]) => {
     val key = s"${Wiring.key}-${Wiring.getCount(msg) + 1}"
     val body = msg.asInstanceOf[CamelMessage[_]].exchangeProperties.get(key) match {
-      case i: Some[I] => i.get
-      case other      => throw new Exception(s"unepected dewired body type $other") //should never happen
+      case i: Some[I]  => i.get
+      case Some(other) => throw new WiredUnexpectedBodyType(typeName, other.getClass.getName) //should never happen
+      case None        => throw new WiredEmptyBodyException()
     }
     msg.withBody(_ => body).withHeaders(_ - key)
   })
@@ -56,3 +60,7 @@ private[camel] class WireTapDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) 
 }
 
 class WiringDefinition() extends StepDefinition
+
+class WiredEmptyBodyException extends IllegalArgumentException("Body may not be null in Babel wiring")
+class WiredUnexpectedBodyType(expected: String, actual: String)
+  extends IllegalArgumentException(s"Body has not expected type in Babel wiring: expected $expected, but was $actual")
