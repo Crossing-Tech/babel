@@ -29,6 +29,7 @@ class ResequencerSpec extends SpecificationWithJUnit {
 
       import io.xtech.babel.camel.builder.RouteBuilder
       import org.apache.camel.model.config.BatchResequencerConfig
+
       //the resequencing would be done in a batch manner
       val batchConfiguration = new BatchResequencerConfig()
 

@@ -8,8 +8,8 @@
 
 package io.xtech.babel.camel.parsing
 
+import io.xtech.babel.camel.model.{ ErrorHandling, ErrorHandlingRouteDefinition, OnExceptionDefinition }
 import io.xtech.babel.camel.{ CamelDSL, HandlerDSL }
-import io.xtech.babel.camel.model.{ ErrorHandlingRouteDefinition, ErrorHandling, OnExceptionDefinition }
 import io.xtech.babel.fish.parsing.StepInformation
 import io.xtech.babel.fish.{ BodyPredicate, FromDSL }
 import org.apache.camel.builder.RouteBuilder
@@ -23,31 +23,10 @@ import scala.reflect.ClassTag
 /**
   * The Exception Handler parser.
   */
-private[babel] trait Handler extends CamelParsing { self: CamelDSL =>
+private[babel] trait Handler extends CamelParsing {
+  self: CamelDSL =>
 
   abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
-
-  protected implicit def handlerDSLExtension[I: ClassTag](baseDsl: FromDSL[I]): HandlerDSL[I] = new HandlerDSL(baseDsl)
-
-  //used to allow user to define a predicate on exceptions from a boolean
-  protected implicit def booleanAsPredicate[Any](bool: Boolean): BodyPredicate[Any] = {
-    BodyPredicate[Any](_ => bool)
-  }
-
-  private[this] def parseOnException[T <: Throwable, I](exception: OnExceptionDefinition[T], processor: org.apache.camel.model.OnExceptionDefinition): Unit = {
-    //Warning: predicates and functions here may cause Camel to fail silently (without printing any exception)
-
-    exception.applyToCamel(processor)
-
-    //parse the handlingRoute if any
-    exception.next.foreach {
-      case channel: ErrorHandlingRouteDefinition =>
-        val to = processor.to(channel.endpoint)
-        namingStrategy.name(channel).foreach(to.id)
-        to
-    }
-    processor.end()
-  }
 
   /**
     * parses the error handling keyword, at both level : Route and RouteBuilder
@@ -77,5 +56,27 @@ private[babel] trait Handler extends CamelParsing { self: CamelDSL =>
       //is parsed by the previous step, @see parseOnException
     }
 
+  }
+
+  private[this] def parseOnException[T <: Throwable, I](exception: OnExceptionDefinition[T], processor: org.apache.camel.model.OnExceptionDefinition): Unit = {
+    //Warning: predicates and functions here may cause Camel to fail silently (without printing any exception)
+
+    exception.applyToCamel(processor)
+
+    //parse the handlingRoute if any
+    exception.next.foreach {
+      case channel: ErrorHandlingRouteDefinition =>
+        val to = processor.to(channel.endpoint)
+        namingStrategy.name(channel).foreach(to.id)
+        to
+    }
+    processor.end()
+  }
+
+  protected implicit def handlerDSLExtension[I: ClassTag](baseDsl: FromDSL[I]): HandlerDSL[I] = new HandlerDSL(baseDsl)
+
+  //used to allow user to define a predicate on exceptions from a boolean
+  protected implicit def booleanAsPredicate[Any](bool: Boolean): BodyPredicate[Any] = {
+    BodyPredicate[Any](_ => bool)
   }
 }

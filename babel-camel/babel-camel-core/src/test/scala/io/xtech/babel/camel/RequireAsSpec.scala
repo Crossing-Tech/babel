@@ -9,10 +9,9 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.RequireAsSpec.{ A, B }
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.test.camel
 import org.apache.camel.CamelExecutionException
-import org.apache.camel.component.mock.MockEndpoint
-import io.xtech.babel.camel.mock._
 import org.specs2.mutable.SpecificationWithJUnit
 
 object RequireAsSpec {
@@ -37,6 +36,7 @@ class RequireAsSpec extends SpecificationWithJUnit {
     "throw an exception if the type is incorrect" in new camel {
 
       //#doc:babel-camel-requireAs
+
       import io.xtech.babel.camel.builder.RouteBuilder
 
       val routeDef = new RouteBuilder {
@@ -62,6 +62,7 @@ class RequireAsSpec extends SpecificationWithJUnit {
     "throw an exception if the type is incorrect" in new camel {
 
       //#doc:babel-camel-requireAs-exception
+
       import io.xtech.babel.camel.builder.RouteBuilder
 
       val routeDef = new RouteBuilder {
@@ -109,6 +110,7 @@ class RequireAsSpec extends SpecificationWithJUnit {
     }
 
     "supports primitives types" in new camel {
+
       import io.xtech.babel.camel.builder.RouteBuilder
 
       val routeDef = new RouteBuilder {

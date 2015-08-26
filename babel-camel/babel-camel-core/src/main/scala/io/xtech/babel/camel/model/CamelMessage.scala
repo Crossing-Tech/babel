@@ -23,11 +23,6 @@ class CamelMessage[I](message: NativeMessage) extends Message[I] {
 
   validateCamelMessage(message)
 
-  private[this] def validateCamelMessage(msg: NativeMessage): Unit = {
-    require(msg != null, "a camel message is mandatory")
-    // TODO needs final version of scala reflection
-  }
-
   def body: Option[I] = Option(message.getBody.asInstanceOf[I])
 
   def bodyAs[A: ClassTag]: Option[A] = {
@@ -135,4 +130,9 @@ class CamelMessage[I](message: NativeMessage) extends Message[I] {
     * @return the Camel Exchange which is represented by this CamelMessage.
     */
   def exchange: Exchange = message.getExchange
+
+  private[this] def validateCamelMessage(msg: NativeMessage): Unit = {
+    require(msg != null, "a camel message is mandatory")
+    // TODO needs final version of scala reflection
+  }
 }

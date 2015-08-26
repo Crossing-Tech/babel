@@ -10,8 +10,8 @@ package io.xtech.babel.camel.builder
 
 import io.xtech.babel.camel._
 import io.xtech.babel.camel.model.EmptyDefinition
-import io.xtech.babel.fish.model.{ StepDefinition, RouteDefinition }
-import io.xtech.babel.fish.{ NamingStrategy, DSL, NoDSL }
+import io.xtech.babel.fish.model.RouteDefinition
+import io.xtech.babel.fish.{ DSL, NoDSL }
 import org.apache.camel.model.ModelCamelContext
 import org.apache.camel.{ CamelContext, RoutesBuilder, RuntimeCamelException }
 
@@ -29,6 +29,21 @@ abstract class RouteBuilder extends DSL with CamelDSL with RoutesBuilder {
   private[this] var handle: Option[EmptyDefinition] = None
 
   /**
+    * adds the generated routes to the given Camel Context.
+    * Used by Spring to populate a Camel Context while scanning the package (though xml configuration)
+    * @param context to be populated with generated routes
+    */
+
+  def addRoutesToCamelContext(context: CamelContext): Unit = context match {
+    case model: ModelCamelContext =>
+      val definitions = handle.map(new RouteDefinition(_)).toList ::: this.build().toList
+      val routeBuilder = this.routeBuilder(definitions)(model)
+      model.addRoutes(routeBuilder)
+
+    case other: CamelContext => throw new RuntimeCamelException("Requires a ModelCamelContext in order to add Babel Fish routes to it.")
+  }
+
+  /**
     * defines a set of rules that are applied on the RouteBuilder itself and not on a route.
     * @param block is the rules to be applied to the RouteBuilder
     * @return end of DSL: it is not possible to add other keywords to the current DSL.
@@ -42,21 +57,6 @@ abstract class RouteBuilder extends DSL with CamelDSL with RoutesBuilder {
         throw new CamelException.ErorrHandlingDefinedTwice
     }
     new HandlerDSL[Any](dsl).handle(block)
-  }
-
-  /**
-    * adds the generated routes to the given Camel Context.
-    * Used by Spring to populate a Camel Context while scanning the package (though xml configuration)
-    * @param context to be populated with generated routes
-    */
-
-  def addRoutesToCamelContext(context: CamelContext): Unit = context match {
-    case model: ModelCamelContext =>
-      val definitions = handle.map(new RouteDefinition(_)).toList ::: this.build().toList
-      val routeBuilder = this.routeBuilder(definitions)(model)
-      model.addRoutes(routeBuilder)
-
-    case other => throw new RuntimeCamelException("Requires a ModelCamelContext in order to add Babel Fish routes to it.")
   }
 
 }

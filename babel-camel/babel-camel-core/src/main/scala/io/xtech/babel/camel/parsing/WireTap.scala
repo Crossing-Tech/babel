@@ -8,8 +8,8 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.{ CamelDSL, WireTapDSL }
 import io.xtech.babel.camel.model.WireTapDefinition
+import io.xtech.babel.camel.{ CamelDSL, WireTapDSL }
 import io.xtech.babel.fish.BaseDSL
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.ProcessorDefinition
@@ -21,11 +21,10 @@ import scala.reflect.ClassTag
 /**
   * The wiretap parser.
   */
-private[babel] trait WireTap extends CamelParsing { self: CamelDSL =>
+private[babel] trait WireTap extends CamelParsing {
+  self: CamelDSL =>
 
   abstract override protected def steps: immutable.Seq[Process] = super.steps :+ parse
-
-  protected implicit def wiretapDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new WireTapDSL(baseDsl)
 
   private[this] def parse: Process = {
 
@@ -36,4 +35,6 @@ private[babel] trait WireTap extends CamelParsing { self: CamelDSL =>
     }
 
   }
+
+  protected implicit def wiretapDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new WireTapDSL(baseDsl)
 }

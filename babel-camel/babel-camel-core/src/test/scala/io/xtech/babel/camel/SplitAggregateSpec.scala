@@ -8,13 +8,12 @@
 
 package io.xtech.babel.camel
 
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.test.camel
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
-import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.processor.aggregate.AggregationStrategy
 import org.apache.camel.{ Exchange, Processor }
 import org.specs2.mutable.SpecificationWithJUnit
-import io.xtech.babel.camel.mock._
 
 class SplitAggregateSpec extends SpecificationWithJUnit {
   sequential
@@ -92,6 +91,7 @@ class SplitAggregateSpec extends SpecificationWithJUnit {
   "create a route with an split fold" in new camel {
 
     import io.xtech.babel.camel.builder.RouteBuilder
+
     //#doc:babel-camel-split-fold
 
     val routeDef = new RouteBuilder {

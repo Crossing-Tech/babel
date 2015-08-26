@@ -9,7 +9,7 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.model.{ ThrottlerDefinitionExpression, ThrottlerDefinitionLong }
-import io.xtech.babel.fish.model.{ Expression, Message }
+import io.xtech.babel.fish.model.Message
 import io.xtech.babel.fish.{ BaseDSL, DSL2BaseDSL, MessageExpression }
 
 import scala.reflect.ClassTag
@@ -25,13 +25,6 @@ class ThrottlerDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) extends DSL2B
     * @return the possibility to add other steps to the current DSL
     */
   def throttle(perSecond: Long): BaseDSL[I] = ThrottlerDefinitionLong(perSecond)
-
-  /**
-    * The throttle keyword. Defines the maximal rate that may be use in order to avoid overloading of the rest of the route
-    * @param perSecond number of allowed messages in 1 second using an expression
-    * @return the possibility to add other steps to the current DSL
-    */
-  def throttle(perSecond: Expression[I, Long]): BaseDSL[I] = ThrottlerDefinitionExpression(perSecond)
 
   /**
     * The throttle keyword. Defines the maximal rate that may be use in order to avoid overloading of the rest of the route

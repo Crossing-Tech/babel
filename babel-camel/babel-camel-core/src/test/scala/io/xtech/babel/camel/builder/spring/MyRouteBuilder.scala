@@ -15,4 +15,5 @@ class MyRouteBuilder extends RouteBuilder {
   from("direct:babel-rb-1").routeId("route1").to("mock:babel-rb")
   from("direct:babel-rb-2").routeId("route2").to("mock:babel-rb")
 }
+
 //#doc:babel-camel-spring

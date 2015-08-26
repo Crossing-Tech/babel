@@ -12,7 +12,6 @@ import io.xtech.babel.camel.builder.RouteBuilder
 import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.test.camel
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder, ValueBuilder }
-import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.model.language.HeaderExpression
 import org.specs2.mutable.SpecificationWithJUnit
 

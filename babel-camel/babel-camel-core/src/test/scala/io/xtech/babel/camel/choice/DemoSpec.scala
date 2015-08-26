@@ -8,14 +8,13 @@
 
 package io.xtech.babel.camel.choice
 
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.model.Aggregation.{ CompletionSize, ReduceBody }
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.model.Message
 import org.apache.camel.Exchange
-import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.processor.aggregate.AggregationStrategy
 import org.specs2.mutable.SpecificationWithJUnit
-import io.xtech.babel.camel.mock._
 
 class DemoSpec extends SpecificationWithJUnit {
 
@@ -81,10 +80,10 @@ class DemoSpec extends SpecificationWithJUnit {
     //#doc:babel-camel-demo-scala-2
     val aggregationStrategy = new AggregationStrategy {
       def aggregate(old: Exchange, news: Exchange) =
-        (old, news) match {
-          case (old, null)  => old
-          case (null, news) => news
-          case (old, news) =>
+        (Option(old), Option(news)) match {
+          case (Some(old), None)  => old
+          case (None, Some(news)) => news
+          case (Some(old), Some(news)) =>
             old.getIn.setBody(
               old.getIn.getBody(classOf[Int]) +
                 news.getIn.getBody(classOf[Int]))

@@ -9,7 +9,7 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.model.ErrorHandlingRouteDefinition
-import io.xtech.babel.fish.{ NoDSL, BaseDSL, BaseDSL2FromDSL, FromDSL }
+import io.xtech.babel.fish.{ BaseDSL, NoDSL }
 
 import scala.language.implicitConversions
 import scala.reflect.ClassTag

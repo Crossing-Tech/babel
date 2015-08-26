@@ -9,14 +9,13 @@
 package io.xtech.babel.camel
 
 import io.xtech.babel.camel.builder.RouteBuilder
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.model.Aggregation.{ CamelAggregation, CompletionSize, ReduceBody, _ }
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.MessageExpression
 import io.xtech.babel.fish.model.Message
-import io.xtech.babel.camel.mock._
 import org.apache.camel.Exchange
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
-import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.impl.SimpleRegistry
 import org.apache.camel.processor.aggregate.{ AggregationStrategy, GroupedExchangeAggregationStrategy }
 import org.specs2.mutable.SpecificationWithJUnit
@@ -30,11 +29,13 @@ class AggregateSpec extends SpecificationWithJUnit {
 
   "create a route with an aggregate eip the camel way" in new camel {
     //#doc:babel-camel-aggregate-camel-1
+
     import io.xtech.babel.camel.builder.RouteBuilder
     import org.apache.camel.processor.aggregate.GroupedExchangeAggregationStrategy
+
     val camelAggr = CamelAggregation(MessageExpression((msg: Message[String]) => "1"),
       aggregationStrategy = new GroupedExchangeAggregationStrategy,
-      completionStrategies = List(CompletionSize(3)))
+      completionStrategies = List(CompletionSize(3), CompletionInterval(1000)))
 
     val routeDef = new RouteBuilder {
       //message bodies are converted to String if required
@@ -75,7 +76,9 @@ class AggregateSpec extends SpecificationWithJUnit {
     mockCamel.assertIsSatisfied()
 
     val List(receivedExchanges, camelExchanges) = List(mockEndpoint, mockCamel).map(_.getReceivedExchanges.asScala)
-    val List(groupedExchanges, camelGroupedExchanges) = List(receivedExchanges, camelExchanges).map(x => x.map(ex => ex.getProperty(Exchange.GROUPED_EXCHANGE, classOf[java.util.List[Exchange]]).asScala).flatten)
+    val List(groupedExchanges, camelGroupedExchanges) = List(receivedExchanges, camelExchanges).
+      map(x => x.map(ex => ex.getProperty(Exchange.GROUPED_EXCHANGE, classOf[java.util.List[Exchange]]).asScala).flatten)
+
     val List(bodies, camelBodies) = List(groupedExchanges, camelGroupedExchanges).map(x => x.map(_.getIn.getBody))
 
     bodies must contain("1", "2", "3")
@@ -92,6 +95,7 @@ class AggregateSpec extends SpecificationWithJUnit {
     val camelExp = new MessageExpression((a: Message[String]) => "1")
 
     import io.xtech.babel.camel.model.Aggregation.CamelReferenceAggregation
+
     val camelAggr = CamelReferenceAggregation[String, String](
       correlationExpression = camelExp,
       //defines the string id of the aggregation strategy in the bean registry
@@ -158,7 +162,7 @@ class AggregateSpec extends SpecificationWithJUnit {
       //defines when message may be aggregated
       groupBy = (msg: Message[Int]) => "a",
       //defines the size of the aggregation (3 messages)
-      completionStrategies = List(CompletionSize(3)))
+      completionStrategies = List(CompletionSize(3), CompletionTimeout(1000), ForceCompletionOnStop))
 
     import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -224,7 +228,7 @@ class AggregateSpec extends SpecificationWithJUnit {
       //defines when message may be aggregated
       (msg: Message[Int]) => "a",
       //defines the size of the aggregation (3 messages)
-      completionStrategies = List(CompletionSize(3)))
+      completionStrategies = List(CompletionSize(3), CompletionFromBatchConsumer))
 
     import io.xtech.babel.camel.builder.RouteBuilder
 
@@ -240,7 +244,8 @@ class AggregateSpec extends SpecificationWithJUnit {
         def aggregate(oldExchange: Exchange, newExchange: Exchange): Exchange = {
           Option(oldExchange) match {
             case Some(exchange) =>
-              newExchange.getIn.setBody(exchange.getIn.getBody(classOf[String]) + newExchange.getIn.getBody(classOf[Int]))
+              newExchange.getIn.setBody(exchange.getIn.getBody(classOf[String]) +
+                newExchange.getIn.getBody(classOf[Int]))
               newExchange
             case None =>
               newExchange.getIn.setBody(newExchange.getIn.getBody(classOf[String]))

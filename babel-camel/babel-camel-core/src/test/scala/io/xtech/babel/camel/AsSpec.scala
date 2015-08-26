@@ -8,9 +8,9 @@
 
 package io.xtech.babel.camel
 
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.test.camel
 import org.apache.camel.Exchange
-import io.xtech.babel.camel.mock._
 import org.apache.camel.support.TypeConverterSupport
 import org.specs2.mutable.SpecificationWithJUnit
 

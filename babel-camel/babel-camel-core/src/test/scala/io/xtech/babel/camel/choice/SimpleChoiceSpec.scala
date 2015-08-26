@@ -9,14 +9,13 @@
 package io.xtech.babel.camel.choice
 
 import io.xtech.babel.camel.builder.RouteBuilder
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.test.camel
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
-import io.xtech.babel.camel.mock._
 import org.apache.camel.{ Exchange, Predicate, Processor }
 import org.specs2.mutable.SpecificationWithJUnit
 
 import scala.collection.JavaConverters._
-import io.xtech.babel.camel.mock._
 
 class SimpleChoiceSpec extends SpecificationWithJUnit {
 

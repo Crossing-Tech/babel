@@ -8,12 +8,11 @@
 
 package io.xtech.babel.camel
 
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.model.XPath
 import io.xtech.babel.camel.test.camel
 import org.apache.camel.builder.xml.XPathBuilder
-import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
-import io.xtech.babel.camel.mock._
 
 class XMLSpec extends SpecificationWithJUnit {
   sequential

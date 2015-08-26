@@ -8,13 +8,15 @@
 
 package io.xtech.babel.camel
 
-import io.xtech.babel.camel.mock.Mock
+import io.xtech.babel.camel.javaprocessors.JavaProcessors
+import io.xtech.babel.camel.mock.{ Mock, _ }
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.RouteDefinitionException
 import org.apache.camel.builder.{ RouteBuilder => CRouteBuilder }
 import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
-import io.xtech.babel.camel.mock._
+
+import scala.util.Try
 
 class SplitFilterSpec extends SpecificationWithJUnit {
   "split and filter" should {
@@ -31,7 +33,7 @@ class SplitFilterSpec extends SpecificationWithJUnit {
           //   by a function which returns a string iterator
           .splitBody(body => body.split(",").iterator)
           //the filter will only let continue the one whose body is "true"
-          .filter(msg => msg.body.exists(body => body == "true")).
+          .filterBody(JavaProcessors.containsTrue(_)).
           to("mock:output")
       }
       //#doc:babel-camel-filter
@@ -59,6 +61,7 @@ class SplitFilterSpec extends SpecificationWithJUnit {
 
       mockEndpoint.assertIsSatisfied()
     }
+
     "integrates together in a route using body functions" in new camel {
       //#doc:babel-camel-filter
 
@@ -108,6 +111,84 @@ class SplitFilterSpec extends SpecificationWithJUnit {
       mockCamel1.assertIsSatisfied()
       mockCamel2.assertIsSatisfied()
     }
+
+    " when defining a split with an errorneous predicate should throw an Exception" in new camel {
+
+      import io.xtech.babel.camel.builder.RouteBuilder
+
+      val routeDef = new RouteBuilder {
+        from("direct:input").as[String]
+          .filterBody(body => throw new Exception("Expected exception on predicate")).
+          to("mock:output1").
+          to("mock:output2")
+      }
+
+      val otherRoute = new CRouteBuilder() {
+        def configure(): Unit = {
+          from("direct:camel").filter(body.contains("true")).to("mock:camel1").end().to("mock:camel2")
+        }
+      }
+
+      routeDef.addRoutesToCamelContext(camelContext)
+      camelContext.addRoutes(otherRoute)
+      camelContext.start()
+
+      val producer = camelContext.createProducerTemplate()
+
+      producer.sendBody("direct:input", null) must throwA[Exception]
+
+    }
+
+    "integrates together in a route using predicates" in new camel {
+      //#doc:babel-camel-filter
+
+      import io.xtech.babel.camel.builder.RouteBuilder
+
+      val routeDef = new RouteBuilder {
+        //direct:input receives one message with
+        //   "1,2,3,true,4,5,6,7"
+        from("direct:input").as[String]
+          //the splitBody creates 8 messages with string body
+          //   by a function which returns a string iterator
+          .splitBody(body => body.split(",").iterator)
+          //the filter will only let continue the one whose body is "true"
+          .filterBody(JavaProcessors.containsTrue(_)).
+          to("mock:output1").
+          to("mock:output2")
+      }
+      //#doc:babel-camel-filter
+
+      val otherRoute = new CRouteBuilder() {
+        def configure(): Unit = {
+          from("direct:camel").split(body.tokenize(",")).filter(body.contains("true")).to("mock:camel1").end().to("mock:camel2")
+        }
+      }
+
+      routeDef.addRoutesToCamelContext(camelContext)
+      camelContext.addRoutes(otherRoute)
+      camelContext.start()
+
+      val producer = camelContext.createProducerTemplate()
+
+      val mockEndpoint1 = camelContext.getEndpoint("mock:output1").asInstanceOf[MockEndpoint]
+      val mockEndpoint2 = camelContext.getEndpoint("mock:output2").asInstanceOf[MockEndpoint]
+      val mockCamel1 = camelContext.getEndpoint("mock:camel1").asInstanceOf[MockEndpoint]
+      val mockCamel2 = camelContext.getEndpoint("mock:camel2").asInstanceOf[MockEndpoint]
+
+      mockEndpoint1.expectedBodiesReceived("true")
+      mockEndpoint2.expectedBodiesReceived("true")
+      mockCamel1.expectedBodiesReceived("true")
+      mockCamel2.expectedMessageCount(8) //the second camel endpoint is out of the filter
+
+      producer.sendBody("direct:input", "1,2,3,true,4,5,6,7")
+      producer.sendBody("direct:camel", "1,2,3,true,4,5,6,7")
+
+      mockEndpoint1.assertIsSatisfied()
+      mockEndpoint2.assertIsSatisfied()
+      mockCamel1.assertIsSatisfied()
+      mockCamel2.assertIsSatisfied()
+    }
+
     "integrates together in a complex route" in new camel {
 
       //#doc:babel-camel-splitter
@@ -158,6 +239,7 @@ class SplitFilterSpec extends SpecificationWithJUnit {
       mockEndCamel.assertIsSatisfied()
       mockEndEndpoint.assertIsSatisfied()
     }
+
     "a route ending with filter should be built" in new camel {
 
       import io.xtech.babel.camel.builder.RouteBuilder

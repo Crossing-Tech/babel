@@ -9,6 +9,11 @@ import io.xtech.babel.fish.model.StepDefinition
 trait NamingStrategy {
 
   /**
+    * Identifies the current sequence of EIP.
+    */
+  protected[babel] var routeId: Option[String] = None
+
+  /**
     * Defines how Babel tanslates an EIP to its id, if this is the case.
     * @param stepDefinition the pattern for which an id is requested.
     * @return None if Babel should not provide an id for this pattern, Some id otherwise.
@@ -20,11 +25,6 @@ trait NamingStrategy {
     * Helpful if your naming index the pattern with their position in the sequence.
     */
   protected[babel] def newRoute(): Unit
-
-  /**
-    * Identifies the current sequence of EIP.
-    */
-  protected[babel] var routeId: Option[String] = None
 
 }
 

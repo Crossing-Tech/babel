@@ -21,6 +21,7 @@ import scala.reflect._
 trait SpringSpecification {
 
   type ContextType <: ApplicationContext
+
   def applicationContext: ContextType
 
   def bean[A: ClassTag]: A = applicationContext.getBean(classTag[A].runtimeClass.asInstanceOf[Class[A]])
@@ -30,7 +31,9 @@ trait CamelSpecification {
   self: SpringSpecification =>
 
   def camelContext: ModelCamelContext = applicationContext.getBean(classOf[ModelCamelContext])
+
   def mockEndpoint(uri: String): MockEndpoint = camelContext.getEndpoint(uri, classOf[MockEndpoint])
+
   def producerTemplate(): ProducerTemplate = camelContext.createProducerTemplate()
 }
 
@@ -49,7 +52,7 @@ trait CachedBabelSpringSpecification extends SpecificationWithJUnit with SpringS
     */
   val applicationContext: ContextType
 
-  private[this] def startContext() {
+  private[this] def startContext(): Unit = {
     applicationContext.start()
   }
 
@@ -80,13 +83,13 @@ trait BabelSpringSpecification extends SpecificationWithJUnit with SpringSpecifi
     */
   val applicationContextFactory: () => ContextType
 
-  def before {
+  def before: Unit = {
     val context = applicationContextFactory()
     appContext = Some(context)
     context.start()
   }
 
-  def after {
+  def after: Unit = {
     appContext.foreach(_.stop())
     appContext = None
   }

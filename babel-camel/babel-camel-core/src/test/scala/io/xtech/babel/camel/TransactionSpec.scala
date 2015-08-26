@@ -16,6 +16,7 @@ import io.xtech.babel.camel.test.CachedBabelSpringSpecification
 import org.apache.camel.component.mock.MockEndpoint
 import org.apache.camel.model.ModelCamelContext
 import org.apache.camel.spring.SpringCamelContext
+import org.apache.camel.spring.spi.SpringTransactionPolicy
 import org.springframework.context.annotation.{ AnnotationConfigApplicationContext, Bean, Configuration }
 import org.springframework.core.io.DefaultResourceLoader
 import org.springframework.jdbc.core.JdbcTemplate
@@ -42,15 +43,20 @@ object TransactionSpec {
     }
 
     @Bean
-    def txManager(dataSource: DataSource): DataSourceTransactionManager = {
-      new DataSourceTransactionManager(dataSource)
-    }
-
-    @Bean
     def camelContext: ModelCamelContext = new SpringCamelContext
 
     @Bean
     def jdbcTemplate(dataSource: DataSource): JdbcTemplate = new JdbcTemplate(dataSource)
+
+    @Bean(name = Array("transactionPolicyRef"))
+    def specificSpringTransactionPolicy(dataSource: DataSource): SpringTransactionPolicy = {
+      new SpringTransactionPolicy(txManager(dataSource))
+    }
+
+    @Bean
+    def txManager(dataSource: DataSource): DataSourceTransactionManager = {
+      new DataSourceTransactionManager(dataSource)
+    }
 
   }
 
@@ -77,7 +83,7 @@ class TransactionSpec extends CachedBabelSpringSpecification {
       jdbcTemplate.execute("delete from users")
 
       val routeDef = new RouteBuilder {
-        from("direct:input").transacted(). //defines that the messages are in a transaction
+        from("direct:input0").transacted(). //defines that the messages are in a transaction
           to("sql:insert into users (name) values (#)?dataSourceRef=dataSource").
           to("sql:insert into users (name) values (#)?dataSourceRef=dataSource")
       }
@@ -87,13 +93,36 @@ class TransactionSpec extends CachedBabelSpringSpecification {
 
       val producer = camelContext.createProducerTemplate()
 
-      producer.sendBody("direct:input", "toto")
+      producer.sendBody("direct:input0", "toto")
 
       val numUsers = jdbcTemplate.queryForObject("select count(*) from Users", classOf[Integer])
 
       numUsers mustEqual 2
     }
 
+    "support transaction and rollback with specific transaction policy" in {
+
+      import io.xtech.babel.camel.builder.RouteBuilder
+
+      val jdbcTemplate = bean[JdbcTemplate]
+
+      jdbcTemplate.execute("delete from users")
+
+      val routeDef = new RouteBuilder {
+        from("direct:input1").transacted("transactionPolicyRef").to("sql:insert into users (name) values (#)?dataSourceRef=dataSource").as[String].process(m => throw new Exception("Expected exception")).to("sql:insert into users (name) values (#)?dataSourceRef=dataSource")
+      }
+      routeDef.addRoutesToCamelContext(camelContext)
+
+      camelContext.start()
+
+      val producer = camelContext.createProducerTemplate()
+
+      producer.sendBody("direct:input1", "toto") must throwA[Exception]
+
+      val numUsers = jdbcTemplate.queryForObject("select count(*) from Users", classOf[Integer])
+
+      numUsers mustEqual 0
+    }
     "support transaction and rollback" in {
 
       import io.xtech.babel.camel.builder.RouteBuilder

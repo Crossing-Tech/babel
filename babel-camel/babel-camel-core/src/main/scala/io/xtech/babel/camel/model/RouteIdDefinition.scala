@@ -17,4 +17,5 @@ import io.xtech.babel.fish.model.StepDefinition
 case class RouteIdDefinition(val routeId: String) extends StepDefinition
 
 case class FromIdDefinition(val Id: String) extends StepDefinition
+
 case class IdDefinition(val Id: String) extends StepDefinition

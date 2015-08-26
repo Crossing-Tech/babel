@@ -14,7 +14,7 @@ import io.xtech.babel.fish.model._
 import io.xtech.babel.fish.parsing.{ StepInformation, StepProcessor }
 import io.xtech.babel.fish.{ DSL, NamingStrategy }
 import org.apache.camel.builder.RouteBuilder
-import org.apache.camel.model.{ ProcessorDefinition, ModelCamelContext }
+import org.apache.camel.model.{ ModelCamelContext, ProcessorDefinition }
 
 import scala.collection.immutable
 
@@ -50,7 +50,8 @@ trait CamelDSL extends StepProcessor[RouteBuilder] with Basics
     with RecipientList
     with RouteConfiguration
     with WireTap
-    with Validation { self: DSL =>
+    with Validation {
+  self: DSL =>
 
   protected implicit def namingStrategy: NamingStrategy = DefaultIds.noDefaultIds
 
@@ -66,6 +67,7 @@ trait CamelDSL extends StepProcessor[RouteBuilder] with Basics
   //otherwise, scala implicits would not be able to differ camelPredicateExpression and camelPredicate
   // on a Camel Predicate which extends Camel Expression
   protected implicit def camelPredicateExpression(exp: org.apache.camel.Expression with org.apache.camel.Predicate) = new CamelExpressionWrapper(exp)
+
   protected implicit def camelPredicate(pred: org.apache.camel.Predicate) = new CamelPredicateWrapper(pred)
 
   protected[camel] def process[T](step: StepDefinition, previous: T)(implicit routeBuilder: RouteBuilder) = {

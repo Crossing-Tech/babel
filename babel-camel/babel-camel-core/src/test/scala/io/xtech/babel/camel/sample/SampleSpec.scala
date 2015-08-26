@@ -9,11 +9,10 @@
 package io.xtech.babel.camel.sample
 
 import io.xtech.babel.camel.builder.{ RouteBuilder => BabelRouteBuilder }
+import io.xtech.babel.camel.mock._
 import io.xtech.babel.camel.test.camel
 import io.xtech.babel.fish.model.Message
-import org.apache.camel.component.mock.MockEndpoint
 import org.specs2.mutable.SpecificationWithJUnit
-import io.xtech.babel.camel.mock._
 
 class SampleSpec extends SpecificationWithJUnit {
   sequential

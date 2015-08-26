@@ -70,6 +70,17 @@ private[camel] class HandlingDSL[I: ClassTag](handler: HandlerDSL[I]) {
     * @tparam T type of the handled exception
     * @return the possibility to add other steps to the current DSL which allows specifiction of the exception handling
     */
+  def onBody[T <: Throwable](when: Function[Any, Boolean])(implicit ev: Manifest[T]): OnExceptionDSL = {
+    onBody(BodyPredicate(when))
+  }
+
+  /**
+    * The on keyword defines an Exception Clause to handle exceptions base on its type.
+    * @param when is use to define more precisely when an exception should be handled through the current clause.
+    * @param ev
+    * @tparam T type of the handled exception
+    * @return the possibility to add other steps to the current DSL which allows specifiction of the exception handling
+    */
   def onBody[T <: Throwable](when: BodyPredicate[Any])(implicit ev: Manifest[T]): OnExceptionDSL = {
     val definition = OnExceptionDefinition[T](ev.runtimeClass.asInstanceOf[Class[T]], Some(when))
     //todo connect before and after handling
@@ -85,34 +96,23 @@ private[camel] class HandlingDSL[I: ClassTag](handler: HandlerDSL[I]) {
     * @tparam T type of the handled exception
     * @return the possibility to add other steps to the current DSL which allows specifiction of the exception handling
     */
+  def on[T <: Throwable](when: Function[Message[Any], Boolean])(implicit ev: Manifest[T]): OnExceptionDSL = {
+    on(MessagePredicate(when))
+  }
+
+  /**
+    * The on keyword defines an Exception Clause to handle exceptions base on its type.
+    * @param when is use to define more precisely when an exception should be handled through the current clause.
+    * @param ev
+    * @tparam T type of the handled exception
+    * @return the possibility to add other steps to the current DSL which allows specifiction of the exception handling
+    */
   def on[T <: Throwable](when: MessagePredicate[Any])(implicit ev: Manifest[T]): OnExceptionDSL = {
     val definition = OnExceptionDefinition[T](ev.runtimeClass.asInstanceOf[Class[T]], Some(when))
     //todo connect before and after handling
     handler.definition.scopedSteps +:= definition
 
     new OnExceptionDSL(new BaseDSL[Any](definition), definition)
-  }
-
-  /**
-    * The on keyword defines an Exception Clause to handle exceptions base on its type.
-    * @param when is use to define more precisely when an exception should be handled through the current clause.
-    * @param ev
-    * @tparam T type of the handled exception
-    * @return the possibility to add other steps to the current DSL which allows specifiction of the exception handling
-    */
-  def onBody[T <: Throwable](when: Function[Any, Boolean])(implicit ev: Manifest[T]): OnExceptionDSL = {
-    onBody(BodyPredicate(when))
-  }
-
-  /**
-    * The on keyword defines an Exception Clause to handle exceptions base on its type.
-    * @param when is use to define more precisely when an exception should be handled through the current clause.
-    * @param ev
-    * @tparam T type of the handled exception
-    * @return the possibility to add other steps to the current DSL which allows specifiction of the exception handling
-    */
-  def on[T <: Throwable](when: Function[Message[Any], Boolean])(implicit ev: Manifest[T]): OnExceptionDSL = {
-    on(MessagePredicate(when))
   }
 
   /**
@@ -199,8 +199,9 @@ private[camel] class RedeliveryDSL(handling: RedeliveryErrorHandling) {
     * @param count of redeliveries at most
     * @see  org.apache.camel.processor.RedeliveryPolicy.maximumRedeliveries
     */
-  def maximumRedeliveries(count: Int): Unit = {
+  def maximumRedeliveries(count: Int): RedeliveryDSL = {
     handling.redeliveryPolicy((x: RedeliveryPolicy) => x.maximumRedeliveries(count))
+    this
   }
 
   /**
@@ -208,8 +209,9 @@ private[camel] class RedeliveryDSL(handling: RedeliveryErrorHandling) {
     * @param delay initial for redelivery
     * @see  org.apache.camel.processor.RedeliveryPolicy.redeliveryDelay
     */
-  def redeliveryDelay(delay: Long): Unit = {
+  def redeliveryDelay(delay: Long): RedeliveryDSL = {
     handling.redeliveryPolicy((x: RedeliveryPolicy) => x.redeliveryDelay(delay))
+    this
   }
 
   /**
@@ -217,8 +219,9 @@ private[camel] class RedeliveryDSL(handling: RedeliveryErrorHandling) {
     * @param delay max for redelivery
     * @see  org.apache.camel.processor.RedeliveryPolicy.maximumRedeliveryDelay
     */
-  def maximumRedeliveryDelay(delay: Long): Unit = {
+  def maximumRedeliveryDelay(delay: Long): RedeliveryDSL = {
     handling.redeliveryPolicy((x: RedeliveryPolicy) => x.maximumRedeliveryDelay(delay))
+    this
   }
 }
 
@@ -230,12 +233,30 @@ private[camel] class RedeliveryDSL(handling: RedeliveryErrorHandling) {
 private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExceptionDefinition[_]) extends ErrorHandlingDSL[Any](baseDsl) {
   /**
     * Defines that the exchange should continue the normal flow if corresponding to some Predicate on its Body.
+    * @param function which allows the exchange to keep going on depending on the original message body (before the exception)
+    * @return the ability to define a sub route that also receives the exchange
+    */
+  def continuedBody(function: Function[Any, Boolean]): ErrorHandlingDSL[Any] = {
+    continuedBody(BodyPredicate(function))
+  }
+
+  /**
+    * Defines that the exchange should continue the normal flow if corresponding to some Predicate on its Body.
     * @param predicate which allows the exchange to keep going on depending on the original message body (before the exception)
     * @return the ability to define a sub route that also receives the exchange
     */
   def continuedBody(predicate: BodyPredicate[Any]): ErrorHandlingDSL[Any] = {
     onException.continue(predicate)
     new ErrorHandlingDSL[Any](baseDsl)
+  }
+
+  /**
+    * Defines that the exchange should continue the normal flow if corresponding to some Predicate on the Message.
+    * @param function which allows the exchange to keep going on depending on the original message (before the exception)
+    * @return the ability to define a sub route that also receives the exchange
+    */
+  def continued(function: Function[Message[Any], Boolean]): ErrorHandlingDSL[Any] = {
+    continued(MessagePredicate(function))
   }
 
   /**
@@ -249,21 +270,12 @@ private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExcept
   }
 
   /**
-    * Defines that the exchange should continue the normal flow if corresponding to some Predicate on its Body.
-    * @param function which allows the exchange to keep going on depending on the original message body (before the exception)
-    * @return the ability to define a sub route that also receives the exchange
+    * Defines that the exchange should be handled if corresponding to some Predicate on its Body.
+    * @param function which allows the exchange exception to be tagged as handled depending on the original message body (before the exception)
+    * @return the ability to define a sub route that receives the exchange
     */
-  def continuedBody(function: Function[Any, Boolean]): ErrorHandlingDSL[Any] = {
-    continuedBody(BodyPredicate(function))
-  }
-
-  /**
-    * Defines that the exchange should continue the normal flow if corresponding to some Predicate on the Message.
-    * @param function which allows the exchange to keep going on depending on the original message (before the exception)
-    * @return the ability to define a sub route that also receives the exchange
-    */
-  def continued(function: Function[Message[Any], Boolean]): ErrorHandlingDSL[Any] = {
-    continued(MessagePredicate(function))
+  def handledBody(function: Function[Any, Boolean]): ErrorHandlingDSL[Any] = {
+    handledBody(BodyPredicate(function))
   }
 
   /**
@@ -278,30 +290,21 @@ private[camel] class OnExceptionDSL(baseDsl: BaseDSL[Any], onException: OnExcept
 
   /**
     * Defines that the exchange should be handled if corresponding to some Predicate on the Message.
+    * @param function which allows the exchange exception to be tagged as handled depending on the original message (before the exception)
+    * @return the ability to define a sub route that receives the exchange
+    */
+  def handled(function: Function[Message[Any], Boolean]): ErrorHandlingDSL[Any] = {
+    handled(MessagePredicate(function))
+  }
+
+  /**
+    * Defines that the exchange should be handled if corresponding to some Predicate on the Message.
     * @param predicate which allows the exchange exception to be tagged as handled depending on the original message (before the exception)
     * @return the ability to define a sub route that receives the exchange
     */
   def handled(predicate: MessagePredicate[Any]): ErrorHandlingDSL[Any] = {
     onException.handle(predicate)
     new ErrorHandlingDSL[Any](baseDsl)
-  }
-
-  /**
-    * Defines that the exchange should be handled if corresponding to some Predicate on its Body.
-    * @param function which allows the exchange exception to be tagged as handled depending on the original message body (before the exception)
-    * @return the ability to define a sub route that receives the exchange
-    */
-  def handledBody(function: Function[Any, Boolean]): ErrorHandlingDSL[Any] = {
-    handledBody(BodyPredicate(function))
-  }
-
-  /**
-    * Defines that the exchange should be handled if corresponding to some Predicate on the Message.
-    * @param function which allows the exchange exception to be tagged as handled depending on the original message (before the exception)
-    * @return the ability to define a sub route that receives the exchange
-    */
-  def handled(function: Function[Message[Any], Boolean]): ErrorHandlingDSL[Any] = {
-    handled(MessagePredicate(function))
   }
 
 }
