@@ -38,7 +38,7 @@ private[camel] class EnricherDSL[I: ClassTag](protected val baseDsl: BaseDSL[I])
     */
   def enrichRef[O: ClassTag, S](sink: S, aggregationStrategyRef: String)(implicit c: S => Sink[I, O]): BaseDSL[O] = {
 
-    EnrichRefDefinition[I, O](sink, aggregationStrategyRef)
+    EnrichDefinition(sink, Left(aggregationStrategyRef))
   }
 
   /**
@@ -54,7 +54,7 @@ private[camel] class EnricherDSL[I: ClassTag](protected val baseDsl: BaseDSL[I])
   @deprecated(deprecationMessage)
   def enrich[O: ClassTag, S](sink: S, strategy: AggregationStrategy)(implicit c: S => Sink[I, O]): BaseDSL[O] = {
 
-    EnrichDefinition[I, O](sink, strategy)
+    EnrichDefinition(sink, Right(strategy))
   }
 
   /**
@@ -69,7 +69,7 @@ private[camel] class EnricherDSL[I: ClassTag](protected val baseDsl: BaseDSL[I])
     */
   def enrich[O: ClassTag, S, T: ClassTag](sink: S, strategy: (I, O) => T)(implicit c: S => Sink[I, O]): BaseDSL[T] = {
 
-    EnrichFunctionalDefinition[I, O, T](sink, strategy)
+    EnrichDefinition(sink, Right(new EnrichBodyAggregationStrategy(strategy)))
   }
 
   /**
@@ -88,7 +88,7 @@ private[camel] class EnricherDSL[I: ClassTag](protected val baseDsl: BaseDSL[I])
   @deprecated(deprecationMessage)
   def pollEnrichRef[O: ClassTag, S](sink: S, strategy: String, timeout: Int = -1)(implicit c: S => Sink[I, O]): BaseDSL[O] = {
 
-    PollEnrichRefDefinition[I, O](sink, strategy, timeout)
+    PollEnrichDefinition(sink, Left(strategy), timeout)
 
   }
 
@@ -108,7 +108,7 @@ private[camel] class EnricherDSL[I: ClassTag](protected val baseDsl: BaseDSL[I])
   @deprecated(deprecationMessage)
   def pollEnrichAggregation[O: ClassTag, S](sink: S, strategy: AggregationStrategy, timeout: Int = -1)(implicit c: S => Sink[I, O]): BaseDSL[O] = {
 
-    PollEnrichDefinition[I, O](sink, strategy, timeout)
+    PollEnrichDefinition(sink, Right(strategy), timeout)
 
   }
 
@@ -127,7 +127,7 @@ private[camel] class EnricherDSL[I: ClassTag](protected val baseDsl: BaseDSL[I])
     */
   def pollEnrich[O: ClassTag, S, T: ClassTag](sink: S, strategy: Function2[I, O, T], timeout: Int = -1)(implicit c: S => Sink[I, O]): BaseDSL[T] = {
 
-    PollEnrichFunctionalDefinition[I, O, T](sink, strategy, timeout)
+    PollEnrichDefinition(sink, Right(new EnrichBodyAggregationStrategy(strategy)), timeout)
 
   }
 }
