@@ -23,7 +23,7 @@ case class ChoiceDefinition[I]() extends ScopeDefinition[WhenDefinition[I]] {
     * @see WhenDefinition
     * @return a list of subroutes
     */
-  private[camel] var otherwise: Option[OtherwiseDefinition] = None
+  var otherwise: Option[OtherwiseDefinition] = None
 
   /**
     * A helper method for non-scala language.

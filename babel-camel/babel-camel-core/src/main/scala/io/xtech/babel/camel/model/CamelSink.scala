@@ -23,7 +23,7 @@ case class CamelSink[-I](uri: String) extends Sink[I, Any]
   * Used in the multicast
   */
 protected[camel] object SeqCamelSink {
-   def unapplySeq(m: immutable.Seq[Sink[_, _]]): Option[Seq[CamelSink[_]]] = {
+  def unapplySeq(m: immutable.Seq[Sink[_, _]]): Option[Seq[CamelSink[_]]] = {
 
     val t = m.collect {
       case s: CamelSink[_] => s

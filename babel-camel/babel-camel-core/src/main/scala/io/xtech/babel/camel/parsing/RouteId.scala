@@ -41,7 +41,7 @@ private[babel] trait RouteId extends CamelParsing {
           }
         case other: Any =>
           namingStrategy.routeId = Some(routeId)
-      }e
+      }
       camelProcessorDefinition.routeId(routeId)
 
     }

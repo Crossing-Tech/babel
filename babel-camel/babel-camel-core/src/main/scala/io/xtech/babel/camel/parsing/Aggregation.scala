@@ -8,8 +8,8 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.model.Aggregation._
 import io.xtech.babel.camel.model.{ CamelMessageExpression, Expressions, FoldBodyAggregationStrategy, ReduceBodyAggregationStrategy }
+import io.xtech.babel.camel.model.Aggregation._
 import io.xtech.babel.fish.model.AggregationDefinition
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.{ AggregateDefinition, ProcessorDefinition }
