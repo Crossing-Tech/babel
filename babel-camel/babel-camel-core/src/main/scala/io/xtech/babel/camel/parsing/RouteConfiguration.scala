@@ -31,79 +31,32 @@ private[babel] trait RouteConfiguration extends CamelParsing {
   private[this] def parse: Process = {
 
     case StepInformation(AutoStartDefinition(autoStart), camelProcessorDefinition: RouteDefinition) =>
-
       camelProcessorDefinition.autoStartup(autoStart)
-      camelProcessorDefinition
 
     case StepInformation(d: OnExchangeBeginDefinition[_], camelProcessorDefinition: RouteDefinition) =>
-
-      camelProcessorDefinition.routePolicy(new RoutePolicyInterface {
-        override def onExchangeBegin(route: Route, exchange: Exchange): Unit = {
-          d.asInstanceOf[OnExchangeBeginDefinition[Any]].callback(route, new CamelMessage[Any](exchange.getIn))
-        }
-      })
-
-      camelProcessorDefinition
+      camelProcessorDefinition.routePolicy(new RoutePolicyInterface(oeb = Some(d)))
 
     case StepInformation(d: OnExchangeDoneDefinition[_], camelProcessorDefinition: RouteDefinition) =>
-
-      camelProcessorDefinition.routePolicy(new RoutePolicyInterface {
-        override def onExchangeDone(route: Route, exchange: Exchange): Unit = {
-          d.asInstanceOf[OnExchangeDoneDefinition[Any]].callback(route, new CamelMessage[Any](exchange.getIn))
-        }
-      })
-
-      camelProcessorDefinition
+      camelProcessorDefinition.routePolicy(new RoutePolicyInterface(oed = Some(d)))
 
     case StepInformation(d: OnStopDefinition, camelProcessorDefinition: RouteDefinition) =>
-
-      camelProcessorDefinition.routePolicy(new RoutePolicyInterface {
-        override def onStop(route: Route): Unit = d.callback(route)
-      })
-
-      camelProcessorDefinition
+      camelProcessorDefinition.routePolicy(new RoutePolicyInterface(os = Some(d)))
 
     case StepInformation(d: OnResumeDefinition, camelProcessorDefinition: RouteDefinition) =>
-
-      camelProcessorDefinition.routePolicy(new RoutePolicyInterface {
-        override def onResume(route: Route): Unit = d.callback(route)
-      })
-
-      camelProcessorDefinition
+      camelProcessorDefinition.routePolicy(new RoutePolicyInterface(or = Some(d)))
 
     case StepInformation(d: OnInitDefinition, camelProcessorDefinition: RouteDefinition) =>
-
-      camelProcessorDefinition.routePolicy(new RoutePolicyInterface {
-        override def onInit(route: Route): Unit = d.callback(route)
-      })
-
-      camelProcessorDefinition
+      camelProcessorDefinition.routePolicy(new RoutePolicyInterface(oi = Some(d)))
 
     case StepInformation(d: OnRemoveDefinition, camelProcessorDefinition: RouteDefinition) =>
-
-      camelProcessorDefinition.routePolicy(new RoutePolicyInterface {
-        override def onRemove(route: Route): Unit = d.callback(route)
-      })
-
-      camelProcessorDefinition
+      camelProcessorDefinition.routePolicy(new RoutePolicyInterface(orm = Some(d)))
 
     case StepInformation(d: OnStartDefinition, camelProcessorDefinition: RouteDefinition) =>
 
-      camelProcessorDefinition.routePolicy(new RoutePolicyInterface {
-        override def onStart(route: Route): Unit = d.callback(route)
-      })
-
-      camelProcessorDefinition
+      camelProcessorDefinition.routePolicy(new RoutePolicyInterface(ost = Some(d)))
 
     case StepInformation(d: OnSuspendDefinition, camelProcessorDefinition: RouteDefinition) =>
-      camelProcessorDefinition.routePolicy(new RoutePolicyInterface {
-
-        override def onSuspend(route: Route): Unit = {
-          d.callback(route)
-        }
-      })
-
-      camelProcessorDefinition
+      camelProcessorDefinition.routePolicy(new RoutePolicyInterface(osu = Some(d)))
 
     case s @ StepInformation(policies: RoutePolicyDefinition, camelProcessorDefinition: ProcessorDefinition[_]) =>
       s.buildHelper.getRouteCollection.getRoutes.asScala.lastOption.map(_.routePolicy(policies.policy: _*))
@@ -115,20 +68,32 @@ private[babel] trait RouteConfiguration extends CamelParsing {
 
 }
 
-trait RoutePolicyInterface extends RoutePolicy {
-  def onExchangeDone(route: Route, exchange: Exchange): Unit = {}
+class RoutePolicyInterface(oed: Option[OnExchangeDoneDefinition[_]] = None,
+                           oeb: Option[OnExchangeBeginDefinition[_]] = None,
+                           os: Option[OnStopDefinition] = None,
+                           or: Option[OnResumeDefinition] = None,
+                           oi: Option[OnInitDefinition] = None,
+                           orm: Option[OnRemoveDefinition] = None,
+                           ost: Option[OnStartDefinition] = None,
+                           osu: Option[OnSuspendDefinition] = None) extends RoutePolicy {
 
-  def onStop(route: Route): Unit = {}
+  private implicit def unlift[I](exchange: Exchange): CamelMessage[I] = {
+    new CamelMessage[I](exchange.getIn)
+  }
 
-  def onExchangeBegin(route: Route, exchange: Exchange): Unit = {}
+  def onExchangeDone(route: Route, exchange: Exchange): Unit = oed.fold({})(_.callback(route, exchange))
 
-  def onResume(route: Route): Unit = {}
+  def onExchangeBegin(route: Route, exchange: Exchange): Unit = oeb.fold({})(_.callback(route, exchange))
 
-  def onInit(route: Route): Unit = {}
+  def onResume(route: Route): Unit = or.fold({})(_.callback(route))
 
-  def onRemove(route: Route): Unit = {}
+  def onInit(route: Route): Unit = oi.fold({})(_.callback(route))
 
-  def onStart(route: Route): Unit = {}
+  def onRemove(route: Route): Unit = orm.fold({})(_.callback(route))
 
-  def onSuspend(route: Route): Unit = {}
+  def onStop(route: Route): Unit = os.fold({})(_.callback(route))
+
+  def onStart(route: Route): Unit = ost.fold({})(_.callback(route))
+
+  def onSuspend(route: Route): Unit = osu.fold({})(_.callback(route))
 }
