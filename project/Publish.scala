@@ -12,15 +12,17 @@ import sbt._
 object Publish {
 
   lazy val settings = Seq(
+    resolvers += "Crossing-Tech Nexus" at "http://nexus.xtech.io/content/groups/development",
+    credentials += Credentials(Path.userHome / ".sbt" / ".credentials"),
     publishMavenStyle := true,
     publishArtifact in Test := false,
     pomIncludeRepository := { _ => false },
     publishTo := {
-      val nexus = "https://oss.sonatype.org/"
+      val nexus = "https://nexus.xtech.io/"
       if (isSnapshot.value)
         Some("snapshots" at nexus + "content/repositories/snapshots")
       else
-        Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+        Some("releases"  at nexus + "content/repositories/staging")
     },
     pomExtra := (<inceptionYear>2014</inceptionYear>
       <url>http://www.crossing-tech.com</url>
