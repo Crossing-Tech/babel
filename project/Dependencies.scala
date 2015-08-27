@@ -20,7 +20,8 @@ object Dependencies {
 
   lazy val babelFish = Seq(libraryDependencies ++= test, OsgiKeys.exportPackage := Seq("io.xtech.babel.fish.*"))
 
-  lazy val babelCamelMock = camelDependencies ++ Seq(
+  lazy val babelCamelMock =  Seq(
+    libraryDependencies ++= Seq(camelCore(fixedCamelVersion)) ++ test,
     OsgiKeys.exportPackage := Seq("io.xtech.babel.camel.mock")
   )
 
@@ -50,7 +51,7 @@ object Dependencies {
 
   private[this] lazy val camelTestsDependencies = Seq(
     libraryDependencies <++= (Build.camelVersion) { (dv) =>
-      Seq(cglib, h2, slf4j)
+      Seq(cglib, h2, slf4j) ++ Seq("io.xtech.babel" %% "babel-camel-mock" % Build.artifactVersion exclude("org.apache.camel", "camel-core"))
     }
   )
 
