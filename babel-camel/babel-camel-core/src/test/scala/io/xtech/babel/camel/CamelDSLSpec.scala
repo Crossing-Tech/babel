@@ -311,10 +311,3 @@ class CamelDSLSpec extends SpecificationWithJUnit {
     }
   }
 }
-
-class MyNames extends DefaultManagementNamingStrategy {
-  override def getObjectNameForProcessor(context: CamelContext, processor: Processor, name: NamedNode): ObjectName = {
-    new ObjectName(name.getId + "_" + name.getShortName + "_" + name.getLabel + "//" + processor.getClass.toString)
-
-  }
-}

@@ -148,23 +148,7 @@ class IdSpec extends SpecificationWithJUnit {
       }
       //#doc:babel-camel-id-strategy
 
-      val route = new org.apache.camel.builder.RouteBuilder() {
-
-        override def configure(): Unit = {
-          from("direct:camel").routeId("camel")
-            .process(new Processor {
-              override def process(p1: Exchange): Unit = {
-                println("toto")
-              }
-            }).id("toto-camel")
-            .to("mock:camel")
-        }
-      }
-
       routeDef.addRoutesToCamelContext(camelContext)
-      camelContext.addRoutes(route)
-
-      camelContext.asInstanceOf[ModelCamelContext].getManagementStrategy.setManagementNamingStrategy(new MyNames())
 
       camelContext.start()
 
@@ -175,7 +159,6 @@ class IdSpec extends SpecificationWithJUnit {
 
       producer.sendBody("direct:input", "blabli")
 
-      camelContext.getRouteDefinition("camel").getOutputs.get(0).getId === "toto-camel"
       camelContext.getRouteDefinition("babel").getOutputs.get(1).getId === "log:body ${body}"
 
       mockEnpoint.assertIsSatisfied()
