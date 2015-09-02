@@ -21,7 +21,7 @@ import scala.reflect._
   */
 class CamelMessage[I](message: NativeMessage) extends Message[I] {
 
-  validateCamelMessage(message)
+  validate(message)
 
   def body: Option[I] = Option(message.getBody.asInstanceOf[I])
 
@@ -88,7 +88,7 @@ class CamelMessage[I](message: NativeMessage) extends Message[I] {
     val properties = message.getExchange.getProperties.asScala.toMap
     val newProperties = f(properties)
     message.getExchange.getProperties.keySet().asScala.foreach(p => message.getExchange.removeProperty(p))
-    newProperties.foreach(p => message.getExchange.setProperty(p._1, p._2))
+    newProperties.foreach { case (key, value) => message.getExchange.setProperty(key, value) }
     new CamelMessage[I](message)
   }
 
@@ -131,7 +131,7 @@ class CamelMessage[I](message: NativeMessage) extends Message[I] {
     */
   def exchange: Exchange = message.getExchange
 
-  private[this] def validateCamelMessage(msg: NativeMessage): Unit = {
+  private[this] def validate(msg: NativeMessage): Unit = {
     require(msg != null, "a camel message is mandatory")
     // TODO needs final version of scala reflection
   }

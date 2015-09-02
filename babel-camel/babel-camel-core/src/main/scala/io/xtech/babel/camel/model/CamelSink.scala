@@ -22,8 +22,8 @@ case class CamelSink[-I](uri: String) extends Sink[I, Any]
   * An utility object used in matchers to extract a Seq of a CamelSink from a Seq of Sink
   * Used in the multicast
   */
-object SeqCamelSink {
-  def unapplySeq(m: immutable.Seq[Sink[_, _]]) = {
+protected[camel] object SeqCamelSink {
+  def unapplySeq(m: immutable.Seq[Sink[_, _]]): Option[Seq[CamelSink[_]]] = {
 
     val t = m.collect {
       case s: CamelSink[_] => s

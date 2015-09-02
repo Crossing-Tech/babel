@@ -7,8 +7,8 @@
  */
 
 import com.typesafe.sbt.osgi.OsgiKeys
-import sbt.Keys._
 import sbt._
+import sbt.Keys._
 
 object Dependencies {
 
@@ -17,6 +17,7 @@ object Dependencies {
   private val optionalScope = "optional"
   private val camelModulePrefix = s"camel"
   private val camelGroupId = "org.apache.camel"
+  private val snapshotSuffix = "-SNAPSHOT"
 
   lazy val babelFish = Seq(libraryDependencies ++= test, OsgiKeys.exportPackage := Seq("io.xtech.babel.fish.*"))
 
@@ -46,7 +47,7 @@ object Dependencies {
     }else{
     ""
     }
-    babel.replace("-SNAPSHOT","") + camelVersion + {if (babel.endsWith("-SNAPSHOT")) {"-SNAPSHOT"} else {""}}
+    babel.replace(snapshotSuffix,"") + camelVersion + {if (babel.endsWith(snapshotSuffix)) {snapshotSuffix} else {""}}
   }
 
   private[this] lazy val camelTestsDependencies = Seq(
@@ -66,7 +67,8 @@ object Dependencies {
   private[this] val csvForTest = "org.apache.commons" % "commons-csv" % "1.1" % testScope
   private[this] val xomForTest = "xom" % "xom" % "1.2.5" % testScope
 
-  private[this] def camel(camelVersion: String) = Seq(camelCore, camelXmlJson, camelCsv, camelSql, camelSpring, camelScala, camelQuartz, camelTest).map(x => (x(camelVersion)))
+  private[this] def camel(camelVersion: String) = Seq(camelCore, camelXmlJson, camelCsv, camelSql,
+    camelSpring, camelScala, camelQuartz, camelTest).map(x => (x(camelVersion)))
 
   private[this] val commoncsv = "org.apache.servicemix.bundles" % "org.apache.servicemix.bundles.commons-csv" % "1.0-r706900_3" % testScope
 
