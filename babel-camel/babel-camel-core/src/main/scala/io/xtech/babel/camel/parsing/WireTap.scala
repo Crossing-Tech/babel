@@ -8,9 +8,10 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.model.WireTapDefinition
 import io.xtech.babel.camel.{ CamelDSL, WireTapDSL }
+import io.xtech.babel.camel.model.WireTapDefinition
 import io.xtech.babel.fish.BaseDSL
+import io.xtech.babel.fish.model.Message
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.model.ProcessorDefinition
 
@@ -37,4 +38,13 @@ private[babel] trait WireTap extends CamelParsing {
   }
 
   protected implicit def wiretapDSLExtension[I: ClassTag](baseDsl: BaseDSL[I]) = new WireTapDSL(baseDsl)
+}
+
+object Wiring {
+  val key: String = "babel-wiring-body"
+
+  def getCount(msg: Message[_]): Int = {
+    msg.headers.keys.count(_.startsWith(Wiring.key))
+  }
+
 }

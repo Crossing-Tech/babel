@@ -16,7 +16,7 @@ import org.specs2.mutable.SpecificationWithJUnit
 class WireTapSpec extends SpecificationWithJUnit {
   sequential
 
-  "create a multicast,aggregate route" in new camel {
+  "create a wire-tap" in new camel {
 
     val testMessage = "test"
     val wireTapMessage = "tap"
@@ -70,6 +70,46 @@ class WireTapSpec extends SpecificationWithJUnit {
     mockEndpointC.assertIsSatisfied()
     mockEndpointCT.assertIsSatisfied()
     mockEndpointB.assertIsSatisfied()
+    mockEndpointBT.assertIsSatisfied()
+
+  }
+
+  "create a functionnal wire-tap" in new camel {
+
+    val testMessage = "test"
+    val wireTapMessage = "tap"
+
+    import io.xtech.babel.camel.builder.RouteBuilder
+
+    val routeDef = new RouteBuilder {
+      //#doc:babel-camel-wiretap-functional
+      from("direct:input-babel").
+        //Incoming messages are sent to the direct endpoint
+        //   and to the next mock endpoint
+        sideEffect(_.to("mock:in-wire").processBody(_ => wireTapMessage).to("mock:out-wire"))
+        .to("mock:output")
+      //#doc:babel-camel-wiretap-functional
+
+    }
+
+    routeDef.addRoutesToCamelContext(camelContext)
+
+    camelContext.start()
+
+    val mockEndpointBI = camelContext.mockEndpoint("in-wire")
+    val mockEndpointBO = camelContext.mockEndpoint("out-wire")
+    val mockEndpointBT = camelContext.mockEndpoint("output")
+
+    mockEndpointBI.expectedBodiesReceived(testMessage)
+    mockEndpointBO.expectedBodiesReceived(wireTapMessage)
+    mockEndpointBT.expectedBodiesReceived(testMessage)
+
+    val producer = camelContext.createProducerTemplate()
+
+    producer.sendBody("direct:input-babel", testMessage)
+
+    mockEndpointBI.assertIsSatisfied()
+    mockEndpointBO.assertIsSatisfied()
     mockEndpointBT.assertIsSatisfied()
 
   }

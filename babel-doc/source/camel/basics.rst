@@ -76,6 +76,10 @@ With a **log**, you can log a defined string (which may use Camel Simple Express
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/LogSpec.scala#doc:babel-camel-logging
 
+You may also use a function to define what should be logged:
+
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/LogSpec.scala#doc:babel-camel-logging-functionnal
+
 Route configuration
 +++++++++++++++++++
 
