@@ -8,15 +8,18 @@
 
 package io.xtech.babel.camel.parsing
 
-import io.xtech.babel.camel.CamelDSL
 import io.xtech.babel.camel.model._
+import io.xtech.babel.camel.{ CamelDSL, MulticastWithAggregationDSL }
 import io.xtech.babel.fish.model._
+import io.xtech.babel.fish.MulticastDSL
 import io.xtech.babel.fish.parsing.StepInformation
 import org.apache.camel.ExchangePattern
 import org.apache.camel.model.{ ProcessorDefinition, SplitDefinition }
 
+import scala.collection.JavaConverters._
 import scala.collection.immutable
 import scala.language.implicitConversions
+import scala.reflect.ClassTag
 
 /**
   * Basics is the main parsing trait. It contains the main (or most basic) keywords parsing.
@@ -24,6 +27,8 @@ import scala.language.implicitConversions
   */
 private[babel] trait Basics extends CamelParsing {
   self: CamelDSL =>
+
+  protected implicit def multicastAggregateDSLExtension[I: ClassTag](baseDsl: MulticastDSL[I]) = new MulticastWithAggregationDSL[I](baseDsl)
 
   protected def steps: immutable.Seq[Process] = immutable.Seq(from,
     handle,
@@ -64,7 +69,14 @@ private[babel] trait Basics extends CamelParsing {
 
       val uris = sinks.map(_.uri)
       val javaUris = uris.toArray
-      camelProcessorDefinition.multicast().to(javaUris: _*).withId(step)
+      camelProcessorDefinition.multicast().to(javaUris: _*).withId(step).end()
+    }
+
+    case StepInformation(step @ MulticastAggregationDefinition(aggregation), camelProcessorDefinition: ProcessorDefinition[RouteDefinition]) => {
+
+      val multicast = camelProcessorDefinition.getOutputs.asScala.lastOption
+      multicast.map(_.asInstanceOf[org.apache.camel.model.MulticastDefinition].setAggregationStrategy(aggregation))
+      camelProcessorDefinition
 
     }
   }

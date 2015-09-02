@@ -10,6 +10,10 @@ The **multicast** keywords defines a static list of outputs where the message is
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/MulticastSpec.scala#doc:babel-camel-multicast
 
+You may configure the multicast with an aggregation strategy to define how to merge messages that are output by the multicast's branches.
+
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/MulticastSpec.scala#doc:babel-camel-multicast-2
+
 Recipient list
 ++++++++++++++
 
