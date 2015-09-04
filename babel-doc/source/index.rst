@@ -47,7 +47,9 @@ Currently, Babel provides an API on top of Apache Camel which may be used in Sca
       <br/>
       </div>
 
-This documentation concerns the version 0.7.0. You may also access the `previous released version <http://crossing-tech.github.io/babel/0.6.0/index.html>`_ documentation.
+.. only:: html
+
+   This documentation concerns the version 0.8.0. You may also access the `previous released version <http://crossing-tech.github.io/babel/0.7.0/index.html>`_ documentation.
 
 
 To use Babel on top of Camel, you may use the Babel Camel module. Please have a look to the :ref:`babel-quick-start` and to the :ref:`babel-camel-guide` for more details and examples.
@@ -71,6 +73,13 @@ In the following code snippet, we compare Babel and Camel Scala DSL. Those two r
 
    ==========================================================================================================================================   ==========================================================================================================================================
 
+
+.. note::
+In the following documentation,
+
+   * Keywords are written such as **from**, **to** or **process**
+   * Classes, packages, modules are written such as ``RouteBuilder`` or ``io.xtech.babel``
+
 In the following sections,
 
 .. toctree::
@@ -83,11 +92,7 @@ In the following sections,
    devguide
 
 
-.. note::
-   In the following documentation,
 
-   * Keywords are written such as **from**, **to** or **process**
-   * Classes, packages, modules are written such as ``RouteBuilder`` or ``io.xtech.babel``
 
 
 

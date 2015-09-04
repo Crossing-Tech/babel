@@ -36,5 +36,5 @@ Explanation
 
 Example
 ~~~~~~~
-.. includecode:: ../../../babel-camel/babel-camel-mock/src/main/scala/io/xtech/babel/camel/mock/MockDSL.scala#doc:babel-mock
+.. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/MockSpec.scala#doc:babel-camel-mock
 

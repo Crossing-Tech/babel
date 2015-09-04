@@ -6,7 +6,7 @@
 #virtualenv ENV
 #source ./ENV/bin/activate
 
-pip install sphinx sphinx_bootstrap_theme
+sudo pip install --upgrade sphinx sphinx_bootstrap_theme
 
 cd babel-doc
 make clean
