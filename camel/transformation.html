@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Babel Camel Transformations &mdash; Babel 0.7.0-SNAPSHOT documentation</title>
+    <title>Babel Camel Transformations &mdash; Babel 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.2.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/cosmo/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7.0-SNAPSHOT',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,9 +27,9 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Babel 0.7.0-SNAPSHOT documentation" href="../index.html" />
+    <link rel="top" title="Babel 0.8.0 documentation" href="../index.html" />
     <link rel="up" title="Babel Camel User guide" href="../cameluserguide.html" />
     <link rel="next" title="Babel Camel Routing" href="routing.html" />
     <link rel="prev" title="Babel Camel Basics" href="basics.html" />
@@ -83,7 +83,7 @@ $(function () {
         </button>
         <a class="navbar-brand" href="../index.html">
           Babel</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.0-SNAPSHOT</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,7 +115,6 @@ $(function () {
 <li class="toctree-l1"><a class="reference internal" href="../quickstartguide.html">Quick start guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-maven">Using Maven</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-sbt">Using Sbt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#babel-archetypes">Babel Archetypes</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../cameluserguide.html">Babel Camel User guide</a><ul class="current">
@@ -174,11 +173,11 @@ $(function () {
               
                 
   <li>
-    <a href="basics.html" title="Previous Chapter: Babel Camel Basics"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Babel Camel Basi...</span>
+    <a href="basics.html" title="Previous Chapter: Babel Camel Basics"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Babel Camel B...</span>
     </a>
   </li>
   <li>
-    <a href="routing.html" title="Next Chapter: Babel Camel Routing"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Babel Camel Rout... &raquo;</span>
+    <a href="routing.html" title="Next Chapter: Babel Camel Routing"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Babel Camel R... &raquo;</span>
     </a>
   </li>
               
@@ -267,8 +266,9 @@ For example : XML &lt;-&gt; JSON</p>
 </pre></div>
 </div>
 <p>You may also provide an <cite>Ordering</cite> to the <em>sort</em>:</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
-<span class="k">import</span> <span class="nn">java.util.</span><span class="o">{</span> <span class="nc">List</span> <span class="k">=&gt;</span> <span class="nc">JList</span> <span class="o">}</span>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">java.util.</span><span class="o">{</span> <span class="nc">List</span> <span class="k">=&gt;</span> <span class="nc">JList</span> <span class="o">}</span>
+
+<span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
 <span class="k">import</span> <span class="nn">org.apache.camel.builder.Builder</span>
 
 <span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
@@ -304,6 +304,7 @@ For example : XML &lt;-&gt; JSON</p>
 <p>Batch resequencing collects messages into a batch, sorts the messages and sends them to their output.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
 <span class="k">import</span> <span class="nn">org.apache.camel.model.config.BatchResequencerConfig</span>
+
 <span class="c1">//the resequencing would be done in a batch manner</span>
 <span class="k">val</span> <span class="n">batchConfiguration</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">BatchResequencerConfig</span><span class="o">()</span>
 
@@ -341,6 +342,190 @@ For example : XML &lt;-&gt; JSON</p>
 an aggregator.</p>
 <p>The <em>enrich</em> is using a request-reply pattern with a endpoint (ex: Web Service) to obtain more data.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="n">pollEnrich</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="s">s&quot;</span><span class="si">$a$</span><span class="s">{b.toString}&quot;</span><span class="o">,</span> <span class="mi">1000</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The <em>pollEnrich</em> is using a Polling Consumer from an endpoint (ex: JMS, SEDA, File) to obtain more data.</p>
+<div class="highlight-scala"><div class="highlight"><pre>      <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="k">with</span> <span class="nc">Mock</span> <span class="o">{</span>
+        <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:enricherRoute&quot;</span><span class="o">).</span><span class="n">mock</span><span class="o">(</span><span class="s">&quot;enricher&quot;</span><span class="o">)</span>
+
+        <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+          <span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+          <span class="c1">//enriches the input with the enricherRoute messages</span>
+          <span class="c1">//  using the aggregationStrategy</span>
+          <span class="n">enrich</span><span class="o">(</span><span class="s">&quot;direct:enricherRoute&quot;</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="s">s&quot;</span><span class="si">${</span><span class="n">a</span><span class="si">}${</span><span class="n">b</span><span class="o">.</span><span class="n">toString</span><span class="o">.</span><span class="n">toInt</span><span class="si">}</span><span class="s">&quot;</span><span class="o">).</span>
+          <span class="n">mock</span><span class="o">(</span><span class="s">&quot;output&quot;</span><span class="o">)</span>
+      <span class="o">}</span>
+
+
+      <span class="n">routeDef</span><span class="o">.</span><span class="n">addRoutesToCamelContext</span><span class="o">(</span><span class="n">camelContext</span><span class="o">)</span>
+      <span class="n">camelContext</span><span class="o">.</span><span class="n">start</span><span class="o">()</span>
+
+      <span class="k">val</span> <span class="n">mockEndpoint</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">mockEndpoint</span><span class="o">(</span><span class="s">&quot;output&quot;</span><span class="o">)</span>
+      <span class="k">val</span> <span class="n">enricherMockEndpoint</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">mockEndpoint</span><span class="o">(</span><span class="s">&quot;enricher&quot;</span><span class="o">)</span>
+      <span class="n">enricherMockEndpoint</span><span class="o">.</span><span class="n">returnReplyBody</span><span class="o">(</span><span class="k">new</span> <span class="nc">SimpleBuilder</span><span class="o">(</span><span class="s">&quot;123&quot;</span><span class="o">))</span>
+
+      <span class="n">mockEndpoint</span><span class="o">.</span><span class="n">expectedBodiesReceived</span><span class="o">(</span><span class="s">&quot;bla123&quot;</span><span class="o">,</span> <span class="s">&quot;bli123&quot;</span><span class="o">)</span>
+
+      <span class="k">val</span> <span class="n">producer</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">createProducerTemplate</span><span class="o">()</span>
+      <span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">,</span> <span class="s">&quot;bla&quot;</span><span class="o">)</span>
+      <span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">,</span> <span class="s">&quot;bli&quot;</span><span class="o">)</span>
+
+      <span class="n">mockEndpoint</span><span class="o">.</span><span class="n">assertIsSatisfied</span><span class="o">()</span>
+    <span class="o">}</span>
+
+    <span class="s">&quot;do not work with a FoldBodyAggregationStrategy&quot;</span> <span class="n">in</span> <span class="k">new</span> <span class="n">camel</span> <span class="o">{</span>
+
+      <span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+      <span class="k">case</span> <span class="k">class</span> <span class="nc">Result</span><span class="o">(</span><span class="n">string</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">def</span> <span class="n">fold</span><span class="o">(</span><span class="n">next</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">Result</span> <span class="o">=</span> <span class="nc">Result</span><span class="o">(</span><span class="n">string</span> <span class="o">+</span> <span class="n">next</span><span class="o">)</span>
+      <span class="o">}</span>
+
+      <span class="k">val</span> <span class="n">aggregationStrategy</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">FoldBodyAggregationStrategy</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Result</span><span class="o">](</span><span class="nc">Result</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">),</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">fold</span><span class="o">(</span><span class="n">b</span><span class="o">))</span>
+
+      <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+        <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:enricherRoute&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:enricher&quot;</span><span class="o">)</span>
+
+        <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+          <span class="n">enrich</span><span class="o">(</span><span class="s">&quot;direct:enricherRoute&quot;</span><span class="o">,</span> <span class="n">aggregationStrategy</span><span class="o">).</span>
+          <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+      <span class="o">}</span>
+
+      <span class="n">routeDef</span><span class="o">.</span><span class="n">addRoutesToCamelContext</span><span class="o">(</span><span class="n">camelContext</span><span class="o">)</span>
+      <span class="n">camelContext</span><span class="o">.</span><span class="n">start</span><span class="o">()</span>
+
+      <span class="k">val</span> <span class="n">enricherMockEndpoint</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">mockEndpoint</span><span class="o">(</span><span class="s">&quot;enricher&quot;</span><span class="o">)</span>
+      <span class="n">enricherMockEndpoint</span><span class="o">.</span><span class="n">returnReplyBody</span><span class="o">(</span><span class="k">new</span> <span class="nc">SimpleBuilder</span><span class="o">(</span><span class="s">&quot;123&quot;</span><span class="o">))</span>
+
+      <span class="k">val</span> <span class="n">producer</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">createProducerTemplate</span><span class="o">()</span>
+      <span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">,</span> <span class="s">&quot;bla&quot;</span><span class="o">)</span> <span class="n">should</span> <span class="n">throwA</span><span class="o">[</span><span class="kt">CamelExecutionException</span><span class="o">]</span>
+
+    <span class="o">}</span>
+
+    <span class="s">&quot;enrich a message with the pollEnrich keyword and a reference to an aggregationStrategy&quot;</span> <span class="n">in</span> <span class="k">new</span> <span class="n">camel</span> <span class="o">{</span>
+
+      <span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+      <span class="c1">// pending</span>
+
+
+      <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+        <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+          <span class="n">pollEnrichRef</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="s">&quot;aggregationStrategy&quot;</span><span class="o">,</span> <span class="mi">1000</span><span class="o">).</span>
+          <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+      <span class="o">}</span>
+
+      <span class="k">val</span> <span class="n">registry</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SimpleRegistry</span>
+      <span class="n">registry</span><span class="o">.</span><span class="n">put</span><span class="o">(</span><span class="s">&quot;aggregationStrategy&quot;</span><span class="o">,</span>
+        <span class="k">new</span> <span class="nc">ReduceBodyAggregationStrategy</span><span class="o">[</span><span class="kt">String</span><span class="o">]((</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">))</span>
+      <span class="n">camelContext</span><span class="o">.</span><span class="n">setRegistry</span><span class="o">(</span><span class="n">registry</span><span class="o">)</span>
+
+      <span class="n">routeDef</span><span class="o">.</span><span class="n">addRoutesToCamelContext</span><span class="o">(</span><span class="n">camelContext</span><span class="o">)</span>
+      <span class="n">camelContext</span><span class="o">.</span><span class="n">start</span><span class="o">()</span>
+
+      <span class="k">val</span> <span class="n">mockEndpoint</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">mockEndpoint</span><span class="o">(</span><span class="s">&quot;output&quot;</span><span class="o">)</span>
+      <span class="k">val</span> <span class="n">enricherMockEndpoint</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">mockEndpoint</span><span class="o">(</span><span class="s">&quot;enricher&quot;</span><span class="o">)</span>
+      <span class="n">enricherMockEndpoint</span><span class="o">.</span><span class="n">returnReplyBody</span><span class="o">(</span><span class="k">new</span> <span class="nc">SimpleBuilder</span><span class="o">(</span><span class="s">&quot;123&quot;</span><span class="o">))</span>
+
+      <span class="n">mockEndpoint</span><span class="o">.</span><span class="n">expectedBodiesReceived</span><span class="o">(</span><span class="s">&quot;bla123&quot;</span><span class="o">)</span>
+
+      <span class="k">val</span> <span class="n">producer</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">createProducerTemplate</span><span class="o">()</span>
+      <span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="s">&quot;123&quot;</span><span class="o">)</span>
+      <span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">,</span> <span class="s">&quot;bla&quot;</span><span class="o">)</span>
+
+      <span class="n">mockEndpoint</span><span class="o">.</span><span class="n">assertIsSatisfied</span><span class="o">()</span>
+    <span class="o">}</span>
+
+    <span class="s">&quot;enrich a message with the pollEnrich keyword and an instance of an aggregationStrategy&quot;</span> <span class="n">in</span> <span class="k">new</span> <span class="n">camel</span> <span class="o">{</span>
+
+      <span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+      <span class="c1">//pending</span>
+
+
+      <span class="k">val</span> <span class="n">aggregationStrategy</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ReduceBodyAggregationStrategy</span><span class="o">[</span><span class="kt">String</span><span class="o">]((</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">)</span>
+
+      <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+        <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+          <span class="n">pollEnrichAggregation</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="n">aggregationStrategy</span><span class="o">,</span> <span class="mi">1000</span><span class="o">).</span>
+          <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+      <span class="o">}</span>
+
+      <span class="n">routeDef</span><span class="o">.</span><span class="n">addRoutesToCamelContext</span><span class="o">(</span><span class="n">camelContext</span><span class="o">)</span>
+      <span class="n">camelContext</span><span class="o">.</span><span class="n">start</span><span class="o">()</span>
+
+      <span class="k">val</span> <span class="n">mockEndpoint</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">mockEndpoint</span><span class="o">(</span><span class="s">&quot;output&quot;</span><span class="o">)</span>
+      <span class="k">val</span> <span class="n">enricherMockEndpoint</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">mockEndpoint</span><span class="o">(</span><span class="s">&quot;enricher&quot;</span><span class="o">)</span>
+      <span class="n">enricherMockEndpoint</span><span class="o">.</span><span class="n">returnReplyBody</span><span class="o">(</span><span class="k">new</span> <span class="nc">SimpleBuilder</span><span class="o">(</span><span class="s">&quot;123&quot;</span><span class="o">))</span>
+
+      <span class="n">mockEndpoint</span><span class="o">.</span><span class="n">expectedBodiesReceived</span><span class="o">(</span><span class="s">&quot;bla123&quot;</span><span class="o">)</span>
+
+      <span class="k">val</span> <span class="n">producer</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">createProducerTemplate</span><span class="o">()</span>
+      <span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="s">&quot;123&quot;</span><span class="o">)</span>
+      <span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">,</span> <span class="s">&quot;bla&quot;</span><span class="o">)</span>
+
+      <span class="n">mockEndpoint</span><span class="o">.</span><span class="n">assertIsSatisfied</span><span class="o">()</span>
+    <span class="o">}</span>
+
+    <span class="s">&quot;enrich a message with the pollEnrich keyword and a aggregationFunction&quot;</span> <span class="n">in</span> <span class="k">new</span> <span class="n">camel</span> <span class="o">{</span>
+
+      <span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+      <span class="c1">//pending</span>
+
+      <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+        <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+          <span class="n">pollEnrich</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Any</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="s">s&quot;</span><span class="si">$a$</span><span class="s">{b.toString}&quot;</span><span class="o">,</span> <span class="mi">1000</span><span class="o">).</span>
+          <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+      <span class="o">}</span>
+
+      <span class="n">routeDef</span><span class="o">.</span><span class="n">addRoutesToCamelContext</span><span class="o">(</span><span class="n">camelContext</span><span class="o">)</span>
+      <span class="n">camelContext</span><span class="o">.</span><span class="n">start</span><span class="o">()</span>
+
+      <span class="k">val</span> <span class="n">mockEndpoint</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">mockEndpoint</span><span class="o">(</span><span class="s">&quot;output&quot;</span><span class="o">)</span>
+      <span class="k">val</span> <span class="n">enricherMockEndpoint</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">mockEndpoint</span><span class="o">(</span><span class="s">&quot;enricher&quot;</span><span class="o">)</span>
+      <span class="n">enricherMockEndpoint</span><span class="o">.</span><span class="n">returnReplyBody</span><span class="o">(</span><span class="k">new</span> <span class="nc">SimpleBuilder</span><span class="o">(</span><span class="s">&quot;123&quot;</span><span class="o">))</span>
+
+      <span class="n">mockEndpoint</span><span class="o">.</span><span class="n">expectedBodiesReceived</span><span class="o">(</span><span class="s">&quot;bla123&quot;</span><span class="o">)</span>
+
+      <span class="k">val</span> <span class="n">producer</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">createProducerTemplate</span><span class="o">()</span>
+      <span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="s">&quot;123&quot;</span><span class="o">)</span>
+      <span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">,</span> <span class="s">&quot;bla&quot;</span><span class="o">)</span>
+
+      <span class="n">mockEndpoint</span><span class="o">.</span><span class="n">assertIsSatisfied</span><span class="o">()</span>
+    <span class="o">}</span>
+
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>You may also use Camel or Babel AggregationStrategy to define how the incomming message and the enriched one are merged:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="n">pollEnrichRef</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="s">&quot;aggregationStrategy&quot;</span><span class="o">,</span> <span class="mi">1000</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="k">val</span> <span class="n">registry</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SimpleRegistry</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">put</span><span class="o">(</span><span class="s">&quot;aggregationStrategy&quot;</span><span class="o">,</span>
+  <span class="k">new</span> <span class="nc">ReduceBodyAggregationStrategy</span><span class="o">[</span><span class="kt">String</span><span class="o">]((</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">))</span>
+<span class="n">camelContext</span><span class="o">.</span><span class="n">setRegistry</span><span class="o">(</span><span class="n">registry</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">aggregationStrategy</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ReduceBodyAggregationStrategy</span><span class="o">[</span><span class="kt">String</span><span class="o">]((</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="n">pollEnrichAggregation</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="n">aggregationStrategy</span><span class="o">,</span> <span class="mi">1000</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:enricherRoute&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:enricher&quot;</span><span class="o">)</span>
 
   <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
@@ -370,28 +555,6 @@ an aggregator.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>The <em>pollEnrich</em> is using a Polling Consumer from an endpoint (ex: JMS, SEDA, File) to obtain more data.</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
-  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
-    <span class="n">pollEnrichRef</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="s">&quot;aggregationStrategy&quot;</span><span class="o">,</span> <span class="mi">1000</span><span class="o">).</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
-<span class="o">}</span>
-
-<span class="k">val</span> <span class="n">registry</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SimpleRegistry</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">put</span><span class="o">(</span><span class="s">&quot;aggregationStrategy&quot;</span><span class="o">,</span>
-  <span class="k">new</span> <span class="nc">ReduceBodyAggregationStrategy</span><span class="o">[</span><span class="kt">String</span><span class="o">]((</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">))</span>
-<span class="n">camelContext</span><span class="o">.</span><span class="n">setRegistry</span><span class="o">(</span><span class="n">registry</span><span class="o">)</span>
-</pre></div>
-</div>
-<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">aggregationStrategy</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ReduceBodyAggregationStrategy</span><span class="o">[</span><span class="kt">String</span><span class="o">]((</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">)</span>
-
-<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
-  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
-    <span class="n">pollEnrich</span><span class="o">(</span><span class="s">&quot;seda:enrichRoute&quot;</span><span class="o">,</span> <span class="n">aggregationStrategy</span><span class="o">,</span> <span class="mi">1000</span><span class="o">).</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
-<span class="o">}</span>
-</pre></div>
-</div>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">It&#8217;s not recommended to us the enrich and pollEnrich keywords with the io.xtech.babel.camel.model.FoldBodyAggregationStrategy. The only supported Aggregation strategy are io.xtech.babel.camel.model.ReduceBodyAggregationStrategy and custom implementations of the org.apache.camel.processor.aggregate.AggregationStrategy Interface.</p>
@@ -405,6 +568,17 @@ an aggregator.</p>
 <p>You can transform a message with a function.</p>
 <p>The <em>processBody</em> keyword works on message bodies.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="c1">//message bodies are converted to String if required</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+    <span class="c1">//processBody concatenates received string with &quot;bli&quot;</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="nc">JavaProcessors</span><span class="o">.</span><span class="n">append</span><span class="o">(</span><span class="k">_</span><span class="o">)).</span>
+    <span class="c1">//sends the concatenated string to the mock endpoint</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
 
 <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="c1">//message bodies are converted to String if required</span>
@@ -429,6 +603,36 @@ an aggregator.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Babel provides a minimal API to modify <code class="docutils literal"><span class="pre">Message</span></code> or Body you are dealing with in your transformation</p>
+<ul class="simple">
+<li>withBody creates a copy of the current <code class="docutils literal"><span class="pre">Message</span></code> and let you define how its Body is transformed (using a function)</li>
+</ul>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">//append a string to the message&#39;s body</span>
+<span class="k">val</span> <span class="n">newMsg</span> <span class="k">=</span> <span class="n">message</span><span class="o">.</span><span class="n">withBody</span><span class="o">(</span><span class="k">_</span> <span class="o">+</span> <span class="s">&quot;bli&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>withHeader creates a copy of the current <code class="docutils literal"><span class="pre">Message</span></code> and let you add a new Header (using a two arguments: key and value)</li>
+</ul>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">newMsg</span> <span class="k">=</span> <span class="n">message</span><span class="o">.</span><span class="n">withHeader</span><span class="o">(</span><span class="s">&quot;c&quot;</span><span class="o">,</span> <span class="mi">42</span><span class="o">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>withHeaders creates a copy of the current <code class="docutils literal"><span class="pre">Message</span></code> and let you define how its Headers is transformed (using a function)</li>
+</ul>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">//add headers to the message</span>
+<span class="k">val</span> <span class="n">newMsg</span> <span class="k">=</span> <span class="n">message</span><span class="o">.</span><span class="n">withHeaders</span><span class="o">(</span><span class="n">headers</span> <span class="k">=&gt;</span> <span class="n">headers</span> <span class="o">++</span> <span class="nc">Map</span><span class="o">(</span><span class="s">&quot;c&quot;</span> <span class="o">-&gt;</span> <span class="mi">42</span><span class="o">,</span> <span class="s">&quot;d&quot;</span> <span class="o">-&gt;</span> <span class="s">&quot;dd&quot;</span><span class="o">))</span>
+<span class="c1">//replace headers by only one</span>
+<span class="k">val</span> <span class="n">newMsg</span> <span class="k">=</span> <span class="n">message</span><span class="o">.</span><span class="n">withHeaders</span><span class="o">(</span><span class="n">headers</span> <span class="k">=&gt;</span> <span class="nc">Map</span><span class="o">(</span><span class="s">&quot;c&quot;</span> <span class="o">-&gt;</span> <span class="mi">42</span><span class="o">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>exchange to access directly to the wrapped Camel Exchange.</li>
+</ul>
+<p class="last">It also provides methods concerning the Exchange properties, exceptions and MessageExchangePattern.</p>
+</div>
 </div>
 <div class="section" id="with-a-bean">
 <h3>With a Bean<a class="headerlink" href="#with-a-bean" title="Permalink to this headline">¶</a></h3>
@@ -441,7 +645,7 @@ an aggregator.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
     <span class="c1">//bean keyword is deprecated!</span>
-    <span class="n">bean</span><span class="o">(</span><span class="s">&quot;myBean&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+    <span class="n">bean</span><span class="o">(</span><span class="s">&quot;myBean&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="n">mockProducer</span><span class="o">)</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -452,7 +656,7 @@ an aggregator.</p>
     <span class="c1">//bean keyword is deprecated!</span>
     <span class="n">bean</span><span class="o">(</span><span class="s">&quot;myBean&quot;</span><span class="o">,</span> <span class="s">&quot;doIt&quot;</span><span class="o">).</span>
     <span class="c1">//the bean keyword destroys the type of the next keyword</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+    <span class="n">to</span><span class="o">(</span><span class="n">mockProducer</span><span class="o">)</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -463,7 +667,7 @@ an aggregator.</p>
     <span class="c1">//   the TestBean class method which corresponds</span>
     <span class="c1">//bean keyword is deprecated!</span>
     <span class="n">bean</span><span class="o">(</span><span class="k">new</span> <span class="nc">TestBean</span><span class="o">).</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+    <span class="n">to</span><span class="o">(</span><span class="n">mockProducer</span><span class="o">)</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -474,7 +678,7 @@ an aggregator.</p>
     <span class="c1">//   the TestBean class method which corresponds</span>
     <span class="c1">//bean keyword is deprecated!</span>
     <span class="n">bean</span><span class="o">(</span><span class="n">classOf</span><span class="o">[</span><span class="kt">TestBean</span><span class="o">]).</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+    <span class="n">to</span><span class="o">(</span><span class="n">mockProducer</span><span class="o">)</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -495,7 +699,7 @@ an aggregator.</p>
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

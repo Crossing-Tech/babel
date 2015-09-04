@@ -56,20 +56,12 @@ To add Babel Camel in a Sbt project, you may just add the following dependencies
 
 ::
 
-  resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots
+  resolvers += "Sonatype OSS Snapshots" at
+                    "https://oss.sonatype.org/content/repositories/snapshots
 
   libraryDependencies += "io.xtech.babel" %% "babel-camel-core" % "BABEL_VERSION"
   //if you want to use the mock keyword to simplify your tests:
-  libraryDependencies += "io.xtech.babel" %% "babel-camel-mock" % "BABEL_VERSION" % "test"
+  libraryDependencies += "io.xtech.babel" %% "babel-camel-mock" % "BABEL_VERSION"
+                                                                         % "test"
 
 Where BABEL_VERSION is replaced by the actual Babel version.
-
-Babel Archetypes
-++++++++++++++++
-
-The Babel Camel Archetype may help you to start a maven project using Babel. Currently, you need to first install the Babel project with Maven following the :ref:`ArchetypeInstall` part.
-Once you have installed the babel project locally, use the following command to start a new maven project including Babel through the following command::
-
-  mvn archetype:generate                       \
-  -DarchetypeGroupId=io.xtech.babel            \
-  -DarchetypeArtifactId=babel-camel-archetype

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to Babel’s documentation! &mdash; Babel 0.7.0-SNAPSHOT documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.2.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.7.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Babel 0.7.0-SNAPSHOT documentation" href="#" />
+    <link rel="next" title="Babel Opinion" href="opinion.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+  
+  <a href="https://github.com/crossing-tech/babel.git"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
+    alt="Fork me on GitHub"></a>
+
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+
+    //$(function () {
+    //  var navHeight = $(".navbar .container").css("height");
+    //  $("#re-banner").css("top", navHeight);
+    //});
+
+  </script>
+  <script>
+$(function () {
+    //Adds a pdf link
+    var eleContainer = document.getElementsByClassName("form-group")[0];
+
+    eleContainer.innerHTML = eleContainer.innerHTML   +   '<div id="pdf-link"> <a href="_static/Babel.pdf" > <img src="http://www.adobe.com/images/pdficon_large.png" alt="Babel PDF documentation"></a></div>'  ;
+
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          Babel</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7.0-SNAPSHOT</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://crossing-tech.com">Company</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="opinion.html">Babel Opinion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="opinion.html#simple-dsl">Simple DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opinion.html#explicit-dsl">Explicit DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opinion.html#explicit-and-simple-dsl">Explicit and Simple DSL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Babel Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-overview">Babel overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#babel-modules">Babel Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstartguide.html">Quick start guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstartguide.html#using-maven">Using Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstartguide.html#using-sbt">Using Sbt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstartguide.html#babel-archetypes">Babel Archetypes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cameluserguide.html">Babel Camel User guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="camel/spring.html">Babel Camel using the Spring Application Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/samples.html">Babel Camel Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/basics.html">Babel Camel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/transformation.html">Babel Camel Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/routing.html">Babel Camel Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/errormanagement.html">Babel Camel Error management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camel/mock.html">Mock Extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="devguide.html">Babel Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev/structure.html">Babel Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/installation.html">Babel Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/development.html">Babel development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/contribute.html">Contribute to Babel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev/extension.html">Babel Extension creation</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Welcome to Babel&#8217;s documentation!</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="opinion.html" title="Next Chapter: Babel Opinion"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Babel Opinion &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="welcome-to-babel-s-documentation">
+<h1>Welcome to Babel&#8217;s documentation!<a class="headerlink" href="#welcome-to-babel-s-documentation" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/logo-without-pole.png" src="_images/logo-without-pole.png" />
+<p>Babel is an elegant way to write your integration solution. It tries to provide as much as possible validation during the definition of your integration solution in order to avoid time spent into testing or deploying invalid code.</p>
+<p>Babel is a layer on top of the main integration frameworks and may be used from Scala and Java source code. The following documentation should guide you into your journey toward a new way to write integration in a secure and efficient way.</p>
+<p>Currently, Babel provides an API on top of Apache Camel which may be used in Scala. Java API and other integration frameworks implementation would be implemented into the <a class="reference external" href="https://github.com/crossing-tech/babel-experimental">Babel experimental</a> project.</p>
+<div class="about">
+<div class="left">
+  <h3><img src="_static/modular.png" width="40px" /> Modular</h3>
+  <p>Babel provides extension which may get composed in order to add specific functionalities.</p>
+</div>
+<div class="right">
+  <h3><img src="_static/type.png" width="35px"/> Typed</h3>
+  <p>Babel provides typing validation all along your routes.</p>
+</div>
+<span class="middle">
+  <h3><img src="_static/lambda.png" width="40px"/> Functional</h3>
+  <p>Babel allows you to use functions to configure your integration solution.</p>
+</span>
+<br />
+  <div class="left">
+  <h3><img src="_static/language.png" width="40px"/> Multi languages</h3>
+  <p>Babel provides API for both Java and Scala.</p>
+</div>
+<div class="right">
+  <h3><img src="_static/eip.png" width="35px"/> Integration</h3>
+  <p>Babel aggregates main knowledge and technologies around EIPs such as modeled by Apache Camel and Spring Framework Integration </p>
+</div>
+<span class="middle">
+  <h3><img src="_static/osgi.png" width="40px"/> OSGi integrated</h3>
+  <p>Babel may run into OSGi environment and is also packaged for Apache Karaf.</p>
+</span>
+<br/>
+</div><p>This documentation concerns the version 0.7.0-SNAPSHOT. You may also access the <a class="reference external" href="http://crossing-tech.github.io/babel/0.6.0/index.html">latest released version</a> documentation.</p>
+<p>To use Babel on top of Camel, you may use the Babel Camel module. Please have a look to the <a class="reference internal" href="quickstartguide.html#babel-quick-start"><span>Quick start guide</span></a> and to the <a class="reference internal" href="cameluserguide.html#babel-camel-guide"><span>Babel Camel User guide</span></a> for more details and examples.</p>
+<p>To have a better intuition of what is Babel, you would find it in the <a class="reference internal" href="opinion.html#babel-opinion"><span>Babel Opinion</span></a> and the <a class="reference internal" href="architecture.html#babel-architecture"><span>Babel Architecture</span></a> pages.</p>
+<p>In the following code snippet, we compare Babel and Camel Scala DSL. Those two routes are summing the a list of number, provided as a String and routing this sum depending on its positivity.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="47%" />
+<col width="53%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Babel sample</strong></td>
+<td><strong>Camel scala sample</strong></td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
+
+<span class="k">val</span> <span class="n">myRoute</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:babel&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+    <span class="n">splitBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">toInt</span><span class="o">).</span><span class="n">iterator</span><span class="o">).</span>
+
+    <span class="n">aggregate</span><span class="o">(</span><span class="n">doAggregate</span><span class="o">).</span>
+
+    <span class="n">choice</span> <span class="o">{</span> <span class="n">c</span> <span class="k">=&gt;</span>
+      <span class="n">c</span><span class="o">.</span><span class="n">whenBody</span><span class="o">(</span><span class="k">_</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">).</span>
+        <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:database&quot;</span><span class="o">)</span>
+
+      <span class="n">c</span><span class="o">.</span><span class="n">whenBody</span><span class="o">(</span><span class="k">_</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">).</span>
+        <span class="n">processBody</span><span class="o">(</span><span class="n">int</span> <span class="k">=&gt;</span> <span class="s">s&quot;</span><span class="si">$int</span><span class="s"> is negative&quot;</span><span class="o">).</span>
+        <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:error&quot;</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">org.apache.camel.scala.dsl.builder.RouteBuilder</span>
+
+<span class="k">val</span> <span class="n">routing</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:camel-scala&quot;</span><span class="o">).</span>
+    <span class="n">split</span><span class="o">(</span><span class="n">msg</span> <span class="k">=&gt;</span> <span class="n">msg</span><span class="o">.</span><span class="n">in</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">)).</span>
+
+    <span class="n">aggregate</span><span class="o">(</span><span class="s">&quot;a&quot;</span><span class="o">,</span> <span class="n">aggregationStrategy</span><span class="o">).</span><span class="n">completionSize</span><span class="o">(</span><span class="mi">3</span><span class="o">).</span>
+
+    <span class="n">choice</span> <span class="o">{</span>
+      <span class="n">when</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">in</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">).</span>
+        <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:database-camel-scala&quot;</span><span class="o">)</span>
+
+      <span class="n">when</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">in</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">).</span>
+        <span class="n">process</span><span class="o">(</span><span class="n">msg</span> <span class="k">=&gt;</span> <span class="n">msg</span><span class="o">.</span><span class="n">in</span> <span class="k">=</span> <span class="s">s&quot;</span><span class="si">${</span><span class="n">msg</span><span class="o">.</span><span class="n">in</span><span class="si">}</span><span class="s"> is negative&quot;</span><span class="o">).</span>
+        <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:error-camel-scala&quot;</span><span class="o">)</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td colspan="2">Concerning the route structure, the main aspect is the fact we need to repeat the type everywhere. Moreover, you may also use pure functions in the Babel Code where you need mutability in the Camel Scala process method call. Let&#8217;s have a look at how aggregation is configured:</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">doAggregate</span> <span class="k">=</span> <span class="nc">ReduceBody</span><span class="o">(</span>
+  <span class="c1">//defines how message bodies are aggregated</span>
+  <span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">,</span>
+  <span class="c1">//defines when message may be aggregated</span>
+  <span class="o">(</span><span class="n">msg</span><span class="k">:</span> <span class="kt">Message</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span> <span class="k">=&gt;</span> <span class="s">&quot;a&quot;</span><span class="o">,</span>
+  <span class="c1">//defines the size of the aggregation (3 messages)</span>
+  <span class="n">completionStrategies</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="nc">CompletionSize</span><span class="o">(</span><span class="mi">3</span><span class="o">))</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">aggregationStrategy</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">AggregationStrategy</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">aggregate</span><span class="o">(</span><span class="n">old</span><span class="k">:</span> <span class="kt">Exchange</span><span class="o">,</span> <span class="n">news</span><span class="k">:</span> <span class="kt">Exchange</span><span class="o">)</span> <span class="k">=</span>
+    <span class="o">(</span><span class="n">old</span><span class="o">,</span> <span class="n">news</span><span class="o">)</span> <span class="k">match</span> <span class="o">{</span>
+      <span class="k">case</span> <span class="o">(</span><span class="n">old</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>  <span class="k">=&gt;</span> <span class="n">old</span>
+      <span class="k">case</span> <span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">news</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">news</span>
+      <span class="k">case</span> <span class="o">(</span><span class="n">old</span><span class="o">,</span> <span class="n">news</span><span class="o">)</span> <span class="k">=&gt;</span>
+        <span class="n">old</span><span class="o">.</span><span class="n">getIn</span><span class="o">.</span><span class="n">setBody</span><span class="o">(</span>
+          <span class="n">old</span><span class="o">.</span><span class="n">getIn</span><span class="o">.</span><span class="n">getBody</span><span class="o">(</span><span class="n">classOf</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span> <span class="o">+</span>
+            <span class="n">news</span><span class="o">.</span><span class="n">getIn</span><span class="o">.</span><span class="n">getBody</span><span class="o">(</span><span class="n">classOf</span><span class="o">[</span><span class="kt">Int</span><span class="o">]))</span>
+        <span class="n">old</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td colspan="2">Babel Camel has add simple interfaces in order to simplify and concentrate your code: The trivial behavior for first and last input is more clear using a Reduce or a Fold pattern. Moreover, the correlation and the completion is define in a single place which makes the aggregation more uniform.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>In the following sections,</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="opinion.html">Babel Opinion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Babel Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstartguide.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cameluserguide.html">Babel Camel User guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="devguide.html">Babel Development guide</a></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>In the following documentation,</p>
+<ul class="last simple">
+<li>Keywords are written such as <strong>from</strong>, <strong>to</strong> or <strong>process</strong></li>
+<li>Classes, packages, modules are written such as <code class="docutils literal"><span class="pre">RouteBuilder</span></code> or <code class="docutils literal"><span class="pre">io.xtech.babel</span></code></li>
+</ul>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

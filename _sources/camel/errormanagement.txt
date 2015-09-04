@@ -90,10 +90,10 @@ The **handled** keyword accepts a ``Camel Predicate`` or a ``Boolean function``.
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/HandlerSpec.scala#doc:babel-camel-exceptionClause-handled
 
-Sub routes
-~~~~~~~~~~
+Handling errors
+~~~~~~~~~~~~~~~
 
-You may use the **sub** keyword to define a new route which should manage this exception
+You may use the **handlingRoute** keyword to define an endpoint which should receive this exception
 
 .. includecode:: ../../../babel-camel/babel-camel-core/src/test/scala/io/xtech/babel/camel/HandlerSpec.scala#doc:babel-camel-exceptionClause-2
 

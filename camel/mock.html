@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Mock Extension &mdash; Babel 0.7.0-SNAPSHOT documentation</title>
+    <title>Mock Extension &mdash; Babel 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.2.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/cosmo/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7.0-SNAPSHOT',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,9 +27,9 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Babel 0.7.0-SNAPSHOT documentation" href="../index.html" />
+    <link rel="top" title="Babel 0.8.0 documentation" href="../index.html" />
     <link rel="up" title="Babel Extension creation" href="../dev/extension.html" />
     <link rel="prev" title="Babel Extension creation" href="../dev/extension.html" />
 <meta charset='utf-8'>
@@ -82,7 +82,7 @@ $(function () {
         </button>
         <a class="navbar-brand" href="../index.html">
           Babel</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.0-SNAPSHOT</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -114,7 +114,6 @@ $(function () {
 <li class="toctree-l1"><a class="reference internal" href="../quickstartguide.html">Quick start guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-maven">Using Maven</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-sbt">Using Sbt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#babel-archetypes">Babel Archetypes</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../cameluserguide.html">Babel Camel User guide</a><ul class="current">
@@ -168,7 +167,7 @@ $(function () {
               
                 
   <li>
-    <a href="../dev/extension.html" title="Previous Chapter: Babel Extension creation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Babel Extension ...</span>
+    <a href="../dev/extension.html" title="Previous Chapter: Babel Extension creation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Babel Extensi...</span>
     </a>
   </li>
               
@@ -200,7 +199,7 @@ $(function () {
       
   <div class="section" id="mock-extension">
 <h1>Mock Extension<a class="headerlink" href="#mock-extension" title="Permalink to this headline">¶</a></h1>
-<p>Mock is the first extension of the Babel Camel DSL. For more information on the extension, please have a look to <a class="reference internal" href="../dev/extension.html#babel-dev-extension"><span>Babel Extension creation</span></a> guide.</p>
+<p>Mock is the first extension of the Babel Camel DSL. It provides both a DSL and some helpers.</p>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>An extension for Babel Camel declaring some helpers for testing.</p>
@@ -221,11 +220,18 @@ $(function () {
 <span class="c1">//  extending the RouteBuilder with</span>
 <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="k">with</span> <span class="nc">Mock</span> <span class="o">{</span>
   <span class="c1">//the mock keyword is the same as typing</span>
-  <span class="c1">//  to(&quot;mock:output&quot;)</span>
-  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">mock</span><span class="o">(</span><span class="s">&quot;output&quot;</span><span class="o">)</span>
+  <span class="c1">//  to(&quot;mock:output1&quot;)</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+    <span class="n">mock</span><span class="o">(</span><span class="s">&quot;output1&quot;</span><span class="o">).</span>
+    <span class="c1">//the mock keyword keeps the same body type (here: String)</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">toUpperCase</span><span class="o">).</span>
+    <span class="n">mock</span><span class="o">(</span><span class="s">&quot;output2&quot;</span><span class="o">)</span>
+
 <span class="o">}</span>
 </pre></div>
 </div>
+<p>The mock keyword keeps the type of the payload as the mock component do not modify the received messages in most of the cases. For more complexe cases, such as when using <code class="docutils literal"><span class="pre">returnReplyBody</span></code>, you may fallback to the legacy way to define mock endpoints.</p>
 </div>
 </div>
 </div>
@@ -243,7 +249,7 @@ $(function () {
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

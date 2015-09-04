@@ -36,10 +36,10 @@ Deployment
 
 With Maven
 ~~~~~~~~~~
-Snapshots are deployed using the Maven build configuration as following:
+Snapshots are deployed locally using the Maven build configuration as following:
 ::
 
-   mvn -Parchetype deploy
+   mvn install
 
 With Sbt
 ~~~~~~~~
@@ -47,8 +47,6 @@ Snapshots are deployed using the Sbt build configuration as following:
 ::
 
    sbt publish-local
-
-Maven archetype won't be installed using this command.
 
 Release
 +++++++

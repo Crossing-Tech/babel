@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Quick start guide &mdash; Babel 0.7.0-SNAPSHOT documentation</title>
+    <title>Quick start guide &mdash; Babel 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.2.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/cosmo/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.7.0-SNAPSHOT',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,9 +27,9 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Babel 0.7.0-SNAPSHOT documentation" href="index.html" />
+    <link rel="top" title="Babel 0.8.0 documentation" href="index.html" />
     <link rel="next" title="Babel Camel User guide" href="cameluserguide.html" />
     <link rel="prev" title="Babel Architecture" href="architecture.html" />
 <meta charset='utf-8'>
@@ -82,7 +82,7 @@ $(function () {
         </button>
         <a class="navbar-brand" href="index.html">
           Babel</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.0-SNAPSHOT</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -114,7 +114,6 @@ $(function () {
 <li class="toctree-l1 current"><a class="current reference internal" href="">Quick start guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#using-maven">Using Maven</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-sbt">Using Sbt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#babel-archetypes">Babel Archetypes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cameluserguide.html">Babel Camel User guide</a><ul>
@@ -151,7 +150,6 @@ $(function () {
 <li><a class="reference internal" href="#">Quick start guide</a><ul>
 <li><a class="reference internal" href="#using-maven">Using Maven</a></li>
 <li><a class="reference internal" href="#using-sbt">Using Sbt</a></li>
-<li><a class="reference internal" href="#babel-archetypes">Babel Archetypes</a></li>
 </ul>
 </li>
 </ul>
@@ -163,11 +161,11 @@ $(function () {
               
                 
   <li>
-    <a href="architecture.html" title="Previous Chapter: Babel Architecture"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Babel Architectu...</span>
+    <a href="architecture.html" title="Previous Chapter: Babel Architecture"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Babel Archite...</span>
     </a>
   </li>
   <li>
-    <a href="cameluserguide.html" title="Next Chapter: Babel Camel User guide"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Babel Camel User... &raquo;</span>
+    <a href="cameluserguide.html" title="Next Chapter: Babel Camel User guide"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Babel Camel U... &raquo;</span>
     </a>
   </li>
               
@@ -239,24 +237,16 @@ $(function () {
 <div class="section" id="using-sbt">
 <h2>Using Sbt<a class="headerlink" href="#using-sbt" title="Permalink to this headline">¶</a></h2>
 <p>To add Babel Camel in a Sbt project, you may just add the following dependencies and resolver to your build configuration:</p>
-<div class="highlight-scala"><div class="highlight"><pre>resolvers += &quot;Sonatype OSS Snapshots&quot; at &quot;https://oss.sonatype.org/content/repositories/snapshots
+<div class="highlight-scala"><div class="highlight"><pre>resolvers += &quot;Sonatype OSS Snapshots&quot; at
+                  &quot;https://oss.sonatype.org/content/repositories/snapshots
 
 libraryDependencies += &quot;io.xtech.babel&quot; %% &quot;babel-camel-core&quot; % &quot;BABEL_VERSION&quot;
 //if you want to use the mock keyword to simplify your tests:
-libraryDependencies += &quot;io.xtech.babel&quot; %% &quot;babel-camel-mock&quot; % &quot;BABEL_VERSION&quot; % &quot;test&quot;
+libraryDependencies += &quot;io.xtech.babel&quot; %% &quot;babel-camel-mock&quot; % &quot;BABEL_VERSION&quot;
+                                                                       % &quot;test&quot;
 </pre></div>
 </div>
 <p>Where BABEL_VERSION is replaced by the actual Babel version.</p>
-</div>
-<div class="section" id="babel-archetypes">
-<h2>Babel Archetypes<a class="headerlink" href="#babel-archetypes" title="Permalink to this headline">¶</a></h2>
-<p>The Babel Camel Archetype may help you to start a maven project using Babel. Currently, you need to first install the Babel project with Maven following the <a class="reference internal" href="dev/installation.html#archetypeinstall"><span>Build Babel Maven archetype</span></a> part.
-Once you have installed the babel project locally, use the following command to start a new maven project including Babel through the following command:</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="n">mvn</span> <span class="n">archetype</span><span class="k">:</span><span class="kt">generate</span>                       <span class="kt">\</span>
-<span class="o">-</span><span class="nc">DarchetypeGroupId</span><span class="k">=</span><span class="n">io</span><span class="o">.</span><span class="n">xtech</span><span class="o">.</span><span class="n">babel</span>            <span class="o">\</span>
-<span class="o">-</span><span class="nc">DarchetypeArtifactId</span><span class="k">=</span><span class="n">babel</span><span class="o">-</span><span class="n">camel</span><span class="o">-</span><span class="n">archetype</span>
-</pre></div>
-</div>
 </div>
 </div>
 
@@ -273,7 +263,7 @@ Once you have installed the babel project locally, use the following command to 
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

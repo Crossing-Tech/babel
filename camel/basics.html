@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Babel Camel Basics &mdash; Babel 0.7.0-SNAPSHOT documentation</title>
+    <title>Babel Camel Basics &mdash; Babel 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.2.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/cosmo/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7.0-SNAPSHOT',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,9 +27,9 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Babel 0.7.0-SNAPSHOT documentation" href="../index.html" />
+    <link rel="top" title="Babel 0.8.0 documentation" href="../index.html" />
     <link rel="up" title="Babel Camel User guide" href="../cameluserguide.html" />
     <link rel="next" title="Babel Camel Transformations" href="transformation.html" />
     <link rel="prev" title="Babel Camel Samples" href="samples.html" />
@@ -83,7 +83,7 @@ $(function () {
         </button>
         <a class="navbar-brand" href="../index.html">
           Babel</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.0-SNAPSHOT</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,7 +115,6 @@ $(function () {
 <li class="toctree-l1"><a class="reference internal" href="../quickstartguide.html">Quick start guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-maven">Using Maven</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-sbt">Using Sbt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#babel-archetypes">Babel Archetypes</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../cameluserguide.html">Babel Camel User guide</a><ul class="current">
@@ -156,8 +155,9 @@ $(function () {
 <li><a class="reference internal" href="#as">As</a></li>
 <li><a class="reference internal" href="#requireas">RequireAs</a></li>
 <li><a class="reference internal" href="#logging">Logging</a></li>
-<li><a class="reference internal" href="#sub-routes">Sub routes</a></li>
 <li><a class="reference internal" href="#route-configuration">Route configuration</a></li>
+<li><a class="reference internal" href="#id">Id</a></li>
+<li><a class="reference internal" href="#default-ids">Default ids</a></li>
 </ul>
 </li>
 </ul>
@@ -169,11 +169,11 @@ $(function () {
               
                 
   <li>
-    <a href="samples.html" title="Previous Chapter: Babel Camel Samples"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Babel Camel Samp...</span>
+    <a href="samples.html" title="Previous Chapter: Babel Camel Samples"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Babel Camel S...</span>
     </a>
   </li>
   <li>
-    <a href="transformation.html" title="Next Chapter: Babel Camel Transformations"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Babel Camel Tran... &raquo;</span>
+    <a href="transformation.html" title="Next Chapter: Babel Camel Transformations"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Babel Camel T... &raquo;</span>
     </a>
   </li>
               
@@ -210,7 +210,7 @@ $(function () {
 <h2>Messages<a class="headerlink" href="#messages" title="Permalink to this headline">¶</a></h2>
 <p>In Babel Camel, the base interface which models a message which passes through the route is called Message. A Message contains a payload called body.
 From Camel point of view, a Babel Message may be understood as the in Message of an Exchange with required methods to read and write the Exchange properties.</p>
-<p>For more details, please have a look at the <a class="reference external" href="http://babel-dsl.github.io/current/test-reports/BabelCamelSpec.html#A+CamelMessage+should">Camel Message Specification</a></p>
+<p>For more details, please have a look at the Transformations part.</p>
 </div>
 <div class="section" id="basics">
 <h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
@@ -298,11 +298,11 @@ From Camel point of view, a Babel Message may be understood as the in Message of
 <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="c1">//Input Message bodies should be of type String</span>
   <span class="c1">//  or would throw an Exception</span>
-  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
-    <span class="n">processBody</span><span class="o">(</span><span class="k">_</span> <span class="o">+</span> <span class="s">&quot;4&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+  <span class="n">from</span><span class="o">(</span><span class="n">directConsumer</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="k">_</span> <span class="o">+</span> <span class="s">&quot;4&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">s&quot;mock:</span><span class="si">$mockProducer</span><span class="s">&quot;</span><span class="o">)</span>
 <span class="o">}</span>
 <span class="k">val</span> <span class="n">producer</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">createProducerTemplate</span><span class="o">()</span>
-<span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">,</span> <span class="mi">123</span><span class="o">)</span> <span class="n">must</span> <span class="n">throwA</span><span class="o">[</span><span class="kt">CamelExecutionException</span><span class="o">]</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="n">directConsumer</span><span class="o">,</span> <span class="mi">123</span><span class="o">)</span> <span class="n">must</span> <span class="n">throwA</span><span class="o">[</span><span class="kt">CamelExecutionException</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>The <strong>requiredAs</strong> lets you ensure you will always receive the expected body type. For example, the following may not work.</p>
@@ -311,11 +311,11 @@ From Camel point of view, a Babel Message may be understood as the in Message of
 <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="c1">//no input Message may satisfies both type constraints,</span>
   <span class="c1">//   thus any message sent would throw an Exception.</span>
-  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">Int</span><span class="o">].</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+  <span class="n">from</span><span class="o">(</span><span class="n">directConsumer</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">Int</span><span class="o">].</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">s&quot;mock:</span><span class="si">$mockProducer</span><span class="s">&quot;</span><span class="o">)</span>
 <span class="o">}</span>
 <span class="k">val</span> <span class="n">producer</span> <span class="k">=</span> <span class="n">camelContext</span><span class="o">.</span><span class="n">createProducerTemplate</span><span class="o">()</span>
-<span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">,</span> <span class="s">&quot;123&quot;</span><span class="o">)</span> <span class="n">must</span> <span class="n">throwA</span><span class="o">[</span><span class="kt">CamelExecutionException</span><span class="o">]</span>
+<span class="n">producer</span><span class="o">.</span><span class="n">sendBody</span><span class="o">(</span><span class="n">directConsumer</span><span class="o">,</span> <span class="s">&quot;123&quot;</span><span class="o">)</span> <span class="n">must</span> <span class="n">throwA</span><span class="o">[</span><span class="kt">CamelExecutionException</span><span class="o">]</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -344,26 +344,15 @@ From Camel point of view, a Babel Message may be understood as the in Message of
 <span class="o">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sub-routes">
-<h2>Sub routes<a class="headerlink" href="#sub-routes" title="Permalink to this headline">¶</a></h2>
-<p>With a <strong>sub</strong>, you can define the following steps as part of a new route.</p>
+<p>You may also use a function to define what should be logged:</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
-  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:before&quot;</span><span class="o">).</span>
-    <span class="c1">//defines a new route called &quot;subroute&quot; which</span>
-    <span class="c1">//   will send its incoming message to the next mock endpoint</span>
-    <span class="n">sub</span><span class="o">(</span><span class="s">&quot;subroute&quot;</span><span class="o">).</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:after&quot;</span><span class="o">)</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">log</span><span class="o">(</span><span class="nc">LoggingLevel</span><span class="o">.</span><span class="nc">TRACE</span><span class="o">,</span> <span class="s">&quot;my.cool.toto&quot;</span><span class="o">,</span> <span class="s">&quot;foo&quot;</span><span class="o">,</span> <span class="n">msg</span> <span class="k">=&gt;</span> <span class="s">&quot;FOO&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">log</span><span class="o">(</span><span class="n">msg</span> <span class="k">=&gt;</span> <span class="s">s&quot;BAR : </span><span class="si">${</span><span class="n">msg</span><span class="o">.</span><span class="n">headers</span><span class="si">}</span><span class="s">&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>This example would just create two routes:</p>
-<ul class="simple">
-<li>the &#8220;master-route&#8221; from the &#8220;input&#8221; to the &#8220;before&#8221; to the &#8220;subroute&#8221;</li>
-<li>the &#8220;subroute&#8221; from the &#8220;subroute&#8221; to the &#8220;after&#8221;</li>
-</ul>
-<p>Thus, <strong>sub</strong> may be seen as an inline channel. The first goal of the sub route is to separate, at runtime, the two routes in a proper manner without requiring more than required code. The sub routes may also be interesting for example in <a class="reference external" href="errormanagement.html">Error Handling</a>.</p>
 </div>
 <div class="section" id="route-configuration">
 <h2>Route configuration<a class="headerlink" href="#route-configuration" title="Permalink to this headline">¶</a></h2>
@@ -400,13 +389,102 @@ From Camel point of view, a Babel Message may be understood as the in Message of
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>Moreover, you may prevent a route from being started automatically using the <strong>noAutoStartup</strong> keyword.</p>
+<p>Moreover, you may prevent a route from being started automatically using the <strong>autoStartup</strong> keyword.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">routeId</span><span class="o">(</span><span class="s">&quot;babel&quot;</span><span class="o">).</span>
     <span class="c1">//The route is told not starting with the Camel Context</span>
     <span class="c1">//   but wait until beeing started especially.</span>
-    <span class="n">noAutoStartup</span><span class="o">.</span>
+    <span class="n">autoStartup</span><span class="o">(</span><span class="kc">false</span><span class="o">).</span>
     <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Finally, you may define your own RoutePolicy using the <strong>routePolicy</strong> keyword such as:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">throttlingInflightRoutePolicy</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ThrottlingInflightRoutePolicy</span><span class="o">()</span>
+<span class="k">val</span> <span class="n">simpleScheduledRoutePolicy</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SimpleScheduledRoutePolicy</span><span class="o">()</span>
+<span class="n">simpleScheduledRoutePolicy</span><span class="o">.</span><span class="n">setRouteStartDate</span><span class="o">(</span><span class="k">new</span> <span class="nc">Date</span><span class="o">())</span>
+<span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="n">routeId</span><span class="o">(</span><span class="s">&quot;babel&quot;</span><span class="o">).</span>
+    <span class="n">routePolicy</span><span class="o">(</span><span class="n">throttlingInflightRoutePolicy</span><span class="o">,</span> <span class="n">simpleScheduledRoutePolicy</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id">
+<h2>Id<a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>id</strong> will set an id to the previous EIP. This may be useful for visualizing your route or for statisticts.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="n">routeId</span><span class="o">(</span><span class="n">routeId</span><span class="o">).</span>
+    <span class="c1">//the id of the processor will be &quot;myProcess&quot;</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">x</span><span class="o">).</span><span class="n">id</span><span class="o">(</span><span class="s">&quot;myProcess&quot;</span><span class="o">).</span>
+    <span class="c1">//the id of the mock endpoint will be &quot;mock&quot;</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel&quot;</span><span class="o">).</span><span class="n">id</span><span class="o">(</span><span class="s">&quot;mock&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The <strong>id</strong> may also set the consumer id, using the <strong>routId</strong> keyword.</p>
+<div class="highlight-scala"><div class="highlight"><pre>  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="c1">//the id may not be configured for the from</span>
+    <span class="n">routeId</span><span class="o">(</span><span class="n">routeId</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="default-ids">
+<h2>Default ids<a class="headerlink" href="#default-ids" title="Permalink to this headline">¶</a></h2>
+<p>Babel provides a way to define eip ids by default (without using <strong>id</strong>).</p>
+<p>To modify this default behavior, you may create your own naming strategy in your <code class="docutils literal"><span class="pre">RouteBuilder</span></code> such as:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeBuilder</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+
+  <span class="k">override</span> <span class="k">protected</span> <span class="k">implicit</span> <span class="k">val</span> <span class="n">namingStrategy</span><span class="k">:</span> <span class="kt">NamingStrategy</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">NamingStrategy</span> <span class="o">{</span>
+    <span class="k">var</span> <span class="n">index</span> <span class="k">=</span> <span class="mi">0</span>
+
+    <span class="k">override</span> <span class="k">def</span> <span class="n">name</span><span class="o">(</span><span class="n">stepDefinition</span><span class="k">:</span> <span class="kt">StepDefinition</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="o">{</span>
+      <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+      <span class="nc">Some</span><span class="o">(</span><span class="s">s&quot;id-</span><span class="si">$index</span><span class="s">&quot;</span><span class="o">)</span>
+    <span class="o">}</span>
+
+    <span class="k">override</span> <span class="k">protected</span><span class="o">[</span><span class="kt">babel</span><span class="o">]</span> <span class="k">def</span> <span class="n">newRoute</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{}</span>
+  <span class="o">}</span>
+
+  <span class="c1">//the id of the from (and thus the routeId) will be &quot;id-1&quot;</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span>
+    <span class="c1">//the id of the endpoint which allows the subroute will be &quot;id-2&quot;</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">x</span><span class="o">).</span>
+    <span class="c1">//the id of the mock endpoint will be &quot;id-4&quot;</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel-sub&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>You may also define your naming strategy depending on the pattern type:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.model.</span><span class="o">{</span> <span class="nc">LogDefinition</span><span class="o">,</span> <span class="nc">LogMessage</span> <span class="o">}</span>
+<span class="k">import</span> <span class="nn">io.xtech.babel.fish.NamingStrategy</span>
+<span class="k">import</span> <span class="nn">io.xtech.babel.fish.model.StepDefinition</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+
+  <span class="k">override</span> <span class="k">protected</span> <span class="k">implicit</span> <span class="k">val</span> <span class="n">namingStrategy</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">NamingStrategy</span> <span class="o">{</span>
+    <span class="k">override</span> <span class="k">def</span> <span class="n">name</span><span class="o">(</span><span class="n">stepDefinition</span><span class="k">:</span> <span class="kt">StepDefinition</span><span class="o">)</span><span class="k">:</span> <span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span>
+      <span class="n">stepDefinition</span> <span class="k">match</span> <span class="o">{</span>
+        <span class="c1">//set the id of endpoints to their uri</span>
+        <span class="k">case</span> <span class="nc">LogDefinition</span><span class="o">(</span><span class="nc">LogMessage</span><span class="o">(</span><span class="n">message</span><span class="o">))</span> <span class="k">=&gt;</span> <span class="nc">Some</span><span class="o">(</span><span class="s">s&quot;log:</span><span class="si">$message</span><span class="s">&quot;</span><span class="o">)</span>
+        <span class="c1">//do not modify other EIP ids</span>
+        <span class="k">case</span> <span class="n">other</span>                              <span class="k">=&gt;</span> <span class="nc">None</span>
+      <span class="o">}</span>
+
+    <span class="k">override</span> <span class="k">def</span> <span class="n">newRoute</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{}</span>
+  <span class="o">}</span>
+
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">routeId</span><span class="o">(</span><span class="s">&quot;babel&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="n">process</span><span class="o">(</span><span class="n">msg</span> <span class="k">=&gt;</span> <span class="n">msg</span><span class="o">.</span><span class="n">withBody</span><span class="o">(</span><span class="k">_</span> <span class="o">+</span> <span class="s">&quot;bli&quot;</span><span class="o">))</span>
+    <span class="c1">//the id of log EIP will be &quot;log:body ${body}&quot;</span>
+    <span class="o">.</span><span class="n">log</span><span class="o">(</span><span class="s">&quot;body ${body}&quot;</span><span class="o">)</span>
+    <span class="c1">//the other pattern id will not be changed by babel</span>
+    <span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -426,7 +504,7 @@ From Camel point of view, a Babel Message may be understood as the in Message of
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

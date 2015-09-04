@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Mock Extension &mdash; Babel 0.7.0-SNAPSHOT documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.2.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Babel 0.7.0-SNAPSHOT documentation" href="../index.html" />
+    <link rel="up" title="Babel Extension creation" href="../dev/extension.html" />
+    <link rel="prev" title="Babel Extension creation" href="../dev/extension.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+  
+  <a href="https://github.com/crossing-tech/babel.git"
+     class="visible-desktop hidden-xs"><img
+    id="gh-banner"
+    style="position: absolute; top: 50px; right: 0; border: 0;"
+    src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"
+    alt="Fork me on GitHub"></a>
+
+  <script>
+    // Adjust banner height.
+    $(function () {
+      var navHeight = $(".navbar .container").css("height");
+      $("#gh-banner").css("top", navHeight);
+    });
+
+    //$(function () {
+    //  var navHeight = $(".navbar .container").css("height");
+    //  $("#re-banner").css("top", navHeight);
+    //});
+
+  </script>
+  <script>
+$(function () {
+    //Adds a pdf link
+    var eleContainer = document.getElementsByClassName("form-group")[0];
+
+    eleContainer.innerHTML = eleContainer.innerHTML   +   '<div id="pdf-link"> <a href="_static/Babel.pdf" > <img src="http://www.adobe.com/images/pdficon_large.png" alt="Babel PDF documentation"></a></div>'  ;
+
+    });
+  </script>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Babel</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7.0-SNAPSHOT</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="http://crossing-tech.com">Company</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../opinion.html">Babel Opinion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../opinion.html#simple-dsl">Simple DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opinion.html#explicit-dsl">Explicit DSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opinion.html#explicit-and-simple-dsl">Explicit and Simple DSL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Babel Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#babel-overview">Babel overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#babel-modules">Babel Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstartguide.html">Quick start guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-maven">Using Maven</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-sbt">Using Sbt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#babel-archetypes">Babel Archetypes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cameluserguide.html">Babel Camel User guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="spring.html">Babel Camel using the Spring Application Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="samples.html">Babel Camel Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Babel Camel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transformation.html">Babel Camel Transformations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Babel Camel Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errormanagement.html">Babel Camel Error management</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Mock Extension</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../devguide.html">Babel Development guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../dev/structure.html">Babel Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/installation.html">Babel Installation Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/development.html">Babel development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/contribute.html">Contribute to Babel</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../dev/extension.html">Babel Extension creation</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Mock Extension</a><ul>
+<li><a class="reference internal" href="#description">Description</a><ul>
+<li><a class="reference internal" href="#requirement">Requirement</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage">Usage</a><ul>
+<li><a class="reference internal" href="#mock-component">mock component</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="../dev/extension.html" title="Previous Chapter: Babel Extension creation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Babel Extension ...</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+  <div class="section" id="mock-extension">
+<h1>Mock Extension<a class="headerlink" href="#mock-extension" title="Permalink to this headline">¶</a></h1>
+<p>Mock is the first extension of the Babel Camel DSL. For more information on the extension, please have a look to <a class="reference internal" href="../dev/extension.html#babel-dev-extension"><span>Babel Extension creation</span></a> guide.</p>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>An extension for Babel Camel declaring some helpers for testing.</p>
+<div class="section" id="requirement">
+<h3>Requirement<a class="headerlink" href="#requirement" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">babel-camel-mock</span></code> module needs to in the classpath.</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Import the <code class="docutils literal"><span class="pre">io.xtech.babel.camel.mock._</span></code> package and extends the <code class="docutils literal"><span class="pre">RouteBuilder</span></code> with the <code class="docutils literal"><span class="pre">Mock</span></code> trait.</p>
+<div class="section" id="mock-component">
+<h3>mock component<a class="headerlink" href="#mock-component" title="Permalink to this headline">¶</a></h3>
+<p>For testing a mock endpoint can be declared with the mock endpoint.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.mock._</span>
+
+<span class="c1">//The Mock extension is added simply by</span>
+<span class="c1">//  extending the RouteBuilder with</span>
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="k">with</span> <span class="nc">Mock</span> <span class="o">{</span>
+  <span class="c1">//the mock keyword is the same as typing</span>
+  <span class="c1">//  to(&quot;mock:output&quot;)</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">mock</span><span class="o">(</span><span class="s">&quot;output&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

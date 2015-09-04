@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to Babel’s documentation! &mdash; Babel 0.7.0-SNAPSHOT documentation</title>
+    <title>Welcome to Babel’s documentation! &mdash; Babel 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootswatch-3.2.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/cosmo/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.7.0-SNAPSHOT',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,9 +27,9 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Babel 0.7.0-SNAPSHOT documentation" href="#" />
+    <link rel="top" title="Babel 0.8.0 documentation" href="#" />
     <link rel="next" title="Babel Opinion" href="opinion.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -81,7 +81,7 @@ $(function () {
         </button>
         <a class="navbar-brand" href="#">
           Babel</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.0-SNAPSHOT</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -113,7 +113,6 @@ $(function () {
 <li class="toctree-l1"><a class="reference internal" href="quickstartguide.html">Quick start guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="quickstartguide.html#using-maven">Using Maven</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quickstartguide.html#using-sbt">Using Sbt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstartguide.html#babel-archetypes">Babel Archetypes</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cameluserguide.html">Babel Camel User guide</a><ul>
@@ -220,7 +219,7 @@ $(function () {
   <p>Babel may run into OSGi environment and is also packaged for Apache Karaf.</p>
 </span>
 <br/>
-</div><p>This documentation concerns the version 0.7.0-SNAPSHOT. You may also access the <a class="reference external" href="http://crossing-tech.github.io/babel/0.6.0/index.html">latest released version</a> documentation.</p>
+</div><p>This documentation concerns the version 0.8.0. You may also access the <a class="reference external" href="http://crossing-tech.github.io/babel/0.7.0/index.html">previous released version</a> documentation.</p>
 <p>To use Babel on top of Camel, you may use the Babel Camel module. Please have a look to the <a class="reference internal" href="quickstartguide.html#babel-quick-start"><span>Quick start guide</span></a> and to the <a class="reference internal" href="cameluserguide.html#babel-camel-guide"><span>Babel Camel User guide</span></a> for more details and examples.</p>
 <p>To have a better intuition of what is Babel, you would find it in the <a class="reference internal" href="opinion.html#babel-opinion"><span>Babel Opinion</span></a> and the <a class="reference internal" href="architecture.html#babel-architecture"><span>Babel Architecture</span></a> pages.</p>
 <p>In the following code snippet, we compare Babel and Camel Scala DSL. Those two routes are summing the a list of number, provided as a String and routing this sum depending on its positivity.</p>
@@ -289,10 +288,10 @@ $(function () {
 </td>
 <td><div class="first last highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">aggregationStrategy</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">AggregationStrategy</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">aggregate</span><span class="o">(</span><span class="n">old</span><span class="k">:</span> <span class="kt">Exchange</span><span class="o">,</span> <span class="n">news</span><span class="k">:</span> <span class="kt">Exchange</span><span class="o">)</span> <span class="k">=</span>
-    <span class="o">(</span><span class="n">old</span><span class="o">,</span> <span class="n">news</span><span class="o">)</span> <span class="k">match</span> <span class="o">{</span>
-      <span class="k">case</span> <span class="o">(</span><span class="n">old</span><span class="o">,</span> <span class="kc">null</span><span class="o">)</span>  <span class="k">=&gt;</span> <span class="n">old</span>
-      <span class="k">case</span> <span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">news</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">news</span>
-      <span class="k">case</span> <span class="o">(</span><span class="n">old</span><span class="o">,</span> <span class="n">news</span><span class="o">)</span> <span class="k">=&gt;</span>
+    <span class="o">(</span><span class="nc">Option</span><span class="o">(</span><span class="n">old</span><span class="o">),</span> <span class="nc">Option</span><span class="o">(</span><span class="n">news</span><span class="o">))</span> <span class="k">match</span> <span class="o">{</span>
+      <span class="k">case</span> <span class="o">(</span><span class="nc">Some</span><span class="o">(</span><span class="n">old</span><span class="o">),</span> <span class="nc">None</span><span class="o">)</span>  <span class="k">=&gt;</span> <span class="n">old</span>
+      <span class="k">case</span> <span class="o">(</span><span class="nc">None</span><span class="o">,</span> <span class="nc">Some</span><span class="o">(</span><span class="n">news</span><span class="o">))</span> <span class="k">=&gt;</span> <span class="n">news</span>
+      <span class="k">case</span> <span class="o">(</span><span class="nc">Some</span><span class="o">(</span><span class="n">old</span><span class="o">),</span> <span class="nc">Some</span><span class="o">(</span><span class="n">news</span><span class="o">))</span> <span class="k">=&gt;</span>
         <span class="n">old</span><span class="o">.</span><span class="n">getIn</span><span class="o">.</span><span class="n">setBody</span><span class="o">(</span>
           <span class="n">old</span><span class="o">.</span><span class="n">getIn</span><span class="o">.</span><span class="n">getBody</span><span class="o">(</span><span class="n">classOf</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span> <span class="o">+</span>
             <span class="n">news</span><span class="o">.</span><span class="n">getIn</span><span class="o">.</span><span class="n">getBody</span><span class="o">(</span><span class="n">classOf</span><span class="o">[</span><span class="kt">Int</span><span class="o">]))</span>
@@ -310,6 +309,13 @@ $(function () {
 </tr>
 </tbody>
 </table>
+<p>In the following documentation,</p>
+<blockquote>
+<div><ul class="simple">
+<li>Keywords are written such as <strong>from</strong>, <strong>to</strong> or <strong>process</strong></li>
+<li>Classes, packages, modules are written such as <code class="docutils literal"><span class="pre">RouteBuilder</span></code> or <code class="docutils literal"><span class="pre">io.xtech.babel</span></code></li>
+</ul>
+</div></blockquote>
 <p>In the following sections,</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -318,14 +324,6 @@ $(function () {
 <li class="toctree-l1"><a class="reference internal" href="quickstartguide.html">Quick start guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cameluserguide.html">Babel Camel User guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="devguide.html">Babel Development guide</a></li>
-</ul>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>In the following documentation,</p>
-<ul class="last simple">
-<li>Keywords are written such as <strong>from</strong>, <strong>to</strong> or <strong>process</strong></li>
-<li>Classes, packages, modules are written such as <code class="docutils literal"><span class="pre">RouteBuilder</span></code> or <code class="docutils literal"><span class="pre">io.xtech.babel</span></code></li>
 </ul>
 </div>
 </div>
@@ -343,7 +341,7 @@ $(function () {
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>

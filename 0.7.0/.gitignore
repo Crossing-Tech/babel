@@ -1,0 +1,14 @@
+*.ipr
+*.iml
+.idea
+target/
+build/
+*.aux
+*.nav
+*.toc
+*.out
+*.snm
+*.log
+atlassian-ide-plugin.xml
+.jira-url
+babel-doc

@@ -5,18 +5,18 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Babel Camel Routing &mdash; Babel 0.7.0-SNAPSHOT documentation</title>
+    <title>Babel Camel Routing &mdash; Babel 0.8.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.2.0/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/cosmo/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.7.0-SNAPSHOT',
+        VERSION:     '0.8.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -27,9 +27,9 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="Babel 0.7.0-SNAPSHOT documentation" href="../index.html" />
+    <link rel="top" title="Babel 0.8.0 documentation" href="../index.html" />
     <link rel="up" title="Babel Camel User guide" href="../cameluserguide.html" />
     <link rel="next" title="Babel Camel Error management" href="errormanagement.html" />
     <link rel="prev" title="Babel Camel Transformations" href="transformation.html" />
@@ -83,7 +83,7 @@ $(function () {
         </button>
         <a class="navbar-brand" href="../index.html">
           Babel</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.0-SNAPSHOT</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -115,7 +115,6 @@ $(function () {
 <li class="toctree-l1"><a class="reference internal" href="../quickstartguide.html">Quick start guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-maven">Using Maven</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#using-sbt">Using Sbt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../quickstartguide.html#babel-archetypes">Babel Archetypes</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../cameluserguide.html">Babel Camel User guide</a><ul class="current">
@@ -154,7 +153,10 @@ $(function () {
 <li><a class="reference internal" href="#recipient-list">Recipient list</a></li>
 <li><a class="reference internal" href="#filter">Filter</a></li>
 <li><a class="reference internal" href="#choice">Choice</a></li>
-<li><a class="reference internal" href="#splitter">Splitter</a></li>
+<li><a class="reference internal" href="#splitter">Splitter</a><ul>
+<li><a class="reference internal" href="#additionnal-configuration">Additionnal configuration</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#aggregation">Aggregation</a><ul>
 <li><a class="reference internal" href="#reduce">Reduce</a></li>
 <li><a class="reference internal" href="#fold">Fold</a></li>
@@ -179,11 +181,11 @@ $(function () {
               
                 
   <li>
-    <a href="transformation.html" title="Previous Chapter: Babel Camel Transformations"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Babel Camel Tran...</span>
+    <a href="transformation.html" title="Previous Chapter: Babel Camel Transformations"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Babel Camel T...</span>
     </a>
   </li>
   <li>
-    <a href="errormanagement.html" title="Next Chapter: Babel Camel Error management"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Babel Camel Erro... &raquo;</span>
+    <a href="errormanagement.html" title="Next Chapter: Babel Camel Error management"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Babel Camel E... &raquo;</span>
     </a>
   </li>
               
@@ -223,7 +225,25 @@ $(function () {
   <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
     <span class="c1">//received messages are sent to those three mock endpoints</span>
     <span class="n">multicast</span><span class="o">(</span><span class="s">&quot;mock:output1&quot;</span><span class="o">,</span> <span class="s">&quot;mock:output2&quot;</span><span class="o">,</span> <span class="s">&quot;mock:output3&quot;</span><span class="o">).</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output4&quot;</span><span class="o">)</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="k">_</span> <span class="k">=&gt;</span> <span class="s">&quot;tested&quot;</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output4&quot;</span><span class="o">).</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="k">_</span> <span class="o">+</span> <span class="s">&quot; by babel&quot;</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output5&quot;</span><span class="o">)</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>You may configure the multicast with an aggregation strategy to define how to merge messages that are output by the multicast&#8217;s branches.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">aggregation</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">ReduceBodyAggregationStrategy</span><span class="o">[</span><span class="kt">String</span><span class="o">]((</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">x</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
+  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+    <span class="c1">//received messages are sent to those three mock endpoints</span>
+    <span class="n">multicast</span><span class="o">(</span><span class="s">&quot;mock:output1&quot;</span><span class="o">,</span> <span class="s">&quot;mock:output2&quot;</span><span class="o">,</span> <span class="s">&quot;mock:output3&quot;</span><span class="o">).</span><span class="n">withAggregation</span><span class="o">(</span><span class="n">aggregation</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output4&quot;</span><span class="o">).</span>
+    <span class="n">processBody</span><span class="o">(</span><span class="k">_</span> <span class="o">+</span> <span class="s">&quot; by babel&quot;</span><span class="o">).</span>
+    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output5&quot;</span><span class="o">)</span>
+
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -233,7 +253,7 @@ $(function () {
 <p>The <strong>recipientList</strong> is like the multicast keyword, but the list can be dynamic and calculated at runtime.</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
-    <span class="c1">//received messages targets are dynamically defined by the headers of each message</span>
+    <span class="c1">//received messages target is defined by the headers of each message</span>
     <span class="n">recipientList</span><span class="o">(</span><span class="n">m</span> <span class="k">=&gt;</span> <span class="n">m</span><span class="o">.</span><span class="n">headers</span><span class="o">(</span><span class="s">&quot;recipients&quot;</span><span class="o">)).</span>
     <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output4&quot;</span><span class="o">)</span>
 <span class="o">}</span>
@@ -244,36 +264,6 @@ $(function () {
 <h2>Filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>filter</strong> and <strong>filterBody</strong> keywords filter message with a predicate.</p>
 <p>In this example, the predicate is a function taking a message and returning a boolean.</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
-
-<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
-  <span class="c1">//direct:input receives one message with</span>
-  <span class="c1">//   &quot;1,2,3,true,4,5,6,7&quot;</span>
-  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
-    <span class="c1">//the splitBody creates 8 messages with string body</span>
-    <span class="c1">//   by a function which returns a string iterator</span>
-    <span class="o">.</span><span class="n">splitBody</span><span class="o">(</span><span class="n">body</span> <span class="k">=&gt;</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">).</span><span class="n">iterator</span><span class="o">)</span>
-    <span class="c1">//the filter will only let continue the one whose body is &quot;true&quot;</span>
-    <span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">msg</span> <span class="k">=&gt;</span> <span class="n">msg</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">exists</span><span class="o">(</span><span class="n">body</span> <span class="k">=&gt;</span> <span class="n">body</span> <span class="o">==</span> <span class="s">&quot;true&quot;</span><span class="o">)).</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">)</span>
-<span class="o">}</span>
-
-<span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
-
-<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
-  <span class="c1">//direct:input receives one message with</span>
-  <span class="c1">//   &quot;1,2,3,true,4,5,6,7&quot;</span>
-  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
-    <span class="c1">//the splitBody creates 8 messages with string body</span>
-    <span class="c1">//   by a function which returns a string iterator</span>
-    <span class="o">.</span><span class="n">splitBody</span><span class="o">(</span><span class="n">body</span> <span class="k">=&gt;</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">).</span><span class="n">iterator</span><span class="o">)</span>
-    <span class="c1">//the filter will only let continue the one whose body is &quot;true&quot;</span>
-    <span class="o">.</span><span class="n">filterBody</span><span class="o">(</span><span class="n">body</span> <span class="k">=&gt;</span> <span class="n">body</span> <span class="o">==</span> <span class="s">&quot;true&quot;</span><span class="o">).</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output1&quot;</span><span class="o">).</span>
-    <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output2&quot;</span><span class="o">)</span>
-<span class="o">}</span>
-</pre></div>
-</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Contrary to Apache Camel, Babel does not provide the <em>end</em> keyword. After the <em>filter</em> (or <em>filterBody</em>) keyword, only accepted message are processed by next EIPs.
@@ -305,29 +295,15 @@ Each when accepts a predicate. In this example the predicates are function takin
 <div class="section" id="splitter">
 <h2>Splitter<a class="headerlink" href="#splitter" title="Permalink to this headline">¶</a></h2>
 <p>The <strong>split</strong> keyword is the way to split a message in pieces, the <strong>splitBody</strong> does the same directly on the message body.</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
-
-<span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
-  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
-    <span class="c1">//split the message base on its body using the comma</span>
-    <span class="o">.</span><span class="n">splitBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">).</span><span class="n">iterator</span><span class="o">)</span>
-    <span class="c1">//which creates several messages</span>
-    <span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">msg</span> <span class="k">=&gt;</span> <span class="n">msg</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">exists</span><span class="o">(</span><span class="n">body</span> <span class="k">=&gt;</span> <span class="n">body</span><span class="o">.</span><span class="n">contains</span><span class="o">(</span><span class="s">&quot;true&quot;</span><span class="o">)))</span>
-    <span class="c1">//required as keyword to recover the type</span>
-    <span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:output&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
-    <span class="c1">//split the message base on its body using the spaces</span>
-    <span class="o">.</span><span class="n">splitBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot; &quot;</span><span class="o">).</span><span class="n">iterator</span><span class="o">)</span>
-    <span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">msg</span> <span class="k">=&gt;</span> <span class="n">msg</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">exists</span><span class="o">(</span><span class="n">body</span> <span class="k">=&gt;</span> <span class="n">body</span> <span class="o">==</span> <span class="s">&quot;false&quot;</span><span class="o">)).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:false&quot;</span><span class="o">)</span>
-<span class="o">}</span>
-</pre></div>
-</div>
 <p>In this example the splitting is done with a function which takes the message body and returns an Iterator.</p>
 <p>The <strong>splitReduceBody</strong> and the <strong>splitFoldBody</strong> define higher-level EIPs: The possibility to split a content, apply a modification on each part of the content and then merge those parts into a new content. The two keywords differs in their way to merge the final content. They are inspired by the <code class="docutils literal"><span class="pre">AggregationStrategy</span></code> that are defined in the <code class="docutils literal"><span class="pre">Aggregation</span></code> part.</p>
 <p>The <strong>splitReduceBody</strong> let you define a simple aggregation which does not change the type during the aggregation:</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="c1">//message bodies are converted to String if required</span>
   <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:babel&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">splitReduceBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">).</span><span class="n">iterator</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">_</span><span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel1&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">processBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">toInt</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="s">&quot;&quot;</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel2&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
+    <span class="k">_</span><span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel1&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
+      <span class="o">.</span><span class="n">processBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">toInt</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="s">&quot;&quot;</span><span class="o">)</span>
+      <span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel2&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
   <span class="o">}((</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="s">s&quot;</span><span class="si">$x</span><span class="s">,</span><span class="si">$y</span><span class="s">&quot;</span><span class="o">).</span>
     <span class="n">processBody</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">x</span><span class="o">).</span>
     <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel3&quot;</span><span class="o">)</span>
@@ -338,12 +314,21 @@ Each when accepts a predicate. In this example the predicates are function takin
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="c1">//message bodies are converted to String if required</span>
   <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:babel&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">splitFoldBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&quot;,&quot;</span><span class="o">).</span><span class="n">iterator</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">_</span><span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel1&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">processBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">toInt</span> <span class="o">+</span> <span class="mi">1</span><span class="o">).</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel2&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>
+    <span class="k">_</span><span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel1&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
+      <span class="o">.</span><span class="n">processBody</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">toInt</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
+      <span class="o">.</span><span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel2&quot;</span><span class="o">).</span><span class="n">requireAs</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>
   <span class="o">}(</span><span class="s">&quot;1&quot;</span><span class="o">)((</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="s">s&quot;</span><span class="si">$x</span><span class="s">,</span><span class="si">$y</span><span class="s">&quot;</span><span class="o">).</span>
     <span class="n">processBody</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">x</span><span class="o">).</span>
     <span class="n">to</span><span class="o">(</span><span class="s">&quot;mock:babel3&quot;</span><span class="o">)</span>
 <span class="o">}</span>
 </pre></div>
+</div>
+<div class="section" id="additionnal-configuration">
+<h3>Additionnal configuration<a class="headerlink" href="#additionnal-configuration" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>propagateException when an exception is raised in a sub message, the exception is exposed to the initial message.</li>
+<li>stopOnException when an exception is raised in a sub message, the processing of the initial message is stopped.</li>
+</ul>
 </div>
 </div>
 <div class="section" id="aggregation">
@@ -374,7 +359,7 @@ Each when accepts a predicate. In this example the predicates are function takin
   <span class="c1">//defines when message may be aggregated</span>
   <span class="n">groupBy</span> <span class="k">=</span> <span class="o">(</span><span class="n">msg</span><span class="k">:</span> <span class="kt">Message</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span> <span class="k">=&gt;</span> <span class="s">&quot;a&quot;</span><span class="o">,</span>
   <span class="c1">//defines the size of the aggregation (3 messages)</span>
-  <span class="n">completionStrategies</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="nc">CompletionSize</span><span class="o">(</span><span class="mi">3</span><span class="o">)))</span>
+  <span class="n">completionStrategies</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="nc">CompletionSize</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="nc">CompletionTimeout</span><span class="o">(</span><span class="mi">1000</span><span class="o">),</span> <span class="nc">ForceCompletionOnStop</span><span class="o">))</span>
 
 <span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
 
@@ -395,7 +380,7 @@ Each when accepts a predicate. In this example the predicates are function takin
   <span class="c1">//defines when message may be aggregated</span>
   <span class="o">(</span><span class="n">msg</span><span class="k">:</span> <span class="kt">Message</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span> <span class="k">=&gt;</span> <span class="s">&quot;a&quot;</span><span class="o">,</span>
   <span class="c1">//defines the size of the aggregation (3 messages)</span>
-  <span class="n">completionStrategies</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="nc">CompletionSize</span><span class="o">(</span><span class="mi">3</span><span class="o">)))</span>
+  <span class="n">completionStrategies</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="nc">CompletionSize</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="nc">CompletionFromBatchConsumer</span><span class="o">))</span>
 
 <span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
 
@@ -411,13 +396,14 @@ Each when accepts a predicate. In this example the predicates are function takin
 <h3>Camel Aggregation<a class="headerlink" href="#camel-aggregation" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">io.xtech.babel.camel.builder.RouteBuilder</span>
 <span class="k">import</span> <span class="nn">org.apache.camel.processor.aggregate.GroupedExchangeAggregationStrategy</span>
+
 <span class="k">val</span> <span class="n">camelAggr</span> <span class="k">=</span> <span class="nc">CamelAggregation</span><span class="o">(</span><span class="nc">MessageExpression</span><span class="o">((</span><span class="n">msg</span><span class="k">:</span> <span class="kt">Message</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span> <span class="k">=&gt;</span> <span class="s">&quot;1&quot;</span><span class="o">),</span>
   <span class="n">aggregationStrategy</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">GroupedExchangeAggregationStrategy</span><span class="o">,</span>
-  <span class="n">completionStrategies</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="nc">CompletionSize</span><span class="o">(</span><span class="mi">3</span><span class="o">)))</span>
+  <span class="n">completionStrategies</span> <span class="k">=</span> <span class="nc">List</span><span class="o">(</span><span class="nc">CompletionSize</span><span class="o">(</span><span class="mi">3</span><span class="o">),</span> <span class="nc">CompletionInterval</span><span class="o">(</span><span class="mi">1000</span><span class="o">)))</span>
 
 <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="c1">//message bodies are converted to String if required</span>
-  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+  <span class="n">from</span><span class="o">(</span><span class="n">directConsumer</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
     <span class="c1">//aggregates strings based on the camelAggr defined higher</span>
     <span class="n">aggregate</span><span class="o">(</span><span class="n">camelAggr</span><span class="o">).</span>
     <span class="c1">//sends the aggregated string to the mock endpoint</span>
@@ -429,6 +415,7 @@ Each when accepts a predicate. In this example the predicates are function takin
 <span class="k">val</span> <span class="n">camelExp</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">MessageExpression</span><span class="o">((</span><span class="n">a</span><span class="k">:</span> <span class="kt">Message</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span> <span class="k">=&gt;</span> <span class="s">&quot;1&quot;</span><span class="o">)</span>
 
 <span class="k">import</span> <span class="nn">io.xtech.babel.camel.model.Aggregation.CamelReferenceAggregation</span>
+
 <span class="k">val</span> <span class="n">camelAggr</span> <span class="k">=</span> <span class="nc">CamelReferenceAggregation</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">String</span><span class="o">](</span>
   <span class="n">correlationExpression</span> <span class="k">=</span> <span class="n">camelExp</span><span class="o">,</span>
   <span class="c1">//defines the string id of the aggregation strategy in the bean registry</span>
@@ -437,7 +424,7 @@ Each when accepts a predicate. In this example the predicates are function takin
 
 <span class="k">val</span> <span class="n">routeDef</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RouteBuilder</span> <span class="o">{</span>
   <span class="c1">//message bodies are converted to String if required</span>
-  <span class="n">from</span><span class="o">(</span><span class="s">&quot;direct:input&quot;</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
+  <span class="n">from</span><span class="o">(</span><span class="n">directConsumer</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span>
     <span class="c1">//aggregates strings based on the camelAggr defined higher</span>
     <span class="n">aggregate</span><span class="o">(</span><span class="n">camelAggr</span><span class="o">).</span>
     <span class="c1">//sends the aggregated string to the mock endpoint</span>
@@ -511,7 +498,7 @@ Each when accepts a predicate. In this example the predicates are function takin
     </p>
     <p>
         &copy; Copyright 2014, Crossing-Tech SA. All rights reserved.<br/>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.3.1.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.<br/>
     </p>
   </div>
 </footer>
