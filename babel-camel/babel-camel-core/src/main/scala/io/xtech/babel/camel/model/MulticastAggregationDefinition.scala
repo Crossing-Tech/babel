@@ -11,8 +11,8 @@ import io.xtech.babel.fish.model.StepDefinition
 import org.apache.camel.processor.aggregate.AggregationStrategy
 
 /**
- * The definition of how a multicast aggregates its messages.
- * @param aggregation how multicast is aggregating its messages.
- * @tparam I the body type of the input message.
- */
+  * The definition of how a multicast aggregates its messages.
+  * @param aggregation how multicast is aggregating its messages.
+  * @tparam I the body type of the input message.
+  */
 case class MulticastAggregationDefinition[I](aggregation: AggregationStrategy) extends StepDefinition
