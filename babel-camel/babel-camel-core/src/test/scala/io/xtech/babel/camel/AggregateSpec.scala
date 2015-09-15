@@ -159,8 +159,8 @@ class AggregateSpec extends SpecificationWithJUnit {
     val reduceBody = ReduceBody(
       //defines how message bodies are aggregated
       reduce = (a: Int, b: Int) => a + b,
-      //defines when message may be aggregated
-      groupBy = (msg: Message[Int]) => "a",
+      //defines when message may be aggregated together depending on returned hash
+      groupBy = (msg: Message[Int]) => "a", //allows any message to be aggregated together
       //defines the size of the aggregation (3 messages)
       completionStrategies = List(CompletionSize(3), CompletionTimeout(1000), ForceCompletionOnStop))
 
@@ -225,8 +225,8 @@ class AggregateSpec extends SpecificationWithJUnit {
     val foldBody = FoldBody("",
       //defines how message bodies are aggregated
       (a: String, b: Int) => a + b,
-      //defines when message may be aggregated
-      (msg: Message[Int]) => "a",
+      //defines when message may be aggregated together depending on returned hash, e.g. msg => "a"
+      AnyMessage, //AnyMessage allows any message to be aggregated together
       //defines the size of the aggregation (3 messages)
       completionStrategies = List(CompletionSize(3), CompletionFromBatchConsumer))
 

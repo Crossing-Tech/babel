@@ -98,4 +98,6 @@ object Aggregation {
     */
   case object CompletionFromBatchConsumer extends CompletionStrategy
 
+  val AnyMessage: ((Message[_]) => String) = _ => "babel-aggregation-hash"
+
 }
