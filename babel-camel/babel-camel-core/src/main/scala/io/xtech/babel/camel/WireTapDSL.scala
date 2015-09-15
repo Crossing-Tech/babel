@@ -28,6 +28,12 @@ private[camel] class WireTapDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) 
     */
   def wiretap(uri: String): BaseDSL[I] = WireTapDefinition[I](CamelSink[I](uri))
 
+  /**
+    * The sideEffect lets you define a route as parameter that do not modify the output of the sideEffect keyword.
+    * The side route is run sequentially and before the rest of the route.
+    * @param w route which does not effect the rest of the route.
+    * @return
+    */
   def sideEffect(w: (BaseDSL[I]) => BaseDSL[_]): BaseDSL[I] = {
     val wireDefinition = new TransformerDefinition(wire)
     val dewireDefinition = new TransformerDefinition(dewire)
@@ -44,23 +50,25 @@ private[camel] class WireTapDSL[I: ClassTag](protected val baseDsl: BaseDSL[I]) 
 
   private val wire: MessageTransformationExpression[I, I] = MessageTransformationExpression((msg: Message[I]) => {
     val headers = Wiring.getCount(msg)
-    msg.asInstanceOf[CamelMessage[I]].withExchangeProperty(propertyKey(headers), msg.body.getOrElse(throw new WiredEmptyBodyException())) //TODO getOrElse
+    val wired = HeadersAndBody(msg.headers, msg.body)
+    msg.asInstanceOf[CamelMessage[I]].withExchangeProperty(propertyKey(headers), wired) //TODO getOrElse
   })
 
   private val dewire: MessageTransformationExpression[I, I] = MessageTransformationExpression((msg: Message[I]) => {
     val key = s"${Wiring.key}-${Wiring.getCount(msg) + 1}"
-    val body = msg.asInstanceOf[CamelMessage[_]].exchangeProperties.get(key) match {
-      case i: Some[I]  => i.get
-      case Some(other) => throw new WiredUnexpectedBodyType(typeName, other.getClass.getName) //should never happen
-      case None        => throw new WiredEmptyBodyException()
+    val wired: HeadersAndBody[I] = msg.asInstanceOf[CamelMessage[_]].exchangeProperties.get(key) match {
+      case Some(w: HeadersAndBody[I]) => w
+      case Some(other)                => throw new WiredUnexpectedBodyType(typeName, other.getClass.getName) //should never happen
+      case None                       => throw new WiredEmptyException()
     }
-    msg.withBody(_ => body).withHeaders(_ - key)
+    msg.withOptionalBody(_ => wired.body).withHeaders(_ => wired.headers).asInstanceOf[CamelMessage[I]].withExchangeProperties(_ - key)
   })
 
 }
 
 class WiringDefinition() extends StepDefinition
 
-class WiredEmptyBodyException extends IllegalArgumentException("Body may not be null in Babel wiring")
+class WiredEmptyException extends IllegalArgumentException("Expected wired message but was empty in Babel sideEffect")
 class WiredUnexpectedBodyType(expected: String, actual: String)
-  extends IllegalArgumentException(s"Body has not expected type in Babel wiring: expected $expected, but was $actual")
+  extends IllegalArgumentException(s"Body has not expected type in Babel sideEffect: expected $expected, but was $actual")
+case class HeadersAndBody[T](headers: Map[String, Any], body: Option[T])
