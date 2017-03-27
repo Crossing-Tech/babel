@@ -7,7 +7,7 @@ Master: [![Build Status](https://travis-ci.org/Crossing-Tech/babel.svg?branch=ma
 
 ### Description ###
 
-Babel is an efficient way to write your integration solution. It stands as a generic Domain Specific Language (DSL) especially maid for integration duties.
+Babel is an efficient way to write your integration solution. It stands as a generic Domain Specific Language (DSL) especially made for integration duties.
 
 Implementation of Babel have been done for [Apache Camel](http://camel.apache.org "Apache Camel website").
 
